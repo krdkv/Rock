@@ -28,6 +28,9 @@
 		01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */; };
 		01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */; };
 		01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01F5F3D218DCE2080050DFB0 /* bass.aupreset */; };
+		01F5F3D618DCF8270050DFB0 /* MidiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3D518DCF8270050DFB0 /* MidiParser.m */; };
+		01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */; };
+		01F5F3DB18DCF96A0050DFB0 /* test.mid in Resources */ = {isa = PBXBuildFile; fileRef = 01F5F3DA18DCF96A0050DFB0 /* test.mid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,10 @@
 		01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSampler.m; sourceTree = "<group>"; };
 		01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		01F5F3D218DCE2080050DFB0 /* bass.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bass.aupreset; sourceTree = "<group>"; };
+		01F5F3D418DCF8270050DFB0 /* MidiParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiParser.h; sourceTree = "<group>"; };
+		01F5F3D518DCF8270050DFB0 /* MidiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiParser.m; sourceTree = "<group>"; };
+		01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		01F5F3DA18DCF96A0050DFB0 /* test.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = test.mid; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */,
 				01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */,
 				0103BF1818DB7DF700697273 /* CoreGraphics.framework in Frameworks */,
 				0103BF1A18DB7DF700697273 /* UIKit.framework in Frameworks */,
@@ -121,6 +129,7 @@
 		0103BF1418DB7DF700697273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */,
 				01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */,
 				0103BF1518DB7DF700697273 /* Foundation.framework */,
 				0103BF1718DB7DF700697273 /* CoreGraphics.framework */,
@@ -195,6 +204,8 @@
 				01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */,
 				01F5F3C918DC9DB00050DFB0 /* AudioSampler.h */,
 				01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */,
+				01F5F3D418DCF8270050DFB0 /* MidiParser.h */,
+				01F5F3D518DCF8270050DFB0 /* MidiParser.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -220,8 +231,17 @@
 		01F5F3CC18DC9FA70050DFB0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				01F5F3D918DCF96A0050DFB0 /* MIDI */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		01F5F3D918DCF96A0050DFB0 /* MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				01F5F3DA18DCF96A0050DFB0 /* test.mid */,
+			);
+			path = MIDI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F5F3DB18DCF96A0050DFB0 /* test.mid in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
@@ -333,6 +354,7 @@
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
+				01F5F3D618DCF8270050DFB0 /* MidiParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
