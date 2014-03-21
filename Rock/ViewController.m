@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AudioSampler.h"
 
 #define kNumberOfColors 5
 #define kScreenWidth   [UIScreen mainScreen].bounds.size.width
@@ -27,6 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AudioSampler * sampler = [[AudioSampler alloc] init];
+    [sampler setupOnComplete:^{
+        [sampler sendNoteOnToInstrument:0 midiKey:40 velocity:70];
+        [sampler sendNoteOnToInstrument:0 midiKey:50 velocity:70];
+        [sampler sendNoteOnToInstrument:0 midiKey:60 velocity:70];
+    }];
     
 #if !TARGET_IPHONE_SIMULATOR    
     

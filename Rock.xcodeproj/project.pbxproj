@@ -25,6 +25,9 @@
 		0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */; };
 		0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */; };
 		01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3C618DC2E320050DFB0 /* Pulse.m */; };
+		01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */; };
+		01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */; };
+		01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01F5F3D218DCE2080050DFB0 /* bass.aupreset */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,10 @@
 		01F5F3C518DC2E320050DFB0 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
 		01F5F3C618DC2E320050DFB0 /* Pulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pulse.m; sourceTree = "<group>"; };
 		01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSettings.h; sourceTree = "<group>"; };
+		01F5F3C918DC9DB00050DFB0 /* AudioSampler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSampler.h; sourceTree = "<group>"; };
+		01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSampler.m; sourceTree = "<group>"; };
+		01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		01F5F3D218DCE2080050DFB0 /* bass.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bass.aupreset; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */,
 				0103BF1818DB7DF700697273 /* CoreGraphics.framework in Frameworks */,
 				0103BF1A18DB7DF700697273 /* UIKit.framework in Frameworks */,
 				0103BF1618DB7DF700697273 /* Foundation.framework in Frameworks */,
@@ -113,6 +121,7 @@
 		0103BF1418DB7DF700697273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */,
 				0103BF1518DB7DF700697273 /* Foundation.framework */,
 				0103BF1718DB7DF700697273 /* CoreGraphics.framework */,
 				0103BF1918DB7DF700697273 /* UIKit.framework */,
@@ -124,6 +133,8 @@
 		0103BF1B18DB7DF700697273 /* Rock */ = {
 			isa = PBXGroup;
 			children = (
+				01F5F3D218DCE2080050DFB0 /* bass.aupreset */,
+				01F5F3CC18DC9FA70050DFB0 /* Resources */,
 				0103BF4E18DB7E3C00697273 /* Sounds */,
 				0103BF4A18DB7E2F00697273 /* Code */,
 				0103BF2418DB7DF800697273 /* AppDelegate.h */,
@@ -182,6 +193,8 @@
 				01F5F3C518DC2E320050DFB0 /* Pulse.h */,
 				01F5F3C618DC2E320050DFB0 /* Pulse.m */,
 				01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */,
+				01F5F3C918DC9DB00050DFB0 /* AudioSampler.h */,
+				01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -202,6 +215,13 @@
 			children = (
 			);
 			path = Sensors;
+			sourceTree = "<group>";
+		};
+		01F5F3CC18DC9FA70050DFB0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +307,7 @@
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				0103BF2918DB7DF800697273 /* Main.storyboard in Resources */,
+				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +332,7 @@
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
+				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
