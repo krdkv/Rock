@@ -162,7 +162,7 @@
     NSAssert (result == noErr, @"Unable to start audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
     
     // Print out the graph to the console
-    CAShow (_graph);
+//    CAShow (_graph);
 }
 
 - (void) loadSampleMaps {

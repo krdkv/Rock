@@ -19,21 +19,25 @@
 @interface ViewController () {
     LegacyColorAnalyzer * _colorAnalyzer;
     LegacySpeedTracker * _speedTracker;
+    AudioSampler * _sampler;
 }
 
 @end
 
 @implementation ViewController
 
+- (void) tick {
+    [_sampler sendNoteOnToInstrument:0 midiKey:28 + arc4random()%30 velocity:70];
+    [NSTimer scheduledTimerWithTimeInterval:arc4random()%10 * 0.1f target:self selector:@selector(tick) userInfo:nil repeats:NO];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    AudioSampler * sampler = [[AudioSampler alloc] init];
-    [sampler setupOnComplete:^{
-        [sampler sendNoteOnToInstrument:0 midiKey:40 velocity:70];
-        [sampler sendNoteOnToInstrument:0 midiKey:50 velocity:70];
-        [sampler sendNoteOnToInstrument:0 midiKey:60 velocity:70];
+    _sampler = [[AudioSampler alloc] init];
+    [_sampler setupOnComplete:^{
+        [self tick];
     }];
     
 #if !TARGET_IPHONE_SIMULATOR    
