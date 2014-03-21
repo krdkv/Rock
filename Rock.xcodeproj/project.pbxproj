@@ -24,6 +24,7 @@
 		0103BF4F18DB7E3C00697273 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF4E18DB7E3C00697273 /* Sounds */; };
 		0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */; };
 		0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */; };
+		01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3C618DC2E320050DFB0 /* Pulse.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,9 @@
 		0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyColorAnalyzer.m; sourceTree = "<group>"; };
 		0103BF5218DB7E7B00697273 /* LegacySpeedTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacySpeedTracker.h; sourceTree = "<group>"; };
 		0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacySpeedTracker.m; sourceTree = "<group>"; };
+		01F5F3C518DC2E320050DFB0 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
+		01F5F3C618DC2E320050DFB0 /* Pulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pulse.m; sourceTree = "<group>"; };
+		01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSettings.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,9 @@
 		0103BF4B18DB7E2F00697273 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				01F5F3C518DC2E320050DFB0 /* Pulse.h */,
+				01F5F3C618DC2E320050DFB0 /* Pulse.m */,
+				01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 				0103BF2C18DB7DF800697273 /* ViewController.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */,
+				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
 			);
@@ -515,6 +523,7 @@
 				0103BF4618DB7DF800697273 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0103BF4718DB7DF800697273 /* Build configuration list for PBXNativeTarget "RockTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +532,7 @@
 				0103BF4918DB7DF800697273 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
