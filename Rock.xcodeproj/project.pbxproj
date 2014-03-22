@@ -31,6 +31,9 @@
 		01F5F3D618DCF8270050DFB0 /* MidiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3D518DCF8270050DFB0 /* MidiParser.m */; };
 		01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */; };
 		01F5F3DB18DCF96A0050DFB0 /* test.mid in Resources */ = {isa = PBXBuildFile; fileRef = 01F5F3DA18DCF96A0050DFB0 /* test.mid */; };
+		9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1718DDA74900392448 /* KRMotionTracker.m */; };
+		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
+		9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,10 @@
 		01F5F3D518DCF8270050DFB0 /* MidiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiParser.m; sourceTree = "<group>"; };
 		01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		01F5F3DA18DCF96A0050DFB0 /* test.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = test.mid; sourceTree = "<group>"; };
+		9F3EFF1618DDA74900392448 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = SOURCE_ROOT; };
+		9F3EFF1718DDA74900392448 /* KRMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTracker.m; sourceTree = SOURCE_ROOT; };
+		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */,
+				9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */,
 				01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */,
 				01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */,
 				0103BF1818DB7DF700697273 /* CoreGraphics.framework in Frameworks */,
@@ -129,6 +138,8 @@
 		0103BF1418DB7DF700697273 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */,
+				9F3EFF1918DDA9E700392448 /* CoreMotion.framework */,
 				01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */,
 				01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */,
 				0103BF1518DB7DF700697273 /* Foundation.framework */,
@@ -224,6 +235,8 @@
 		0103BF4D18DB7E2F00697273 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
+				9F3EFF1618DDA74900392448 /* KRMotionTracker.h */,
+				9F3EFF1718DDA74900392448 /* KRMotionTracker.m */,
 			);
 			path = Sensors;
 			sourceTree = "<group>";
@@ -288,11 +301,17 @@
 		0103BF0A18DB7DF700697273 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = KR;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Kusto;
 				TargetAttributes = {
 					0103BF1118DB7DF700697273 = {
-						DevelopmentTeam = V2RJVNRCR5;
+						DevelopmentTeam = C92M3ZV55X;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					0103BF3218DB7DF800697273 = {
 						TestTargetID = 0103BF1118DB7DF700697273;
@@ -350,6 +369,7 @@
 				0103BF2C18DB7DF800697273 /* ViewController.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */,
+				9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
@@ -420,6 +440,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -458,6 +479,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -484,7 +506,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rock/Rock-Prefix.pch";
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -501,7 +523,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rock/Rock-Prefix.pch";
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
