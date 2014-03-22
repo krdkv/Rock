@@ -16,7 +16,7 @@
 
 #define kColorViewStartTag 10
 
-@interface ViewController () <KRSpeedTrackerDelegate>{
+@interface ViewController () <KRSpeedTrackerDelegate, KRMotionTrackerDelegate>{
     LegacyColorAnalyzer * _colorAnalyzer;
     KRMotionTracker * _motionTracker;
     AudioSampler * _sampler;
@@ -77,9 +77,9 @@
 }
 
 #pragma mark -
-#pragma mark KRSpeedTrackerDelegate Methods
+#pragma mark KRMotionTrackerDelegate Methods
 
-- (void) didChangeSpeed:(KRSpeed)speed {
+- (void) newMotionValue:(KRSpeed)speed{
     NSString * title = @"";
     switch (speed) {
         case kSlowSpeed:
@@ -95,6 +95,13 @@
             break;
     };
 	_speedLabel.text = title;
+}
+
+#pragma mark -
+#pragma mark KRSpeedTrackerDelegate Methods
+
+- (void) newSpeedValue:(KRSpeed)speed{
+#warning no can do
 }
 
 #pragma mark Color analyzer

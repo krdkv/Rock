@@ -16,6 +16,9 @@
 #define KRSlowMotionValue 40
 #define KRNormalMotionValue 80
 
+#define KRSlowSpeedValue 0.1
+#define KRNormalSpeedValue 1.5
+
 @interface KRMotionTracker () <CLLocationManagerDelegate>{
 	CMMotionManager * _motionManager;
 	CLLocationManager * _locationManager;
@@ -31,6 +34,7 @@
 	self = [super init];
 	if(self){
 		_motionManager = [CMMotionManager new];
+
 		_locationManager = [CLLocationManager new];
 		_locationManager.delegate = self;
 	}
@@ -65,22 +69,20 @@
 	accValue = accValue * 100;
 	accValue = [self filterAccelerationValue:accValue];
     
-	KRSpeed speed;
+	KRSpeed value;
 	if ( accValue < KRSlowMotionValue ) {
-		speed = kSlowSpeed;
+		value = kSlowSpeed;
 	} else if ( accValue <= KRNormalMotionValue ) {
-		speed = kMediumSpeed;
+		value = kMediumSpeed;
 	} else {
-		speed = kFastSpeed;
+		value = kFastSpeed;
 	}
 
 	dispatch_sync(dispatch_get_main_queue(), ^{
-		if ( self.delegate ) {
-			[self.delegate didChangeSpeed:speed];
-		}
+		[self.delegate newMotionValue:value];
 	});
     
-	NSLog(@"value %f", accValue);
+//	NSLog(@"value %f", accValue);
 }
 
 - (double) filterAccelerationValue:(double)newValue{
@@ -107,4 +109,18 @@
 
 #pragma mark -
 #pragma mark Location Methods
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+	CLLocation * lastLocation = [locations lastObject];
+	CLLocationSpeed speed = lastLocation.speed;
+	KRSpeed value;
+	if ( speed < KRSlowSpeedValue ) {
+		value = kSlowSpeed;
+	} else if ( speed <= KRNormalSpeedValue ) {
+		value = kMediumSpeed;
+	} else {
+		value = kFastSpeed;
+	}
+	[self.delegate newSpeedValue:value];
+}
 @end
