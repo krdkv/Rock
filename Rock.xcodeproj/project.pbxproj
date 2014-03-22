@@ -34,6 +34,7 @@
 		9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1718DDA74900392448 /* KRMotionTracker.m */; };
 		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
 		9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */; };
+		9F3EFF1E18DDB99700392448 /* KRMotionTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		9F3EFF1718DDA74900392448 /* KRMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTracker.m; sourceTree = SOURCE_ROOT; };
 		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTrackerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 			children = (
 				0103BF4018DB7DF800697273 /* RockTests.m */,
 				0103BF3B18DB7DF800697273 /* Supporting Files */,
+				9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */,
 			);
 			path = RockTests;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0103BF4118DB7DF800697273 /* RockTests.m in Sources */,
+				9F3EFF1E18DDB99700392448 /* KRMotionTrackerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

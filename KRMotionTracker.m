@@ -13,9 +13,14 @@
 #define KRMotionFilterDepth 5
 #define KRSpeedMotionDepth 5
 
+#define KRSlowMotionValue 40
+#define KRNormalMotionValue 80
+
 @interface KRMotionTracker () <CLLocationManagerDelegate>{
 	CMMotionManager * _motionManager;
 	CLLocationManager * _locationManager;
+	NSMutableArray * _motionValues;
+	NSMutableArray * _speedValues;
 }
 
 @end
@@ -33,10 +38,14 @@
 }
 
 - (void) start{
-
+	_motionValues = [NSMutableArray new];
+	_speedValues = [NSMutableArray new];
+	
 	[_locationManager startUpdatingLocation];
 	
 	NSOperationQueue * queue = [NSOperationQueue new];
+	[queue setMaxConcurrentOperationCount:1];
+
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self motionUpdated:motion];
@@ -51,53 +60,49 @@
 #pragma mark Motion Methods
 
 - (void) motionUpdated:(CMDeviceMotion *)motion{
-	gravX = (acceleration.x * kFilteringFactor) + (gravX * (1.0 - kFilteringFactor));
-    gravY = (acceleration.y * kFilteringFactor) + (gravY * (1.0 - kFilteringFactor));
-    gravZ = (acceleration.z * kFilteringFactor) + (gravZ * (1.0 - kFilteringFactor));
     
-    UIAccelerationValue accelX = acceleration.x - ( (acceleration.x * kFilteringFactor) + (gravX * (1.0 - kFilteringFactor)) );
+    double accValue = sqrt(pow(motion.userAcceleration.x,2)+pow(motion.userAcceleration.y,2)+pow(motion.userAcceleration.z, 2));
+	accValue = accValue * 100;
+	accValue = [self filterAccelerationValue:accValue];
     
-    UIAccelerationValue accelY = acceleration.y - ( (acceleration.y * kFilteringFactor) + (gravY * (1.0 - kFilteringFactor)) );
-    UIAccelerationValue accelZ = acceleration.z - ( (acceleration.z * kFilteringFactor) + (gravZ * (1.0 - kFilteringFactor)) );
-    accelX *= 9.81f;
-    accelY *= 9.81f;
-    accelZ *= 9.81f;
-    accelX = [self tendToZero:accelX];
-    accelY = [self tendToZero:accelY];
-    accelZ = [self tendToZero:accelZ];
+	KRSpeed speed;
+	if ( accValue < KRSlowMotionValue ) {
+		speed = kSlowSpeed;
+	} else if ( accValue <= KRNormalMotionValue ) {
+		speed = kMediumSpeed;
+	} else {
+		speed = kFastSpeed;
+	}
+
+	dispatch_sync(dispatch_get_main_queue(), ^{
+		if ( self.delegate ) {
+			[self.delegate didChangeSpeed:speed];
+		}
+	});
     
-    UIAccelerationValue vector = sqrt(pow(accelX,2)+pow(accelY,2)+pow(accelZ, 2));
-    UIAccelerationValue acce = vector - prevVelocity;
-    UIAccelerationValue velocity = (((acce - prevAcce)/2) * (1/kAccelerometerFrequency)) + prevVelocity;
-    
-    ++count;
-    averageSpeed += velocity>0 ? velocity*10000 : 0;
-    if ( count == kSpeedMeasuringFrequency ) {
-        count = 0;
-        averageSpeed = 0.f;
-    }
-    if ( count == kSpeedMeasuringFrequency - 1 ) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            averageSpeed = averageSpeed / 10;
-            Speed speed;
-            if ( averageSpeed < 50 ) {
-                speed = kSlowSpeed;
-            } else if ( averageSpeed >= 50 && averageSpeed <= 300 ) {
-                speed = kMediumSpeed;
-            } else {
-                speed = kFastSpeed;
-            }
-            
-            if ( self.delegate ) {
-                [self.delegate didChangedSpeed:speed];
-            }
-        });
-    }
-    
-    //    NSLog(@"X %g Y %g Z %g, Vector %g, Velocity %g",accelX,accelY,accelZ,vector,velocity);
-    
-    prevAcce = acce;
-    prevVelocity = velocity;
+	NSLog(@"value %f", accValue);
+}
+
+- (double) filterAccelerationValue:(double)newValue{
+	double result = [self filterValue:newValue withOldValuesArray:_motionValues depth:KRMotionFilterDepth];
+	return result;
+}
+
+- (double) filterValue:(double)value withOldValuesArray:(NSMutableArray *)oldValues depth:(int)depth{
+	double valuesSum = 0;
+	double coeffSum = 0;
+	[oldValues insertObject:[NSNumber numberWithDouble:value] atIndex:0];
+	for (int i = 0; i < oldValues.count; i++) {
+		double oldValue = [oldValues[i] doubleValue];
+		double coeff = (double)1/(i+1);
+		valuesSum += oldValue * coeff;
+		coeffSum += coeff;
+	}
+	NSRange range;
+	range.location = 0;
+	range.length = MIN(KRMotionFilterDepth, oldValues.count);
+	oldValues = [[oldValues subarrayWithRange:range] mutableCopy];
+	return valuesSum/coeffSum;
 }
 
 #pragma mark -

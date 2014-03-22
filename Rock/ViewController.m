@@ -8,20 +8,20 @@
 
 #import "ViewController.h"
 #import "AudioSampler.h"
+#import "KRMotionTracker.h"
 
 #define kNumberOfColors 5
 #define kScreenWidth   [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 
 #define kColorViewStartTag 10
-#define kSpeedLabelTag 5
 
-@interface ViewController () {
+@interface ViewController () <KRSpeedTrackerDelegate>{
     LegacyColorAnalyzer * _colorAnalyzer;
-    LegacySpeedTracker * _speedTracker;
+    KRMotionTracker * _motionTracker;
     AudioSampler * _sampler;
 }
-
+@property (weak) IBOutlet UILabel * speedLabel;
 @end
 
 @implementation ViewController
@@ -34,6 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	_speedLabel.text = @"Text";
     
     _sampler = [[AudioSampler alloc] init];
     [_sampler setupOnComplete:^{
@@ -44,9 +46,9 @@
     
     // To run it only on device
     
-    _speedTracker = [[LegacySpeedTracker alloc] init];
-    _speedTracker.delegate = self;
-    [_speedTracker start];
+    _motionTracker = [KRMotionTracker new];
+    _motionTracker.delegate = self;
+    [_motionTracker start];
     
     _colorAnalyzer = [[LegacyColorAnalyzer alloc] init];
     _colorAnalyzer.delegate = self;
@@ -64,15 +66,6 @@
         view.tag = kColorViewStartTag + i;
         [self.view addSubview:view];
     }
-    
-    UILabel * speedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.f, 240.f, kScreenWidth, 72.f)];
-    speedLabel.backgroundColor = [UIColor clearColor];
-    [speedLabel setFont:[UIFont boldSystemFontOfSize:36.f]];
-    [speedLabel setTextAlignment:NSTextAlignmentCenter];
-    [speedLabel setTextColor:[UIColor blackColor]];
-    [speedLabel setTag:kSpeedLabelTag];
-    [self.view addSubview:speedLabel];
-    
 #endif
     
 }
@@ -83,11 +76,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark Speed tracker
+#pragma mark -
+#pragma mark KRSpeedTrackerDelegate Methods
 
-- (void) didChangedSpeed:(Speed)speed {
-    
-    UILabel * speedLabel = (UILabel*)[self.view viewWithTag:kSpeedLabelTag];
+- (void) didChangeSpeed:(KRSpeed)speed {
     NSString * title = @"";
     switch (speed) {
         case kSlowSpeed:
@@ -101,9 +93,8 @@
         case kFastSpeed:
             title = @"fast";
             break;
-    }
-    
-    [speedLabel setText:title];
+    };
+	_speedLabel.text = title;
 }
 
 #pragma mark Color analyzer

@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LegacyColorAnalyzer.h"
-#import "LegacySpeedTracker.h"
 
-@interface ViewController : UIViewController <ColorAnalyzerDelegate, SpeedTrackerDelegate>
+@interface ViewController : UIViewController <ColorAnalyzerDelegate>
 
 @end

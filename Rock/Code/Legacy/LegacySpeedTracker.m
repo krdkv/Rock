@@ -91,6 +91,7 @@
                 speed = kFastSpeed;
             }
             
+			
             if ( self.delegate ) {
                 [self.delegate didChangedSpeed:speed];
             }

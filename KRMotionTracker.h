@@ -15,7 +15,7 @@ typedef enum {
 } KRSpeed;
 
 @protocol KRSpeedTrackerDelegate
-- (void) didChangedSpeed:(KRSpeed)speed;
+- (void) didChangeSpeed:(KRSpeed)speed;
 @end
 
 @interface KRMotionTracker : NSObject
