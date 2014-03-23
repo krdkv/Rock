@@ -8,20 +8,21 @@
 
 #import "ViewController.h"
 #import "AudioSampler.h"
+#import "KRMotionTracker.h"
 
 #define kNumberOfColors 5
 #define kScreenWidth   [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 
 #define kColorViewStartTag 10
-#define kSpeedLabelTag 5
 
-@interface ViewController () {
+@interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
     LegacyColorAnalyzer * _colorAnalyzer;
-    LegacySpeedTracker * _speedTracker;
+    KRMotionTracker * _motionTracker;
     AudioSampler * _sampler;
 }
-
+@property (weak) IBOutlet UILabel * motionQuantityLabel;
+@property (weak) IBOutlet UILabel * motionTypeLabel;
 @end
 
 @implementation ViewController
@@ -34,19 +35,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+	   
     _sampler = [[AudioSampler alloc] init];
     [_sampler setupOnComplete:^{
-        [self tick];
+//        [self tick];
     }];
     
 #if !TARGET_IPHONE_SIMULATOR    
     
     // To run it only on device
     
-    _speedTracker = [[LegacySpeedTracker alloc] init];
-    _speedTracker.delegate = self;
-    [_speedTracker start];
+    _motionTracker = [KRMotionTracker new];
+    _motionTracker.delegate = self;
+    [_motionTracker start];
     
     _colorAnalyzer = [[LegacyColorAnalyzer alloc] init];
     _colorAnalyzer.delegate = self;
@@ -64,17 +65,7 @@
         view.tag = kColorViewStartTag + i;
         [self.view addSubview:view];
     }
-    
-    UILabel * speedLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.f, 240.f, kScreenWidth, 72.f)];
-    speedLabel.backgroundColor = [UIColor clearColor];
-    [speedLabel setFont:[UIFont boldSystemFontOfSize:36.f]];
-    [speedLabel setTextAlignment:NSTextAlignmentCenter];
-    [speedLabel setTextColor:[UIColor blackColor]];
-    [speedLabel setTag:kSpeedLabelTag];
-    [self.view addSubview:speedLabel];
-    
 #endif
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,11 +74,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark Speed tracker
+#pragma mark -
+#pragma mark KRMotionTrackerDelegate Methods
 
-- (void) didChangedSpeed:(Speed)speed {
-    
-    UILabel * speedLabel = (UILabel*)[self.view viewWithTag:kSpeedLabelTag];
+- (void) newMotionValue:(KRSpeed)speed{
     NSString * title = @"";
     switch (speed) {
         case kSlowSpeed:
@@ -101,9 +91,43 @@
         case kFastSpeed:
             title = @"fast";
             break;
-    }
-    
-    [speedLabel setText:title];
+    };
+	_motionQuantityLabel.text = title;
+}
+
+- (void) shakeDetected{
+	[_sampler sendNoteOnToInstrument:0 midiKey:28 + arc4random()%30 velocity:70];
+	NSLog(@"Shake!");
+}
+
+#pragma mark -
+#pragma mark KRMotionTypeDelegate Methods
+
+- (void) newMotionType:(KRMotionType)type{
+	NSString * title = @"";
+	switch (type) {
+		case kStationary:
+			title = @"stationary";
+			break;
+		case kWalking:
+			title = @"walking";
+			break;
+		case kRunning:
+			title = @"running";
+			break;
+		case kAutomotive:
+			title = @"automotive";
+			break;
+		default:
+			title = @"Motion type unknown";
+			break;
+	}
+	_motionTypeLabel.text = title;
+}
+
+- (void) noWayToGetLocationType{
+// Propose we outta start some timer-based process to affect what motion types supposed to affect )
+	NSLog(@"No way!");
 }
 
 #pragma mark Color analyzer
