@@ -23,6 +23,7 @@ typedef enum {
 
 @protocol KRMotionTrackerDelegate
 - (void) newMotionValue:(KRSpeed)speed;
+- (void) shakeDetected;
 @end
 
 @protocol KRMotionTypeDelegate

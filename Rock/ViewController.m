@@ -38,7 +38,7 @@
 	   
     _sampler = [[AudioSampler alloc] init];
     [_sampler setupOnComplete:^{
-        [self tick];
+//        [self tick];
     }];
     
 #if !TARGET_IPHONE_SIMULATOR    
@@ -66,7 +66,6 @@
         [self.view addSubview:view];
     }
 #endif
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,6 +95,11 @@
 	_motionQuantityLabel.text = title;
 }
 
+- (void) shakeDetected{
+	[_sampler sendNoteOnToInstrument:0 midiKey:28 + arc4random()%30 velocity:70];
+	NSLog(@"Shake!");
+}
+
 #pragma mark -
 #pragma mark KRMotionTypeDelegate Methods
 
@@ -122,6 +126,7 @@
 }
 
 - (void) noWayToGetLocationType{
+// Propose we outta start some timer-based process to affect what motion types supposed to affect )
 	NSLog(@"No way!");
 }
 

@@ -18,6 +18,8 @@
 #define KRSlowMotionValue 40
 #define KRNormalMotionValue 80
 
+#define KRShakeAccelerationTreshhold 400.0f
+
 #define KRStationaryMaxSpeed 0.1f
 #define KRWalkingMaxSpeed 1.5f
 #define KRRunningMaxSpeed 8.0f
@@ -29,6 +31,8 @@
 
 	NSMutableArray * _motionValues;
 	NSMutableArray * _locationValues;
+	
+	BOOL _triesToShake;
 }
 
 @end
@@ -59,6 +63,7 @@
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self motionUpdated:motion];
+											[self detectShake:motion];
 										}];
 
 	BOOL isActivityAvailable = [CMMotionActivityManager isActivityAvailable];
@@ -81,13 +86,35 @@
 	[_motionManager stopDeviceMotionUpdates];
 }
 
+- (double) filterValue:(double)value withOldValuesArray:(NSMutableArray *)oldValues depth:(int)depth{
+	double valuesSum = 0;
+	double coeffSum = 0;
+	[oldValues insertObject:[NSNumber numberWithDouble:value] atIndex:0];
+	for (int i = 0; i < oldValues.count; i++) {
+		double oldValue = [oldValues[i] doubleValue];
+		double coeff = (double)1/(i+1);
+		valuesSum += oldValue * coeff;
+		coeffSum += coeff;
+	}
+	NSRange range;
+	range.location = 0;
+	range.length = MIN(KRMotionFilterDepth, oldValues.count);
+	oldValues = [[oldValues subarrayWithRange:range] mutableCopy];
+	return valuesSum/coeffSum;
+}
+
 #pragma mark -
 #pragma mark Motion Methods
 
+- (double) calculateAccelerationValue:(CMDeviceMotion *)motion{
+	double accValue = sqrt(pow(motion.userAcceleration.x,2)+pow(motion.userAcceleration.y,2)+pow(motion.userAcceleration.z, 2));
+	accValue = accValue * 100;
+	return accValue;
+}
+
 - (void) motionUpdated:(CMDeviceMotion *)motion{
     
-    double accValue = sqrt(pow(motion.userAcceleration.x,2)+pow(motion.userAcceleration.y,2)+pow(motion.userAcceleration.z, 2));
-	accValue = accValue * 100;
+    double accValue = [self calculateAccelerationValue:motion];
 	accValue = [self filterAccelerationValue:accValue];
     
 	KRSpeed value;
@@ -108,21 +135,19 @@
 	return [self filterValue:newValue withOldValuesArray:_motionValues depth:KRMotionFilterDepth];
 }
 
-- (double) filterValue:(double)value withOldValuesArray:(NSMutableArray *)oldValues depth:(int)depth{
-	double valuesSum = 0;
-	double coeffSum = 0;
-	[oldValues insertObject:[NSNumber numberWithDouble:value] atIndex:0];
-	for (int i = 0; i < oldValues.count; i++) {
-		double oldValue = [oldValues[i] doubleValue];
-		double coeff = (double)1/(i+1);
-		valuesSum += oldValue * coeff;
-		coeffSum += coeff;
+- (void) detectShake:(CMDeviceMotion *)motion{
+	
+#warning filter shake events
+	double accValue = [self calculateAccelerationValue:motion];
+	if(accValue > KRShakeAccelerationTreshhold){
+		NSLog(@"Acc: %.f", accValue);
+		if(_triesToShake == YES){
+			[self.delegate shakeDetected];
+			_triesToShake = NO;
+		} else {
+			_triesToShake = YES;
+		}
 	}
-	NSRange range;
-	range.location = 0;
-	range.length = MIN(KRMotionFilterDepth, oldValues.count);
-	oldValues = [[oldValues subarrayWithRange:range] mutableCopy];
-	return valuesSum/coeffSum;
 }
 
 #pragma mark -
@@ -146,7 +171,7 @@
 }
 
 #pragma mark -
-#pragma marl CLLocationmanagerDelegate Methods
+#pragma mark CLLocationManagerDelegate Methods
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
 	CLLocation * location = [locations lastObject];
