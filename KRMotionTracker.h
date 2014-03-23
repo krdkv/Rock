@@ -14,17 +14,25 @@ typedef enum {
     kFastSpeed
 } KRSpeed;
 
+typedef enum {
+	kStationary = 0,
+	kWalking,
+	kRunning,
+	kAutomotive,
+} KRMotionType;
+
 @protocol KRMotionTrackerDelegate
 - (void) newMotionValue:(KRSpeed)speed;
 @end
 
-@protocol KRSpeedTrackerDelegate
-- (void) newSpeedValue:(KRSpeed)speed;
+@protocol KRMotionTypeDelegate
+- (void) newMotionType:(KRMotionType)type;
+- (void) noWayToGetLocationType;
 @end
 
 @interface KRMotionTracker : NSObject
 
-@property (weak, nonatomic) id<KRSpeedTrackerDelegate, KRMotionTrackerDelegate> delegate;
+@property (weak, nonatomic) id<KRMotionTrackerDelegate, KRMotionTypeDelegate> delegate;
 - (void) start;
 - (void) stop;
 

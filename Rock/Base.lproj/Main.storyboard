@@ -16,22 +16,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j60-I4-g5G">
-                                <rect key="frame" x="139" y="447" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion Quantity Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j60-I4-g5G">
+                                <rect key="frame" x="75" y="447" width="170" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Motion type label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLy-fk-zRD">
+                                <rect key="frame" x="94" y="492" width="133" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="j60-I4-g5G" secondAttribute="bottom" constant="100" id="NWk-ps-62f"/>
+                            <constraint firstAttribute="centerX" secondItem="oLy-fk-zRD" secondAttribute="centerX" id="Hnx-pL-CZM"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="oLy-fk-zRD" secondAttribute="bottom" constant="55" id="PlV-0N-JKW"/>
+                            <constraint firstItem="oLy-fk-zRD" firstAttribute="top" secondItem="j60-I4-g5G" secondAttribute="bottom" constant="24" id="enX-jO-hCQ"/>
                             <constraint firstAttribute="centerX" secondItem="j60-I4-g5G" secondAttribute="centerX" id="ymj-ja-PNI"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="speedLabel" destination="j60-I4-g5G" id="H6M-c3-oY3"/>
+                        <outlet property="motionQuantityLabel" destination="j60-I4-g5G" id="MNq-Ti-6DS"/>
+                        <outlet property="motionTypeLabel" destination="oLy-fk-zRD" id="ldS-Mb-Tml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

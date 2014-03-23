@@ -10,20 +10,25 @@
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
 
+#define KRDeviceMotionFrequency 50.0 //Hz
+
 #define KRMotionFilterDepth 5
-#define KRSpeedMotionDepth 5
+#define KRSpeedFilterDepth 5
 
 #define KRSlowMotionValue 40
 #define KRNormalMotionValue 80
 
-#define KRSlowSpeedValue 0.1
-#define KRNormalSpeedValue 1.5
+#define KRStationaryMaxSpeed 0.1f
+#define KRWalkingMaxSpeed 1.5f
+#define KRRunningMaxSpeed 8.0f
 
-@interface KRMotionTracker () <CLLocationManagerDelegate>{
+@interface KRMotionTracker () <CLLocationManagerDelegate> {
 	CMMotionManager * _motionManager;
+	CMMotionActivityManager * _activityManager;
 	CLLocationManager * _locationManager;
+
 	NSMutableArray * _motionValues;
-	NSMutableArray * _speedValues;
+	NSMutableArray * _locationValues;
 }
 
 @end
@@ -34,8 +39,9 @@
 	self = [super init];
 	if(self){
 		_motionManager = [CMMotionManager new];
-
+		_activityManager = [CMMotionActivityManager new];
 		_locationManager = [CLLocationManager new];
+		_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 		_locationManager.delegate = self;
 	}
 	return self;
@@ -43,17 +49,32 @@
 
 - (void) start{
 	_motionValues = [NSMutableArray new];
-	_speedValues = [NSMutableArray new];
-	
-	[_locationManager startUpdatingLocation];
+	_locationValues = [NSMutableArray new];
 	
 	NSOperationQueue * queue = [NSOperationQueue new];
 	[queue setMaxConcurrentOperationCount:1];
-
+	
+	_motionManager.deviceMotionUpdateInterval = 1/KRDeviceMotionFrequency;
+	
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self motionUpdated:motion];
 										}];
+
+	BOOL isActivityAvailable = [CMMotionActivityManager isActivityAvailable];
+	BOOL isLocationAvailable = [CLLocationManager locationServicesEnabled];
+	if(isActivityAvailable){
+		[_activityManager startActivityUpdatesToQueue:queue
+										  withHandler:^(CMMotionActivity *activity) {
+											  [self activityUpdated:activity];
+										  }];
+	}
+	else if (isLocationAvailable){
+		[_locationManager startUpdatingLocation];
+	}
+	else{
+		[self.delegate noWayToGetLocationType];
+	}
 }
 
 - (void) stop{
@@ -81,13 +102,10 @@
 	dispatch_sync(dispatch_get_main_queue(), ^{
 		[self.delegate newMotionValue:value];
 	});
-    
-//	NSLog(@"value %f", accValue);
 }
 
 - (double) filterAccelerationValue:(double)newValue{
-	double result = [self filterValue:newValue withOldValuesArray:_motionValues depth:KRMotionFilterDepth];
-	return result;
+	return [self filterValue:newValue withOldValuesArray:_motionValues depth:KRMotionFilterDepth];
 }
 
 - (double) filterValue:(double)value withOldValuesArray:(NSMutableArray *)oldValues depth:(int)depth{
@@ -108,19 +126,49 @@
 }
 
 #pragma mark -
-#pragma mark Location Methods
+#pragma mark Activity Methods
+
+- (void) activityUpdated:(CMMotionActivity *)activity{
+	KRMotionType type;
+	if (activity.automotive){
+		type = kAutomotive;
+	}
+	else if (activity.running){
+		type = kRunning;
+	}
+	else if (activity.walking){
+		type = kWalking;
+	}
+	else if(activity.stationary){
+		type = kStationary;
+	}
+	[self.delegate newMotionType:type];
+}
+
+#pragma mark -
+#pragma marl CLLocationmanagerDelegate Methods
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-	CLLocation * lastLocation = [locations lastObject];
-	CLLocationSpeed speed = lastLocation.speed;
-	KRSpeed value;
-	if ( speed < KRSlowSpeedValue ) {
-		value = kSlowSpeed;
-	} else if ( speed <= KRNormalSpeedValue ) {
-		value = kMediumSpeed;
-	} else {
-		value = kFastSpeed;
+	CLLocation * location = [locations lastObject];
+	CLLocationSpeed speed = location.speed;
+	speed = [self filterSpeedValue:speed];
+	KRMotionType type;
+	if(speed < KRStationaryMaxSpeed){
+		type = kStationary;
 	}
-	[self.delegate newSpeedValue:value];
+	else if (speed < KRWalkingMaxSpeed){
+		type = kWalking;
+	}
+	else if (speed < KRRunningMaxSpeed){
+		type = kRunning;
+	}
+	else{
+		type = kAutomotive;
+	}
+	[self.delegate newMotionType:type];
+}
+
+- (double) filterSpeedValue:(double)value{
+	return [self filterValue:value withOldValuesArray:_locationValues depth:KRSpeedFilterDepth];
 }
 @end

@@ -16,12 +16,13 @@
 
 #define kColorViewStartTag 10
 
-@interface ViewController () <KRSpeedTrackerDelegate, KRMotionTrackerDelegate>{
+@interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
     LegacyColorAnalyzer * _colorAnalyzer;
     KRMotionTracker * _motionTracker;
     AudioSampler * _sampler;
 }
-@property (weak) IBOutlet UILabel * speedLabel;
+@property (weak) IBOutlet UILabel * motionQuantityLabel;
+@property (weak) IBOutlet UILabel * motionTypeLabel;
 @end
 
 @implementation ViewController
@@ -34,9 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	_speedLabel.text = @"Text";
-    
+	   
     _sampler = [[AudioSampler alloc] init];
     [_sampler setupOnComplete:^{
         [self tick];
@@ -94,14 +93,36 @@
             title = @"fast";
             break;
     };
-	_speedLabel.text = title;
+	_motionQuantityLabel.text = title;
 }
 
 #pragma mark -
-#pragma mark KRSpeedTrackerDelegate Methods
+#pragma mark KRMotionTypeDelegate Methods
 
-- (void) newSpeedValue:(KRSpeed)speed{
-#warning no can do
+- (void) newMotionType:(KRMotionType)type{
+	NSString * title = @"";
+	switch (type) {
+		case kStationary:
+			title = @"stationary";
+			break;
+		case kWalking:
+			title = @"walking";
+			break;
+		case kRunning:
+			title = @"running";
+			break;
+		case kAutomotive:
+			title = @"automotive";
+			break;
+		default:
+			title = @"Motion type unknown";
+			break;
+	}
+	_motionTypeLabel.text = title;
+}
+
+- (void) noWayToGetLocationType{
+	NSLog(@"No way!");
 }
 
 #pragma mark Color analyzer
