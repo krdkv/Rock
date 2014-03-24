@@ -59,7 +59,10 @@
 	XCTAssert(result == expected, @"Wrong filtering");
 	XCTAssert(oldValues.count == 2, @"Wrong old values saving");
 	XCTAssert([oldValues[0] doubleValue] == newValue, @"Wrong old values saving");
-	
+}
+
+- (void) testShakeDetection{
+	XCTFail(@"Not implemented");
 }
 
 @end

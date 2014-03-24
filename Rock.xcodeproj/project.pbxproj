@@ -184,8 +184,8 @@
 		0103BF3A18DB7DF800697273 /* RockTests */ = {
 			isa = PBXGroup;
 			children = (
-				0103BF4018DB7DF800697273 /* RockTests.m */,
 				0103BF3B18DB7DF800697273 /* Supporting Files */,
+				0103BF4018DB7DF800697273 /* RockTests.m */,
 				9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */,
 			);
 			path = RockTests;

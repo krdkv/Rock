@@ -12,11 +12,11 @@
 
 #define KRDeviceMotionFrequency 50.0 //Hz
 
-#define KRMotionFilterDepth 5
+#define KRMotionFilterDepth 8
 #define KRSpeedFilterDepth 5
 
 #define KRSlowMotionValue 40
-#define KRNormalMotionValue 80
+#define KRNormalMotionValue 100
 
 #define KRShakeAccelerationTreshhold 400.0f
 
@@ -64,6 +64,7 @@
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self motionUpdated:motion];
 											[self detectShake:motion];
+											[self detectMovement:motion];
 										}];
 
 	BOOL isActivityAvailable = [CMMotionActivityManager isActivityAvailable];
@@ -116,7 +117,7 @@
     
     double accValue = [self calculateAccelerationValue:motion];
 	accValue = [self filterAccelerationValue:accValue];
-    
+//    NSLog(@"value: %.f", accValue);
 	KRSpeed value;
 	if ( accValue < KRSlowMotionValue ) {
 		value = kSlowSpeed;
@@ -125,7 +126,7 @@
 	} else {
 		value = kFastSpeed;
 	}
-
+#warning Poor behavior when value is around boundary values
 	dispatch_sync(dispatch_get_main_queue(), ^{
 		[self.delegate newMotionValue:value];
 	});
@@ -140,7 +141,7 @@
 #warning filter shake events
 	double accValue = [self calculateAccelerationValue:motion];
 	if(accValue > KRShakeAccelerationTreshhold){
-		NSLog(@"Acc: %.f", accValue);
+//		NSLog(@"Acc: %.f", accValue);
 		if(_triesToShake == YES){
 			[self.delegate shakeDetected];
 			_triesToShake = NO;
@@ -170,6 +171,9 @@
 	[self.delegate newMotionType:type];
 }
 
+- (void) detectMovement:(CMDeviceMotion *)motion{
+	
+}
 #pragma mark -
 #pragma mark CLLocationManagerDelegate Methods
 
