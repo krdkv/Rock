@@ -9,7 +9,7 @@
 #ifndef Rock_AudioSettings_h
 #define Rock_AudioSettings_h
 
-#define kDefaultTempo 120
+#define kDefaultTempo 90
 #define kTimerCoefficient 1.875f
 #define kNumberOfTicksPerBar 32
 

@@ -29,6 +29,7 @@ typedef enum {
 @protocol KRMotionTypeDelegate
 - (void) newMotionType:(KRMotionType)type;
 - (void) noWayToGetLocationType;
+- (void) logGPSSpeed:(CGFloat)speed;
 @end
 
 @interface KRMotionTracker : NSObject

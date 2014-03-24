@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "AudioSampler.h"
 #import "KRMotionTracker.h"
+#import "Player.h"
 
 #define kNumberOfColors 5
 #define kScreenWidth   [UIScreen mainScreen].bounds.size.width
@@ -19,31 +19,27 @@
 @interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
     LegacyColorAnalyzer * _colorAnalyzer;
     KRMotionTracker * _motionTracker;
-    AudioSampler * _sampler;
+    Player * _player;
 }
 @property (weak) IBOutlet UILabel * motionQuantityLabel;
 @property (weak) IBOutlet UILabel * motionTypeLabel;
+@property (weak) IBOutlet UILabel * gpsSpeedLabel;
 @end
 
 @implementation ViewController
 
 - (void) tick {
-    [_sampler sendNoteOnToInstrument:0 midiKey:28 + arc4random()%30 velocity:70];
     [NSTimer scheduledTimerWithTimeInterval:arc4random()%10 * 0.1f target:self selector:@selector(tick) userInfo:nil repeats:NO];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	   
-    _sampler = [[AudioSampler alloc] init];
-    [_sampler setupOnComplete:^{
-//        [self tick];
-    }];
     
-#if !TARGET_IPHONE_SIMULATOR    
+    _player = [[Player alloc] init];
+    [_player start];
     
-    // To run it only on device
+#if !TARGET_IPHONE_SIMULATOR
     
     _motionTracker = [KRMotionTracker new];
     _motionTracker.delegate = self;
@@ -52,7 +48,7 @@
     _colorAnalyzer = [[LegacyColorAnalyzer alloc] init];
     _colorAnalyzer.delegate = self;
     _colorAnalyzer.numberOfColors = kNumberOfColors;
-    [_colorAnalyzer start];
+//    [_colorAnalyzer start];
 
     [self.view setBackgroundColor:[UIColor darkGrayColor]];
     
@@ -77,26 +73,32 @@
 #pragma mark -
 #pragma mark KRMotionTrackerDelegate Methods
 
+- (void) logGPSSpeed:(CGFloat)speed {
+    _gpsSpeedLabel.text = [NSString stringWithFormat:@"%f", speed];
+}
+
 - (void) newMotionValue:(KRSpeed)speed{
     NSString * title = @"";
     switch (speed) {
         case kSlowSpeed:
             title = @"slow";
+            [_player setTempo:90];
             break;
             
         case kMediumSpeed:
             title = @"normal";
+            [_player setTempo:150];
             break;
             
         case kFastSpeed:
             title = @"fast";
+            [_player setTempo:210];
             break;
     };
 	_motionQuantityLabel.text = title;
 }
 
 - (void) shakeDetected{
-	[_sampler sendNoteOnToInstrument:0 midiKey:28 + arc4random()%30 velocity:70];
 	NSLog(@"Shake!");
 }
 

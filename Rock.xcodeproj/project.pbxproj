@@ -24,6 +24,7 @@
 		0103BF4F18DB7E3C00697273 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF4E18DB7E3C00697273 /* Sounds */; };
 		0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */; };
 		0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */; };
+		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3C618DC2E320050DFB0 /* Pulse.m */; };
 		01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */; };
 		01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */; };
@@ -72,6 +73,8 @@
 		0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyColorAnalyzer.m; sourceTree = "<group>"; };
 		0103BF5218DB7E7B00697273 /* LegacySpeedTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacySpeedTracker.h; sourceTree = "<group>"; };
 		0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacySpeedTracker.m; sourceTree = "<group>"; };
+		0132C84E18DF853700DBC428 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		0132C84F18DF853700DBC428 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		01F5F3C518DC2E320050DFB0 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
 		01F5F3C618DC2E320050DFB0 /* Pulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pulse.m; sourceTree = "<group>"; };
 		01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSettings.h; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */,
 				01F5F3D418DCF8270050DFB0 /* MidiParser.h */,
 				01F5F3D518DCF8270050DFB0 /* MidiParser.m */,
+				0132C84E18DF853700DBC428 /* Player.h */,
+				0132C84F18DF853700DBC428 /* Player.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -309,7 +314,7 @@
 				ORGANIZATIONNAME = Kusto;
 				TargetAttributes = {
 					0103BF1118DB7DF700697273 = {
-						DevelopmentTeam = C92M3ZV55X;
+						DevelopmentTeam = V2RJVNRCR5;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -373,6 +378,7 @@
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */,
 				9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */,
+				0132C85018DF853700DBC428 /* Player.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
@@ -510,7 +516,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rock/Rock-Prefix.pch";
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -527,7 +533,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rock/Rock-Prefix.pch";
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

@@ -177,6 +177,11 @@
 	CLLocation * location = [locations lastObject];
 	CLLocationSpeed speed = location.speed;
 	speed = [self filterSpeedValue:speed];
+    
+    if ( self.delegate ) {
+        [self.delegate logGPSSpeed:speed];
+    }
+    
 	KRMotionType type;
 	if(speed < KRStationaryMaxSpeed){
 		type = kStationary;

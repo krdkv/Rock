@@ -39,6 +39,11 @@
 }
 
 - (void) tick {
+    
+    if ( self.delegate ) {
+        [self.delegate tickWithNumber:_currentTick];
+    }
+    
     ++ _currentTick;
     if ( _currentTick == kNumberOfTicksPerBar ) {
         _currentTick = 0;
@@ -47,10 +52,17 @@
 
 - (void) setTempo:(int)tempo {
     
-    if ( tempo == 0 ) {
+    if ( tempo == 0 || _tempo == tempo) {
         return;
     }
     
+    if ( _timer ) {
+        [_timer invalidate];
+    }
+    
+    _tempo = tempo;
+    
+    [self startTimer];
 }
 
 - (void) startTimer {

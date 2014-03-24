@@ -8,7 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol PulseDelegate
+
+- (void) tickWithNumber:(NSInteger)tick;
+
+@end
+
+
 @interface Pulse : NSObject
+
+@property (nonatomic, strong) id<PulseDelegate> delegate;
 
 - (void) start;
 
