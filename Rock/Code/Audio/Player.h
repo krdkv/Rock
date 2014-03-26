@@ -13,6 +13,6 @@
 
 - (void) start;
 
-- (void) setTempo:(NSInteger)tempo;
+- (void) setTempo:(int)tempo;
 
 @end

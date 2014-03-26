@@ -10,7 +10,7 @@
 
 @protocol PulseDelegate
 
-- (void) tickWithNumber:(NSInteger)tick;
+- (void) tickWithNumber:(int)tick;
 
 @end
 
