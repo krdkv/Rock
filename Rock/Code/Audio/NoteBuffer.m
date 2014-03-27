@@ -52,7 +52,6 @@
     for ( NSInteger i = count - 1; i >= 0 ; --i ) {
         NSDictionary * note = _notes[i];
         NSInteger duration = [note[@"duration"] intValue] - 1;
-        NSLog(@"%ld", (long)duration);
         if ( duration == 0 ) {
             [_sampler sendNoteOffToInstrument:[note[@"instrument"] intValue] midiKey:[note[@"key"] intValue]];
             [_notes removeObjectAtIndex:i];

@@ -26,6 +26,7 @@
 		0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFEE18E2C604002E58EA /* NoteBuffer.m */; };
+		019BFFF318E37213002E58EA /* KRReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFF218E37213002E58EA /* KRReader.m */; };
 		01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3C618DC2E320050DFB0 /* Pulse.m */; };
 		01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */; };
 		01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */; };
@@ -78,6 +79,8 @@
 		0132C84F18DF853700DBC428 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		019BFFED18E2C604002E58EA /* NoteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBuffer.h; sourceTree = "<group>"; };
 		019BFFEE18E2C604002E58EA /* NoteBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBuffer.m; sourceTree = "<group>"; };
+		019BFFF118E37213002E58EA /* KRReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRReader.h; sourceTree = "<group>"; };
+		019BFFF218E37213002E58EA /* KRReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRReader.m; sourceTree = "<group>"; };
 		01F5F3C518DC2E320050DFB0 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
 		01F5F3C618DC2E320050DFB0 /* Pulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pulse.m; sourceTree = "<group>"; };
 		01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSettings.h; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 				0132C84F18DF853700DBC428 /* Player.m */,
 				019BFFED18E2C604002E58EA /* NoteBuffer.h */,
 				019BFFEE18E2C604002E58EA /* NoteBuffer.m */,
+				019BFFF118E37213002E58EA /* KRReader.h */,
+				019BFFF218E37213002E58EA /* KRReader.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0103BF2C18DB7DF800697273 /* ViewController.m in Sources */,
+				019BFFF318E37213002E58EA /* KRReader.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */,
