@@ -15,6 +15,7 @@
 - (void) addNoteForInstrument:(int)instrument
                          note:(int)midiNote
                      velocity:(int)velocity
+                       offset:(int)tickerBeforeStart
                      duration:(int)numberOfTicks;
 
 @end

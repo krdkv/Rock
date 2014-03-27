@@ -52,23 +52,20 @@ static int startNote = 28;
     }
     
     if ( barNumber == 0 && tick == 0 ) {
-        [_buffer addNoteForInstrument:0 note:startNote velocity:70 + arc4random()%20 duration:32];
+        [_buffer addNoteForInstrument:0 note:startNote velocity:70 + arc4random()%20 offset:0 duration:32];
+        [_buffer addNoteForInstrument:0 note:startNote velocity:70+arc4random()%20 offset:16 duration:32];
     }
     
-    if ( barNumber == 0 && tick == 16 ) {
-        [_buffer addNoteForInstrument:0 note:startNote velocity:70 + arc4random()%20 duration:32];
+    if ( barNumber == 1 && tick == 0  ) {
+        [_buffer addNoteForInstrument:0 note:startNote velocity:70+arc4random()%20 offset:0 duration:16];
     }
     
-    if ( barNumber == 1 && tick == 0 ) {
-        [_buffer addNoteForInstrument:0 note:startNote velocity:70 + arc4random()%20 duration:16];
+    if ( barNumber == 2 && tick == 0 ) {
+        [_buffer addNoteForInstrument:0 note:startNote+7 velocity:70+arc4random()%20 offset:16 duration:16];
     }
     
-    if ( barNumber == 2 && tick == 16 ) {
-        [_buffer addNoteForInstrument:0 note:startNote+7 velocity:70 + arc4random()%20 duration:16];
-    }
-    
-    if ( barNumber == 3 && tick == 16 ) {
-        [_buffer addNoteForInstrument:0 note:startNote+3 velocity:70 + arc4random()%20 duration:16];
+    if ( barNumber == 3 && tick == 0 ) {
+        [_buffer addNoteForInstrument:0 note:startNote+3 velocity:70+arc4random()%20 offset:16 duration:14];
     }
 }
 
