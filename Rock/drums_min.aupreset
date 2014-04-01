@@ -299,6 +299,8 @@
 						<integer>24</integer>
 						<key>min key</key>
 						<integer>24</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>24</integer>
 						<key>waveform</key>
@@ -315,6 +317,8 @@
 						<integer>25</integer>
 						<key>min key</key>
 						<integer>25</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>25</integer>
 						<key>waveform</key>
@@ -331,6 +335,8 @@
 						<integer>26</integer>
 						<key>min key</key>
 						<integer>26</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>26</integer>
 						<key>waveform</key>
@@ -347,6 +353,8 @@
 						<integer>30</integer>
 						<key>min key</key>
 						<integer>30</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>30</integer>
 						<key>waveform</key>
@@ -363,6 +371,8 @@
 						<integer>31</integer>
 						<key>min key</key>
 						<integer>31</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>31</integer>
 						<key>waveform</key>
@@ -379,6 +389,8 @@
 						<integer>34</integer>
 						<key>min key</key>
 						<integer>34</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>34</integer>
 						<key>waveform</key>
@@ -395,6 +407,8 @@
 						<integer>35</integer>
 						<key>min key</key>
 						<integer>35</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>35</integer>
 						<key>waveform</key>
@@ -411,6 +425,8 @@
 						<integer>37</integer>
 						<key>min key</key>
 						<integer>37</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>37</integer>
 						<key>waveform</key>
@@ -427,6 +443,8 @@
 						<integer>39</integer>
 						<key>min key</key>
 						<integer>39</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>39</integer>
 						<key>waveform</key>
@@ -464,6 +482,44 @@
 		<string>/Users/nick/Library/Audio/Sounds/crash_C#2.caf</string>
 		<key>Sample:268435465</key>
 		<string>/Users/nick/Library/Audio/Sounds/ride_D#2.caf</string>
+		<key>Sample:268435466</key>
+		<string>/Users/nick/Library/Audio/Sounds/kick_1_C1.caf</string>
+		<key>Sample:268435467</key>
+		<string>/Users/nick/Library/Audio/Sounds/side_1_C#1.caf</string>
+		<key>Sample:268435468</key>
+		<string>/Users/nick/Library/Audio/Sounds/snare_1_D1.caf</string>
+		<key>Sample:268435469</key>
+		<string>/Users/nick/Library/Audio/Sounds/hat_closed_1_F#1.caf</string>
+		<key>Sample:268435470</key>
+		<string>/Users/nick/Library/Audio/Sounds/floor_tom_1_G1.caf</string>
+		<key>Sample:268435471</key>
+		<string>/Users/nick/Library/Audio/Sounds/hat_opened_1_A#1.caf</string>
+		<key>Sample:268435472</key>
+		<string>/Users/nick/Library/Audio/Sounds/tom_1_B1.caf</string>
+		<key>Sample:268435473</key>
+		<string>/Users/nick/Library/Audio/Sounds/crash_1_C#2.caf</string>
+		<key>Sample:268435474</key>
+		<string>/Users/nick/Library/Audio/Sounds/ride_1_D#2.caf</string>
+		<key>Sample:268435475</key>
+		<string>/Users/nick/Library/Audio/Sounds/kick_2_C1.caf</string>
+		<key>Sample:268435476</key>
+		<string>/Users/nick/Library/Audio/Sounds/side_2_C#1.caf</string>
+		<key>Sample:268435477</key>
+		<string>/Users/nick/Library/Audio/Sounds/snare_2_D1.caf</string>
+		<key>Sample:268435478</key>
+		<string>/Users/nick/Library/Audio/Sounds/hat_closed_2_F#1.caf</string>
+		<key>Sample:268435479</key>
+		<string>/Users/nick/Library/Audio/Sounds/floor_tom_2_G1.caf</string>
+		<key>Sample:268435480</key>
+		<string>/Users/nick/Library/Audio/Sounds/hat_opened_2_A#1.caf</string>
+		<key>Sample:268435481</key>
+		<string>/tenere/samples/Kusto/Drums copy/hat_opened_2_A#1.caf</string>
+		<key>Sample:268435482</key>
+		<string>/Users/nick/Library/Audio/Sounds/tom_2_B1.caf</string>
+		<key>Sample:268435483</key>
+		<string>/Users/nick/Library/Audio/Sounds/crash_2_C#2.caf</string>
+		<key>Sample:268435484</key>
+		<string>/Users/nick/Library/Audio/Sounds/ride_2_D#2.caf</string>
 	</dict>
 	<key>fine tune</key>
 	<real>0.0</real>
