@@ -168,7 +168,7 @@
 - (void) loadSampleMaps {
 
     for ( int i = 0; i < kMapNames.count; ++i ) {
-        NSURL *presetURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:@"bass" ofType:@"aupreset"]];
+        NSURL *presetURL = [[NSURL alloc] initFileURLWithPath:[[NSBundle mainBundle] pathForResource:kMapNames[i] ofType:@"aupreset"]];
         NSAssert(presetURL, @"Could not load preset: %@", kMapNames[i]);
         [self loadMapForUrl:presetURL andUnit:_samplerUnits[i]];
     }
