@@ -9,15 +9,16 @@
 #ifndef Rock_AudioSettings_h
 #define Rock_AudioSettings_h
 
-#define kDefaultTempo 90
+#define kDefaultTempo 220
 #define kTimerCoefficient 1.875f
 #define kNumberOfTicksPerBar 32
 
 enum {
-    kBass = 0
+    kBass = 0,
+    kDrums
 };
 
-#define kMapNames @[@"bass"]
+#define kMapNames @[@"bass", @"drums_full"]
 
 #define kNoteOnMidiMessage 0x9 << 4 | 0
 #define kNoteOffMidiMessage 0x8 << 4 | 0
