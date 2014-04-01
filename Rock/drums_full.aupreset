@@ -299,6 +299,8 @@
 						<integer>24</integer>
 						<key>min key</key>
 						<integer>24</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>24</integer>
 						<key>waveform</key>
@@ -315,6 +317,8 @@
 						<integer>25</integer>
 						<key>min key</key>
 						<integer>25</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>25</integer>
 						<key>waveform</key>
@@ -331,6 +335,8 @@
 						<integer>26</integer>
 						<key>min key</key>
 						<integer>26</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>26</integer>
 						<key>waveform</key>
@@ -347,6 +353,8 @@
 						<integer>30</integer>
 						<key>min key</key>
 						<integer>30</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>30</integer>
 						<key>waveform</key>
@@ -363,6 +371,8 @@
 						<integer>31</integer>
 						<key>min key</key>
 						<integer>31</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>31</integer>
 						<key>waveform</key>
@@ -379,6 +389,8 @@
 						<integer>34</integer>
 						<key>min key</key>
 						<integer>34</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>34</integer>
 						<key>waveform</key>
@@ -395,6 +407,8 @@
 						<integer>35</integer>
 						<key>min key</key>
 						<integer>35</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>35</integer>
 						<key>waveform</key>
@@ -411,6 +425,8 @@
 						<integer>37</integer>
 						<key>min key</key>
 						<integer>37</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>37</integer>
 						<key>waveform</key>
@@ -427,6 +443,8 @@
 						<integer>39</integer>
 						<key>min key</key>
 						<integer>39</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>39</integer>
 						<key>waveform</key>
@@ -443,6 +461,8 @@
 						<integer>87</integer>
 						<key>min key</key>
 						<integer>87</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>39</integer>
 						<key>waveform</key>
@@ -459,6 +479,8 @@
 						<integer>48</integer>
 						<key>min key</key>
 						<integer>48</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>24</integer>
 						<key>waveform</key>
@@ -475,6 +497,8 @@
 						<integer>49</integer>
 						<key>min key</key>
 						<integer>49</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>25</integer>
 						<key>waveform</key>
@@ -491,6 +515,8 @@
 						<integer>50</integer>
 						<key>min key</key>
 						<integer>50</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>26</integer>
 						<key>waveform</key>
@@ -507,6 +533,8 @@
 						<integer>54</integer>
 						<key>min key</key>
 						<integer>54</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>30</integer>
 						<key>waveform</key>
@@ -523,6 +551,8 @@
 						<integer>55</integer>
 						<key>min key</key>
 						<integer>55</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>31</integer>
 						<key>waveform</key>
@@ -539,6 +569,8 @@
 						<integer>58</integer>
 						<key>min key</key>
 						<integer>58</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>34</integer>
 						<key>waveform</key>
@@ -555,6 +587,8 @@
 						<integer>59</integer>
 						<key>min key</key>
 						<integer>59</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>35</integer>
 						<key>waveform</key>
@@ -571,6 +605,8 @@
 						<integer>61</integer>
 						<key>min key</key>
 						<integer>61</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>37</integer>
 						<key>waveform</key>
@@ -587,6 +623,8 @@
 						<integer>63</integer>
 						<key>min key</key>
 						<integer>63</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>39</integer>
 						<key>waveform</key>
@@ -603,6 +641,8 @@
 						<integer>72</integer>
 						<key>min key</key>
 						<integer>72</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>24</integer>
 						<key>waveform</key>
@@ -619,6 +659,8 @@
 						<integer>73</integer>
 						<key>min key</key>
 						<integer>73</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>25</integer>
 						<key>waveform</key>
@@ -635,6 +677,8 @@
 						<integer>74</integer>
 						<key>min key</key>
 						<integer>74</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>26</integer>
 						<key>waveform</key>
@@ -651,6 +695,8 @@
 						<integer>78</integer>
 						<key>min key</key>
 						<integer>78</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>30</integer>
 						<key>waveform</key>
@@ -667,6 +713,8 @@
 						<integer>79</integer>
 						<key>min key</key>
 						<integer>79</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>31</integer>
 						<key>waveform</key>
@@ -683,6 +731,8 @@
 						<integer>82</integer>
 						<key>min key</key>
 						<integer>82</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>34</integer>
 						<key>waveform</key>
@@ -699,6 +749,8 @@
 						<integer>83</integer>
 						<key>min key</key>
 						<integer>83</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>35</integer>
 						<key>waveform</key>
@@ -715,6 +767,8 @@
 						<integer>85</integer>
 						<key>min key</key>
 						<integer>85</integer>
+						<key>pitch tracking</key>
+						<false/>
 						<key>root key</key>
 						<integer>37</integer>
 						<key>waveform</key>
