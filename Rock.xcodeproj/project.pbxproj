@@ -324,7 +324,7 @@
 				ORGANIZATIONNAME = Kusto;
 				TargetAttributes = {
 					0103BF1118DB7DF700697273 = {
-						DevelopmentTeam = V2RJVNRCR5;
+						DevelopmentTeam = C92M3ZV55X;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;

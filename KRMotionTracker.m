@@ -33,6 +33,9 @@
 	NSMutableArray * _locationValues;
 	
 	BOOL _triesToShake;
+	
+	CGFloat _pitch;
+	NSMutableArray * _xAccelerations;
 }
 
 @end
@@ -47,6 +50,7 @@
 		_locationManager = [CLLocationManager new];
 		_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 		_locationManager.delegate = self;
+		_xAccelerations = [NSMutableArray new];
 	}
 	return self;
 }
@@ -106,14 +110,13 @@
 #pragma mark -
 #pragma mark Motion Methods
 
-- (double) calculateAccelerationValue:(CMDeviceMotion *)motion{
-	double accValue = sqrt(pow(motion.userAcceleration.x,2)+pow(motion.userAcceleration.y,2)+pow(motion.userAcceleration.z, 2));
-	accValue = accValue * 100;
-	return accValue;
-}
-
 - (void) motionUpdated:(CMDeviceMotion *)motion{
-    
+	dispatch_sync(dispatch_get_main_queue(), ^{
+	[_delegate motionUpdatedWithX:motion.userAcceleration.x y:motion.userAcceleration.y z:motion.userAcceleration.z];
+	});
+	
+	[self calculateDistancesWithMotion:motion];
+	
     double accValue = [self calculateAccelerationValue:motion];
 	accValue = [self filterAccelerationValue:accValue];
     
@@ -129,6 +132,27 @@
 	dispatch_sync(dispatch_get_main_queue(), ^{
 		[self.delegate newMotionValue:value];
 	});
+}
+
+- (void) calculateDistancesWithMotion:(CMDeviceMotion *)motion{
+	CGFloat dx=0.0f;
+	CGFloat vx=0.0f;
+	CGFloat dt = 1 / KRDeviceMotionFrequency;
+	[_xAccelerations addObject:[NSNumber numberWithFloat:motion.userAcceleration.x]];
+	for (int i=1; i < _xAccelerations.count; i++)
+	{
+		vx+=([_xAccelerations[i-1] floatValue] + [_xAccelerations[i] floatValue])/2.0f*dt;
+		dx+=vx*dt;
+	}
+	dispatch_sync(dispatch_get_main_queue(), ^{
+		[_delegate xDistanceChanged:dx];
+	});
+}
+
+- (double) calculateAccelerationValue:(CMDeviceMotion *)motion{
+	double accValue = sqrt(pow(motion.userAcceleration.x,2)+pow(motion.userAcceleration.y,2)+pow(motion.userAcceleration.z, 2));
+	accValue = accValue * 100;
+	return accValue;
 }
 
 - (double) filterAccelerationValue:(double)newValue{
