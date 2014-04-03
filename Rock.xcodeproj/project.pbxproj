@@ -26,14 +26,14 @@
 		0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFEE18E2C604002E58EA /* NoteBuffer.m */; };
-		019BFFF318E37213002E58EA /* KRReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFF218E37213002E58EA /* KRReader.m */; };
 		01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3C618DC2E320050DFB0 /* Pulse.m */; };
 		01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */; };
 		01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */; };
 		01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01F5F3D218DCE2080050DFB0 /* bass.aupreset */; };
-		01F5F3D618DCF8270050DFB0 /* MidiParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3D518DCF8270050DFB0 /* MidiParser.m */; };
 		01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */; };
 		01F5F3DB18DCF96A0050DFB0 /* test.mid in Resources */ = {isa = PBXBuildFile; fileRef = 01F5F3DA18DCF96A0050DFB0 /* test.mid */; };
+		01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824E18EA895B0088E74F /* drums_full.aupreset */; };
+		01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824F18EA895B0088E74F /* drums_min.aupreset */; };
 		9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1718DDA74900392448 /* KRMotionTracker.m */; };
 		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
 		9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */; };
@@ -79,8 +79,6 @@
 		0132C84F18DF853700DBC428 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		019BFFED18E2C604002E58EA /* NoteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBuffer.h; sourceTree = "<group>"; };
 		019BFFEE18E2C604002E58EA /* NoteBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBuffer.m; sourceTree = "<group>"; };
-		019BFFF118E37213002E58EA /* KRReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRReader.h; sourceTree = "<group>"; };
-		019BFFF218E37213002E58EA /* KRReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRReader.m; sourceTree = "<group>"; };
 		01F5F3C518DC2E320050DFB0 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
 		01F5F3C618DC2E320050DFB0 /* Pulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pulse.m; sourceTree = "<group>"; };
 		01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSettings.h; sourceTree = "<group>"; };
@@ -88,10 +86,10 @@
 		01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioSampler.m; sourceTree = "<group>"; };
 		01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		01F5F3D218DCE2080050DFB0 /* bass.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bass.aupreset; sourceTree = "<group>"; };
-		01F5F3D418DCF8270050DFB0 /* MidiParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiParser.h; sourceTree = "<group>"; };
-		01F5F3D518DCF8270050DFB0 /* MidiParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiParser.m; sourceTree = "<group>"; };
 		01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		01F5F3DA18DCF96A0050DFB0 /* test.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = test.mid; sourceTree = "<group>"; };
+		01FD824E18EA895B0088E74F /* drums_full.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drums_full.aupreset; sourceTree = "<group>"; };
+		01FD824F18EA895B0088E74F /* drums_min.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drums_min.aupreset; sourceTree = "<group>"; };
 		9F3EFF1618DDA74900392448 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = SOURCE_ROOT; };
 		9F3EFF1718DDA74900392448 /* KRMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTracker.m; sourceTree = SOURCE_ROOT; };
 		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -164,6 +162,8 @@
 		0103BF1B18DB7DF700697273 /* Rock */ = {
 			isa = PBXGroup;
 			children = (
+				01FD824E18EA895B0088E74F /* drums_full.aupreset */,
+				01FD824F18EA895B0088E74F /* drums_min.aupreset */,
 				01F5F3D218DCE2080050DFB0 /* bass.aupreset */,
 				01F5F3CC18DC9FA70050DFB0 /* Resources */,
 				0103BF4E18DB7E3C00697273 /* Sounds */,
@@ -227,14 +227,10 @@
 				01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */,
 				01F5F3C918DC9DB00050DFB0 /* AudioSampler.h */,
 				01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */,
-				01F5F3D418DCF8270050DFB0 /* MidiParser.h */,
-				01F5F3D518DCF8270050DFB0 /* MidiParser.m */,
 				0132C84E18DF853700DBC428 /* Player.h */,
 				0132C84F18DF853700DBC428 /* Player.m */,
 				019BFFED18E2C604002E58EA /* NoteBuffer.h */,
 				019BFFEE18E2C604002E58EA /* NoteBuffer.m */,
-				019BFFF118E37213002E58EA /* KRReader.h */,
-				019BFFF218E37213002E58EA /* KRReader.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -366,6 +362,8 @@
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				0103BF2918DB7DF800697273 /* Main.storyboard in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
+				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
+				01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0103BF2C18DB7DF800697273 /* ViewController.m in Sources */,
-				019BFFF318E37213002E58EA /* KRReader.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */,
@@ -395,7 +392,6 @@
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
-				01F5F3D618DCF8270050DFB0 /* MidiParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
