@@ -10,17 +10,17 @@
 #import <AVFoundation/AVFoundation.h>
 
 typedef enum {
-	kUnknown = 0,
-    kWhite,
-    kGray,
-    kBlack,
-	kAcid,
-	kGreen,
+	kRed = 0,
 	kYellow,
-	kRed,
+	kGreen,
 	kBlue,
+	kWhite,
+    kBlack,
+	kBrown,
+	kAcid,
+	kMixed,
+	kUnknown = 0,
 } KRImageType;
-
 
 @protocol ColorAnalyzerDelegate
 - (void) colorsDidChanged:(NSArray*)colorsArray;

@@ -208,6 +208,10 @@ static int counter = 0;
 #pragma mark -
 #pragma mark Still Image Analyzing
 
+- (NSArray *) getColorsArray{
+	return @[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor whiteColor], [UIColor blackColor], [UIColor brownColor]];
+}
+
 - (struct ColorUnit) colorUnitWithUIColor:(UIColor *)color{
 	struct ColorUnit unit;
 	
@@ -229,11 +233,9 @@ static int counter = 0;
 	int yellowFreq = recordArray[1].frequency;
 	int greenFreq = recordArray[2].frequency;
 	int blueFreq = recordArray[3].frequency;
-	int whiteFreq = recordArray[4].frequency;
-	int blackFreq = recordArray[5].frequency;
 	
 	int variousColors = 0;
-	int treshhold = (int)pixelsCount/5;
+	int treshhold = (int)pixelsCount/6;
 	if (greenFreq > treshhold) {
 		variousColors ++;
 	}
@@ -250,21 +252,17 @@ static int counter = 0;
 		return kAcid;
 	}
 
-
-	if(greenFreq > pixelsCount / 2.0){
-		return kGreen;
-	}
-	if(redFreq > pixelsCount / 2.0){
-		return kRed;
-	}
-	if(yellowFreq > pixelsCount/2.0){
-		return kYellow;
-	}
-	if(blueFreq > pixelsCount / 2.0){
-		return kBlue;
+	int maxFreq = 0;
+	int index = 0;
+	for(int i = 0; i < sizeof(recordArray); i++){
+		int freq = recordArray[i].frequency;
+		if(freq > maxFreq){
+			maxFreq = freq;
+			index = i;
+		}
 	}
 	
-	return kWhite;
+	return (KRImageType)index;
 }
 
 - (KRImageType) getTypeForImage:(UIImage *)originalImage{
@@ -290,7 +288,7 @@ static int counter = 0;
     struct ColorUnit recordArray[width * height];
     
     int k = 0;
-	NSArray * colorGroups = @[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor whiteColor], [UIColor blackColor]];
+	NSArray * colorGroups = [self getColorsArray];
 	for (UIColor * color in colorGroups) {
 		struct ColorUnit unit = [self colorUnitWithUIColor:color];
 			recordArray[k++] = unit;
