@@ -17,7 +17,7 @@
 #define kColorViewStartTag 10
 
 @interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
-    LegacyColorAnalyzer * _colorAnalyzer;
+    KRColorAnalyzer * _colorAnalyzer;
     KRMotionTracker * _motionTracker;
     Player * _player;
 }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LegacyColorAnalyzer.h"
+#import "KRColorAnalyzer.h"
 
 @interface ViewController : UIViewController <ColorAnalyzerDelegate>
 

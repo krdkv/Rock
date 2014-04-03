@@ -9,18 +9,31 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+typedef enum {
+	kUnknown = 0,
+    kWhite,
+    kGray,
+    kBlack,
+	kAcid,
+	kGreen,
+	kYellow,
+	kRed,
+	kBlue,
+} KRImageType;
+
+
 @protocol ColorAnalyzerDelegate
-
 - (void) colorsDidChanged:(NSArray*)colorsArray;
-
 @end
 
-@interface LegacyColorAnalyzer : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface KRColorAnalyzer : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (assign, nonatomic) NSInteger numberOfColors;
 @property (weak, nonatomic) id<ColorAnalyzerDelegate> delegate;
 
 - (void) start;
 - (NSInteger) colorMatchesGroup:(UIColor*)color;
+
+- (KRImageType) getTypeForImage:(UIImage *)image;
 
 @end

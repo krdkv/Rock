@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Tenere. All rights reserved.
 //
 
-#import "LegacyColorAnalyzer.h"
+#import "KRColorAnalyzer.h"
 
 struct ColorUnit {
     uint8_t red;
@@ -15,7 +15,7 @@ struct ColorUnit {
     unsigned int frequency;
 };
 
-@interface LegacyColorAnalyzer() {
+@interface KRColorAnalyzer() {
     EAGLContext *context;
     CIContext *coreImageContext;
     AVCaptureSession *session;
@@ -24,7 +24,7 @@ struct ColorUnit {
 
 @end
 
-@implementation LegacyColorAnalyzer
+@implementation KRColorAnalyzer
 
 - (id)init
 {
@@ -62,7 +62,7 @@ struct ColorUnit {
 }
 
 bool componentsAreClose(uint8_t a, uint8_t b) {
-    return a - b < 30;
+    return a - b < 5;
 }
 
 bool isDarkPixel(const uint8_t* color) {
@@ -181,7 +181,7 @@ static int counter = 0;
 
 - (NSInteger) colorMatchesGroup:(UIColor*)color {
     
-    NSArray * colorGroups = @[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor], [UIColor cyanColor], [UIColor blueColor], [UIColor magentaColor]];
+    NSArray * colorGroups = @[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor whiteColor], [UIColor blackColor]];
     
     CGFloat record = CGFLOAT_MAX;
     NSInteger recordIndex = 0;
@@ -202,8 +202,120 @@ static int counter = 0;
             recordIndex = i;
         }
     }
-    
     return recordIndex;
+}
+
+#pragma mark -
+#pragma mark Still Image Analyzing
+
+- (struct ColorUnit) colorUnitWithUIColor:(UIColor *)color{
+	struct ColorUnit unit;
+	
+	const CGFloat *components = CGColorGetComponents(color.CGColor);
+	unit.red = components[0];
+	unit.green = components[1];
+	unit.blue = components[2];
+	unit.frequency = 1;
+	return unit;
+}
+
+- (CGFloat) distanceBetweenPixel:(const uint8_t *)pixel andColorUnit:(struct ColorUnit)colorUnit{
+	CGFloat distance = sqrtf(powf((pixel[0] - colorUnit.red * 255), 2) + powf((pixel[1] - colorUnit.green * 255), 2) + powf((pixel[2] - colorUnit.blue * 255), 2) );
+	return distance;
+}
+
+- (KRImageType) typeWithFrequencies:(struct ColorUnit *)recordArray pixelsCount:(NSInteger)pixelsCount{
+	int redFreq = recordArray[0].frequency;
+	int yellowFreq = recordArray[1].frequency;
+	int greenFreq = recordArray[2].frequency;
+	int blueFreq = recordArray[3].frequency;
+	int whiteFreq = recordArray[4].frequency;
+	int blackFreq = recordArray[5].frequency;
+	
+	int variousColors = 0;
+	int treshhold = (int)pixelsCount/5;
+	if (greenFreq > treshhold) {
+		variousColors ++;
+	}
+	if(redFreq > treshhold){
+		variousColors ++;
+	}
+	if(blueFreq > treshhold){
+		variousColors ++;
+	}
+	if(yellowFreq > treshhold){
+		variousColors ++;
+	}
+	if(variousColors > 2){
+		return kAcid;
+	}
+
+
+	if(greenFreq > pixelsCount / 2.0){
+		return kGreen;
+	}
+	if(redFreq > pixelsCount / 2.0){
+		return kRed;
+	}
+	if(yellowFreq > pixelsCount/2.0){
+		return kYellow;
+	}
+	if(blueFreq > pixelsCount / 2.0){
+		return kBlue;
+	}
+	
+	return kWhite;
+}
+
+- (KRImageType) getTypeForImage:(UIImage *)originalImage{
+
+	if(!originalImage){
+		return kUnknown;
+	}
+	
+	CGImageRef cgimage = originalImage.CGImage;
+    
+    size_t width  = CGImageGetWidth(cgimage);
+    size_t height = CGImageGetHeight(cgimage);
+    
+    size_t bpr = CGImageGetBytesPerRow(cgimage);
+    size_t bpp = CGImageGetBitsPerPixel(cgimage);
+    size_t bpc = CGImageGetBitsPerComponent(cgimage);
+    size_t bytes_per_pixel = bpp / bpc;
+    
+    CGDataProviderRef provider = CGImageGetDataProvider(cgimage);
+    NSData* data = (id)CFBridgingRelease(CGDataProviderCopyData(provider));
+    const uint8_t* bytes = [data bytes];
+    
+    struct ColorUnit recordArray[width * height];
+    
+    int k = 0;
+	NSArray * colorGroups = @[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor], [UIColor blueColor], [UIColor whiteColor], [UIColor blackColor]];
+	for (UIColor * color in colorGroups) {
+		struct ColorUnit unit = [self colorUnitWithUIColor:color];
+			recordArray[k++] = unit;
+	}
+    for(size_t row = 0; row < height; row++)
+    {
+        for(size_t col = 0; col < width; col++)
+        {
+            const uint8_t * pixel = &bytes[row * bpr + col * bytes_per_pixel];
+			CGFloat record = CGFLOAT_MAX;
+			NSInteger recordIndex = 0;
+			
+            for ( int i = 0; i < k ; ++i ) {
+				CGFloat distance = [self distanceBetweenPixel:pixel andColorUnit:recordArray[i]];
+				if ( distance < record ) {
+					record = distance;
+					recordIndex = i;
+				}
+			}
+			
+			recordArray[recordIndex].frequency++;
+        }
+    }
+    
+	return [self typeWithFrequencies:recordArray pixelsCount:width * height];
 }
 
 @end
