@@ -22,6 +22,8 @@ typedef enum {
 } KRMotionType;
 
 @protocol KRMotionTrackerDelegate
+- (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z;
+- (void) xDistanceChanged:(CGFloat)distance;
 - (void) newMotionValue:(KRSpeed)speed;
 - (void) shakeDetected;
 @end

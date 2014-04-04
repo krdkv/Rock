@@ -22,7 +22,6 @@
 		0103BF3F18DB7DF800697273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF3D18DB7DF800697273 /* InfoPlist.strings */; };
 		0103BF4118DB7DF800697273 /* RockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF4018DB7DF800697273 /* RockTests.m */; };
 		0103BF4F18DB7E3C00697273 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF4E18DB7E3C00697273 /* Sounds */; };
-		0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */; };
 		0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFEE18E2C604002E58EA /* NoteBuffer.m */; };
@@ -33,10 +32,18 @@
 		01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */; };
 		01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824E18EA895B0088E74F /* drums_full.aupreset */; };
 		01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824F18EA895B0088E74F /* drums_min.aupreset */; };
-		9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1718DDA74900392448 /* KRMotionTracker.m */; };
 		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
 		9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */; };
 		9F3EFF1E18DDB99700392448 /* KRMotionTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */; };
+		9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */; };
+		9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E918EDC7AE00C4E792 /* KRMotionTracker.m */; };
+		9FAB54ED18EDCA9C00C4E792 /* KRColorAnalyzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54EC18EDCA9C00C4E792 /* KRColorAnalyzerTests.m */; };
+		9FAB54F018EDCC2100C4E792 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54EF18EDCC2100C4E792 /* green.png */; };
+		9FAB54F118EDCDCB00C4E792 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54EF18EDCC2100C4E792 /* green.png */; };
+		9FAB54F318EDDC2000C4E792 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F218EDDC2000C4E792 /* red.png */; };
+		9FAB54F418EDDC5D00C4E792 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F218EDDC2000C4E792 /* red.png */; };
+		9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F518EDDD9C00C4E792 /* acid.png */; };
+		9FAB54F718EDDD9C00C4E792 /* acid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F518EDDD9C00C4E792 /* acid.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +77,6 @@
 		0103BF3E18DB7DF800697273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0103BF4018DB7DF800697273 /* RockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RockTests.m; sourceTree = "<group>"; };
 		0103BF4E18DB7E3C00697273 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
-		0103BF5018DB7E7B00697273 /* LegacyColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacyColorAnalyzer.h; sourceTree = "<group>"; };
-		0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacyColorAnalyzer.m; sourceTree = "<group>"; };
 		0103BF5218DB7E7B00697273 /* LegacySpeedTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LegacySpeedTracker.h; sourceTree = "<group>"; };
 		0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LegacySpeedTracker.m; sourceTree = "<group>"; };
 		0132C84E18DF853700DBC428 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -88,11 +93,17 @@
 		01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		01FD824E18EA895B0088E74F /* drums_full.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drums_full.aupreset; sourceTree = "<group>"; };
 		01FD824F18EA895B0088E74F /* drums_min.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drums_min.aupreset; sourceTree = "<group>"; };
-		9F3EFF1618DDA74900392448 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = SOURCE_ROOT; };
-		9F3EFF1718DDA74900392448 /* KRMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTracker.m; sourceTree = SOURCE_ROOT; };
 		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTrackerTests.m; sourceTree = "<group>"; };
+		9FAB54E518EDC7AE00C4E792 /* KRColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRColorAnalyzer.h; sourceTree = "<group>"; };
+		9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorAnalyzer.m; sourceTree = "<group>"; };
+		9FAB54E818EDC7AE00C4E792 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = "<group>"; };
+		9FAB54E918EDC7AE00C4E792 /* KRMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTracker.m; sourceTree = "<group>"; };
+		9FAB54EC18EDCA9C00C4E792 /* KRColorAnalyzerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorAnalyzerTests.m; sourceTree = "<group>"; };
+		9FAB54EF18EDCC2100C4E792 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
+		9FAB54F218EDDC2000C4E792 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		9FAB54F518EDDD9C00C4E792 /* acid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acid.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,9 +202,11 @@
 		0103BF3A18DB7DF800697273 /* RockTests */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB54EE18EDCC2100C4E792 /* TestImages */,
 				0103BF4018DB7DF800697273 /* RockTests.m */,
 				0103BF3B18DB7DF800697273 /* Supporting Files */,
 				9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */,
+				9FAB54EC18EDCA9C00C4E792 /* KRColorAnalyzerTests.m */,
 			);
 			path = RockTests;
 			sourceTree = "<group>";
@@ -210,6 +223,8 @@
 		0103BF4A18DB7E2F00697273 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				9FAB54E418EDC7AE00C4E792 /* ImageAnalyzer */,
+				9FAB54E718EDC7AE00C4E792 /* Motion */,
 				0103BF4B18DB7E2F00697273 /* Audio */,
 				0103BF4C18DB7E2F00697273 /* Legacy */,
 				0103BF4D18DB7E2F00697273 /* Sensors */,
@@ -236,8 +251,6 @@
 		0103BF4C18DB7E2F00697273 /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
-				0103BF5018DB7E7B00697273 /* LegacyColorAnalyzer.h */,
-				0103BF5118DB7E7B00697273 /* LegacyColorAnalyzer.m */,
 				0103BF5218DB7E7B00697273 /* LegacySpeedTracker.h */,
 				0103BF5318DB7E7B00697273 /* LegacySpeedTracker.m */,
 			);
@@ -247,8 +260,6 @@
 		0103BF4D18DB7E2F00697273 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				9F3EFF1618DDA74900392448 /* KRMotionTracker.h */,
-				9F3EFF1718DDA74900392448 /* KRMotionTracker.m */,
 			);
 			path = Sensors;
 			sourceTree = "<group>";
@@ -258,6 +269,42 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		01F5F3D918DCF96A0050DFB0 /* MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				01F5F3DA18DCF96A0050DFB0 /* test.mid */,
+			);
+			path = MIDI;
+			sourceTree = "<group>";
+		};
+		9FAB54E418EDC7AE00C4E792 /* ImageAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				9FAB54E518EDC7AE00C4E792 /* KRColorAnalyzer.h */,
+				9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */,
+			);
+			path = ImageAnalyzer;
+			sourceTree = "<group>";
+		};
+		9FAB54E718EDC7AE00C4E792 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				9FAB54E818EDC7AE00C4E792 /* KRMotionTracker.h */,
+				9FAB54E918EDC7AE00C4E792 /* KRMotionTracker.m */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
+		9FAB54EE18EDCC2100C4E792 /* TestImages */ = {
+			isa = PBXGroup;
+			children = (
+				9FAB54EF18EDCC2100C4E792 /* green.png */,
+				9FAB54F218EDDC2000C4E792 /* red.png */,
+				9FAB54F518EDDD9C00C4E792 /* acid.png */,
+			);
+			path = TestImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,7 +356,7 @@
 				ORGANIZATIONNAME = Kusto;
 				TargetAttributes = {
 					0103BF1118DB7DF700697273 = {
-						DevelopmentTeam = V2RJVNRCR5;
+						DevelopmentTeam = C92M3ZV55X;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -345,8 +392,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01F5F3DB18DCF96A0050DFB0 /* test.mid in Resources */,
+				9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
+				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
+				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				0103BF2918DB7DF800697273 /* Main.storyboard in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
@@ -359,7 +410,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAB54F718EDDD9C00C4E792 /* acid.png in Resources */,
+				9FAB54F318EDDC2000C4E792 /* red.png in Resources */,
 				0103BF3F18DB7DF800697273 /* InfoPlist.strings in Resources */,
+				9FAB54F018EDCC2100C4E792 /* green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,12 +427,12 @@
 				0103BF2C18DB7DF800697273 /* ViewController.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
+				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
 				0103BF5518DB7E7B00697273 /* LegacySpeedTracker.m in Sources */,
-				9F3EFF1818DDA74900392448 /* KRMotionTracker.m in Sources */,
+				9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */,
 				0132C85018DF853700DBC428 /* Player.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
-				0103BF5418DB7E7B00697273 /* LegacyColorAnalyzer.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0103BF4118DB7DF800697273 /* RockTests.m in Sources */,
+				9FAB54ED18EDCA9C00C4E792 /* KRColorAnalyzerTests.m in Sources */,
 				9F3EFF1E18DDB99700392448 /* KRMotionTrackerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,13 +17,16 @@
 #define kColorViewStartTag 10
 
 @interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
-    LegacyColorAnalyzer * _colorAnalyzer;
+    KRColorAnalyzer * _colorAnalyzer;
     KRMotionTracker * _motionTracker;
     Player * _player;
 }
 @property (weak) IBOutlet UILabel * motionQuantityLabel;
 @property (weak) IBOutlet UILabel * motionTypeLabel;
 @property (weak) IBOutlet UILabel * gpsSpeedLabel;
+@property (weak) IBOutlet UILabel * xAcceleration;
+@property (weak) IBOutlet UILabel * yAcceleration;
+@property (weak) IBOutlet UILabel * zAcceleration;
 @end
 
 @implementation ViewController
@@ -104,6 +107,17 @@
 
 #pragma mark -
 #pragma mark KRMotionTypeDelegate Methods
+
+- (void) xDistanceChanged:(CGFloat)distance{
+	_xAcceleration.text = [NSString stringWithFormat:@"%f", distance];
+}
+
+- (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z{
+//	_xAcceleration.text = [NSString stringWithFormat:@"%f", x];
+	_yAcceleration.text = [NSString stringWithFormat:@"%f", y];
+	_zAcceleration.text = [NSString stringWithFormat:@"%f", z];
+	
+}
 
 - (void) newMotionType:(KRMotionType)type{
 	NSString * title = @"";
