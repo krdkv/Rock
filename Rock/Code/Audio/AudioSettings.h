@@ -9,14 +9,24 @@
 #ifndef Rock_AudioSettings_h
 #define Rock_AudioSettings_h
 
-#define kDefaultTempo 180
-#define kTimerCoefficient 1.875f
+#import <AudioToolbox/AudioToolbox.h>
+
+#define kDefaultTempo 120
+#define kTimerCoefficient 1.875f * 4
 #define kNumberOfTicksPerBar 32
 
 enum {
     kBass = 0,
     kDrums
 };
+
+enum {
+    kReverb = kAudioUnitSubType_Reverb2
+};
+
+#define kEffects @[@[], @[@(kReverb)]]
+
+#define kEffectSettings @[ @[/*bass*/],                                                                                                                             @[@[@{@"p":@(kReverb2Param_DryWetMix), @"on":@70.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f}]],  ]
 
 #define kMapNames @[@"bass", @"drums_full"]
 

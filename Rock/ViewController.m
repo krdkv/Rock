@@ -73,6 +73,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)tempoChanged:(UISlider*)sender {
+    [_player setTempo:sender.value];
+}
+
 #pragma mark -
 #pragma mark KRMotionTrackerDelegate Methods
 
@@ -85,7 +89,7 @@
     switch (speed) {
         case kSlowSpeed:
             title = @"slow";
-            [_player setTempo:90];
+            [_player setTempo:120];
             break;
             
         case kMediumSpeed:

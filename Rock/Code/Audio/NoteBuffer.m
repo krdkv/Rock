@@ -69,6 +69,7 @@
     
     NSInteger count = _waitingNotes.count;
     for ( NSInteger i = count - 1; i >= 0; --i ) {
+
         NSDictionary * note = _waitingNotes[i];
         NSInteger ticksBeforeStart = [note[@"o"] intValue] - 1;
         if ( ticksBeforeStart == 0 ) {
@@ -77,7 +78,6 @@
                                velocity:[note[@"v"] intValue]
                                duration:[note[@"d"] intValue]];
             [_waitingNotes removeObjectAtIndex:i];
-            --i;
         } else {
             [_waitingNotes replaceObjectAtIndex:i withObject:@{@"i":note[@"i"], @"k":note[@"k"], @"v":note[@"v"], @"o":@(ticksBeforeStart), @"d":note[@"d"]}];
         }

@@ -8,13 +8,13 @@
 
 #import "AudioSampler.h"
 #import "AudioSettings.h"
-#import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface AudioSampler() {
     AUGraph _graph;
     AudioUnit * _samplerUnits;
     AudioUnit _mixerUnit, _ioUnit;
+    AudioUnit ** _effectUnits;
     void(^_setupOnComplete)(void);
 }
 
@@ -61,7 +61,7 @@
 
 - (void) initAUGraph {
     OSStatus result = noErr;
-	AUNode *samplerNodes, mixerNode, ioNode;
+	AUNode *samplerNodes, mixerNode, ioNode, **effectNodes;
     
     AudioComponentDescription cd = {};
 	cd.componentManufacturer     = kAudioUnitManufacturer_Apple;
@@ -101,14 +101,54 @@
 	result = AUGraphAddNode (_graph, &cd, &ioNode);
     NSCAssert (result == noErr, @"Unable to add the Output unit to the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
     
+    // Adding effects
+    
+    effectNodes = malloc(kMapNames.count * sizeof(AUNode*));
+    _effectUnits = malloc(kMapNames.count * sizeof(AudioUnit*));
+    
+    for ( int i = 0; i < kMapNames.count; ++i ) {
+        
+        if ( [kEffects[i] count] == 0 ) {
+            continue;
+        }
+        
+        effectNodes[i] = malloc([kEffects[i] count] * sizeof(AUNode));
+        _effectUnits[i] = malloc([kEffects[i] count] * sizeof(AudioUnit));
+        
+        for ( int j = 0; j < [kEffects[i] count]; ++j ) {
+            
+            cd.componentType = kAudioUnitType_Effect;
+            cd.componentSubType = (OSType)[kEffects[i][j] intValue];
+            AUGraphAddNode(_graph, &cd, &effectNodes[i][j]);
+            AUGraphNodeInfo(_graph, effectNodes[i][j], NULL, &_effectUnits[i][j]);
+        }
+    }
+    
     // Opening graph, making connections
     
     result = AUGraphOpen (_graph);
     NSCAssert (result == noErr, @"Unable to open the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
     
     for ( int i = 0; i < kMapNames.count; ++i ) {
-        result = AUGraphConnectNodeInput (_graph, samplerNodes[i], 0, mixerNode, i);
-        NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+        
+        if ( [kEffects[i] count] != 0 ) {
+            
+            result = AUGraphConnectNodeInput (_graph, samplerNodes[i], 0, effectNodes[i][0], 0);
+            NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+            
+            for ( int j = 1; j < [kEffects[i] count]; ++j ) {
+                result = AUGraphConnectNodeInput (_graph, effectNodes[i][j-1], 0, effectNodes[i][j], 0);
+                NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+            }
+            result = AUGraphConnectNodeInput (_graph, effectNodes[i][[kEffects[i] count] - 1], 0, mixerNode, i);
+            NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+            
+        } else {
+            result = AUGraphConnectNodeInput (_graph, samplerNodes[i], 0, mixerNode, i);
+            NSCAssert (result == noErr, @"Unable to interconnect the nodes in the audio processing graph. Error code: %d '%.4s'", (int) result, (const char *)&result);
+        }
+        
+        
     }
     
     result = AUGraphConnectNodeInput (_graph, mixerNode, 0, ioNode, 0);
@@ -119,6 +159,10 @@
     for ( int i = 0; i < kMapNames.count; ++i ) {
         result = AUGraphNodeInfo (_graph, samplerNodes[i], 0, &_samplerUnits[i]);
         NSCAssert (result == noErr, @"Unable to obtain a reference to the Sampler unit. Error code: %d '%.4s'", (int) result, (const char *)&result);
+        
+        for ( int j = 0; j < [kEffects[i] count]; ++j ) {
+            result = AUGraphNodeInfo(_graph, effectNodes[i][j], 0, &_effectUnits[i][j]);
+        }
     }
     
     result = AUGraphNodeInfo (_graph, mixerNode, 0, &_mixerUnit);
@@ -135,6 +179,10 @@
     
     for ( int i = 0; i < kMapNames.count; ++i ) {
         AudioUnitSetProperty (_samplerUnits[i], kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &maximumFramesPerSlice, sizeof (maximumFramesPerSlice));
+        
+        for ( int j = 0; j < [kEffects[i] count]; ++j ) {
+            AudioUnitSetProperty (_effectUnits[i][j], kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &maximumFramesPerSlice, sizeof (maximumFramesPerSlice));
+        }
     }
     
     // Setting sample rate
@@ -150,7 +198,16 @@
     for ( int i = 0; i < kMapNames.count; ++i ) {
         result = AudioUnitSetProperty (_samplerUnits[i], kAudioUnitProperty_SampleRate, kAudioUnitScope_Output, 0, &sampleRate, sizeof(sampleRate));
         NSAssert (result == noErr, @"AudioUnitSetProperty (set Sampler unit output stream sample rate). Error code: %d '%.4s'", (int) result, (const char *)&result);
+        
+        for ( int j = 0; j < [kEffects[i] count]; ++j ) {
+            result = AudioUnitSetProperty (_effectUnits[i][j], kAudioUnitProperty_SampleRate, kAudioUnitScope_Output, 0, &sampleRate, sizeof(sampleRate));
+            NSAssert (result == noErr, @"AudioUnitSetProperty (set Sampler unit output stream sample rate). Error code: %d '%.4s'", (int) result, (const char *)&result);
+        }
     }
+    
+    // Setting up graph settings
+    
+    [self settingUpEffects];
     
     // Starting graph
     
@@ -163,6 +220,19 @@
     
     // Print out the graph to the console
 //    CAShow (_graph);
+}
+
+- (void) settingUpEffects {
+    for ( int i = 0; i < kMapNames.count; ++i ) {
+        for ( int j = 0; j < [kEffects[i] count]; ++j ) {
+            
+            for ( NSDictionary * effectParameter in kEffectSettings[i][j] ) {
+                UInt32 property = (UInt32)[effectParameter[@"p"] intValue];
+                AudioUnitParameterValue valueToSet = [effectParameter[@"on"] floatValue];
+                AudioUnitSetParameter(_effectUnits[i][j], property, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
+            }
+        }
+    }
 }
 
 - (void) loadSampleMaps {

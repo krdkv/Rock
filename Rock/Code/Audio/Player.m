@@ -27,6 +27,32 @@
         _pulse.delegate = self;
         
         _buffer = [[NoteBuffer alloc] init];
+        
+        for ( int i = 0; i < 100; ++i ) {
+            NSString * firstBar = [drumBar componentsSeparatedByString:@"|"][0];
+            NSArray * notes = [firstBar componentsSeparatedByString:@"-"];
+            for ( NSString * note in notes ) {
+                if ( note.length == 0 ) {
+                    continue;
+                }
+                NSArray * components = [note componentsSeparatedByString:@","];
+                int key = [components[0] intValue];
+                int offset = [components[1] intValue];
+                [_buffer addNoteForInstrument:1 note:key-12 velocity:100+arc4random()%30 offset:offset + i * 32 duration:100];
+            }
+            
+            firstBar = [drumBar componentsSeparatedByString:@"|"][1];
+            notes = [firstBar componentsSeparatedByString:@"-"];
+            for ( NSString * note in notes ) {
+                if ( note.length == 0 ) {
+                    continue;
+                }
+                NSArray * components = [note componentsSeparatedByString:@","];
+                int key = [components[0] intValue];
+                int offset = [components[1] intValue];
+                [_buffer addNoteForInstrument:1 note:key-12 velocity:100+arc4random()%30 offset:offset + i * 64 duration:100];
+            }
+        }
     }
     return self;
 }
@@ -35,48 +61,33 @@
     [_pulse start];
 }
 
-static int barNumber = -1;
-static int barCycle = 20;
-static int startNote = 28;
+static NSString * drumBar = @"36,0,4-42,4,4-36,8,4-38,8,4-42,12,4-36,16,4-42,20,4-36,24,4-38,24,4-42,28,4-|36,32,4-42,36,4-36,40,4-38,40,4-42,44,4-36,48,2-38,50,2-36,52,5-";//@"36,0,4-42,4,4-36,8,4-38,8,4-42,12,4-36,16,4-42,20,4-36,24,4-38,24,4-42,28,4-|36,32,4-42,36,4-36,40,4-38,40,4-42,44,4-36,48,2-38,50,2-36,52,5-";
+
+static int barIndex = 0;
 
 - (void) tickWithNumber:(int)tick {
     
+    if ( tick == kNumberOfTicksPerBar - 1 ) {
+        barIndex = barIndex == 0 ? 1 : 0;
+    }
+    
+//    if ( tick == 0 ) {
+//        NSString * firstBar = barIndex == 0 ? [drumBar componentsSeparatedByString:@"|"][0] : [drumBar componentsSeparatedByString:@"|"][1];
+//        NSArray * notes = [firstBar componentsSeparatedByString:@"-"];
+//        for ( NSString * note in notes ) {
+//            if ( note.length == 0 ) {
+//                continue;
+//            }
+//            NSArray * components = [note componentsSeparatedByString:@","];
+//            int key = [components[0] intValue];
+//            int offset = barIndex == 0 ? [components[1] intValue] : [components[1] intValue] - 32;
+//            int duration = [components[2] intValue];
+////            NSLog(@"%d %d %d", tick, key, offset);
+//            [_buffer addNoteForInstrument:1 note:key-12 velocity:70+arc4random()%50 offset:offset duration:duration];
+//        }
+//    }
+    
     [_buffer onTick:tick];
-    
-    if ( tick == 0 ) {
-        barNumber++;
-        if ( barNumber == barCycle ) {
-            barNumber = 0;
-            startNote = [@[@28, @33, @35][arc4random()%3] intValue];
-        }
-    }
-    
-    if ( tick % 18 == 0 ) {
-        int note = [@[@24, @25, @26, @30, @31, @34, @35, @37, @39][arc4random()%9] intValue];
-        int octave = arc4random()%2;
-        if ( octave > 0 ) {
-            note += 24 * octave;
-        }
-        [_buffer addNoteForInstrument:1 note:note velocity:60+arc4random()%100 offset:0 duration:100];
-    }
-    
-
-//    if ( barNumber == 0 && tick == 0 ) {
-//        [_buffer addNoteForInstrument:0 note:startNote velocity:70 + arc4random()%20 offset:0 duration:32];
-//        [_buffer addNoteForInstrument:0 note:startNote velocity:70+arc4random()%20 offset:16 duration:32];
-//    }
-//    
-//    if ( barNumber == 1 && tick == 0  ) {
-//        [_buffer addNoteForInstrument:0 note:startNote velocity:70+arc4random()%20 offset:0 duration:16];
-//    }
-//    
-//    if ( barNumber == 2 && tick == 0 ) {
-//        [_buffer addNoteForInstrument:0 note:startNote+7 velocity:70+arc4random()%20 offset:16 duration:16];
-//    }
-//    
-//    if ( barNumber == 3 && tick == 0 ) {
-//        [_buffer addNoteForInstrument:0 note:startNote+3 velocity:70+arc4random()%20 offset:16 duration:14];
-//    }
 }
 
 - (void) setTempo:(int)tempo {
