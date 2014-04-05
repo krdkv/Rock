@@ -288,6 +288,7 @@ static int counter = 0;
     struct ColorUnit recordArray[width * height];
     
     int k = 0;
+	[self getColorsArray];
 	NSArray * colorGroups = [self getColorsArray];
 	for (UIColor * color in colorGroups) {
 		struct ColorUnit unit = [self colorUnitWithUIColor:color];

@@ -19,7 +19,7 @@ typedef enum {
 	kBrown,
 	kAcid,
 	kMixed,
-	kUnknown = 0,
+	kUnknown,
 } KRImageType;
 
 @protocol ColorAnalyzerDelegate

@@ -48,11 +48,6 @@
     _motionTracker.delegate = self;
     [_motionTracker start];
     
-    _colorAnalyzer = [[LegacyColorAnalyzer alloc] init];
-    _colorAnalyzer.delegate = self;
-    _colorAnalyzer.numberOfColors = kNumberOfColors;
-//    [_colorAnalyzer start];
-
     [self.view setBackgroundColor:[UIColor darkGrayColor]];
     
     CGFloat yOffset = 40.f;
@@ -67,14 +62,26 @@
 #endif
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)tempoChanged:(UISlider*)sender {
     [_player setTempo:sender.value];
+}
+
+- (void) setupWithImage:(UIImage *)image
+{
+	_colorAnalyzer = [KRColorAnalyzer new];
+	_colorAnalyzer.numberOfColors = 10.0;
+
+	KRImageType type = [_colorAnalyzer getTypeForImage:image];
+	
+	NSArray * colors = @[@"red", @"yellow", @"green", @"blue", @"white", @"black", @"brown", @"acid", @"mixed", @"unknown"];
+	NSString * color = colors[(int) type];
+	
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Color is..."
+													 message:color
+													delegate:nil
+										   cancelButtonTitle:@"Oh gosh"
+										   otherButtonTitles:nil];
+	[alert show];
 }
 
 #pragma mark -

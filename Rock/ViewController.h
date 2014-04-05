@@ -11,4 +11,5 @@
 
 @interface ViewController : UIViewController <ColorAnalyzerDelegate>
 
+- (void) setupWithImage:(UIImage *)image;
 @end

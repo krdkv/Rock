@@ -7,12 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "KRPhotoPickerVC.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	
+	KRPhotoPickerVC * photoPickerVC = [[KRPhotoPickerVC alloc] initWithNibName:@"KRPhotoPickerVC" bundle:nil];
+
+	UINavigationController * rootNavController = [[UINavigationController alloc] initWithRootViewController:photoPickerVC];
+	
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.rootViewController = rootNavController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 							
