@@ -38,7 +38,7 @@
                 NSArray * components = [note componentsSeparatedByString:@","];
                 int key = [components[0] intValue];
                 int offset = [components[1] intValue];
-                [_buffer addNoteForInstrument:1 note:key-12 velocity:100+arc4random()%30 offset:offset + i * 32 duration:100];
+                [_buffer addNoteForInstrument:1 note:key-12 velocity:70+arc4random()%30 offset:offset + i * 32 duration:100];
             }
             
             firstBar = [drumBar componentsSeparatedByString:@"|"][1];
@@ -50,7 +50,7 @@
                 NSArray * components = [note componentsSeparatedByString:@","];
                 int key = [components[0] intValue];
                 int offset = [components[1] intValue];
-                [_buffer addNoteForInstrument:1 note:key-12 velocity:100+arc4random()%30 offset:offset + i * 64 duration:100];
+                [_buffer addNoteForInstrument:1 note:key-12 velocity:70+arc4random()%30 offset:offset + i * 64 duration:100];
             }
         }
     }
@@ -61,7 +61,7 @@
     [_pulse start];
 }
 
-static NSString * drumBar = @"36,0,4-42,4,4-36,8,4-38,8,4-42,12,4-36,16,4-42,20,4-36,24,4-38,24,4-42,28,4-|36,32,4-42,36,4-36,40,4-38,40,4-42,44,4-36,48,2-38,50,2-36,52,5-";//@"36,0,4-42,4,4-36,8,4-38,8,4-42,12,4-36,16,4-42,20,4-36,24,4-38,24,4-42,28,4-|36,32,4-42,36,4-36,40,4-38,40,4-42,44,4-36,48,2-38,50,2-36,52,5-";
+static NSString * drumBar = @"36,0,4-42,4,4-36,8,4-38,8,4-42,12,4-36,16,4-42,20,4-36,24,4-38,24,4-42,28,4-|36,32,4-42,36,4-36,40,4-38,40,4-42,44,4-36,48,2-38,50,2-36,52,5-";
 
 static int barIndex = 0;
 
@@ -71,20 +71,8 @@ static int barIndex = 0;
         barIndex = barIndex == 0 ? 1 : 0;
     }
     
-//    if ( tick == 0 ) {
-//        NSString * firstBar = barIndex == 0 ? [drumBar componentsSeparatedByString:@"|"][0] : [drumBar componentsSeparatedByString:@"|"][1];
-//        NSArray * notes = [firstBar componentsSeparatedByString:@"-"];
-//        for ( NSString * note in notes ) {
-//            if ( note.length == 0 ) {
-//                continue;
-//            }
-//            NSArray * components = [note componentsSeparatedByString:@","];
-//            int key = [components[0] intValue];
-//            int offset = barIndex == 0 ? [components[1] intValue] : [components[1] intValue] - 32;
-//            int duration = [components[2] intValue];
-////            NSLog(@"%d %d %d", tick, key, offset);
-//            [_buffer addNoteForInstrument:1 note:key-12 velocity:70+arc4random()%50 offset:offset duration:duration];
-//        }
+//    if ( tick % 8 == 4 ) {
+//        [_buffer addNoteForInstrument:0 note:28+arc4random()%36 velocity:70+arc4random()%50 offset:0 duration:8+arc4random()%24];
 //    }
     
     [_buffer onTick:tick];

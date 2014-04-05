@@ -21,14 +21,15 @@ enum {
 };
 
 enum {
-    kReverb = kAudioUnitSubType_Reverb2
+    kReverb = kAudioUnitSubType_Reverb2,
+    kDelay = kAudioUnitSubType_Delay
 };
 
-#define kEffects @[@[], @[@(kReverb)]]
+#define kEffects @[@[@(kDelay)], @[@(kReverb)]]
 
-#define kEffectSettings @[ @[/*bass*/],                                                                                                                             @[@[@{@"p":@(kReverb2Param_DryWetMix), @"on":@70.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f}]],  ]
+#define kEffectSettings @[ @[@[]],                                                                                                                             @[@[@{@"p":@(kReverb2Param_DryWetMix), @"on":@70.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f}]],  ]
 
-#define kMapNames @[@"bass", @"drums_full"]
+#define kMapNames @[@"bass_solo", @"drums_full"]
 
 #define kNoteOnMidiMessage 0x9 << 4 | 0
 #define kNoteOffMidiMessage 0x8 << 4 | 0
