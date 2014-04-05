@@ -20,6 +20,8 @@ struct ColorUnit {
     CIContext *coreImageContext;
     AVCaptureSession *session;
     GLuint renderBuffer;
+	
+	NSArray * _colorGroups;
 }
 
 @end
@@ -31,6 +33,7 @@ struct ColorUnit {
     self = [super init];
     if (self) {
         context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+		_colorGroups = [self getColorsArray];
     }
     return self;
 }
@@ -272,9 +275,9 @@ static int counter = 0;
 	}
 	
 	CGImageRef cgimage = originalImage.CGImage;
-    
     size_t width  = CGImageGetWidth(cgimage);
     size_t height = CGImageGetHeight(cgimage);
+	
     
     size_t bpr = CGImageGetBytesPerRow(cgimage);
     size_t bpp = CGImageGetBitsPerPixel(cgimage);
@@ -284,16 +287,15 @@ static int counter = 0;
     CGDataProviderRef provider = CGImageGetDataProvider(cgimage);
     NSData* data = (id)CFBridgingRelease(CGDataProviderCopyData(provider));
     const uint8_t* bytes = [data bytes];
-    
-    struct ColorUnit recordArray[width * height];
-    
+	
+	struct ColorUnit recordArray[width * height];
     int k = 0;
-	[self getColorsArray];
-	NSArray * colorGroups = [self getColorsArray];
-	for (UIColor * color in colorGroups) {
+	for (UIColor * color in _colorGroups) {
 		struct ColorUnit unit = [self colorUnitWithUIColor:color];
-			recordArray[k++] = unit;
+		recordArray[k++] = unit;
 	}
+
+    
     for(size_t row = 0; row < height; row++)
     {
         for(size_t col = 0; col < width; col++)
