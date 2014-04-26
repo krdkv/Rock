@@ -50,9 +50,11 @@
 }
 
 - (void) moveForwardWithImage:(UIImage *)image{
+	[self dismissViewControllerAnimated:YES completion:^{}];
 	ViewController * viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
 	[viewController setupWithImage:image];
-	[self.navigationController pushViewController:viewController animated:YES];
+	UINavigationController * navController = self.navigationController;
+	[navController pushViewController:viewController animated:YES];
 }
 
 #pragma mark -

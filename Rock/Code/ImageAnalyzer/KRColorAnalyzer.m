@@ -32,7 +32,6 @@ struct ColorUnit {
 {
     self = [super init];
     if (self) {
-        context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 		_colorGroups = [self getColorsArray];
     }
     return self;
@@ -236,6 +235,7 @@ static int counter = 0;
 	int yellowFreq = recordArray[1].frequency;
 	int greenFreq = recordArray[2].frequency;
 	int blueFreq = recordArray[3].frequency;
+
 	
 	int variousColors = 0;
 	int treshhold = (int)pixelsCount/6;
@@ -268,13 +268,23 @@ static int counter = 0;
 	return (KRImageType)index;
 }
 
+- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize{
+	UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (KRImageType) getTypeForImage:(UIImage *)originalImage{
 
 	if(!originalImage){
 		return kUnknown;
 	}
-	
+
+	originalImage = [self scaleImage:originalImage toSize:CGSizeMake(100.0, 100.0)];
 	CGImageRef cgimage = originalImage.CGImage;
+	
     size_t width  = CGImageGetWidth(cgimage);
     size_t height = CGImageGetHeight(cgimage);
 	

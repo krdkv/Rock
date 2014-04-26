@@ -33,6 +33,8 @@
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
 		9F3634E718F013FE00AEF1B1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* ViewController.xib */; };
+		9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E818F1728F00AEF1B1 /* huge.jpg */; };
+		9F3634EA18F1728F00AEF1B1 /* huge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E818F1728F00AEF1B1 /* huge.jpg */; };
 		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
 		9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */; };
 		9F3EFF1E18DDB99700392448 /* KRMotionTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */; };
@@ -95,6 +97,7 @@
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
 		9F3634E618F013FE00AEF1B1 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		9F3634E818F1728F00AEF1B1 /* huge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = huge.jpg; sourceTree = "<group>"; };
 		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTrackerTests.m; sourceTree = "<group>"; };
@@ -295,6 +298,7 @@
 		9FAB54EE18EDCC2100C4E792 /* TestImages */ = {
 			isa = PBXGroup;
 			children = (
+				9F3634E818F1728F00AEF1B1 /* huge.jpg */,
 				9FAB54EF18EDCC2100C4E792 /* green.png */,
 				9FAB54F218EDDC2000C4E792 /* red.png */,
 				9FAB54F518EDDD9C00C4E792 /* acid.png */,
@@ -391,6 +395,7 @@
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
+				9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */,
 				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
@@ -406,6 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FAB54F718EDDD9C00C4E792 /* acid.png in Resources */,
+				9F3634EA18F1728F00AEF1B1 /* huge.jpg in Resources */,
 				9FAB54F318EDDC2000C4E792 /* red.png in Resources */,
 				0103BF3F18DB7DF800697273 /* InfoPlist.strings in Resources */,
 				9FAB54F018EDCC2100C4E792 /* green.png in Resources */,
@@ -583,7 +589,7 @@
 		0103BF4818DB7DF800697273 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Rock.app/Rock";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/app.app/app";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -605,7 +611,7 @@
 		0103BF4918DB7DF800697273 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Rock.app/Rock";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/app.app/app";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

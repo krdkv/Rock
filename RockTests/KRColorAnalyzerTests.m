@@ -49,5 +49,12 @@
 	XCTAssert(type == kAcid, @"Wrong image type from analyzer");
 }
 
+- (void) testHugeImage{
+	NSString * path = [[NSBundle mainBundle] pathForResource:@"huge" ofType:@"jpg"];
+	UIImage * image = [UIImage imageWithContentsOfFile:path];
+	KRImageType type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert(type == kAcid, @"Wrong image type from analyzer");
+}
+
 
 @end

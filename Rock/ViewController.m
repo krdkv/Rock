@@ -17,10 +17,11 @@
 #define kColorViewStartTag 10
 
 @interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
-    KRColorAnalyzer * _colorAnalyzer;
     KRMotionTracker * _motionTracker;
     Player * _player;
+	UIImage * _image;
 }
+@property (strong) KRColorAnalyzer *colorAnalyzer;
 @property (weak) IBOutlet UILabel * motionQuantityLabel;
 @property (weak) IBOutlet UILabel * motionTypeLabel;
 @property (weak) IBOutlet UILabel * gpsSpeedLabel;
@@ -60,18 +61,11 @@
         [self.view addSubview:view];
     }
 #endif
-}
-
-- (IBAction)tempoChanged:(UISlider*)sender {
-    [_player setTempo:sender.value];
-}
-
-- (void) setupWithImage:(UIImage *)image
-{
+	
 	_colorAnalyzer = [KRColorAnalyzer new];
 	_colorAnalyzer.numberOfColors = 10.0;
-
-	KRImageType type = [_colorAnalyzer getTypeForImage:image];
+	
+	KRImageType type = [_colorAnalyzer getTypeForImage:_image];
 	
 	NSArray * colors = @[@"red", @"yellow", @"green", @"blue", @"white", @"black", @"brown", @"acid", @"mixed", @"unknown"];
 	NSString * color = colors[(int) type];
@@ -82,6 +76,16 @@
 										   cancelButtonTitle:@"Oh gosh"
 										   otherButtonTitles:nil];
 	[alert show];
+
+}
+
+- (IBAction)tempoChanged:(UISlider*)sender {
+    [_player setTempo:sender.value];
+}
+
+- (void) setupWithImage:(UIImage *)image
+{
+	_image = image;
 }
 
 #pragma mark -
