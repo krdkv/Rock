@@ -23,6 +23,7 @@
 		0103BF4F18DB7E3C00697273 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF4E18DB7E3C00697273 /* Sounds */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFEE18E2C604002E58EA /* NoteBuffer.m */; };
+		01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01AEEED818F0A7DF00F513EE /* bass_solo.aupreset */; };
 		01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3C618DC2E320050DFB0 /* Pulse.m */; };
 		01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F5F3CA18DC9DB00050DFB0 /* AudioSampler.m */; };
 		01F5F3D118DCA0240050DFB0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D018DCA0240050DFB0 /* AudioToolbox.framework */; };
@@ -83,6 +84,7 @@
 		0132C84F18DF853700DBC428 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		019BFFED18E2C604002E58EA /* NoteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBuffer.h; sourceTree = "<group>"; };
 		019BFFEE18E2C604002E58EA /* NoteBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteBuffer.m; sourceTree = "<group>"; };
+		01AEEED818F0A7DF00F513EE /* bass_solo.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bass_solo.aupreset; sourceTree = "<group>"; };
 		01F5F3C518DC2E320050DFB0 /* Pulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pulse.h; sourceTree = "<group>"; };
 		01F5F3C618DC2E320050DFB0 /* Pulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pulse.m; sourceTree = "<group>"; };
 		01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSettings.h; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		0103BF1B18DB7DF700697273 /* Rock */ = {
 			isa = PBXGroup;
 			children = (
+				01AEEED818F0A7DF00F513EE /* bass_solo.aupreset */,
 				01FD824E18EA895B0088E74F /* drums_full.aupreset */,
 				01FD824F18EA895B0088E74F /* drums_min.aupreset */,
 				01F5F3D218DCE2080050DFB0 /* bass.aupreset */,
