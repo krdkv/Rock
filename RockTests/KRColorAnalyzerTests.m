@@ -8,11 +8,17 @@
 
 #import <XCTest/XCTest.h>
 #import "KRColorAnalyzer.h"
+#import "KRColorUnit.h"
+
+@interface KRColorAnalyzer ()
+{
+	
+}
+@end
 
 @interface KRColorAnalyzerTests : XCTestCase{
 	KRColorAnalyzer * colorAnalyzer;
 }
-
 @end
 
 @implementation KRColorAnalyzerTests
@@ -28,25 +34,28 @@
     [super tearDown];
 }
 
-- (void)testGreen{
+- (void)testGreen
+{
 	NSString * path = [[NSBundle mainBundle] pathForResource:@"green" ofType:@"png"];
 	UIImage * image = [UIImage imageWithContentsOfFile:path];
-	KRImageType type = [colorAnalyzer getTypeForImage:image];
-	XCTAssert(type == kGreen, @"Wrong image type from analyzer");
+	NSString * type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert([type isEqual:@"green"], @"Wrong image type from analyzer");
 }
 
-- (void) testRed{
+- (void) testRed
+{
 	NSString * path = [[NSBundle mainBundle] pathForResource:@"red" ofType:@"png"];
 	UIImage * image = [UIImage imageWithContentsOfFile:path];
-	KRImageType type = [colorAnalyzer getTypeForImage:image];
-	XCTAssert(type == kRed, @"Wrong image type from analyzer");
+	NSString * type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert([type isEqual:@"red"], @"Wrong image type from analyzer");
 }
 
-- (void) testAcid{
+- (void) testAcid
+{
 	NSString * path = [[NSBundle mainBundle] pathForResource:@"acid" ofType:@"png"];
 	UIImage * image = [UIImage imageWithContentsOfFile:path];
-	KRImageType type = [colorAnalyzer getTypeForImage:image];
-	XCTAssert(type == kAcid, @"Wrong image type from analyzer");
+	NSString * type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert([type isEqual:@"acid"], @"Wrong image type from analyzer");
 }
 
 - (void) testHugeImage{

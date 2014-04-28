@@ -34,6 +34,6 @@ typedef enum {
 - (void) start;
 - (NSInteger) colorMatchesGroup:(UIColor*)color;
 
-- (KRImageType) getTypeForImage:(UIImage *)image;
+- (NSString *)getTypeForImage:(UIImage *)image;
 
 @end

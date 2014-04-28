@@ -48,6 +48,7 @@
 		9FAB54F418EDDC5D00C4E792 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F218EDDC2000C4E792 /* red.png */; };
 		9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F518EDDD9C00C4E792 /* acid.png */; };
 		9FAB54F718EDDD9C00C4E792 /* acid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F518EDDD9C00C4E792 /* acid.png */; };
+		9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,8 @@
 		9FAB54EF18EDCC2100C4E792 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green.png; sourceTree = "<group>"; };
 		9FAB54F218EDDC2000C4E792 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		9FAB54F518EDDD9C00C4E792 /* acid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acid.png; sourceTree = "<group>"; };
+		9FB5AECF190EC4E400EADB1D /* KRColorUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRColorUnit.h; sourceTree = "<group>"; };
+		9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorUnit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +288,8 @@
 			children = (
 				9FAB54E518EDC7AE00C4E792 /* KRColorAnalyzer.h */,
 				9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */,
+				9FB5AECF190EC4E400EADB1D /* KRColorUnit.h */,
+				9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */,
 			);
 			path = ImageAnalyzer;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
 				9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */,
 				0132C85018DF853700DBC428 /* Player.m in Sources */,
+				9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
