@@ -28,11 +28,14 @@
 @property (weak) IBOutlet UILabel * xAcceleration;
 @property (weak) IBOutlet UILabel * yAcceleration;
 @property (weak) IBOutlet UILabel * zAcceleration;
+
+@property (weak) IBOutlet UIImageView * scaledImageView;
 @end
 
 @implementation DebugViewController
 
-- (void) tick {
+- (void) tick
+{
     [NSTimer scheduledTimerWithTimeInterval:arc4random()%10 * 0.1f target:self selector:@selector(tick) userInfo:nil repeats:NO];
 }
 
@@ -65,17 +68,19 @@
 	_colorAnalyzer = [KRColorAnalyzer new];
 	_colorAnalyzer.numberOfColors = 10.0;
 	
-	KRImageType type = [_colorAnalyzer getTypeForImage:_image];
-	
-	NSArray * colors = @[@"red", @"yellow", @"green", @"blue", @"white", @"black", @"brown", @"acid", @"mixed", @"unknown"];
-	NSString * color = colors[(int) type];
+	NSString * type = [_colorAnalyzer getTypeForImage:_image];
 	
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Color is..."
-													 message:color
+													 message:type
 													delegate:nil
 										   cancelButtonTitle:@"Oh gosh"
 										   otherButtonTitles:nil];
 	[alert show];
+	
+	NSString * path = [[NSBundle mainBundle] pathForResource:@"red" ofType:@"png"];
+	UIImage * image = [UIImage imageWithContentsOfFile:path];
+	image = [_colorAnalyzer scaleImage:image toSize:CGSizeMake(100.0, 100.0)];
+	[_scaledImageView setImage:image];
 
 }
 

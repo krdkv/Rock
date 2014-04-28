@@ -11,7 +11,7 @@
 #import "DebugViewController.h"
 
 
-#define SHOW_DEBUG_UI 0
+#define SHOW_DEBUG_UI 1
 
 @implementation AppDelegate
 

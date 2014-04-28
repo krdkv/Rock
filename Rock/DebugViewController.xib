@@ -9,6 +9,7 @@
                 <outlet property="gpsSpeedLabel" destination="3hV-jr-2sh" id="rOc-D5-HeZ"/>
                 <outlet property="motionQuantityLabel" destination="Pd9-rK-Qhm" id="3BW-A3-hZf"/>
                 <outlet property="motionTypeLabel" destination="CTl-Mr-XB4" id="Onb-j6-UAK"/>
+                <outlet property="scaledImageView" destination="Ruq-si-W2d" id="VbV-IR-s9T"/>
                 <outlet property="view" destination="iN0-l3-epB" id="0cP-k7-R38"/>
                 <outlet property="xAcceleration" destination="aUg-Cj-0Nt" id="Scy-NN-cCq"/>
                 <outlet property="yAcceleration" destination="R88-6y-qVA" id="e8l-uc-zRN"/>
@@ -100,6 +101,10 @@
                     <color key="textColor" red="0.30588235289999999" green="0.74901960779999999" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ruq-si-W2d">
+                    <rect key="frame" x="50" y="107" width="100" height="100"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

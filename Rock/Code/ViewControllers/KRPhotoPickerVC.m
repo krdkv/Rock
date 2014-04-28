@@ -35,17 +35,20 @@
 	}
 }
 
-- (IBAction)takePhoto{
+- (IBAction)takePhoto
+{
 	_pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
 	[self presentViewController:_pickerController animated:YES completion:^{}];
 }
 
-- (IBAction) usePhoto{
+- (IBAction) usePhoto
+{
 	_pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 	[self presentViewController:_pickerController animated:YES completion:^{}];
 }
 
-- (IBAction) skip{
+- (IBAction) skip
+{
 	[self moveForwardWithImage:nil];
 }
 
