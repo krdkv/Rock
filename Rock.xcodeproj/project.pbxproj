@@ -13,7 +13,7 @@
 		0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF1E18DB7DF700697273 /* InfoPlist.strings */; };
 		0103BF2218DB7DF800697273 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF2118DB7DF800697273 /* main.m */; };
 		0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF2518DB7DF800697273 /* AppDelegate.m */; };
-		0103BF2C18DB7DF800697273 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF2B18DB7DF800697273 /* ViewController.m */; };
+		0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF2B18DB7DF800697273 /* DebugViewController.m */; };
 		0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF2D18DB7DF800697273 /* Images.xcassets */; };
 		0103BF3518DB7DF800697273 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0103BF3418DB7DF800697273 /* XCTest.framework */; };
 		0103BF3618DB7DF800697273 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0103BF1518DB7DF700697273 /* Foundation.framework */; };
@@ -33,7 +33,7 @@
 		01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824F18EA895B0088E74F /* drums_min.aupreset */; };
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
-		9F3634E718F013FE00AEF1B1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* ViewController.xib */; };
+		9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */; };
 		9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E818F1728F00AEF1B1 /* huge.jpg */; };
 		9F3634EA18F1728F00AEF1B1 /* huge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E818F1728F00AEF1B1 /* huge.jpg */; };
 		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
@@ -71,8 +71,8 @@
 		0103BF2318DB7DF800697273 /* Rock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rock-Prefix.pch"; sourceTree = "<group>"; };
 		0103BF2418DB7DF800697273 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0103BF2518DB7DF800697273 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0103BF2A18DB7DF800697273 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0103BF2B18DB7DF800697273 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0103BF2A18DB7DF800697273 /* DebugViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DebugViewController.h; sourceTree = "<group>"; };
+		0103BF2B18DB7DF800697273 /* DebugViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DebugViewController.m; sourceTree = "<group>"; };
 		0103BF2D18DB7DF800697273 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0103BF3318DB7DF800697273 /* RockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0103BF3418DB7DF800697273 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -98,7 +98,7 @@
 		9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPhotoPickerVC.h; sourceTree = "<group>"; };
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
-		9F3634E618F013FE00AEF1B1 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugViewController.xib; sourceTree = "<group>"; };
 		9F3634E818F1728F00AEF1B1 /* huge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = huge.jpg; sourceTree = "<group>"; };
 		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -187,9 +187,9 @@
 				0103BF4A18DB7E2F00697273 /* Code */,
 				0103BF2418DB7DF800697273 /* AppDelegate.h */,
 				0103BF2518DB7DF800697273 /* AppDelegate.m */,
-				0103BF2A18DB7DF800697273 /* ViewController.h */,
-				0103BF2B18DB7DF800697273 /* ViewController.m */,
-				9F3634E618F013FE00AEF1B1 /* ViewController.xib */,
+				0103BF2A18DB7DF800697273 /* DebugViewController.h */,
+				0103BF2B18DB7DF800697273 /* DebugViewController.m */,
+				9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */,
 				0103BF2D18DB7DF800697273 /* Images.xcassets */,
 				0103BF1C18DB7DF700697273 /* Supporting Files */,
 			);
@@ -399,12 +399,13 @@
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
 				9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */,
+				01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */,
 				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
 				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
-				9F3634E718F013FE00AEF1B1 /* ViewController.xib in Resources */,
+				9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */,
 				01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0103BF2C18DB7DF800697273 /* ViewController.m in Sources */,
+				0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,

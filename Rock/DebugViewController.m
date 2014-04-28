@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Kusto. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DebugViewController.h"
 #import "KRMotionTracker.h"
 #import "Player.h"
 
@@ -16,7 +16,7 @@
 
 #define kColorViewStartTag 10
 
-@interface ViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
+@interface DebugViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
     KRMotionTracker * _motionTracker;
     Player * _player;
 	UIImage * _image;
@@ -30,7 +30,7 @@
 @property (weak) IBOutlet UILabel * zAcceleration;
 @end
 
-@implementation ViewController
+@implementation DebugViewController
 
 - (void) tick {
     [NSTimer scheduledTimerWithTimeInterval:arc4random()%10 * 0.1f target:self selector:@selector(tick) userInfo:nil repeats:NO];

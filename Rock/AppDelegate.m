@@ -8,18 +8,27 @@
 
 #import "AppDelegate.h"
 #import "KRPhotoPickerVC.h"
+#import "DebugViewController.h"
+
+
+#define SHOW_DEBUG_UI 0
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	
-	KRPhotoPickerVC * photoPickerVC = [[KRPhotoPickerVC alloc] initWithNibName:@"KRPhotoPickerVC" bundle:nil];
+	UIViewController * rootViewController;
+	if(SHOW_DEBUG_UI){
+		rootViewController = [[DebugViewController alloc] initWithNibName:@"DebugViewController" bundle:nil];
+	}
+	else {
+		KRPhotoPickerVC * photoPickerVC = [[KRPhotoPickerVC alloc] initWithNibName:@"KRPhotoPickerVC" bundle:nil];
 
-	UINavigationController * rootNavController = [[UINavigationController alloc] initWithRootViewController:photoPickerVC];
-	
+		UINavigationController * rootNavController = [[UINavigationController alloc] initWithRootViewController:photoPickerVC];
+		rootViewController = rootNavController;
+	}
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	self.window.rootViewController = rootNavController;
+	self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
 
     return YES;
