@@ -83,7 +83,8 @@
 	[alert show];
 }
 
-- (IBAction)tempoChanged:(UISlider*)sender {
+- (IBAction)tempoChanged:(UISlider*)sender
+{
     [_player setTempo:sender.value];
 }
 
@@ -95,7 +96,8 @@
 #pragma mark -
 #pragma mark KRMotionTrackerDelegate Methods
 
-- (void) logGPSSpeed:(CGFloat)speed {
+- (void) logGPSSpeed:(CGFloat)speed
+{
     _gpsSpeedLabel.text = [NSString stringWithFormat:@"%f", speed];
 }
 

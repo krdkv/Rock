@@ -7,7 +7,7 @@
 //
 
 #import "KRPhotoPickerVC.h"
-#import "DebugViewController.h"
+#import "KRMainVC.h"
 
 @interface KRPhotoPickerVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
 	UIImagePickerController * _pickerController;
@@ -52,10 +52,11 @@
 	[self moveForwardWithImage:nil];
 }
 
-- (void) moveForwardWithImage:(UIImage *)image{
+- (void) moveForwardWithImage:(UIImage *)image
+{
 	[self dismissViewControllerAnimated:YES completion:^{}];
-	DebugViewController * viewController = [[DebugViewController alloc] initWithNibName:@"DebugViewController" bundle:nil];
-	[viewController setupWithImage:image];
+	KRMainVC * viewController = [[KRMainVC alloc] initWithNibName:@"KRMainVC" bundle:nil];
+//	[viewController setupWithImage:image];
 	UINavigationController * navController = self.navigationController;
 	[navController pushViewController:viewController animated:YES];
 }
@@ -63,8 +64,8 @@
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate Methods
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-	
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
 	UIImage * image = info[UIImagePickerControllerOriginalImage];
 	[self moveForwardWithImage:image];
 }

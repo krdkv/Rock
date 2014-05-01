@@ -49,6 +49,8 @@
 		9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F518EDDD9C00C4E792 /* acid.png */; };
 		9FAB54F718EDDD9C00C4E792 /* acid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FAB54F518EDDD9C00C4E792 /* acid.png */; };
 		9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */; };
+		9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED71912A51500EADB1D /* KRMainVC.m */; };
+		9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AED81912A51500EADB1D /* KRMainVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,9 @@
 		9FAB54F518EDDD9C00C4E792 /* acid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acid.png; sourceTree = "<group>"; };
 		9FB5AECF190EC4E400EADB1D /* KRColorUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRColorUnit.h; sourceTree = "<group>"; };
 		9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorUnit.m; sourceTree = "<group>"; };
+		9FB5AED61912A51500EADB1D /* KRMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMainVC.h; sourceTree = "<group>"; };
+		9FB5AED71912A51500EADB1D /* KRMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMainVC.m; sourceTree = "<group>"; };
+		9FB5AED81912A51500EADB1D /* KRMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRMainVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +284,9 @@
 				9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */,
 				9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */,
 				9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */,
+				9FB5AED61912A51500EADB1D /* KRMainVC.h */,
+				9FB5AED71912A51500EADB1D /* KRMainVC.m */,
+				9FB5AED81912A51500EADB1D /* KRMainVC.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -399,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */,
 				9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
@@ -438,6 +447,7 @@
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
+				9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */,
 				9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */,
 				0132C85018DF853700DBC428 /* Player.m in Sources */,
 				9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */,
