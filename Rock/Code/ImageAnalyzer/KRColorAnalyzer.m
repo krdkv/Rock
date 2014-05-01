@@ -168,7 +168,7 @@ bool isDarkPixel(const uint8_t* color) {
 		return @"unknown";
 	}
 
-	originalImage = [self scaleImage:originalImage toSize:CGSizeMake(100.0, 100.0)];
+//	originalImage = [self scaleImage:originalImage toSize:CGSizeMake(100.0, 100.0)];
 	CGImageRef cgimage = originalImage.CGImage;
 	
     size_t width  = CGImageGetWidth(cgimage);
