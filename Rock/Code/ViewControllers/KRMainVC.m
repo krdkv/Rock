@@ -14,6 +14,9 @@
 {
 }
 @property (weak) IBOutlet UIScrollView * contentScrollView;
+
+- (IBAction) stopAction;
+- (IBAction) rewindAction;
 @end
 
 @implementation KRMainVC
@@ -31,7 +34,7 @@
 
 - (void) addChildViewController:(UIViewController *)childController
 {
-	int count = self.childViewControllers.count;
+	NSUInteger count = self.childViewControllers.count;
 	self.contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width * (count + 1),
 													_contentScrollView.frame.size.height);
 	
@@ -43,5 +46,19 @@
 	frame.origin = CGPointMake(_contentScrollView.frame.size.width * count, 0.0);
 	childController.view.frame = frame;
 }
+
+
+#pragma mark -
+#pragma mark IBActions
+
+- (IBAction) stopAction
+{
+	
+}
+- (IBAction) rewindAction
+{
+	
+}
+
 
 @end

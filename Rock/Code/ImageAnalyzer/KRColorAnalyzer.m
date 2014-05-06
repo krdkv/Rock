@@ -162,6 +162,28 @@ bool isDarkPixel(const uint8_t* color) {
     return newImage;
 }
 
+- (CGImageRef)resizeCGImage:(CGImageRef)image toWidth:(int)width andHeight:(int)height {
+	// create context, keeping original image properties
+	CGColorSpaceRef colorspace = CGImageGetColorSpace(image);
+	CGContextRef context2 = CGBitmapContextCreate(NULL, width, height,
+												 CGImageGetBitsPerComponent(image),
+												 CGImageGetBytesPerRow(image),
+												 colorspace,
+												 CGImageGetAlphaInfo(image));
+	CGColorSpaceRelease(colorspace);
+	
+	if(context2 == NULL)
+		return nil;
+	
+	// draw image to context (resizing it)
+	CGContextDrawImage(context2, CGRectMake(0, 0, width, height), image);
+	// extract resulting image from context
+	CGImageRef imgRef = CGBitmapContextCreateImage(context2);
+	CGContextRelease(context2);
+	
+	return imgRef;
+}
+
 - (NSString *) getTypeForImage:(UIImage *)originalImage
 {
 	if(!originalImage){
@@ -170,6 +192,8 @@ bool isDarkPixel(const uint8_t* color) {
 
 //	originalImage = [self scaleImage:originalImage toSize:CGSizeMake(100.0, 100.0)];
 	CGImageRef cgimage = originalImage.CGImage;
+	
+	cgimage = [self resizeCGImage:cgimage toWidth:100 andHeight:100];
 	
     size_t width  = CGImageGetWidth(cgimage);
     size_t height = CGImageGetHeight(cgimage);
