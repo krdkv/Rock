@@ -10,7 +10,7 @@
 #import "KRColorUnit.h"
 
 @interface KRColorAnalyzer() {
-    EAGLContext *context;
+    EAGLContext * _context;
     CIContext *coreImageContext;
     AVCaptureSession *session;
     GLuint renderBuffer;
@@ -35,7 +35,7 @@
     glGenRenderbuffers(1, &renderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
     
-    coreImageContext = [CIContext contextWithEAGLContext:context];
+    coreImageContext = [CIContext contextWithEAGLContext:_context];
     
     NSError * error;
     session = [[AVCaptureSession alloc] init];
@@ -57,11 +57,13 @@
     [session startRunning];
 }
 
-bool componentsAreClose(uint8_t a, uint8_t b) {
+bool componentsAreClose(uint8_t a, uint8_t b)
+{
     return a - b < 5;
 }
 
-bool isDarkPixel(const uint8_t* color) {
+bool isDarkPixel(const uint8_t* color)
+{
     return color[0] < 15.f || color[1] < 15.f || color[2] < 15.f;
 }
 
@@ -152,34 +154,25 @@ bool isDarkPixel(const uint8_t* color) {
 	return ((KRColorUnit * )unitsArray[index]).description;
 }
 
-- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize
+- (CGImageRef)scaleCGImage:(CGImageRef)image toWidth:(int)width andHeight:(int)height
 {
-#warning breaks everything!
-	UIGraphicsBeginImageContextWithOptions(newSize, YES, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
-- (CGImageRef)resizeCGImage:(CGImageRef)image toWidth:(int)width andHeight:(int)height {
-	// create context, keeping original image properties
 	CGColorSpaceRef colorspace = CGImageGetColorSpace(image);
-	CGContextRef context2 = CGBitmapContextCreate(NULL, width, height,
+	CGContextRef context = CGBitmapContextCreate(NULL,
+												  width,
+												  height,
 												 CGImageGetBitsPerComponent(image),
 												 CGImageGetBytesPerRow(image),
 												 colorspace,
 												 CGImageGetAlphaInfo(image));
 	CGColorSpaceRelease(colorspace);
 	
-	if(context2 == NULL)
+	if(context == NULL)
 		return nil;
 	
-	// draw image to context (resizing it)
-	CGContextDrawImage(context2, CGRectMake(0, 0, width, height), image);
-	// extract resulting image from context
-	CGImageRef imgRef = CGBitmapContextCreateImage(context2);
-	CGContextRelease(context2);
+	CGContextDrawImage(context, CGRectMake(0, 0, width, height), image);
+	
+	CGImageRef imgRef = CGBitmapContextCreateImage(context);
+	CGContextRelease(context);
 	
 	return imgRef;
 }
@@ -193,7 +186,7 @@ bool isDarkPixel(const uint8_t* color) {
 //	originalImage = [self scaleImage:originalImage toSize:CGSizeMake(100.0, 100.0)];
 	CGImageRef cgimage = originalImage.CGImage;
 	
-	cgimage = [self resizeCGImage:cgimage toWidth:100 andHeight:100];
+	cgimage = [self scaleCGImage:cgimage toWidth:100 andHeight:100];
 	
     size_t width  = CGImageGetWidth(cgimage);
     size_t height = CGImageGetHeight(cgimage);
