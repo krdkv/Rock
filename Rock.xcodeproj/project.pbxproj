@@ -51,6 +51,11 @@
 		9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */; };
 		9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED71912A51500EADB1D /* KRMainVC.m */; };
 		9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AED81912A51500EADB1D /* KRMainVC.xib */; };
+		9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */; };
+		9FB5AEE01912C32C00EADB1D /* KRSoloInstrumentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */; };
+		9FB5AEE31912C7FC00EADB1D /* soloBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE21912C7FC00EADB1D /* soloBackground.png */; };
+		9FB5AEE71912CA4800EADB1D /* KRWalkingSpeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE51912CA4800EADB1D /* KRWalkingSpeedVC.m */; };
+		9FB5AEE81912CA4800EADB1D /* KRWalkingSpeedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE61912CA4800EADB1D /* KRWalkingSpeedVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +124,13 @@
 		9FB5AED61912A51500EADB1D /* KRMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMainVC.h; sourceTree = "<group>"; };
 		9FB5AED71912A51500EADB1D /* KRMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMainVC.m; sourceTree = "<group>"; };
 		9FB5AED81912A51500EADB1D /* KRMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRMainVC.xib; sourceTree = "<group>"; };
+		9FB5AEDC1912C32C00EADB1D /* KRSoloInstrumentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSoloInstrumentVC.h; sourceTree = "<group>"; };
+		9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSoloInstrumentVC.m; sourceTree = "<group>"; };
+		9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSoloInstrumentVC.xib; sourceTree = "<group>"; };
+		9FB5AEE21912C7FC00EADB1D /* soloBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soloBackground.png; sourceTree = "<group>"; };
+		9FB5AEE41912CA4800EADB1D /* KRWalkingSpeedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRWalkingSpeedVC.h; sourceTree = "<group>"; };
+		9FB5AEE51912CA4800EADB1D /* KRWalkingSpeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRWalkingSpeedVC.m; sourceTree = "<group>"; };
+		9FB5AEE61912CA4800EADB1D /* KRWalkingSpeedVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRWalkingSpeedVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +202,7 @@
 				01FD824E18EA895B0088E74F /* drums_full.aupreset */,
 				01FD824F18EA895B0088E74F /* drums_min.aupreset */,
 				01F5F3D218DCE2080050DFB0 /* bass.aupreset */,
-				01F5F3CC18DC9FA70050DFB0 /* Resources */,
+				9FB5AEE11912C7FC00EADB1D /* Resources */,
 				0103BF4E18DB7E3C00697273 /* Sounds */,
 				0103BF4A18DB7E2F00697273 /* Code */,
 				0103BF2418DB7DF800697273 /* AppDelegate.h */,
@@ -271,16 +283,10 @@
 			path = Sensors;
 			sourceTree = "<group>";
 		};
-		01F5F3CC18DC9FA70050DFB0 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		9F3634E018F0116300AEF1B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9FB5AEDB1912C05F00EADB1D /* Controls */,
 				9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */,
 				9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */,
 				9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */,
@@ -320,6 +326,27 @@
 				9FAB54F518EDDD9C00C4E792 /* acid.png */,
 			);
 			path = TestImages;
+			sourceTree = "<group>";
+		};
+		9FB5AEDB1912C05F00EADB1D /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9FB5AEDC1912C32C00EADB1D /* KRSoloInstrumentVC.h */,
+				9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */,
+				9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */,
+				9FB5AEE41912CA4800EADB1D /* KRWalkingSpeedVC.h */,
+				9FB5AEE51912CA4800EADB1D /* KRWalkingSpeedVC.m */,
+				9FB5AEE61912CA4800EADB1D /* KRWalkingSpeedVC.xib */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		9FB5AEE11912C7FC00EADB1D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9FB5AEE21912C7FC00EADB1D /* soloBackground.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +436,7 @@
 			files = (
 				9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */,
 				9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */,
+				9FB5AEE31912C7FC00EADB1D /* soloBackground.png in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
@@ -417,7 +445,9 @@
 				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
+				9FB5AEE81912CA4800EADB1D /* KRWalkingSpeedVC.xib in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
+				9FB5AEE01912C32C00EADB1D /* KRSoloInstrumentVC.xib in Resources */,
 				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
 				9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */,
 				01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */,
@@ -445,6 +475,7 @@
 			files = (
 				0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
+				9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
 				9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */,
@@ -453,6 +484,7 @@
 				9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
+				9FB5AEE71912CA4800EADB1D /* KRWalkingSpeedVC.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
 				9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */,
 			);

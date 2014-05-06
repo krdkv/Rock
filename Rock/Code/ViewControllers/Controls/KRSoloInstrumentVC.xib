@@ -4,9 +4,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KRMainVC">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KRSoloInstrumentVC">
             <connections>
-                <outlet property="contentScrollView" destination="0uI-wJ-c5r" id="FLe-1J-e4Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,21 +14,24 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0uI-wJ-c5r">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="soloBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="bm6-Tv-Wkp">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </scrollView>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="0uI-wJ-c5r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3fi-nG-nHA"/>
-                <constraint firstAttribute="trailing" secondItem="0uI-wJ-c5r" secondAttribute="trailing" id="8mk-Dc-bLH"/>
-                <constraint firstItem="0uI-wJ-c5r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWo-gG-v9k"/>
-                <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" id="TEk-qw-Kkd"/>
+                <constraint firstAttribute="trailing" secondItem="bm6-Tv-Wkp" secondAttribute="trailing" id="7TV-Ws-7gd"/>
+                <constraint firstAttribute="bottom" secondItem="bm6-Tv-Wkp" secondAttribute="bottom" id="OPd-W5-4yo"/>
+                <constraint firstItem="bm6-Tv-Wkp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iuF-zS-HwO"/>
+                <constraint firstItem="bm6-Tv-Wkp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sqb-iK-Hl7"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="soloBackground.png" width="662" height="926"/>
+    </resources>
 </document>

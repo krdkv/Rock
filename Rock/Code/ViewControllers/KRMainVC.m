@@ -7,6 +7,8 @@
 //
 
 #import "KRMainVC.h"
+#import "KRSoloInstrumentVC.h"
+#import "KRWalkingSpeedVC.h"
 
 @interface KRMainVC ()
 {
@@ -20,13 +22,11 @@
 {
     [super viewDidLoad];
 
-	UIViewController * one = [[UIViewController alloc] init];
-	one.view.backgroundColor = [UIColor orangeColor];
-	[self addChildViewController:one];
+	KRSoloInstrumentVC * soloVC = [[KRSoloInstrumentVC alloc] init];
+	[self addChildViewController:soloVC];
 	
-	UIViewController * two = [[UIViewController alloc] init];
-	two.view.backgroundColor = [UIColor greenColor];
-	[self addChildViewController:two];
+	KRWalkingSpeedVC * speedVC = [[KRWalkingSpeedVC alloc] init];
+	[self addChildViewController:speedVC];
 }
 
 - (void) addChildViewController:(UIViewController *)childController
