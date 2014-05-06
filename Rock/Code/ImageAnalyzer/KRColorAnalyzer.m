@@ -103,9 +103,9 @@ bool isDarkPixel(const uint8_t* color)
 			 [[KRColorUnit alloc] initWithUIColor:[UIColor yellowColor] name:@"yellow"],
 			 [[KRColorUnit alloc] initWithUIColor:[UIColor greenColor] name:@"green"],
 			 [[KRColorUnit alloc] initWithUIColor:[UIColor blueColor] name:@"blue"],
-//			 [[KRColorUnit alloc] initWithUIColor:[UIColor whiteColor] name:@"white"],
-//			 [[KRColorUnit alloc] initWithUIColor:[UIColor blackColor] name:@"black"],
-//			 [[KRColorUnit alloc] initWithUIColor:[UIColor brownColor] name:@"brown"],
+			 [[KRColorUnit alloc] initWithUIColor:[UIColor whiteColor] name:@"white"],
+			 [[KRColorUnit alloc] initWithRed:0 green:0 blue:0 name:@"black"],
+			 [[KRColorUnit alloc] initWithRed:100.0/255.0 green:50.0/255.0 blue:0.0/255.0 name:@"brown"],
 			 ];
 }
 
@@ -121,7 +121,6 @@ bool isDarkPixel(const uint8_t* color)
 	int yellowFreq = ((KRColorUnit * )unitsArray[1]).frequency;
 	int greenFreq = ((KRColorUnit * )unitsArray[2]).frequency;
 	int blueFreq = ((KRColorUnit * )unitsArray[3]).frequency;
-
 	
 	int variousColors = 0;
 	int treshhold = (int)pixelsCount/6;
@@ -183,7 +182,6 @@ bool isDarkPixel(const uint8_t* color)
 		return @"unknown";
 	}
 
-//	originalImage = [self scaleImage:originalImage toSize:CGSizeMake(100.0, 100.0)];
 	CGImageRef cgimage = originalImage.CGImage;
 	
 	cgimage = [self scaleCGImage:cgimage toWidth:100 andHeight:100];

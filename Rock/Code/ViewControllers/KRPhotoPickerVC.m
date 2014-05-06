@@ -56,7 +56,7 @@
 {
 	[self dismissViewControllerAnimated:YES completion:^{}];
 	KRMainVC * viewController = [[KRMainVC alloc] initWithNibName:@"KRMainVC" bundle:nil];
-//	[viewController setupWithImage:image];
+	[viewController setupWithImage:image];
 	UINavigationController * navController = self.navigationController;
 	[navController pushViewController:viewController animated:YES];
 }

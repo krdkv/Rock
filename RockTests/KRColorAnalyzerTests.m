@@ -63,8 +63,31 @@
 	NSString * path = [[NSBundle mainBundle] pathForResource:@"huge" ofType:@"jpg"];
 	UIImage * image = [UIImage imageWithContentsOfFile:path];
 	NSString * type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert([type isEqualToString:@"brown"], @"Wrong image type from analyzer");
+}
+
+- (void) testHugeBlack
+{
+	NSString * path = [[NSBundle mainBundle] pathForResource:@"hugeBlack" ofType:@"jpg"];
+	UIImage * image = [UIImage imageWithContentsOfFile:path];
+	NSString * type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert([type isEqualToString:@"black"], @"Wrong image type from analyzer");
+}
+
+- (void) testHugeRed
+{
+	NSString * path = [[NSBundle mainBundle] pathForResource:@"hugeRed" ofType:@"jpg"];
+	UIImage * image = [UIImage imageWithContentsOfFile:path];
+	NSString * type = [colorAnalyzer getTypeForImage:image];
 	XCTAssert([type isEqualToString:@"red"], @"Wrong image type from analyzer");
 }
 
+- (void) testHugeBlue
+{
+	NSString * path = [[NSBundle mainBundle] pathForResource:@"hugeBlue" ofType:@"jpg"];
+	UIImage * image = [UIImage imageWithContentsOfFile:path];
+	NSString * type = [colorAnalyzer getTypeForImage:image];
+	XCTAssert([type isEqualToString:@"blue"], @"Wrong image type from analyzer");
+}
 
 @end

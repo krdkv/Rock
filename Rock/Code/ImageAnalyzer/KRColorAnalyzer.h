@@ -35,6 +35,5 @@ typedef enum {
 - (NSInteger) colorMatchesGroup:(UIColor*)color;
 
 - (NSString *)getTypeForImage:(UIImage *)image;
-- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize;
 
 @end

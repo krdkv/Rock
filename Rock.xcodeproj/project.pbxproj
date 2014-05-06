@@ -39,6 +39,12 @@
 		9F3EFF1A18DDA9E700392448 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1918DDA9E700392448 /* CoreMotion.framework */; };
 		9F3EFF1C18DDB0AD00392448 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */; };
 		9F3EFF1E18DDB99700392448 /* KRMotionTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */; };
+		9F98F2E21919589A00DF06D0 /* hugeBlack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */; };
+		9F98F2E31919589A00DF06D0 /* hugeBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */; };
+		9F98F2E41919589A00DF06D0 /* hugeRed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E11919589A00DF06D0 /* hugeRed.jpg */; };
+		9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E11919589A00DF06D0 /* hugeRed.jpg */; };
+		9F98F2E61919591000DF06D0 /* hugeBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */; };
+		9F98F2E71919591300DF06D0 /* hugeBlack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */; };
 		9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */; };
 		9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E918EDC7AE00C4E792 /* KRMotionTracker.m */; };
 		9FAB54ED18EDCA9C00C4E792 /* KRColorAnalyzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54EC18EDCA9C00C4E792 /* KRColorAnalyzerTests.m */; };
@@ -111,6 +117,9 @@
 		9F3EFF1918DDA9E700392448 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		9F3EFF1B18DDB0AD00392448 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9F3EFF1D18DDB99700392448 /* KRMotionTrackerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMotionTrackerTests.m; sourceTree = "<group>"; };
+		9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeBlack.jpg; sourceTree = "<group>"; };
+		9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeBlue.jpg; sourceTree = "<group>"; };
+		9F98F2E11919589A00DF06D0 /* hugeRed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeRed.jpg; sourceTree = "<group>"; };
 		9FAB54E518EDC7AE00C4E792 /* KRColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRColorAnalyzer.h; sourceTree = "<group>"; };
 		9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorAnalyzer.m; sourceTree = "<group>"; };
 		9FAB54E818EDC7AE00C4E792 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = "<group>"; };
@@ -320,6 +329,9 @@
 		9FAB54EE18EDCC2100C4E792 /* TestImages */ = {
 			isa = PBXGroup;
 			children = (
+				9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */,
+				9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */,
+				9F98F2E11919589A00DF06D0 /* hugeRed.jpg */,
 				9F3634E818F1728F00AEF1B1 /* huge.jpg */,
 				9FAB54EF18EDCC2100C4E792 /* green.png */,
 				9FAB54F218EDDC2000C4E792 /* red.png */,
@@ -436,6 +448,7 @@
 			files = (
 				9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */,
 				9FAB54F618EDDD9C00C4E792 /* acid.png in Resources */,
+				9F98F2E71919591300DF06D0 /* hugeBlack.jpg in Resources */,
 				9FB5AEE31912C7FC00EADB1D /* soloBackground.png in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
@@ -444,11 +457,13 @@
 				01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */,
 				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
+				9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
 				9FB5AEE81912CA4800EADB1D /* KRWalkingSpeedVC.xib in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
 				9FB5AEE01912C32C00EADB1D /* KRSoloInstrumentVC.xib in Resources */,
 				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
+				9F98F2E61919591000DF06D0 /* hugeBlue.jpg in Resources */,
 				9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */,
 				01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */,
 			);
@@ -460,8 +475,11 @@
 			files = (
 				9FAB54F718EDDD9C00C4E792 /* acid.png in Resources */,
 				9F3634EA18F1728F00AEF1B1 /* huge.jpg in Resources */,
+				9F98F2E31919589A00DF06D0 /* hugeBlue.jpg in Resources */,
+				9F98F2E21919589A00DF06D0 /* hugeBlack.jpg in Resources */,
 				9FAB54F318EDDC2000C4E792 /* red.png in Resources */,
 				0103BF3F18DB7DF800697273 /* InfoPlist.strings in Resources */,
+				9F98F2E41919589A00DF06D0 /* hugeRed.jpg in Resources */,
 				9FAB54F018EDCC2100C4E792 /* green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,9 +9,11 @@
 #import "KRMainVC.h"
 #import "KRSoloInstrumentVC.h"
 #import "KRWalkingSpeedVC.h"
+#import "KRColorAnalyzer.h"
 
 @interface KRMainVC ()
 {
+	UIImage * _image;
 }
 @property (weak) IBOutlet UIScrollView * contentScrollView;
 
@@ -30,6 +32,17 @@
 	
 	KRWalkingSpeedVC * speedVC = [[KRWalkingSpeedVC alloc] init];
 	[self addChildViewController:speedVC];
+	
+	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
+	NSString * type = [colorAnalyzer getTypeForImage:_image];
+	
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Color is..."
+													 message:type
+													delegate:nil
+										   cancelButtonTitle:@"Oh gosh"
+										   otherButtonTitles:nil];
+	[alert show];
+
 }
 
 - (void) addChildViewController:(UIViewController *)childController
@@ -46,6 +59,12 @@
 	frame.origin = CGPointMake(_contentScrollView.frame.size.width * count, 0.0);
 	childController.view.frame = frame;
 }
+
+- (void) setupWithImage:(UIImage *)image
+{
+	_image = image;
+}
+
 
 
 #pragma mark -

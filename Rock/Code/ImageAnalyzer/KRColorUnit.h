@@ -20,5 +20,6 @@
 @property  (strong) NSString * description;
 
 - (id) initWithUIColor:(UIColor *)color name:(NSString *)name;
+- (id) initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue name:(NSString *)name;
 
 @end

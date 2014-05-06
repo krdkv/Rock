@@ -10,4 +10,5 @@
 
 @interface KRMainVC : UIViewController
 
+- (void) setupWithImage:(UIImage *)image;
 @end

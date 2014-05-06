@@ -24,4 +24,11 @@
 	}
 	return self;
 }
+
+- (id) initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue name:(NSString *)name
+{
+	UIColor * color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+	self = [self initWithUIColor:color name:name];
+	return self;
+}
 @end

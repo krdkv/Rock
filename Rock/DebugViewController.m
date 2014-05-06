@@ -67,13 +67,8 @@
 	
 	_colorAnalyzer = [KRColorAnalyzer new];
 	_colorAnalyzer.numberOfColors = 10.0;
-	
-	NSString * path = [[NSBundle mainBundle] pathForResource:@"red" ofType:@"png"];
-	UIImage * image = [UIImage imageWithContentsOfFile:path];
-	image = [_colorAnalyzer scaleImage:image toSize:CGSizeMake(100.0, 100.0)];
-	[_scaledImageView setImage:image];
-	
-	NSString * type = [_colorAnalyzer getTypeForImage:image];
+		
+	NSString * type = [_colorAnalyzer getTypeForImage:_image];
 	
 	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Color is..."
 													 message:type
