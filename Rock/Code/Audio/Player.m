@@ -99,25 +99,6 @@
                 [_buffer addNoteForInstrument:1 note:key-12 velocity:120 offset:offset + BIG * (4*32) duration:100];
             }
         }
-        
-        
-
-        
-//        bars = [guitarBar componentsSeparatedByString:@"|"];
-//        for ( int i = 0; i < bars.count; ++i ) {
-//            NSArray * notes = [bars[i] componentsSeparatedByString:@"-"];
-//            for ( int j = 0; j < notes.count; ++j ) {
-//                if ([notes[j] length] == 0 ) {
-//                    continue;
-//                }
-//                NSArray * components = [notes[j] componentsSeparatedByString:@","];
-//                int key = [components[0] intValue];
-//                int offset = [components[1] intValue];
-//                int duration = [components[2] intValue];
-//                int offsetDelta = 0;
-//                [_buffer addNoteForInstrument:2 note:key velocity:velocity offset:(i * 32 + offset + offsetDelta) duration:(duration - offsetDelta)];
-//            }
-//        }
     }
     return self;
 }
@@ -141,9 +122,6 @@ static int lastKey = -1;
 
 - (void) playSolo:(CGPoint)point {
     
-    [_buffer setPitch:1 + arc4random()%5];
-    
-    return;
     int index = point.x / (320.f / _availableForSolo.count);
     int newKey = [_availableForSolo[index] intValue];
     
@@ -156,7 +134,7 @@ static int lastKey = -1;
     }
 
     lastKey = newKey;
-    [_buffer addNoteForInstrument:2 note:newKey velocity:50 offset:0 duration:16];
+    [_buffer addNoteForInstrument:2 note:newKey velocity:70 offset:0 duration:16];
 }
 
 - (void)setPitch:(int)pitch {
