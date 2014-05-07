@@ -18,4 +18,9 @@
                        offset:(int)tickerBeforeStart
                      duration:(int)numberOfTicks;
 
+- (void) stopNoteForInstrument:(int)instrument
+                          note:(int)midiNote;
+
+- (void) setPitch:(int)pitch;
+
 @end

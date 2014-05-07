@@ -80,7 +80,41 @@
 
 - (IBAction)tempoChanged:(UISlider*)sender
 {
-    [_player setTempo:sender.value];
+    [_player setPitch:sender.value];
+	
+
+}
+
+static CGPoint lastPoint;
+
+- (void) changed:(CGPoint)point {
+    
+    if ( ABS(lastPoint.x - point.x) > 40 ) {
+        lastPoint = point;
+        [_player playSolo:point];
+    }
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ( touches.count > 0 ) {
+        UITouch * touch = [touches allObjects][0];
+        CGPoint point = [touch locationInView:self.view];
+        [self changed:point];
+    }
+}
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ( touches.count > 0 ) {
+        UITouch * touch = [touches allObjects][0];
+        CGPoint point = [touch locationInView:self.view];
+        [self changed:point];
+    }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void) setupWithImage:(UIImage *)image
@@ -97,6 +131,7 @@
 }
 
 - (void) newMotionValue:(KRSpeed)speed{
+    return;
     NSString * title = @"";
     switch (speed) {
         case kSlowSpeed:

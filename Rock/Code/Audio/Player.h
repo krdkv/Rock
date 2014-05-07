@@ -15,4 +15,8 @@
 
 - (void) setTempo:(int)tempo;
 
+- (void) playSolo:(CGPoint)point;
+
+- (void)setPitch:(int)pitch;
+
 @end

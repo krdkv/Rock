@@ -36,7 +36,7 @@
                         midiKey:(int)midiKey
                        velocity:(int)velocity {
     
-	MusicDeviceMIDIEvent (_samplerUnits[instrument], kNoteOnMidiMessage, midiKey, velocity, 0);
+    MusicDeviceMIDIEvent (_samplerUnits[instrument], kNoteOnMidiMessage, midiKey, velocity, 0);
 }
 
 - (void) sendNoteOffToInstrument:(int)instrument

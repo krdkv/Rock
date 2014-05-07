@@ -13,6 +13,8 @@
     AudioSampler * _sampler;
     NSMutableArray * _notes;
     NSMutableArray * _waitingNotes;
+    
+    int _pitch;
 }
 
 @end
@@ -29,6 +31,8 @@
         
         _sampler = [[AudioSampler alloc] init];
         [_sampler setupOnComplete:nil];
+        
+        _pitch = 0;
     }
     return self;
 }
@@ -50,6 +54,20 @@
     }
 }
 
+- (void) stopNoteForInstrument:(int)instrument
+                          note:(int)midiNote {
+    
+    NSInteger count = _notes.count;
+    
+    for ( NSInteger i = count - 1; i >= 0 ; --i ) {
+        NSDictionary * note = _notes[i];
+        if ( [note[@"i"] intValue] == instrument && [note[@"k"] intValue] == midiNote ) {
+            [_sampler sendNoteOffToInstrument:instrument midiKey:midiNote];
+            [_notes removeObjectAtIndex:i];
+        }
+    }
+}
+
 - (void) playNoteForInstrument:(int)instrument
                          note:(int)midiNote
                      velocity:(int)velocity
@@ -59,17 +77,46 @@
         return;
     }
     
+    if ( instrument != 1 ) { // Not a drum
+        midiNote += _pitch;
+    }
+    
     [_notes addObject:@{@"i":@(instrument), @"k":@(midiNote), @"d":@(numberOfTicks)}];
     [_sampler sendNoteOnToInstrument:instrument midiKey:midiNote velocity:velocity];
 }
 
+- (void) playChord:(NSArray*)chord {
+    
+    CGFloat delay = 0.001f;
+    
+    for ( int i = 0; i < chord.count; ++i ) {
+        [self performSelector:@selector(playNote:) withObject:@{@"i":chord[i][@"i"], @"k":chord[i][@"k"], @"v":chord[i][@"v"], @"d":chord[i][@"d"]} afterDelay:i*delay];
+    }
+}
 
+- (void) playNote:(NSDictionary*)note {
+    [self playNoteForInstrument:[note[@"i"] intValue] note:[note[@"k"] intValue] velocity:[note[@"v"] intValue] duration:[note[@"d"] intValue]];
+}
+
+- (void) setPitch:(int)pitch {
+//    [_waitingNotes removeAllObjects];
+    
+    NSInteger count = _notes.count;
+    for ( NSInteger i = count - 1; i >= 0 ; --i ) {
+        NSDictionary * note = _notes[i];
+        [_sampler sendNoteOffToInstrument:[note[@"i"] intValue] midiKey:[note[@"k"] intValue]];
+        [_notes removeObjectAtIndex:i];
+        --i;
+    }
+    
+    _pitch = pitch;
+}
 
 - (void) onTick:(int)tickNumber {
     
     NSInteger count = _waitingNotes.count;
     for ( NSInteger i = count - 1; i >= 0; --i ) {
-
+        
         NSDictionary * note = _waitingNotes[i];
         NSInteger ticksBeforeStart = [note[@"o"] intValue] - 1;
         if ( ticksBeforeStart == 0 ) {
