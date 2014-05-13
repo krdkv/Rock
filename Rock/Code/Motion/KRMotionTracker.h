@@ -19,6 +19,7 @@ typedef enum {
 	kWalking,
 	kRunning,
 	kAutomotive,
+	kMotionTypeUnknown = 10000,
 } KRMotionType;
 
 @protocol KRMotionTrackerDelegate

@@ -163,14 +163,16 @@ static CGPoint lastPoint;
 	_xAcceleration.text = [NSString stringWithFormat:@"%f", distance];
 }
 
-- (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z{
-//	_xAcceleration.text = [NSString stringWithFormat:@"%f", x];
+- (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
+{
+	_xAcceleration.text = [NSString stringWithFormat:@"%f", x];
 	_yAcceleration.text = [NSString stringWithFormat:@"%f", y];
 	_zAcceleration.text = [NSString stringWithFormat:@"%f", z];
 	
 }
 
-- (void) newMotionType:(KRMotionType)type{
+- (void) newMotionType:(KRMotionType)type
+{
 	NSString * title = @"";
 	switch (type) {
 		case kStationary:
@@ -192,7 +194,8 @@ static CGPoint lastPoint;
 	_motionTypeLabel.text = title;
 }
 
-- (void) noWayToGetLocationType{
+- (void) noWayToGetLocationType
+{
 // Propose we outta start some timer-based process to affect what motion types supposed to affect )
 	NSLog(@"No way!");
 }

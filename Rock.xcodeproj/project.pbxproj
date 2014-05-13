@@ -427,7 +427,7 @@
 				ORGANIZATIONNAME = Kusto;
 				TargetAttributes = {
 					0103BF1118DB7DF700697273 = {
-						DevelopmentTeam = V2RJVNRCR5;
+						DevelopmentTeam = C92M3ZV55X;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -654,7 +654,7 @@
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = app;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "DF2396E4-AD67-4968-897A-AD0035FB584A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -671,7 +671,7 @@
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = app;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "DF2396E4-AD67-4968-897A-AD0035FB584A";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
