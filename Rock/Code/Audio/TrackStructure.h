@@ -13,16 +13,16 @@
 - (void) generateWithIntensity:(CGFloat)intensity
                         colors:(NSArray*)colors;
 
-- (int) keyForTick:(int)tick;
+- (NSDictionary*) keyForTick:(int)tick;
 
 - (int)keyForX:(int)x y:(int)y offset:(int)offset;
 
-- (int)keyForTilt:(CGFloat)tilt;
+- (int)keyForTilt:(CGFloat)tilt offset:(int)offset;
 
-@property (nonatomic, readonly) NSArray * keys;
+@property (nonatomic, readonly) NSMutableArray * keys;
 
-@property (nonatomic, readonly) NSArray * drumLoops;
+@property (nonatomic, readonly) NSMutableArray * drumLoops;
 
-@property (nonatomic, readonly) NSArray * bassLoops;
+@property (nonatomic, readonly) NSMutableArray * bassLoops;
 
 @end

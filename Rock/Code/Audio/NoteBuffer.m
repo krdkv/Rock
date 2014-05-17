@@ -128,7 +128,9 @@
                                duration:[note[@"d"] intValue]];
             [_waitingNotes removeObjectAtIndex:i];
         } else {
-            [_waitingNotes replaceObjectAtIndex:i withObject:@{@"i":note[@"i"], @"k":note[@"k"], @"v":note[@"v"], @"o":@(ticksBeforeStart), @"d":note[@"d"]}];
+            if ( note ) {
+                [_waitingNotes replaceObjectAtIndex:i withObject:@{@"i":note[@"i"], @"k":note[@"k"], @"v":note[@"v"], @"o":@(ticksBeforeStart), @"d":note[@"d"]}];
+            }
         }
     }
     
