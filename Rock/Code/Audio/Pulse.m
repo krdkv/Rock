@@ -67,8 +67,18 @@
 
 - (void) startTimer {
     CGFloat timeInterval = kTimerCoefficient / _tempo;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(tick) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    
+    __block Pulse * me = self;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        _timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:me selector:@selector(tick) userInfo:nil repeats:YES];
+        
+        NSRunLoop * runLoop = [NSRunLoop currentRunLoop];
+        [runLoop addTimer:_timer forMode:NSDefaultRunLoopMode];
+        [runLoop run];
+    });
+    
+    
 }
 
 @end
