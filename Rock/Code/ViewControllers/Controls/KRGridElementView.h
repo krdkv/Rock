@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface KRGridElementView : UIView
+
 @property (assign, nonatomic) NSInteger activityCount;
+@property (assign) BOOL isActive;
+
 @property (assign) NSInteger column;
 @property (assign) NSInteger row;
 
