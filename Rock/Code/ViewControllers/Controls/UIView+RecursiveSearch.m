@@ -7,14 +7,14 @@
 //
 
 #import "UIView+RecursiveSearch.h"
-#import "KRGridView.h"
+#import "KRGridElementView.h"
 #import "Knob.h"
 
 @implementation UIView (RecursiveSearch)
 
 - (BOOL) shouldAvoidScrolling:(CGPoint)point event:(UIEvent *)event
 {
-	if([self isKindOfClass:[KRGridView class]]){
+	if([self isKindOfClass:[KRGridElementView class]]){
 		return [self pointInside:point withEvent:event];
 	}
 	if([self isKindOfClass:[Knob class]]){

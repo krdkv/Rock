@@ -7,7 +7,7 @@
 //
 
 #import "KRScrollView.h"
-#import "KRGridView.h"
+#import "KRGridElementView.h"
 #import "UIView+RecursiveSearch.h"
 
 @implementation KRScrollView

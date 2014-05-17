@@ -52,9 +52,10 @@
 		9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E11919589A00DF06D0 /* hugeRed.jpg */; };
 		9F98F2E61919591000DF06D0 /* hugeBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */; };
 		9F98F2E71919591300DF06D0 /* hugeBlack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */; };
-		9FA7AB2F192778F200B7A07F /* KRGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB2E192778F200B7A07F /* KRGridView.m */; };
+		9FA7AB2F192778F200B7A07F /* KRGridElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB2E192778F200B7A07F /* KRGridElementView.m */; };
 		9FA7AB3219277ED900B7A07F /* KRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB3119277ED900B7A07F /* KRScrollView.m */; };
 		9FA7AB35192786DD00B7A07F /* UIView+RecursiveSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB34192786DD00B7A07F /* UIView+RecursiveSearch.m */; };
+		9FA7AB3819278F7F00B7A07F /* KRGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB3719278F7F00B7A07F /* KRGridView.m */; };
 		9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */; };
 		9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E918EDC7AE00C4E792 /* KRMotionTracker.m */; };
 		9FAB54ED18EDCA9C00C4E792 /* KRColorAnalyzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54EC18EDCA9C00C4E792 /* KRColorAnalyzerTests.m */; };
@@ -137,12 +138,14 @@
 		9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeBlack.jpg; sourceTree = "<group>"; };
 		9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeBlue.jpg; sourceTree = "<group>"; };
 		9F98F2E11919589A00DF06D0 /* hugeRed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeRed.jpg; sourceTree = "<group>"; };
-		9FA7AB2D192778F200B7A07F /* KRGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridView.h; sourceTree = "<group>"; };
-		9FA7AB2E192778F200B7A07F /* KRGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridView.m; sourceTree = "<group>"; };
+		9FA7AB2D192778F200B7A07F /* KRGridElementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridElementView.h; sourceTree = "<group>"; };
+		9FA7AB2E192778F200B7A07F /* KRGridElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridElementView.m; sourceTree = "<group>"; };
 		9FA7AB3019277ED900B7A07F /* KRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRScrollView.h; sourceTree = "<group>"; };
 		9FA7AB3119277ED900B7A07F /* KRScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRScrollView.m; sourceTree = "<group>"; };
 		9FA7AB33192786DD00B7A07F /* UIView+RecursiveSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RecursiveSearch.h"; sourceTree = "<group>"; };
 		9FA7AB34192786DD00B7A07F /* UIView+RecursiveSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RecursiveSearch.m"; sourceTree = "<group>"; };
+		9FA7AB3619278F7F00B7A07F /* KRGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridView.h; sourceTree = "<group>"; };
+		9FA7AB3719278F7F00B7A07F /* KRGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridView.m; sourceTree = "<group>"; };
 		9FAB54E518EDC7AE00C4E792 /* KRColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRColorAnalyzer.h; sourceTree = "<group>"; };
 		9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorAnalyzer.m; sourceTree = "<group>"; };
 		9FAB54E818EDC7AE00C4E792 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = "<group>"; };
@@ -379,8 +382,10 @@
 				9FB5AEDC1912C32C00EADB1D /* KRSoloInstrumentVC.h */,
 				9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */,
 				9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */,
-				9FA7AB2D192778F200B7A07F /* KRGridView.h */,
-				9FA7AB2E192778F200B7A07F /* KRGridView.m */,
+				9FA7AB3619278F7F00B7A07F /* KRGridView.h */,
+				9FA7AB3719278F7F00B7A07F /* KRGridView.m */,
+				9FA7AB2D192778F200B7A07F /* KRGridElementView.h */,
+				9FA7AB2E192778F200B7A07F /* KRGridElementView.m */,
 				9FB5AEE41912CA4800EADB1D /* KRSpinningWheelVC.h */,
 				9FB5AEE51912CA4800EADB1D /* KRSpinningWheelVC.m */,
 				9FB5AEE61912CA4800EADB1D /* KRSpinningWheelVC.xib */,
@@ -540,6 +545,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FA7AB3819278F7F00B7A07F /* KRGridView.m in Sources */,
 				0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */,
 				9FA7AB35192786DD00B7A07F /* UIView+RecursiveSearch.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
@@ -547,7 +553,7 @@
 				9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
-				9FA7AB2F192778F200B7A07F /* KRGridView.m in Sources */,
+				9FA7AB2F192778F200B7A07F /* KRGridElementView.m in Sources */,
 				014035781921D99F00FC2F0E /* Knob.m in Sources */,
 				9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */,
 				9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */,

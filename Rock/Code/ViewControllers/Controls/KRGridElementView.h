@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KRGridView : UIView
-{
-	
-}
-- (void) setupWithRows:(NSInteger)rows columns:(NSInteger)columns;
+@interface KRGridElementView : UIView
+@property (assign, nonatomic) NSInteger activityCount;
+
 @end
