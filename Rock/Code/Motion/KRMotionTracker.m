@@ -10,8 +10,6 @@
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
 
-#define KRDeviceMotionFrequency 50.0 //Hz
-
 #define KRMotionFilterDepth 5
 #define KRMotionTypeFilterDepth 3
 
@@ -27,6 +25,7 @@
 #define KRRunningMaxSpeed 8.0f
 
 #define KRTiltUpdateFrequency 2 //Hz
+#define KRMotionUpdateFrequency 2 //Hz
 
 @interface KRMotionTracker () <CLLocationManagerDelegate>
 {
@@ -64,18 +63,14 @@
 
 - (void) start
 {
-	_motionValues = [NSMutableArray new];
 	_motionTypeValues = [NSMutableArray new];
 	_currentMotionType = kMotionTypeUnknown;
 	
 	NSOperationQueue * queue = [NSOperationQueue new];
 	[queue setMaxConcurrentOperationCount:1];
 	
-//	_motionManager.deviceMotionUpdateInterval = 1/KRDeviceMotionFrequency;
-	
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
-											[self motionUpdated:motion];
 											[self detectShake:motion];
 										}];
 
@@ -93,19 +88,28 @@
 {
 	[_motionManager stopDeviceMotionUpdates];
 	
-	_motionManager.deviceMotionUpdateInterval = 1/KRTiltUpdateFrequency;
+	_motionManager.deviceMotionUpdateInterval = (CGFloat)1/KRTiltUpdateFrequency;
 	NSOperationQueue * queue = [NSOperationQueue new];
 	[queue setMaxConcurrentOperationCount:1];
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self detectTilt:motion];
 										}];
-
 }
 
-- (void) startMotionValueDetecting
+- (void) startMotionDetecting
 {
+	[_motionManager stopDeviceMotionUpdates];
 	
+	_motionValues = [NSMutableArray new];
+	CGFloat interval = (CGFloat)1/KRMotionUpdateFrequency;
+	_motionManager.deviceMotionUpdateInterval = (CGFloat) 1/KRMotionUpdateFrequency;
+	NSOperationQueue * queue = [NSOperationQueue new];
+	[queue setMaxConcurrentOperationCount:1];
+	[_motionManager startDeviceMotionUpdatesToQueue:queue
+										withHandler:^(CMDeviceMotion *motion, NSError *error) {
+											[self detectMotion:motion];
+										}];
 }
 
 - (void) stop
@@ -113,7 +117,8 @@
 	[_motionManager stopDeviceMotionUpdates];
 }
 
-- (double) filterValue:(double)value withOldValuesArray:(NSMutableArray *)oldValues depth:(int)depth{
+- (double) filterValue:(double)value withOldValuesArray:(NSMutableArray *)oldValues depth:(int)depth
+{
 	double valuesSum = 0;
 	double coeffSum = 0;
 	[oldValues insertObject:[NSNumber numberWithDouble:value] atIndex:0];
@@ -133,15 +138,8 @@
 #pragma mark -
 #pragma mark Motion Methods
 
-- (void) motionUpdated:(CMDeviceMotion *)motion
+- (void) detectMotion:(CMDeviceMotion *)motion
 {
-	dispatch_sync(dispatch_get_main_queue(), ^{
-		[_delegate motionUpdatedWithX:motion.userAcceleration.x y:motion.userAcceleration.y z:motion.userAcceleration.z];
-		
-	});
-	
-	[self calculateDistancesWithMotion:motion];
-	
     double accValue = [self calculateAccelerationValue:motion];
 	accValue = [self filterAccelerationValue:accValue];
     
@@ -154,27 +152,12 @@
 		value = kFastSpeed;
 	}
 
-	dispatch_sync(dispatch_get_main_queue(), ^{
-		[self.delegate newMotionValue:value];
-	});
+	[self.delegate newMotionValue:value];
 }
 
-- (void) calculateDistancesWithMotion:(CMDeviceMotion *)motion{
-	CGFloat dx=0.0f;
-	CGFloat vx=0.0f;
-	CGFloat dt = 1 / KRDeviceMotionFrequency;
-	[_xAccelerations addObject:[NSNumber numberWithFloat:motion.userAcceleration.x]];
-	for (int i=1; i < _xAccelerations.count; i++)
-	{
-		vx+=([_xAccelerations[i-1] floatValue] + [_xAccelerations[i] floatValue])/2.0f*dt;
-		dx+=vx*dt;
-	}
-	dispatch_sync(dispatch_get_main_queue(), ^{
-		[_delegate xDistanceChanged:dx];
-	});
-}
 
-- (double) calculateAccelerationValue:(CMDeviceMotion *)motion{
+- (double) calculateAccelerationValue:(CMDeviceMotion *)motion
+{
 	double accValue = sqrt(pow(motion.userAcceleration.x,2)+pow(motion.userAcceleration.y,2)+pow(motion.userAcceleration.z, 2));
 	accValue = accValue * 100;
 	return accValue;

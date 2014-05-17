@@ -39,6 +39,7 @@ typedef enum {
 @property (weak, nonatomic) id<KRMotionTrackerDelegate> delegate;
 - (void) start;
 - (void) startTiltDetecting;
+- (void) startMotionDetecting;
 - (void) stop;
 
 @end

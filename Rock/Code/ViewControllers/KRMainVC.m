@@ -49,18 +49,13 @@
 	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
 	NSString * type = [colorAnalyzer getTypeForImage:_image];
-	
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Color is..."
-													 message:type
-													delegate:nil
-										   cancelButtonTitle:@"Oh gosh"
-										   otherButtonTitles:nil];
-	[alert show];
-	
+		
 	_player = [[Player alloc] init];
     [_player setOverheadVolume:150];
 #warning get intensity and colors from image
 	[_player setIntensity:1 andColorsArray:@[]];
+	
+	[_motionTracker startTiltDetecting];
 }
 
 - (void) addChildViewController:(UIViewController *)childController
@@ -146,6 +141,7 @@
 	else if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
 		[self stopPlayer];
 		_playStopButton.enabled = NO;
+		[_motionTracker startMotionDetecting];
 	}
 }
 
@@ -166,7 +162,10 @@
 }
 - (void) newMotionValue:(KRSpeed)speed
 {
-	
+	NSLog(@"Speed: %i", speed);
+	if(speed > kSlowSpeed){
+		[_player tickWithNumber:1];
+	}
 }
 - (void) shakeDetected
 {
@@ -184,12 +183,11 @@
 {
 	
 }
+
 - (void) tiltValue:(CGFloat)value
 {
-	[_player playSoloWithTilt:value];
-
 	CGFloat normalizedTilt = value / M_PI_2;
-	NSLog(@"tilt: %.2f", normalizedTilt);
+	[_player playSoloWithTilt:normalizedTilt];
 }
 
 @end
