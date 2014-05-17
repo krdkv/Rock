@@ -64,12 +64,12 @@
 	_backgroundImageView.image = blurredImage;
 	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
-	NSString * type = [colorAnalyzer getTypeForImage:_image];
+	NSArray * colors = [colorAnalyzer getColorsForImage:_image];
+	CGFloat intensity = (CGFloat)colors.count / 7;
 		
 	_player = [[Player alloc] init];
     [_player setOverheadVolume:150];
-#warning get intensity and colors from image
-	[_player setIntensity:1 andColorsArray:@[]];
+	[_player setIntensity:intensity andColorsArray:colors];
 	
 	[_motionTracker startTiltDetecting];
 }

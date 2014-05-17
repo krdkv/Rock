@@ -81,10 +81,10 @@
 
 - (NSString *)typeWithFrequencies:(NSArray *)unitsArray pixelsCount:(NSInteger)pixelsCount
 {
-	int redFreq = ((KRColorUnit * )unitsArray[0]).frequency;
-	int yellowFreq = ((KRColorUnit * )unitsArray[1]).frequency;
-	int greenFreq = ((KRColorUnit * )unitsArray[2]).frequency;
-	int blueFreq = ((KRColorUnit * )unitsArray[3]).frequency;
+	NSInteger redFreq = ((KRColorUnit * )unitsArray[0]).frequency;
+	NSInteger yellowFreq = ((KRColorUnit * )unitsArray[1]).frequency;
+	NSInteger greenFreq = ((KRColorUnit * )unitsArray[2]).frequency;
+	NSInteger blueFreq = ((KRColorUnit * )unitsArray[3]).frequency;
 	
 	int variousColors = 0;
 	int treshhold = (int)pixelsCount/6;
@@ -107,7 +107,7 @@
 	int maxFreq = 0;
 	int index = 0;
 	for(int i = 0; i < unitsArray.count; i++){
-		int freq = ((KRColorUnit * )unitsArray[i]).frequency;
+		NSInteger freq = ((KRColorUnit * )unitsArray[i]).frequency;
 		if(freq > maxFreq){
 			maxFreq = freq;
 			index = i;
@@ -115,6 +115,19 @@
 	}
 	
 	return ((KRColorUnit * )unitsArray[index]).description;
+}
+
+- (NSArray *) getColorsWithFrequencies:(NSArray *)unitsArray pixelsCount:(NSInteger)pixelsCount
+{
+	NSMutableArray * result = [NSMutableArray new];
+	for(int i = 0; i < unitsArray.count; i++){
+		KRColorUnit * unit = unitsArray[i];
+		NSInteger freq = unit.frequency;
+		if(freq > pixelsCount / 10){
+			[result addObject:unit.color];
+		}
+	}
+	return result;
 }
 
 - (CGImageRef)scaleCGImage:(CGImageRef)image toWidth:(int)width andHeight:(int)height
@@ -140,10 +153,10 @@
 	return imgRef;
 }
 
-- (NSString *) getTypeForImage:(UIImage *)originalImage
+- (NSArray *) getColorsForImage:(UIImage *)originalImage
 {
 	if(!originalImage){
-		return @"unknown";
+		return @[];
 	}
 
 	CGImageRef cgimage = originalImage.CGImage;
@@ -173,7 +186,7 @@
 			unit.frequency ++;
         }
     }
-	return [self typeWithFrequencies:_colorGroups pixelsCount:width * height];
+	return [self getColorsWithFrequencies:_colorGroups pixelsCount:width * height];
 }
 
 - (KRColorUnit *) getColorUnitForPixel:(const uint8_t *)pixel colorUnits:(NSArray *)colorUnits

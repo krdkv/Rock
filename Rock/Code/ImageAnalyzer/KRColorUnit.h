@@ -18,6 +18,7 @@
 @property (assign) NSInteger frequency;
 
 @property  (strong) NSString * description;
+@property (strong) UIColor * color;
 
 - (id) initWithUIColor:(UIColor *)color name:(NSString *)name;
 - (id) initWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue name:(NSString *)name;

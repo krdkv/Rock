@@ -21,6 +21,7 @@
 		self.frequency = 0;
 		
 		self.description = name;
+		self.color = color;
 	}
 	return self;
 }

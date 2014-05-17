@@ -33,6 +33,7 @@ typedef enum {
 
 - (NSInteger) colorMatchesGroup:(UIColor*)color;
 
-- (NSString *)getTypeForImage:(UIImage *)image;
+- (NSString *) getTypeForImage:(UIImage *) image;
+- (NSArray *) getColorsForImage:(UIImage *) image;
 
 @end
