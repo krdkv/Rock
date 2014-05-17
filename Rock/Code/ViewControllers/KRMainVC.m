@@ -53,6 +53,7 @@
 	[alert show];
 	
 	_player = [[Player alloc] init];
+    [_player setOverheadVolume:150];
 #warning get intensity and colors from image
 	[_player setIntensity:1 andColorsArray:@[]];
 }

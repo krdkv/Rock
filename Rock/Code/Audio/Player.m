@@ -150,7 +150,7 @@ static int soloNotes[7][7];
     int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick];
     soloNotes[x][y] = key;
     
-    [_buffer addNoteForInstrument:kGuitar note:key velocity:100+arc4random()%50 offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:key velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
 }
 
 - (void) soloNoteOff:(int)x :(int)y {
