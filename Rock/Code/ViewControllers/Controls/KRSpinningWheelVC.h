@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KRWalkingSpeedVC : UIViewController
+@interface KRSpinningWheelVC : UIViewController
 
 @end
