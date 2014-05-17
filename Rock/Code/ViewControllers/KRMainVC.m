@@ -19,8 +19,9 @@
 }
 @property (strong) Player * player;
 @property (weak) IBOutlet UIScrollView * contentScrollView;
+@property (weak) IBOutlet UIButton * playStopButton;
 
-- (IBAction) stopAction;
+- (IBAction) playStopAction;
 - (IBAction) rewindAction;
 @end
 
@@ -76,10 +77,19 @@
 
 #pragma mark -
 #pragma mark IBActions
-- (IBAction) stopAction
+- (IBAction) playStopAction
 {
-	
+#warning check if player is playing
+	if(YES){
+		[_player stop];
+		[_playStopButton setTitle:@"play" forState:UIControlStateNormal];
+	}
+	else{
+		[_player start];
+		[_playStopButton setTitle:@"stop" forState:UIControlStateNormal];
+	}
 }
+
 - (IBAction) rewindAction
 {
 	

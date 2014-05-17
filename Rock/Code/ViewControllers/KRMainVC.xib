@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KRMainVC">
             <connections>
                 <outlet property="contentScrollView" destination="0uI-wJ-c5r" id="FLe-1J-e4Y"/>
+                <outlet property="playStopButton" destination="JyD-hG-Ijo" id="PT2-pQ-6Uj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,25 +26,19 @@
                     <state key="normal" title="Stop">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QS-Yu-eet">
-                    <rect key="frame" x="254" y="454" width="52" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Rewind">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <connections>
+                        <action selector="playStopAction" destination="-1" eventType="touchUpInside" id="oHd-Gx-emW"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="6QS-Yu-eet" secondAttribute="trailing" constant="14" id="00c-Gw-ftO"/>
                 <constraint firstAttribute="centerX" secondItem="JyD-hG-Ijo" secondAttribute="centerX" constant="6.5" id="1uw-u6-JST"/>
                 <constraint firstItem="0uI-wJ-c5r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3fi-nG-nHA"/>
                 <constraint firstAttribute="trailing" secondItem="0uI-wJ-c5r" secondAttribute="trailing" id="8mk-Dc-bLH"/>
                 <constraint firstAttribute="bottom" secondItem="JyD-hG-Ijo" secondAttribute="bottom" constant="20" id="Jae-GM-gUW"/>
                 <constraint firstItem="0uI-wJ-c5r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWo-gG-v9k"/>
                 <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" constant="70" id="TEk-qw-Kkd"/>
-                <constraint firstAttribute="bottom" secondItem="6QS-Yu-eet" secondAttribute="bottom" constant="20" id="cPn-Hm-RNA"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
