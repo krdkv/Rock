@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-D5-qmb">
-                    <rect key="frame" x="125" y="292" width="71" height="72"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-D5-qmb" userLabel="Photo Button">
+                    <rect key="frame" x="125" y="248" width="71" height="72"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="photoButton.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,7 +39,7 @@
             <color key="backgroundColor" red="0.76862745098039209" green="0.82745098039215681" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="yGW-D5-qmb" secondAttribute="centerX" constant="-0.5" id="TnN-8x-G8f"/>
-                <constraint firstAttribute="centerY" secondItem="yGW-D5-qmb" secondAttribute="centerY" constant="-44" id="dJh-Cm-vu4"/>
+                <constraint firstAttribute="centerY" secondItem="yGW-D5-qmb" secondAttribute="centerY" id="dJh-Cm-vu4"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
