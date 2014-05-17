@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+    <array>
+<string>Like A Rolling Stone</string>
+<string>I Can't Get No Satisfaction</string>
+<string>Imagine</string>
+<string>What's Going On</string>
+<string>Respect</string>
+<string>Good Vibrations</string>
+<string>Johnny B. Goode</string>
+<string>Hey Jude</string>
+<string>Smells Like Teen Spirit</string>
+<string>What'd I Say</string>
+<string>My Generation</string>
+<string>A Change Is Gonna Come</string>
+<string>Yesterday</string>
+<string>Blowin' In The Wind</string>
+<string>London Calling</string>
+<string>I Want To Hold Your Hand</string>
+<string>Purple Haze</string>
+<string>Maybellene</string>
+<string>Hound Dog</string>
+<string>Let It Be</string>
+<string>Born To Run</string>
+<string>Be My Baby</string>
+<string>In My Life</string>
+<string>People Get Ready</string>
+<string>God Only Knows</string>
+<string>A Day In The Life</string>
+<string>Layla</string>
+<string>Sittin' On The Dock Of The Bay</string>
+<string>Help!</string>
+<string>I Walk The Line</string>
+<string>Stairway To Heaven</string>
+<string>Sympathy For The Devil</string>
+<string>River Deep - Mountain High</string>
+<string>You've Lost That Lovin' Feelin'</string>
+<string>Light My Fire</string>
+<string>One</string>
+<string>No Woman, No Cry</string>
+<string>Gimme Shelter</string>
+<string>That'll Be The Day</string>
+<string>Dancing In The Street</string>
+<string>The Weight</string>
+<string>Waterloo Sunset</string>
+<string>Tutti Frutti</string>
+<string>Georgia On My Mind</string>
+<string>Heartbreak Hotel</string>
+<string>Heroes</string>
+<string>Bridge Over Troubled Water</string>
+<string>All Along The Watchtower</string>
+<string>Hotel California</string>
+<string>The Tracks Of My Tears</string>
+<string>The Message</string>
+<string>When Doves Cry</string>
+<string>Anarchy In The U.K.</string>
+<string>When A Man Loves A Woman</string>
+<string>Louie Louie</string>
+<string>Long Tall Sally</string>
+<string>A Whiter Shade Of Pale</string>
+<string>Billie Jean</string>
+<string>The Times They Are A-Changin'</string>
+<string>Let's Stay Together</string>
+<string>Whole Lotta Shakin' Goin On</string>
+<string>Bo Diddley</string>
+<string>For What It's Worth</string>
+<string>She Loves You</string>
+<string>Sunshine Of Your Love</string>
+<string>Redemption Song</string>
+<string>Jailhouse Rock</string>
+<string>Tangled Up In Blue</string>
+<string>Crying</string>
+<string>Walk On By</string>
+<string>California Girls</string>
+<string>Papa's Got A Brand New Bag</string>
+<string>Summertime Blues</string>
+<string>Superstition</string>
+<string>Whole Lotta Love</string>
+<string>Strawberry Fields Forever</string>
+<string>Mystery Train</string>
+<string>I Feel Good</string>
+<string>Mr. Tambourine Man</string>
+<string>I Heard It Through The Grapevine</string>
+<string>Blueberry Hill</string>
+<string>You Really Got Me</string>
+<string>Norwegian Wood This Bird Has Flown</string>
+<string>Every Breath You Take</string>
+<string>Crazy</string>
+<string>Thunder Road</string>
+<string>Ring Of Fire</string>
+<string>My Girl</string>
+<string>California Dreamin'</string>
+<string>In The Still Of The Nite</string>
+<string>Suspicious Minds</string>
+<string>Blitzkrieg Bop</string>
+<string>I Still Haven't Found What I'm Looking For</string>
+<string>Good Golly, Miss Molly</string>
+<string>Blue Suede Shoes</string>
+<string>Great Balls Of Fire</string>
+<string>Roll Over Beethoven</string>
+<string>Love And Happiness</string>
+<string>Fortunate Son</string>
+<string>You Can't Always Get What You Want</string>
+<string>Voodoo Child Slight Return</string>
+<string>Be-Bop-A-Lula</string>
+<string>Hot Stuff</string>
+<string>Living For The City</string>
+<string>The Boxer</string>
+<string>Mr. Tambourine Man</string>
+<string>Not Fade Away</string>
+<string>Little Red Corvette</string>
+<string>Brown Eyed Girl</string>
+<string>I've Been Loving You Too Long To Stop Now</string>
+<string>I'm So Lonesome I Could Cry</string>
+<string>That's All Right</string>
+<string>Up On The Roof</string>
+<string>Da Doo Ron Ron When He Walked Me Home</string>
+<string>You Send Me</string>
+<string>Honky Tonk Women</string>
+<string>Take Me To The River</string>
+<string>Shout Parts 1 And 2</string>
+<string>Go Your Own Way</string>
+<string>I Want You Back</string>
+<string>Stand By Me</string>
+<string>House Of The Rising Sun</string>
+<string>It's A Man's Man's Man's World</string>
+<string>Jumpin' Jack Flash</string>
+<string>Will You Love Me Tomorrow</string>
+<string>Shake, Rattle & Roll</string>
+<string>Changes</string>
+<string>Rock & Roll Music</string>
+<string>Born To Be Wild</string>
+<string>Maggie May</string>
+<string>With Or Without You</string>
+<string>Who Do You Love</string>
+<string>Won't Get Fooled Again</string>
+<string>In The Midnight Hour</string>
+<string>While My Guitar Gently Weeps</string>
+<string>Your Song</string>
+<string>Eleanor Rigby</string>
+<string>Family Affair</string>
+<string>I Saw Her Standing There</string>
+<string>Kashmir</string>
+<string>All I Have To Do Is Dream</string>
+<string>Please</string>
+<string>Purple Rain</string>
+<string>I Wanna Be Sedated</string>
+<string>Everyday People</string>
+<string>Rock Lobster</string>
+<string>Lust For Life</string>
+<string>Me And Bobby McGee</string>
+<string>Cathy's Clown</string>
+<string>Eight Miles High</string>
+<string>Earth Angel Will You Be Mine</string>
+<string>Foxey Lady</string>
+<string>A Hard Day's Night</string>
+<string>Rave On</string>
+<string>Proud Mary</string>
+<string>The Sound Of Silence</string>
+<string>I Only Have Eyes For You</string>
+<string>We're Gonna Rock Around The Clock</string>
+<string>I'm Waiting For The Man</string>
+<string>Bring The Noise</string>
+<string>I Can't Stop Loving You</string>
+<string>Nothing Compares 2 U</string>
+<string>Bohemian Rhapsody</string>
+<string>Folsom Prison Blues</string>
+<string>Fast Car</string>
+<string>Lose Yourself</string>
+<string>Let's Get It On</string>
+<string>Papa Was A Rollin' Stone</string>
+<string>Losing My Religion</string>
+<string>Both Sides, Now</string>
+<string>Dancing Queen</string>
+<string>Dream On</string>
+<string>God Save The Queen</string>
+<string>Paint It, Black</string>
+<string>I Fought The Law</string>
+<string>Don't Worry Baby</string>
+<string>Free Fallin'</string>
+<string>September Gurls</string>
+<string>Love Will Tear Us Apart</string>
+<string>Hey Ya!</string>
+<string>Green Onions</string>
+<string>Save The Last Dance For Me</string>
+<string>The Thrill Is Gone</string>
+<string>Please Please Me</string>
+<string>Desolation Row</string>
+<string>I Never Loved A Man The Way I Love You</string>
+<string>Back In Black</string>
+<string>Who'll Stop The Rain</string>
+<string>Stayin' Alive</string>
+<string>Knocking On Heaven's Door</string>
+<string>Free Bird</string>
+<string>Wichita Lineman</string>
+<string>There Goes My Baby</string>
+<string>Peggy Sue</string>
+<string>Maybe</string>
+<string>Sweet Child O' Mine</string>
+<string>Don't Be Cruel</string>
+<string>Hey Joe</string>
+<string>Flash Light</string>
+<string>Loser</string>
+<string>Bizarre Love Triangle</string>
+<string>Come Together</string>
+<string>Positively 4th Street</string>
+<string>Try A Little Tenderness</string>
+<string>Lean On Me</string>
+<string>Reach Out I'll Be There</string>
+<string>Bye Bye Love</string>
+<string>Gloria</string>
+<string>In My Room</string>
+<string>96 Tears</string>
+<string>Caroline, No</string>
+<string>1999</string>
+<string>Your Cheatin' Heart</string>
+<string>Rockin' In The Free World</string>
+<string>Sh-Boom</string>
+<string>Do You Believe In Magic?</string>
+<string>Jolene</string>
+<string>Boom Boom</string>
+<string>Spoonful</string>
+<string>Walk Away Renée</string>
+<string>Walk On The Wild Side</string>
+<string>Oh, Pretty Woman</string>
+<string>Dance To The Music</string>
+<string>Good Times</string>
+<string>Hoochie Coochie Man</string>
+<string>Moondance</string>
+<string>Fire And Rain</string>
+<string>Should I Stay Or Should I Go</string>
+<string>Mannish Boy</string>
+<string>Just Like A Woman</string>
+<string>Sexual Healing</string>
+<string>Only The Lonely Know How I Feel</string>
+<string>We Gotta Get Out Of This Place</string>
+<string>I'll Feel A Whole Lot Better</string>
+<string>I Got A Woman</string>
+<string>Everyday</string>
+<string>Planet Rock</string>
+<string>I Fall To Pieces</string>
+<string>The Wanderer</string>
+<string>Son Of A Preacher Man</string>
+<string>Stand!</string>
+<string>Rocket Man</string>
+<string>Love Shack</string>
+<string>Gimme Some Lovin'</string>
+<string>The Night They Drove Old Dixie Down</string>
+<string>Your Love Keeps Lifting Me Higher And Higher</string>
+<string>Hot Fun In The Summertime</string>
+<string>Rapper's Delight</string>
+<string>Chain Of Fools</string>
+<string>Paranoid</string>
+<string>Mack The Knife</string>
+<string>Money Honey</string>
+<string>All The Young Dudes</string>
+<string>Highway To Hell</string>
+<string>Heart Of Glass</string>
+<string>Paranoid Android</string>
+<string>Wild Thing</string>
+<string>I Can See For Miles</string>
+<string>Hallelujah</string>
+<string>Oh, What A Night</string>
+<string>Higher Ground</string>
+<string>Ooo Baby Baby</string>
+<string>He's A Rebel</string>
+<string>Sail Away</string>
+<string>Tighten Up</string>
+<string>Walking In The Rain</string>
+<string>Personality Crisis</string>
+<string>Sunday Bloody Sunday</string>
+<string>Roadrunner</string>
+<string>He Stopped Loving Her Today</string>
+<string>Sloop John B</string>
+<string>Sweet Little Sixteen</string>
+<string>Something</string>
+<string>Somebody To Love</string>
+<string>Born In The U.S.A.</string>
+<string>I'll Take You There</string>
+<string>Ziggy Stardust</string>
+<string>Pictures Of You</string>
+<string>Chapel Of Love</string>
+<string>Ain't No Sunshine</string>
+<string>You Are The Sunshine Of My Life</string>
+<string>Help Me</string>
+<string>Call Me</string>
+<string>What's So Funny 'Bout Peace Love And Understanding?</string>
+<string>Smokestack Lightning</string>
+<string>Summer Babe</string>
+<string>Walk This Way</string>
+<string>Money That's What I Want</string>
+<string>Can't Buy Me Love</string>
+<string>Stan</string>
+<string>She's Not There</string>
+<string>Train In Vain</string>
+<string>Tired Of Being Alone</string>
+<string>Black Dog</string>
+<string>Street Fighting Man</string>
+<string>Get Up, Stand Up</string>
+<string>Heart Of Gold</string>
+<string>One Way Or Another</string>
+<string>Sign 'O' The Times</string>
+<string>Like A Prayer</string>
+<string>Do Ya Think I'm Sexy?</string>
+<string>Blue Eyes Crying In The Rain</string>
+<string>Ruby Tuesday</string>
+<string>With A Little Help From My Friends</string>
+<string>Say It Loud -- I'm Black And I'm Proud</string>
+<string>That's Entertainment</string>
+<string>Why Do Fools Fall In Love</string>
+<string>Lonely Teardrops</string>
+<string>What's Love Got To Do With It</string>
+<string>Iron Man</string>
+<string>Wake Up Little Susie</string>
+<string>In Dreams</string>
+<string>I Put A Spell On You</string>
+<string>Comfortably Numb</string>
+<string>Don't Let Me Be Misunderstood</string>
+<string>Wish You Were Here</string>
+<string>Many Rivers To Cross</string>
+<string>Alison</string>
+<string>School's Out</string>
+<string>Heartbreaker</string>
+<string>Cortez The Killer</string>
+<string>Fight The Power</string>
+<string>Dancing Barefoot</string>
+<string>Baby Love</string>
+<string>Good Lovin'</string>
+<string>Get Up I Feel Like Being A Sex Machine</string>
+<string>For Your Precious Love</string>
+<string>The End</string>
+<string>That's The Way Of The World</string>
+<string>We Will Rock You</string>
+<string>I Can't Make You Love Me</string>
+<string>Subterranean Homesick Blues</string>
+<string>Spirit In The Sky</string>
+<string>Wild Horses</string>
+<string>Sweet Jane</string>
+<string>Walk This Way</string>
+<string>Beat It</string>
+<string>Maybe I'm Amazed</string>
+<string>You Keep Me Hangin' On</string>
+<string>Baba O'Riley</string>
+<string>The Harder They Come</string>
+<string>Runaround Sue</string>
+<string>Jim Dandy</string>
+<string>Piece Of My Heart</string>
+<string>La Bamba</string>
+<string>California Love</string>
+<string>Candle In The Wind</string>
+<string>That Lady Part 1 And 2</string>
+<string>Spanish Harlem</string>
+<string>The Locomotion</string>
+<string>The Great Pretender</string>
+<string>All Shook Up</string>
+<string>Tears In Heaven</string>
+<string>Watching The Detectives</string>
+<string>Bad Moon Rising</string>
+<string>Sweet Dreams Are Made Of This</string>
+<string>Little Wing</string>
+<string>Nowhere To Run</string>
+<string>Got My Mojo Working</string>
+<string>Killing Me Softly With His Song</string>
+<string>Complete Control</string>
+<string>All You Need Is Love</string>
+<string>The Letter</string>
+<string>Highway 61 Revisited</string>
+<string>Unchained Melody</string>
+<string>How Deep Is Your Love</string>
+<string>White Room</string>
+<string>Personal Jesus</string>
+<string>I'm A Man</string>
+<string>The Wind Cries Mary</string>
+<string>I Can't Explain</string>
+<string>Marquee Moon</string>
+<string>Wonderful World</string>
+<string>Brown Eyed Handsome Man</string>
+<string>Another Brick In The Wall, Part II</string>
+<string>Fake Plastic Trees</string>
+<string>Hit The Road Jack</string>
+<string>Pride In The Name Of Love</string>
+<string>Radio Free Europe</string>
+<string>Goodbye Yellow Brick Road</string>
+<string>Tell It Like It Is</string>
+<string>Bitter Sweet Symphony</string>
+<string>Whipping Post</string>
+<string>Ticket To Ride</string>
+<string>Ohio</string>
+<string>I Know You Got Soul</string>
+<string>Tiny Dancer</string>
+<string>Roxanne</string>
+<string>Just My Imagination</string>
+<string>Baby I Need Your Loving</string>
+<string>Band Of Gold</string>
+<string>O-o-h Child</string>
+<string>Summer In The City</string>
+<string>Can't Help Falling In Love</string>
+<string>Remember Walkin' In The Sand</string>
+<string>Thirteen</string>
+<string>Don't Fear The Reaper</string>
+<string>Sweet Home Alabama</string>
+<string>Enter Sandman</string>
+<string>Kicks</string>
+<string>Tonight's The Night</string>
+<string>Thank You Falettinme Be Mice Elf Agin</string>
+<string>C'mon Everybody</string>
+<string>Visions Of Johanna</string>
+<string>We've Only Just Begun</string>
+<string>I Believe I Can Fly</string>
+<string>In Bloom</string>
+<string>Sweet Emotion</string>
+<string>Crossroads</string>
+<string>Monkey Gone To Heaven</string>
+<string>I Feel Love</string>
+<string>Ode To Billie Joe</string>
+<string>The Girl Can't Help It</string>
+<string>Young Blood</string>
+<string>I Can't Help Myself Sugar Pie, Honey Bunch</string>
+<string>The Boys Of Summer</string>
+<string>Fuck Tha Police</string>
+<string>Suite: Judy Blue Eyes</string>
+<string>Nuthin' But A 'G' Thang</string>
+<string>It's Your Thing</string>
+<string>Piano Man</string>
+<string>Lola</string>
+<string>Blue Suede Shoes</string>
+<string>Tumbling Dice</string>
+<string>William, It Was Really Nothing</string>
+<string>Smoke On The Water</string>
+<string>New Year's Day</string>
+<string>Mitch Ryder & The Detroit Wheels:Devil With The Blue Dress On / Good Golly Miss Molly</string>
+<string>Everybody Needs Somebody To Love</string>
+<string>White Man In Hammersmith Palais</string>
+<string>Ain't It A Shame</string>
+<string>Midnight Train To Georgia</string>
+<string>Ramble On</string>
+<string>Mustang Sally</string>
+<string>Beast Of Burden</string>
+<string>Alone Again Or</string>
+<string>Love Me Tender</string>
+<string>I Wanna Be Your Dog</string>
+<string>Pink Houses</string>
+<string>Push It</string>
+<string>Come Go With Me</string>
+<string>Keep A Knockin'</string>
+<string>I Shot The Sheriff</string>
+<string>I Got You Babe</string>
+<string>Come As You Are</string>
+<string>Pressure Drop</string>
+<string>Leader Of The Pack</string>
+<string>Heroin</string>
+<string>Penny Lane</string>
+<string>By The Time I Get To Phoenix</string>
+<string>The Twist</string>
+<string>Cupid</string>
+<string>Paradise City</string>
+<string>My Sweet Lord</string>
+<string>All Apologies</string>
+<string>Stagger Lee</string>
+<string>Sheena Is A Punk Rocker</string>
+<string>Soul Man</string>
+<string>Rollin' Stone</string>
+<string>One Fine Day</string>
+<string>Kiss</string>
+<string>Respect Yourself</string>
+<string>Rain</string>
+<string>Standing In The Shadows Of Love</string>
+<string>Surrender</string>
+<string>Runaway</string>
+<string>Welcome To The Jungle</string>
+<string>Search And Destroy</string>
+<string>It's Too Late</string>
+<string>Free Man In Paris</string>
+<string>On The Road Again</string>
+<string>Where Did Our Love Go</string>
+<string>Do Right Woman, Do Right Man</string>
+<string>One Nation Under A Groove</string>
+<string>Sabotage</string>
+<string>I Want To Know What Love Is</string>
+<string>Super Freak</string>
+<string>White Rabbit</string>
+<string>Lady Marmalade</string>
+<string>Into The Mystic</string>
+<string>Young Americans</string>
+<string>I'm Eighteen</string>
+<string>Just Like Heaven</string>
+<string>I Love Rock N' Roll</string>
+<string>Graceland</string>
+<string>How Soon Is Now?</string>
+<string>Under The Boardwalk</string>
+<string>Rhiannon</string>
+<string>I Will Survive</string>
+<string>Brown Sugar</string>
+<string>You Don't Have To Say You Love Me</string>
+<string>Running On Empty</string>
+<string>Then He Kissed Me</string>
+<string>Desperado</string>
+<string>Shop Around</string>
+<string>Miss You</string>
+<string>Buddy Holly</string>
+<string>Rainy Night In Georgia</string>
+<string>The Boys Are Back In Town</string>
+<string>More Than A Feeling</string>
+    </array></plist>

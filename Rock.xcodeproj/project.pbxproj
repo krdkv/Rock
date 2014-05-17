@@ -25,6 +25,8 @@
 		01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01221FC21907172500BCC469 /* guitar_solo.aupreset */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		014035781921D99F00FC2F0E /* Knob.m in Sources */ = {isa = PBXBuildFile; fileRef = 014035771921D99F00FC2F0E /* Knob.m */; };
+		0146B71B19275ED600284075 /* Artists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0146B71919275ED600284075 /* Artists.plist */; };
+		0146B71C19275ED600284075 /* Names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0146B71A19275ED600284075 /* Names.plist */; };
 		01557D3C191A4ED600B37172 /* Loops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01557D3B191A4ED600B37172 /* Loops.plist */; };
 		01557D57191A915400B37172 /* dbass.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01557D56191A915400B37172 /* dbass.aupreset */; };
 		019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFEE18E2C604002E58EA /* NoteBuffer.m */; };
@@ -106,6 +108,8 @@
 		0132C84F18DF853700DBC428 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		014035761921D99F00FC2F0E /* Knob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knob.h; sourceTree = "<group>"; };
 		014035771921D99F00FC2F0E /* Knob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knob.m; sourceTree = "<group>"; };
+		0146B71919275ED600284075 /* Artists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Artists.plist; sourceTree = "<group>"; };
+		0146B71A19275ED600284075 /* Names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Names.plist; sourceTree = "<group>"; };
 		01557D3B191A4ED600B37172 /* Loops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Loops.plist; sourceTree = "<group>"; };
 		01557D56191A915400B37172 /* dbass.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dbass.aupreset; sourceTree = "<group>"; };
 		019BFFED18E2C604002E58EA /* NoteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBuffer.h; sourceTree = "<group>"; };
@@ -382,6 +386,8 @@
 		9FB5AEE11912C7FC00EADB1D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0146B71919275ED600284075 /* Artists.plist */,
+				0146B71A19275ED600284075 /* Names.plist */,
 				010FF84D191E133500AB8D0B /* knob@2x.png */,
 				01557D3A191A4ED600B37172 /* MIDI */,
 				9FB5AEE21912C7FC00EADB1D /* soloBackground.png */,
@@ -483,6 +489,7 @@
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
+				0146B71B19275ED600284075 /* Artists.plist in Resources */,
 				9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */,
 				01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */,
 				01557D3C191A4ED600B37172 /* Loops.plist in Resources */,
