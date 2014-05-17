@@ -21,6 +21,8 @@
 
 - (void) start;
 
+- (void) stop;
+
 - (void) setTempo:(int)tempo;
 
 @end
