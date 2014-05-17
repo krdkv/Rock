@@ -15,7 +15,11 @@
 	_activityCount = activityCount;
 	CGFloat alpha = 0.2 + _activityCount * 0.2;
 	alpha = MIN(alpha, 1.0);
-	self.alpha = alpha;
+	
+	[UIView animateWithDuration:0.2 animations:^{
+		self.alpha = alpha;
+	}];
+	
 }
 
 @end
