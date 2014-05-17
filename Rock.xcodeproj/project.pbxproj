@@ -553,6 +553,7 @@
 				9FA7AB3819278F7F00B7A07F /* KRGridView.m in Sources */,
 				0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */,
 				9FA7AB35192786DD00B7A07F /* UIView+RecursiveSearch.m in Sources */,
+				0146B72219278D3400284075 /* TrackStructure.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				9FA7AB3219277ED900B7A07F /* KRScrollView.m in Sources */,
 				9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */,
