@@ -9,6 +9,7 @@
 #import "DebugViewController.h"
 #import "KRMotionTracker.h"
 #import "Player.h"
+#import "Knob.h"
 
 #define kNumberOfColors 5
 #define kScreenWidth   [UIScreen mainScreen].bounds.size.width
@@ -18,8 +19,9 @@
 
 @interface DebugViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
     KRMotionTracker * _motionTracker;
-    Player * _player;
+    __block Player * _player;
 	UIImage * _image;
+    Knob * _knob;
 }
 @property (strong) KRColorAnalyzer *colorAnalyzer;
 @property (weak) IBOutlet UILabel * motionQuantityLabel;
@@ -34,17 +36,32 @@
 
 @implementation DebugViewController
 
-- (void) tick
-{
-    [NSTimer scheduledTimerWithTimeInterval:arc4random()%10 * 0.1f target:self selector:@selector(tick) userInfo:nil repeats:NO];
-}
+static int tickNumber = 0;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    _knob = [[Knob alloc] initWithFrame:CGRectMake(-30.f, 50.f, 130.f*3, 128.f*3)];
+    _knob.userInteractionEnabled = YES;
+    [self.view addSubview:_knob];
+    
+    tickNumber = 0;
+    
+    __block DebugViewController * me = self;
+    
+    _knob.onTick = ^{
+
+        [me tickWithNumber:tickNumber];
+        
+        ++tickNumber;
+        if ( tickNumber == 32 ) {
+            tickNumber = 0;
+        }
+    };
+    
     _player = [[Player alloc] init];
-    [_player start];
+//    [_player start];
     
 #if !TARGET_IPHONE_SIMULATOR
     
@@ -69,18 +86,16 @@
 	_colorAnalyzer.numberOfColors = 10.0;
 		
 	NSString * type = [_colorAnalyzer getTypeForImage:_image];
-	
-	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Color is..."
-													 message:type
-													delegate:nil
-										   cancelButtonTitle:@"Oh gosh"
-										   otherButtonTitles:nil];
-	[alert show];
+    NSLog(@"Color is %@", type);
+}
+
+- (void)tickWithNumber:(int)tick {
+    [_player tickWithNumber:tick];
 }
 
 - (IBAction)tempoChanged:(UISlider*)sender
 {
-    [_player setPitch:sender.value];
+    [_player setTempo:sender.value];
 	
 
 }

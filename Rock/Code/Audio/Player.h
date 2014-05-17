@@ -19,4 +19,6 @@
 
 - (void)setPitch:(int)pitch;
 
+- (void) tickWithNumber:(int)tick;
+
 @end

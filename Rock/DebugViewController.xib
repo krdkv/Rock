@@ -56,7 +56,7 @@
                     <color key="textColor" red="0.30588235289999999" green="0.74901960779999999" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-12" maxValue="12" translatesAutoresizingMaskIntoConstraints="NO" id="Tge-Pe-T8E">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="120" minValue="60" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="Tge-Pe-T8E">
                     <rect key="frame" x="25" y="338" width="270" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
