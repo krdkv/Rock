@@ -15,13 +15,15 @@
 
 - (void) setTempo:(int)tempo;
 
-- (void) playSolo:(CGPoint)point;
+- (void) soloNoteOn:(int)x :(int)y;
+
+- (void) soloNoteOff:(int)x :(int)y;
+
+- (void) playSoloWithTilt:(CGFloat)tilt;
 
 - (void)setPitch:(int)pitch;
 
 - (void) tickWithNumber:(int)tick;
-
-//
 
 - (void) stop;
 
@@ -30,7 +32,5 @@
 
 - (void) setEffectColorForInstrument:(int)instrument
                                color:(UIColor*)color;
-
-- (void) playSoloWithTilt:(CGFloat)tilt;
 
 @end
