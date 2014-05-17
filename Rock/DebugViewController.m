@@ -61,6 +61,8 @@ static int tickNumber = 0;
     };
     
     _player = [[Player alloc] init];
+    [_player setOverheadVolume:100];
+    [_player setIntensity:1.f andColorsArray:@[]];
     [_player start];
     
 #if !TARGET_IPHONE_SIMULATOR

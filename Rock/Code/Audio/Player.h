@@ -35,4 +35,6 @@
 - (void) setEffectColorForInstrument:(int)instrument
                                color:(UIColor*)color;
 
+@property (nonatomic, assign) int overheadVolume;
+
 @end
