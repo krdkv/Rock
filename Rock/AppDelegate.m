@@ -10,14 +10,14 @@
 #import "KRPhotoPickerVC.h"
 #import "DebugViewController.h"
 
-#define SHOW_DEBUG_UI 1
+#define SHOW_DEBUG_UI 0
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	UIViewController * rootViewController;
-	if(SHOW_DEBUG_UI){
+	if(SHOW_DEBUG_UI){;
 		rootViewController = [[DebugViewController alloc] initWithNibName:@"DebugViewController" bundle:nil];
 	}
 	else {

@@ -122,6 +122,24 @@ static BOOL down = false;
     [_pulse start];
 }
 
+- (void) stop {
+    
+}
+
+- (void) setIntensity:(CGFloat)intensity
+       andColorsArray:(NSArray*)colorsArray {
+    
+}
+
+- (void) setEffectColorForInstrument:(int)instrument
+                               color:(UIColor*)color {
+    
+}
+
+- (void) playSoloWithTilt:(CGFloat)tilt {
+    
+}
+
 - (void) tickWithNumber:(int)tick {
     [_buffer onTick:tick];
 }

@@ -21,4 +21,16 @@
 
 - (void) tickWithNumber:(int)tick;
 
+//
+
+- (void) stop;
+
+- (void) setIntensity:(CGFloat)intensity
+       andColorsArray:(NSArray*)colorsArray;
+
+- (void) setEffectColorForInstrument:(int)instrument
+                               color:(UIColor*)color;
+
+- (void) playSoloWithTilt:(CGFloat)tilt;
+
 @end
