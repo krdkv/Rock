@@ -144,6 +144,7 @@
 }
 
 static int soloNotes[7][7];
+static int tiltKey = -500;
 
 - (void) soloNoteOn:(int)x :(int)y {
     
@@ -159,6 +160,20 @@ static int soloNotes[7][7];
 
 - (void) playSoloWithTilt:(CGFloat)tilt {
     
+    tilt *= -1;
+    
+    int newKey = [_trackStructure keyForTilt:tilt] + 12;
+    
+    if ( tiltKey == newKey ) {
+        return;
+    }
+    if ( tiltKey != -1 ) {
+        [_buffer stopNoteForInstrument:kGuitar note:tiltKey];
+    }
+    
+    tiltKey = newKey;
+    NSLog(@"%d", tiltKey);
+    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
 }
 
 - (void)setPitch:(int)pitch {
