@@ -13,6 +13,8 @@
 - (void) generateWithIntensity:(CGFloat)intensity
                         colors:(NSArray*)colors;
 
+- (int) keyForTick:(int)tick;
+
 @property (nonatomic, readonly) NSArray * keys;
 
 @property (nonatomic, readonly) NSArray * drumLoops;

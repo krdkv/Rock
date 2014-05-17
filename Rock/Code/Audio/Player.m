@@ -83,7 +83,11 @@
             int duration = [noteParams[2] intValue];
             int velocity = [noteParams[3] intValue];
             
-            offset += currentBarOffset;
+            offset += currentBarOffset;                        
+            
+            int diff = [_trackStructure keyForTick:offset] - E1;
+            
+            key += diff;
             
             [_buffer addNoteForInstrument:kBass note:key velocity:(velocity + _overheadVolume) offset:offset duration:duration];
         }
