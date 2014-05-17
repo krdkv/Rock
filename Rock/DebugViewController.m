@@ -227,12 +227,6 @@ static CGPoint lastPoint;
 	_motionTypeLabel.text = title;
 }
 
-- (void) noWayToGetLocationType
-{
-// Propose we outta start some timer-based process to affect what motion types supposed to affect )
-	NSLog(@"No way!");
-}
-
 #pragma mark Color analyzer
 
 - (void) colorsDidChanged:(NSArray *)colorsArray {

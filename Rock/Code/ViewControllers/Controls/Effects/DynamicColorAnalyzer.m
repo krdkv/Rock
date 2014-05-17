@@ -47,7 +47,7 @@ struct ColorUnit {
     session = [[AVCaptureSession alloc] init];
     
     [session beginConfiguration];
-    [session setSessionPreset:AVCaptureSessionPreset640x480];
+    [session setSessionPreset:AVCaptureSessionPreset352x288];
     
     AVCaptureDevice * videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
@@ -102,10 +102,10 @@ static int counter = 0;
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
 {
     ++counter;
-    if ( counter == 10 ) {
+    if ( counter == 5 ) {
         counter = 0;
     }
-    if ( counter != 5 ) {
+    if ( counter != 1 ) {
         return;
     }
     
@@ -186,8 +186,8 @@ static int counter = 0;
     }
 }
 
-- (NSInteger) colorMatchesGroup:(UIColor*)color {
-    
+- (NSInteger) colorMatchesGroup:(UIColor*)color
+{
     NSArray * colorGroups = @[[UIColor redColor], [UIColor yellowColor], [UIColor greenColor], [UIColor cyanColor], [UIColor blueColor], [UIColor magentaColor]];
     
     CGFloat record = CGFLOAT_MAX;

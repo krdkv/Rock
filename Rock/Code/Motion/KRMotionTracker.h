@@ -23,16 +23,18 @@ typedef enum {
 } KRMotionType;
 
 @protocol KRMotionTrackerDelegate
+
+- (void) newMotionRawValue:(CGFloat)rawValue;
+- (void) tiltValue:(CGFloat)value;
+
+@optional
 - (void) attitudeUpdatedWithPitch:(CGFloat)pitch roll:(CGFloat)roll yaw:(CGFloat)yaw;
 - (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z;
 - (void) xDistanceChanged:(CGFloat)distance;
 - (void) newMotionValue:(KRSpeed)speed;
-- (void) newMotionRawValue:(CGFloat)rawValue;
 - (void) shakeDetected;
 - (void) newMotionType:(KRMotionType)type;
-- (void) noWayToGetLocationType;
 - (void) logGPSSpeed:(CGFloat)speed;
-- (void) tiltValue:(CGFloat)value;
 @end
 
 @interface KRMotionTracker : NSObject
