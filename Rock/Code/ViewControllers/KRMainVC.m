@@ -79,8 +79,7 @@
 #pragma mark IBActions
 - (IBAction) playStopAction
 {
-#warning check if player is playing
-	if(YES){
+	if(_player.isPlaying){
 		[_player stop];
 		[_playStopButton setTitle:@"play" forState:UIControlStateNormal];
 	}
