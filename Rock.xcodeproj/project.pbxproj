@@ -26,6 +26,7 @@
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
 		014035781921D99F00FC2F0E /* Knob.m in Sources */ = {isa = PBXBuildFile; fileRef = 014035771921D99F00FC2F0E /* Knob.m */; };
 		0146B71B19275ED600284075 /* Artists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0146B71919275ED600284075 /* Artists.plist */; };
+		0146B72219278D3400284075 /* TrackStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146B72119278D3400284075 /* TrackStructure.m */; };
 		01557D3C191A4ED600B37172 /* Loops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01557D3B191A4ED600B37172 /* Loops.plist */; };
 		01557D57191A915400B37172 /* dbass.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01557D56191A915400B37172 /* dbass.aupreset */; };
 		019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 019BFFEE18E2C604002E58EA /* NoteBuffer.m */; };
@@ -108,6 +109,8 @@
 		014035761921D99F00FC2F0E /* Knob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knob.h; sourceTree = "<group>"; };
 		014035771921D99F00FC2F0E /* Knob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knob.m; sourceTree = "<group>"; };
 		0146B71919275ED600284075 /* Artists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Artists.plist; sourceTree = "<group>"; };
+		0146B72019278D3400284075 /* TrackStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackStructure.h; sourceTree = "<group>"; };
+		0146B72119278D3400284075 /* TrackStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackStructure.m; sourceTree = "<group>"; };
 		01557D3B191A4ED600B37172 /* Loops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Loops.plist; sourceTree = "<group>"; };
 		01557D56191A915400B37172 /* dbass.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = dbass.aupreset; sourceTree = "<group>"; };
 		019BFFED18E2C604002E58EA /* NoteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBuffer.h; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 		0103BF4B18DB7E2F00697273 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				0146B72019278D3400284075 /* TrackStructure.h */,
+				0146B72119278D3400284075 /* TrackStructure.m */,
 				01F5F3C518DC2E320050DFB0 /* Pulse.h */,
 				01F5F3C618DC2E320050DFB0 /* Pulse.m */,
 				01F5F3C818DC2E7E0050DFB0 /* AudioSettings.h */,
@@ -494,7 +499,7 @@
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
-				9FB5AEE81912CA4800EADB1D /* KRWalkingSpeedVC.xib in Resources */,
+				9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */,
 				9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */,
 				01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */,
 				01AEEEDB18F0AD9F00F513EE /* bass_full.aupreset in Resources */,
@@ -530,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */,
+				0146B72219278D3400284075 /* TrackStructure.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
 				9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,

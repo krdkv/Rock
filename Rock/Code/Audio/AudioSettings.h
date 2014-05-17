@@ -27,6 +27,24 @@ enum {
     kDistortion = kAudioUnitSubType_Distortion
 };
 
+enum {
+    C1 = 24,
+    C1d,
+    D1,
+    D1d,
+    E1,
+    F1,
+    F1d,
+    G1,
+    G1d,
+    A1,
+    A1d,
+    B2
+};
+
+#define plusOctave(x) x+12
+#define minusOctave(x) x-12
+
 #define kEffects @[  @[@(kReverb)], @[@(kReverb)], @[@(kReverb)] ]
 
 #define kReverbSettings @[@{@"p":@(kReverb2Param_DryWetMix), @"on":@60.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f}]

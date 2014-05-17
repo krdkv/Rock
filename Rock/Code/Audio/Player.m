@@ -9,19 +9,17 @@
 #import "Player.h"
 #import "AudioSettings.h"
 #import "NoteBuffer.h"
+#import "TrackStructure.h"
 
 @interface Player() {
     Pulse * _pulse;
     NoteBuffer * _buffer;
-    
-    NSArray * _availableForSolo;
+    TrackStructure * _trackStructure;
 }
 
 @end
 
 @implementation Player
-
-#define kPopularHarmonies @{ @0.273 : @[@5, @7, @0], @0.226 : @[@7, @5, @0], @0.113: @[@10, @5, @0], @0.09 : @[@9, @5, @0], @0.079: @[@10, @8, @0], @0.0512: @[@3, @8, @0], @0.048: @[@2, @7, @0], @0.046: @[@8, @10, @0], @0.032: @[@7, @9, @0], @0.03: @[@5, @10, @0] }
 
 - (instancetype)init
 {
@@ -33,90 +31,13 @@
         
         _buffer = [[NoteBuffer alloc] init];
         
-        NSArray * loopsArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Loops" ofType:@"plist"]];
+        _trackStructure = [[TrackStructure alloc] init];
         
-        _availableForSolo = @[@40, @42, @44, @45, @47, @48, @50];
+        _overheadVolume = 0;
         
-        NSString * bassBar, *drumsBar;
-        
-        for ( int BIG = 0; BIG < 24; ++BIG ) {
-            
-            int shift = 0;
-            
-            NSArray * harmony = [kPopularHarmonies allValues][0];//[arc4random()%kPopularHarmonies.allValues.count];
-            
-            if ( ! drumsBar || arc4random()%5 == 1 ) {
-                for ( ;; ) {
-                    int index = arc4random()%loopsArray.count;
-                    NSDictionary * loop = loopsArray[index];
-                    if ( [loop[@"instrument"] isEqualToString:@"b"] ) {
-                        continue;
-                    }
-                    drumsBar = loop[@"notes"];
-                    break;
-                }
-            }
-            
-            
-            for ( ;; ) {
-                int index = arc4random()%loopsArray.count;
-                NSDictionary * loop = loopsArray[index];
-                if ( [loop[@"instrument"] isEqualToString:@"d"] ) {
-                    continue;
-                }
-                bassBar = loop[@"notes"];
-                break;
-            }
-            
-            NSArray * notes = [bassBar componentsSeparatedByString:@" "];
-            for ( int j = 0; j < notes.count; ++j ) {
-                if ([notes[j] length] == 0 ) {
-                    continue;
-                }
-                NSArray * components = [notes[j] componentsSeparatedByString:@","];
-                int key = [components[0] intValue];
-                int offset = [components[1] intValue];
-                int duration = [components[2] intValue];
-                if ( down ) {
-                    velocity--;
-                } else {
-                    velocity++;
-                }
-                if ( velocity == 80 ) {
-                    down = YES;
-                } if ( velocity == 50 ) {
-                    down = NO;
-                }
-                
-                if ( offset >= 0 && offset < 16 ) {
-                    offset += [harmony[0] intValue];
-                } else if ( offset >= 16 && offset < 32 ) {
-                    offset += [harmony[1] intValue];
-                }
-                
-                [_buffer addNoteForInstrument:0 note:(key+shift-12) velocity:50+100+50+arc4random()%50 offset:offset + BIG * (4*32) duration:duration];
-            }
-            
-            int drumPossibleShift = [@[@0, @48, @24][arc4random()%3] intValue];
-            
-            notes = [drumsBar componentsSeparatedByString:@" "];
-            for ( int j = 0; j < notes.count; ++j ) {
-                if ([notes[j] length] == 0 ) {
-                    continue;
-                }
-                NSArray * components = [notes[j] componentsSeparatedByString:@","];
-                int key = [components[0] intValue];
-                int offset = [components[1] intValue];
-                int duration = [components[2] intValue];
-                [_buffer addNoteForInstrument:1 note:(key-12+drumPossibleShift) velocity:50+30+60+arc4random()%40 offset:offset + BIG * (4*32) duration:100];
-            }
-        }
     }
     return self;
 }
-
-static int velocity = 80;
-static BOOL down = false;
 
 - (void) start {
     [_pulse start];
@@ -134,13 +55,79 @@ static BOOL down = false;
        andColorsArray:(NSArray*)colorsArray {
     
     [_pulse stop];
-    // Generate
-    [_pulse start];
+    
+    [_trackStructure generateWithIntensity:intensity colors:colorsArray];
+    [self fillBuffer];
+}
+
+- (void) fillBuffer {
+    
+    int currentBarOffset = 0;
+    
+    for ( NSDictionary * bassLoop in _trackStructure.bassLoops ) {
+        
+        NSInteger numberOfBars = [bassLoop[@"numberOfBars"] intValue];
+        
+        NSArray * notes = [bassLoop[@"notes"] componentsSeparatedByString:@" "];
+        
+        for ( NSString * note in notes ) {
+            
+            if (note.length == 0 ) {
+                continue;
+            }
+            
+            NSArray * noteParams = [note componentsSeparatedByString:@","];
+            
+            int key = [noteParams[0] intValue];
+            int offset = [noteParams[1] intValue];
+            int duration = [noteParams[2] intValue];
+            int velocity = [noteParams[3] intValue];
+            
+            offset += currentBarOffset;
+            
+            [_buffer addNoteForInstrument:kBass note:key velocity:(velocity + _overheadVolume) offset:offset duration:duration];
+        }
+        
+        currentBarOffset += numberOfBars * 32;
+    }
+    
+    currentBarOffset = 0;
+    
+    for ( NSDictionary * drumLoop in _trackStructure.drumLoops ) {
+        
+        NSInteger numberOfBars = [drumLoop[@"numberOfBars"] intValue];
+        
+        NSArray * notes = [drumLoop[@"notes"] componentsSeparatedByString:@" "];
+        
+        for ( NSString * note in notes ) {
+            
+            if (note.length == 0 ) {
+                continue;
+            }
+            
+            NSArray * noteParams = [note componentsSeparatedByString:@","];
+            
+            int key = [noteParams[0] intValue];
+            int offset = [noteParams[1] intValue];
+            int velocity = [noteParams[3] intValue];
+            
+            offset += currentBarOffset;
+            
+            [_buffer addNoteForInstrument:kDrums note:key-12 velocity:(velocity + _overheadVolume) offset:offset duration:100];
+        }
+        
+        currentBarOffset += numberOfBars * 32;
+    }
+    
     
 }
 
 - (void) setEffectColorForInstrument:(int)instrument
                                color:(UIColor*)color {
+    
+    
+    
+    
     
 }
 
