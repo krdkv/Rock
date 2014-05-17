@@ -12,7 +12,7 @@
 
 + (UIImage *) blur:(UIImage*)theImage width:(CGFloat)width height:(CGFloat)height;
 {
-	CGFloat blurValue = 30.0;
+	CGFloat blurValue = 10.0;
 	
     theImage = [self reOrientIfNeeded:theImage];
 	
@@ -23,13 +23,8 @@
     [filter setValue:inputImage forKey:kCIInputImageKey];
     [filter setValue:[NSNumber numberWithFloat:blurValue] forKey:@"inputRadius"];
     CIImage *result = [filter valueForKey:kCIOutputImageKey];
-	
-    // CIGaussianBlur has a tendency to shrink the image a little,
-    // this ensures it matches up exactly to the bounds of our original image
-	
+		
 	CGSize imageSize = theImage.size;
-
-	
 	CGRect rect = CGRectMake(imageSize.width/2.0 - width * (imageSize.height - 2*blurValue)/(2.0*height),
 							 blurValue,
 							 width * (imageSize.height - 2*blurValue)/height,
@@ -37,28 +32,15 @@
 	
     CGImageRef cgImage = [context createCGImage:result fromRect:rect];
 	
-    UIImage *returnImage = [UIImage imageWithCGImage:cgImage];//create a UIImage for this function to "return" so that ARC can manage the memory of the blur... ARC can't manage CGImageRefs so we need to release it before this function "returns" and ends.
-    CGImageRelease(cgImage);//release CGImageRef because ARC doesn't manage this on its own.
+    UIImage *returnImage = [UIImage imageWithCGImage:cgImage];
+    CGImageRelease(cgImage);
 	
     return returnImage;
-	
-    // *************** if you need scaling
-    // return [[self class] scaleIfNeeded:cgImage];
 }
 
-+(UIImage*) scaleIfNeeded:(CGImageRef)cgimg {
-    bool isRetina = [[[UIDevice currentDevice] systemVersion] intValue] >= 4 && [[UIScreen mainScreen] scale] == 2.0;
-    if (isRetina) {
-        return [UIImage imageWithCGImage:cgimg scale:2.0 orientation:UIImageOrientationUp];
-    } else {
-        return [UIImage imageWithCGImage:cgimg];
-    }
-}
-
-+ (UIImage*) reOrientIfNeeded:(UIImage*)theImage{
-	
++ (UIImage*) reOrientIfNeeded:(UIImage*)theImage
+{
     if (theImage.imageOrientation != UIImageOrientationUp) {
-		
         CGAffineTransform reOrient = CGAffineTransformIdentity;
         switch (theImage.imageOrientation) {
             case UIImageOrientationDown:
