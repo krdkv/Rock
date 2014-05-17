@@ -126,8 +126,16 @@ static BOOL down = false;
     [_pulse stop];
 }
 
+- (BOOL) isPlaying {
+    return _pulse && [_pulse isPlaying];
+}
+
 - (void) setIntensity:(CGFloat)intensity
        andColorsArray:(NSArray*)colorsArray {
+    
+    [_pulse stop];
+    // Generate
+    [_pulse start];
     
 }
 
