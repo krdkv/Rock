@@ -66,7 +66,7 @@
     
     for ( NSDictionary * bassLoop in _trackStructure.bassLoops ) {
         
-        NSInteger numberOfBars = [bassLoop[@"numberOfBars"] intValue];
+        NSInteger numberOfBars = [bassLoop[@"bars"] intValue];
         
         NSArray * notes = [bassLoop[@"notes"] componentsSeparatedByString:@" "];
         
@@ -85,7 +85,7 @@
             
             offset += currentBarOffset;                        
             
-            int diff = [_trackStructure keyForTick:offset] - E1;
+            int diff = [[_trackStructure keyForTick:offset][@"k"] intValue] - E1;
             
             key += diff;
             
@@ -99,7 +99,7 @@
     
     for ( NSDictionary * drumLoop in _trackStructure.drumLoops ) {
         
-        NSInteger numberOfBars = [drumLoop[@"numberOfBars"] intValue];
+        NSInteger numberOfBars = [drumLoop[@"bars"] intValue];
         
         NSArray * notes = [drumLoop[@"notes"] componentsSeparatedByString:@" "];
         
@@ -151,7 +151,7 @@ static int tiltKey = -500;
     int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick];
     soloNotes[x][y] = key;
     
-    [_buffer addNoteForInstrument:kGuitar note:key velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:key velocity:50+arc4random()%50+self.overheadVolume offset:0 duration:200];
 }
 
 - (void) soloNoteOff:(int)x :(int)y {
@@ -162,7 +162,7 @@ static int tiltKey = -500;
     
     tilt *= -1;
     
-    int newKey = [_trackStructure keyForTilt:tilt] + 12;
+    int newKey = [_trackStructure keyForTilt:tilt offset:_pulse.globalTick] + 12;
     
     if ( tiltKey == newKey ) {
         return;
@@ -172,8 +172,7 @@ static int tiltKey = -500;
     }
     
     tiltKey = newKey;
-    NSLog(@"%d", tiltKey);
-    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:50+arc4random()%50+self.overheadVolume offset:0 duration:200];
 }
 
 - (void)setPitch:(int)pitch {
