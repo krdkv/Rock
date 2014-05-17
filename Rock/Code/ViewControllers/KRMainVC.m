@@ -13,9 +13,10 @@
 
 #import "Player.h"
 
-@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate>
+@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate, UIScrollViewDelegate>
 {
 	UIImage * _image;
+	KRSpinningWheelVC * _spinningWheelVC;
 }
 @property (strong) Player * player;
 @property (weak) IBOutlet UIScrollView * contentScrollView;
@@ -35,11 +36,11 @@
 	soloVC.delegate = self;
 	[self addChildViewController:soloVC];
 	
-	KRSpinningWheelVC * speedVC = [[KRSpinningWheelVC alloc] init];
-	speedVC.delegate = self;
-	[self addChildViewController:speedVC];
+	_spinningWheelVC = [[KRSpinningWheelVC alloc] init];
+	_spinningWheelVC.delegate = self;
+	[self addChildViewController:_spinningWheelVC];
 	
-	_contentScrollView.delaysContentTouches = NO;
+	_contentScrollView.delegate = self;
 	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
 	NSString * type = [colorAnalyzer getTypeForImage:_image];
@@ -77,19 +78,26 @@
 	_image = image;
 }
 
-
+- (void) startPlayer
+{
+	[_player start];
+	[_playStopButton setTitle:@"stop" forState:UIControlStateNormal];
+}
+- (void) stopPlayer
+{
+	[_player stop];
+	[_playStopButton setTitle:@"play" forState:UIControlStateNormal];
+}
 
 #pragma mark -
 #pragma mark IBActions
 - (IBAction) playStopAction
 {
 	if(_player.isPlaying){
-		[_player stop];
-		[_playStopButton setTitle:@"play" forState:UIControlStateNormal];
+		[self stopPlayer];
 	}
 	else{
-		[_player start];
-		[_playStopButton setTitle:@"stop" forState:UIControlStateNormal];
+		[self startPlayer];
 	}
 }
 
@@ -103,13 +111,11 @@
 - (void) soloNoteOn:(int)x :(int)y
 {
 	[_player soloNoteOn:x :y];
-	NSLog(@"on! x:%i y:%i", x, y);
 }
 
 - (void) soloNoteOff:(int)x :(int)y
 {
 	[_player soloNoteOff:x :y];
-	NSLog(@"off! x:%i y:%i", x, y);
 }
 
 - (void) playSoloWithTilt:(CGFloat)tilt
@@ -124,6 +130,22 @@
 - (void) tickWithInteger:(NSInteger)tick
 {
 	[_player tickWithNumber:(int)tick];
+}
+
+#pragma mark UIScrollViewDelegate Methods
+
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	CGFloat x = scrollView.contentOffset.x;
+	CGFloat wheelVCOffset = _spinningWheelVC.view.frame.origin.x;
+	
+	if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
+		[self stopPlayer];
+		_playStopButton.enabled = NO;
+	}
+	else{
+		_playStopButton.enabled = YES;
+	}
 }
 
 
