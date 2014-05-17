@@ -24,6 +24,7 @@
 		KRPhotoPickerVC * photoPickerVC = [[KRPhotoPickerVC alloc] initWithNibName:@"KRPhotoPickerVC" bundle:nil];
 
 		UINavigationController * rootNavController = [[UINavigationController alloc] initWithRootViewController:photoPickerVC];
+		rootNavController.navigationBarHidden = YES;
 		rootViewController = rootNavController;
 	}
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

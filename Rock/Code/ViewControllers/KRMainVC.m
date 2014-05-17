@@ -96,6 +96,19 @@
 
 #pragma mark -
 #pragma mark SoloInstrumentDelegate
+- (void) soloNoteOn:(int)x :(int)y
+{
+	
+}
+
+- (void) soloNoteOff:(int)x :(int)y
+{
+}
+
+- (void) playSoloWithTilt:(CGFloat)tilt
+{
+	
+}
 
 
 #pragma mark -

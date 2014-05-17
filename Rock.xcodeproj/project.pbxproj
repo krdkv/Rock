@@ -66,7 +66,6 @@
 		9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AED81912A51500EADB1D /* KRMainVC.xib */; };
 		9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */; };
 		9FB5AEE01912C32C00EADB1D /* KRSoloInstrumentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */; };
-		9FB5AEE31912C7FC00EADB1D /* soloBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE21912C7FC00EADB1D /* soloBackground.png */; };
 		9FB5AEE71912CA4800EADB1D /* KRSpinningWheelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE51912CA4800EADB1D /* KRSpinningWheelVC.m */; };
 		9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE61912CA4800EADB1D /* KRSpinningWheelVC.xib */; };
 /* End PBXBuildFile section */
@@ -151,7 +150,6 @@
 		9FB5AEDC1912C32C00EADB1D /* KRSoloInstrumentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSoloInstrumentVC.h; sourceTree = "<group>"; };
 		9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSoloInstrumentVC.m; sourceTree = "<group>"; };
 		9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSoloInstrumentVC.xib; sourceTree = "<group>"; };
-		9FB5AEE21912C7FC00EADB1D /* soloBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soloBackground.png; sourceTree = "<group>"; };
 		9FB5AEE41912CA4800EADB1D /* KRSpinningWheelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSpinningWheelVC.h; sourceTree = "<group>"; };
 		9FB5AEE51912CA4800EADB1D /* KRSpinningWheelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSpinningWheelVC.m; sourceTree = "<group>"; };
 		9FB5AEE61912CA4800EADB1D /* KRSpinningWheelVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSpinningWheelVC.xib; sourceTree = "<group>"; };
@@ -387,7 +385,6 @@
 				0146B71919275ED600284075 /* Artists.plist */,
 				010FF84D191E133500AB8D0B /* knob@2x.png */,
 				01557D3A191A4ED600B37172 /* MIDI */,
-				9FB5AEE21912C7FC00EADB1D /* soloBackground.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -482,7 +479,6 @@
 				01557D57191A915400B37172 /* dbass.aupreset in Resources */,
 				9F98F2E71919591300DF06D0 /* hugeBlack.jpg in Resources */,
 				010FF84E191E133500AB8D0B /* knob@2x.png in Resources */,
-				9FB5AEE31912C7FC00EADB1D /* soloBackground.png in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
@@ -494,7 +490,7 @@
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
-				9FB5AEE81912CA4800EADB1D /* KRWalkingSpeedVC.xib in Resources */,
+				9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */,
 				9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */,
 				01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */,
 				01AEEEDB18F0AD9F00F513EE /* bass_full.aupreset in Resources */,
