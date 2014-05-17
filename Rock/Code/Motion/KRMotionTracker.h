@@ -28,19 +28,17 @@ typedef enum {
 - (void) xDistanceChanged:(CGFloat)distance;
 - (void) newMotionValue:(KRSpeed)speed;
 - (void) shakeDetected;
-@end
-
-@protocol KRMotionTypeDelegate
 - (void) newMotionType:(KRMotionType)type;
 - (void) noWayToGetLocationType;
 - (void) logGPSSpeed:(CGFloat)speed;
-- (void) tiltAction;
+- (void) tiltValue:(CGFloat)value;
 @end
 
 @interface KRMotionTracker : NSObject
 
-@property (weak, nonatomic) id<KRMotionTrackerDelegate, KRMotionTypeDelegate> delegate;
+@property (weak, nonatomic) id<KRMotionTrackerDelegate> delegate;
 - (void) start;
+- (void) startTiltDetecting;
 - (void) stop;
 
 @end

@@ -26,6 +26,8 @@
 #define KRWalkingMaxSpeed 1.5f
 #define KRRunningMaxSpeed 8.0f
 
+#define KRTiltUpdateFrequency 2 //Hz
+
 @interface KRMotionTracker () <CLLocationManagerDelegate>
 {
 	CMMotionManager * _motionManager;
@@ -43,8 +45,6 @@
 }
 @property KRMotionType currentMotionType;
 @property CGFloat motionLastYaw;
-@property CGFloat motionLastPitch;
-@property CGFloat motionLastRoll;
 @end
 
 @implementation KRMotionTracker
@@ -71,31 +71,41 @@
 	NSOperationQueue * queue = [NSOperationQueue new];
 	[queue setMaxConcurrentOperationCount:1];
 	
-	_motionManager.deviceMotionUpdateInterval = 1/KRDeviceMotionFrequency;
+//	_motionManager.deviceMotionUpdateInterval = 1/KRDeviceMotionFrequency;
 	
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self motionUpdated:motion];
 											[self detectShake:motion];
-											[self detectTilt:motion];
-											[self detectRoll:motion];
 										}];
 
-	BOOL isActivityAvailable = [CMMotionActivityManager isActivityAvailable];
 	BOOL isLocationAvailable = [CLLocationManager locationServicesEnabled];
-	if(isActivityAvailable){
-		[_activityManager startActivityUpdatesToQueue:queue
-										  withHandler:^(CMMotionActivity *activity) {
-											  [self activityUpdated:activity];
-										  }];
-	}
-	else if (isLocationAvailable){
+	if (isLocationAvailable){
 		[_locationManager startUpdatingLocation];
 		[self startSpeedControl];
 	}
 	else{
 		[self.delegate noWayToGetLocationType];
 	}
+}
+
+- (void) startTiltDetecting
+{
+	[_motionManager stopDeviceMotionUpdates];
+	
+	_motionManager.deviceMotionUpdateInterval = 1/KRTiltUpdateFrequency;
+	NSOperationQueue * queue = [NSOperationQueue new];
+	[queue setMaxConcurrentOperationCount:1];
+	[_motionManager startDeviceMotionUpdatesToQueue:queue
+										withHandler:^(CMDeviceMotion *motion, NSError *error) {
+											[self detectTilt:motion];
+										}];
+
+}
+
+- (void) startMotionValueDetecting
+{
+	
 }
 
 - (void) stop
@@ -190,37 +200,6 @@
 	}
 }
 
-- (void) detectRoll:(CMDeviceMotion *)motion
-{
-//	CMQuaternion quat = motion.attitude.quaternion;
-//	double roll = atan((2 * quat.y*quat.w - 2 * quat.x*quat.z)
-//					   / (1 - 2*quat.y*quat.y - 2*quat.z*quat.z));
-//	
-//	if (self.motionLastRoll == 0) {
-//        self.motionLastRoll = roll;
-//    }
-//	
-//    // kalman filtering
-//    static float q = 0.1;   // process noise
-//    static float r = 0.1;   // sensor noise
-//    static float p = 0.1;   // estimated error
-//    static float k = 0.5;   // kalman filter gain
-//	
-//    float x = self.motionLastRoll;
-//    p = p + q;
-//    k = p / (p + r);
-//    x = x + k*(roll - x);
-//    p = (1 - k)*p;
-//	
-//	if(self.motionLastRoll < KRTiltAngleValue && x > KRTiltAngleValue){
-//		[self.delegate tiltAction];
-//	}
-//	
-//	if(self.motionLastRoll > - KRTiltAngleValue && x < - KRTiltAngleValue){
-//		[self.delegate tiltAction];
-//	}
-//    self.motionLastRoll = x;
-}
 
 - (void) detectTilt:(CMDeviceMotion *)motion
 {
@@ -243,38 +222,10 @@
     x = x + k*(yaw - x);
     p = (1 - k)*p;
 	
-	if(self.motionLastYaw < KRTiltAngleValue && x > KRTiltAngleValue){
-		[self.delegate tiltAction];
-	}
-	
-	if(self.motionLastYaw > - KRTiltAngleValue && x < - KRTiltAngleValue){
-		[self.delegate tiltAction];
-	}
     self.motionLastYaw = x;
+	[self.delegate tiltValue:_motionLastYaw];
 }
 
-
-#pragma mark -
-#pragma mark Activity Methods
-
-- (void) activityUpdated:(CMMotionActivity *)activity
-{
-	KRMotionType type;
-	if (activity.automotive){
-		type = kAutomotive;
-	}
-	else if (activity.running){
-		type = kRunning;
-	}
-	else if (activity.walking){
-		type = kWalking;
-	}
-	else if(activity.stationary){
-		type = kStationary;
-	}
-	
-	[self notifyDelegateIfNeeded:type];
-}
 
 #pragma mark -
 #pragma mark SpeedControl Methods

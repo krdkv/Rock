@@ -11,7 +11,6 @@
 @protocol KRSoloInstrumentDelegate
 - (void) soloNoteOn:(int)x :(int)y;
 - (void) soloNoteOff:(int)x :(int)y;
-- (void) playSoloWithTilt:(CGFloat)tilt;
 @end
 
 @interface KRGridView : UIView

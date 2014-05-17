@@ -17,7 +17,7 @@
 
 #define kColorViewStartTag 10
 
-@interface DebugViewController () <KRMotionTypeDelegate, KRMotionTrackerDelegate>{
+@interface DebugViewController () <KRMotionTrackerDelegate>{
     KRMotionTracker * _motionTracker;
     __block Player * _player;
 	UIImage * _image;

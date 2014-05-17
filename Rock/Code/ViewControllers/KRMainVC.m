@@ -7,16 +7,18 @@
 //
 
 #import "KRMainVC.h"
+#import "KRMotionTracker.h"
 #import "KRSoloInstrumentVC.h"
 #import "KRSpinningWheelVC.h"
 #import "KRColorAnalyzer.h"
 
 #import "Player.h"
 
-@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate, UIScrollViewDelegate>
+@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate, UIScrollViewDelegate, KRMotionTrackerDelegate>
 {
 	UIImage * _image;
 	KRSpinningWheelVC * _spinningWheelVC;
+	KRMotionTracker * _motionTracker;
 }
 @property (strong) Player * player;
 @property (weak) IBOutlet UIScrollView * contentScrollView;
@@ -31,6 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	_motionTracker = [KRMotionTracker new];
+	_motionTracker.delegate = self;
 
 	KRSoloInstrumentVC * soloVC = [[KRSoloInstrumentVC alloc] init];
 	soloVC.delegate = self;
@@ -118,12 +123,6 @@
 	[_player soloNoteOff:x :y];
 }
 
-- (void) playSoloWithTilt:(CGFloat)tilt
-{
-#warning not implemented!
-}
-
-
 #pragma mark -
 #pragma mark SpinningWheelDelegate
 
@@ -139,14 +138,57 @@
 	CGFloat x = scrollView.contentOffset.x;
 	CGFloat wheelVCOffset = _spinningWheelVC.view.frame.origin.x;
 	
-	if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
+	_playStopButton.enabled = YES;
+	if(x < 1){
+		[_motionTracker startTiltDetecting];
+	}
+	else if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
 		[self stopPlayer];
 		_playStopButton.enabled = NO;
 	}
-	else{
-		_playStopButton.enabled = YES;
-	}
 }
 
+#pragma mark -
+#pragma mark KRMotionTrackerDelegate Methods
+
+- (void) attitudeUpdatedWithPitch:(CGFloat)pitch roll:(CGFloat)roll yaw:(CGFloat)yaw
+{
+	
+}
+- (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
+{
+	
+}
+- (void) xDistanceChanged:(CGFloat)distance
+{
+	
+}
+- (void) newMotionValue:(KRSpeed)speed
+{
+	
+}
+- (void) shakeDetected
+{
+	
+}
+- (void) newMotionType:(KRMotionType)type
+{
+	
+}
+- (void) noWayToGetLocationType
+{
+	
+}
+- (void) logGPSSpeed:(CGFloat)speed
+{
+	
+}
+- (void) tiltValue:(CGFloat)value
+{
+	[_player playSoloWithTilt:value];
+
+	CGFloat normalizedTilt = value / M_PI_2;
+	NSLog(@"tilt: %.2f", normalizedTilt);
+}
 
 @end
