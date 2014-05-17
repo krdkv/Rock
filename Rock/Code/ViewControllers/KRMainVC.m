@@ -11,10 +11,13 @@
 #import "KRSpinningWheelVC.h"
 #import "KRColorAnalyzer.h"
 
-@interface KRMainVC ()
+#import "Player.h"
+
+@interface KRMainVC () <KRSpinningWheelDelegate>
 {
 	UIImage * _image;
 }
+@property (strong) Player * player;
 @property (weak) IBOutlet UIScrollView * contentScrollView;
 
 - (IBAction) stopAction;
@@ -31,6 +34,7 @@
 	[self addChildViewController:soloVC];
 	
 	KRSpinningWheelVC * speedVC = [[KRSpinningWheelVC alloc] init];
+	speedVC.delegate = self;
 	[self addChildViewController:speedVC];
 	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
@@ -42,6 +46,9 @@
 										   cancelButtonTitle:@"Oh gosh"
 										   otherButtonTitles:nil];
 	[alert show];
+	
+	_player = [[Player alloc] init];
+	[_player start];
 
 }
 
@@ -69,7 +76,6 @@
 
 #pragma mark -
 #pragma mark IBActions
-
 - (IBAction) stopAction
 {
 	
@@ -77,6 +83,18 @@
 - (IBAction) rewindAction
 {
 	
+}
+
+#pragma mark -
+#pragma mark SoloInstrumentDelegate
+
+
+#pragma mark -
+#pragma mark SpinningWheelDelegate
+
+- (void) tickWithInteger:(NSInteger)tick
+{
+	[_player tickWithNumber:(int)tick];
 }
 
 

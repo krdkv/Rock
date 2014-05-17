@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KRSpinningWheelVC : UIViewController
+@protocol KRSpinningWheelDelegate
+- (void)tickWithInteger:(NSInteger)tick;
+@end
 
+@interface KRSpinningWheelVC : UIViewController
+@property (weak) id <KRSpinningWheelDelegate> delegate;
 @end

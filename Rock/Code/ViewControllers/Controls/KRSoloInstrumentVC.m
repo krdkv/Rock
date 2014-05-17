@@ -14,12 +14,6 @@
 
 @implementation KRSoloInstrumentVC
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	UITouch * touch = [touches anyObject];
