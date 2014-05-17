@@ -34,6 +34,14 @@
                         <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="iGY-RB-XAc"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hIr-hC-V74" userLabel="Shadow View">
+                    <rect key="frame" x="30" y="110" width="260" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="asn-kr-RT4"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-Zm-k9I">
                     <rect key="frame" x="30" y="145" width="260" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -51,6 +59,14 @@
                         <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="nvk-Zj-uqQ"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0O4-lM-2y2" userLabel="Shadow View">
+                    <rect key="frame" x="30" y="220" width="260" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="KYd-gm-fsE"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-X2-nvb">
                     <rect key="frame" x="30" y="255" width="260" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,16 +84,33 @@
                         <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="af5-aT-kHx"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QXf-M7-xt4" userLabel="Shadow View">
+                    <rect key="frame" x="30" y="330" width="260" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="VgP-tU-TDk"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="GEf-X2-nvb" firstAttribute="trailing" secondItem="QXf-M7-xt4" secondAttribute="trailing" id="3MS-4Z-G9h"/>
                 <constraint firstAttribute="trailing" secondItem="KQf-EI-Abt" secondAttribute="trailing" constant="30" id="3wz-pK-Aha"/>
                 <constraint firstItem="KQf-EI-Abt" firstAttribute="width" secondItem="GEf-X2-nvb" secondAttribute="width" id="4g0-OZ-78b"/>
+                <constraint firstItem="D0P-Zm-k9I" firstAttribute="trailing" secondItem="0O4-lM-2y2" secondAttribute="trailing" id="C9s-78-eir"/>
+                <constraint firstItem="GEf-X2-nvb" firstAttribute="leading" secondItem="QXf-M7-xt4" secondAttribute="leading" id="Ed6-4i-YLh"/>
                 <constraint firstItem="KQf-EI-Abt" firstAttribute="width" secondItem="D0P-Zm-k9I" secondAttribute="width" id="JPu-bb-UmH"/>
+                <constraint firstItem="QXf-M7-xt4" firstAttribute="top" secondItem="GEf-X2-nvb" secondAttribute="bottom" id="KKH-UI-LMi"/>
                 <constraint firstItem="KQf-EI-Abt" firstAttribute="centerX" secondItem="GEf-X2-nvb" secondAttribute="centerX" id="O05-HO-QCP"/>
                 <constraint firstItem="KQf-EI-Abt" firstAttribute="centerX" secondItem="D0P-Zm-k9I" secondAttribute="centerX" id="Pv3-yK-9b9"/>
                 <constraint firstItem="KQf-EI-Abt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Q3K-SX-jS9"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="trailing" secondItem="hIr-hC-V74" secondAttribute="trailing" id="Uop-I5-6xH"/>
+                <constraint firstItem="D0P-Zm-k9I" firstAttribute="leading" secondItem="0O4-lM-2y2" secondAttribute="leading" id="ZDZ-hk-wd4"/>
                 <constraint firstItem="GEf-X2-nvb" firstAttribute="top" secondItem="D0P-Zm-k9I" secondAttribute="bottom" constant="35" id="ff6-Hi-NxP"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="leading" secondItem="hIr-hC-V74" secondAttribute="leading" id="kN3-At-ELf"/>
+                <constraint firstItem="0O4-lM-2y2" firstAttribute="top" secondItem="D0P-Zm-k9I" secondAttribute="bottom" id="n6b-CZ-hmC"/>
+                <constraint firstItem="hIr-hC-V74" firstAttribute="top" secondItem="KQf-EI-Abt" secondAttribute="bottom" id="r3z-rE-4aw"/>
                 <constraint firstItem="D0P-Zm-k9I" firstAttribute="top" secondItem="KQf-EI-Abt" secondAttribute="bottom" constant="35" id="rAb-qf-yof"/>
                 <constraint firstItem="KQf-EI-Abt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="xAS-R2-Qhf"/>
             </constraints>
