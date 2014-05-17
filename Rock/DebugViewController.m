@@ -61,7 +61,7 @@ static int tickNumber = 0;
     };
     
     _player = [[Player alloc] init];
-//    [_player start];
+    [_player start];
     
 #if !TARGET_IPHONE_SIMULATOR
     

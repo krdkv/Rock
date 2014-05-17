@@ -123,7 +123,7 @@ static BOOL down = false;
 }
 
 - (void) stop {
-    
+    [_pulse stop];
 }
 
 - (void) setIntensity:(CGFloat)intensity

@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         _tempo = kDefaultTempo;
+        _currentTick = 0;
     }
     return self;
 }
@@ -34,8 +35,15 @@
         return;
     }
     
-    _currentTick = 0;
     [self startTimer];
+}
+
+- (void) stop {
+    
+    if ( _timer && _timer.isValid ) {
+        [_timer invalidate];
+        _timer = nil;
+    }    
 }
 
 - (void) tick {
