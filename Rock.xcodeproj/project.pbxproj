@@ -50,6 +50,7 @@
 		9F1905251927D27F00D24673 /* KREffectsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905231927D27F00D24673 /* KREffectsVC.m */; };
 		9F1905261927D27F00D24673 /* KREffectsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905241927D27F00D24673 /* KREffectsVC.xib */; };
 		9F1905291927D69100D24673 /* DynamicColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */; };
+		9F19052C1927F40700D24673 /* KRImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F19052B1927F40700D24673 /* KRImageProcessor.m */; };
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
 		9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */; };
@@ -152,6 +153,8 @@
 		9F1905241927D27F00D24673 /* KREffectsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KREffectsVC.xib; sourceTree = "<group>"; };
 		9F1905271927D69100D24673 /* DynamicColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicColorAnalyzer.h; sourceTree = "<group>"; };
 		9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicColorAnalyzer.m; sourceTree = "<group>"; };
+		9F19052A1927F40700D24673 /* KRImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRImageProcessor.h; sourceTree = "<group>"; };
+		9F19052B1927F40700D24673 /* KRImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRImageProcessor.m; sourceTree = "<group>"; };
 		9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPhotoPickerVC.h; sourceTree = "<group>"; };
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
@@ -393,6 +396,8 @@
 				9F1905031927D20400D24673 /* KRScrollView.m */,
 				9F1905041927D20400D24673 /* UIView+RecursiveSearch.h */,
 				9F1905051927D20400D24673 /* UIView+RecursiveSearch.m */,
+				9F19052A1927F40700D24673 /* KRImageProcessor.h */,
+				9F19052B1927F40700D24673 /* KRImageProcessor.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -598,6 +603,7 @@
 				9F19051A1927D20F00D24673 /* Knob.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
 				9F1905291927D69100D24673 /* DynamicColorAnalyzer.m in Sources */,
+				9F19052C1927F40700D24673 /* KRImageProcessor.m in Sources */,
 				9F1905161927D20F00D24673 /* KRGridElementView.m in Sources */,
 				9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */,
 				9F19051B1927D20F00D24673 /* KRSpinningWheelVC.m in Sources */,

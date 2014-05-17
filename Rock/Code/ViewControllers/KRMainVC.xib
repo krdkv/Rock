@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KRMainVC">
             <connections>
+                <outlet property="backgroundImageView" destination="qsc-pV-1mc" id="QmK-I1-ePO"/>
                 <outlet property="contentScrollView" destination="0uI-wJ-c5r" id="FLe-1J-e4Y"/>
                 <outlet property="playStopButton" destination="JyD-hG-Ijo" id="PT2-pQ-6Uj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -16,10 +17,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qsc-pV-1mc">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0uI-wJ-c5r" customClass="KRScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.30588235289999999" green="0.74901960779999999" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-hG-Ijo">
                     <rect key="frame" x="137" y="518" width="33" height="30"/>
@@ -34,12 +39,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="qsc-pV-1mc" secondAttribute="bottom" id="1VC-AQ-RWR"/>
                 <constraint firstAttribute="centerX" secondItem="JyD-hG-Ijo" secondAttribute="centerX" constant="6.5" id="1uw-u6-JST"/>
                 <constraint firstItem="0uI-wJ-c5r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3fi-nG-nHA"/>
+                <constraint firstItem="qsc-pV-1mc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="64A-wU-DQh"/>
                 <constraint firstAttribute="trailing" secondItem="0uI-wJ-c5r" secondAttribute="trailing" id="8mk-Dc-bLH"/>
+                <constraint firstItem="qsc-pV-1mc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C6Z-4X-e3C"/>
                 <constraint firstAttribute="bottom" secondItem="JyD-hG-Ijo" secondAttribute="bottom" constant="20" id="Jae-GM-gUW"/>
                 <constraint firstItem="0uI-wJ-c5r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWo-gG-v9k"/>
                 <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" id="TEk-qw-Kkd"/>
+                <constraint firstAttribute="trailing" secondItem="qsc-pV-1mc" secondAttribute="trailing" id="p4D-XZ-JmU"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

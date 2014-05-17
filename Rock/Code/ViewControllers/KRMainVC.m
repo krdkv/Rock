@@ -12,6 +12,7 @@
 #import "KRSpinningWheelVC.h"
 #import "KRColorAnalyzer.h"
 #import "KREffectsVC.h"
+#import "KRImageProcessor.h"
 
 #import "Player.h"
 
@@ -26,9 +27,10 @@
 @property (strong) Player * player;
 @property (weak) IBOutlet UIScrollView * contentScrollView;
 @property (weak) IBOutlet UIButton * playStopButton;
+@property (weak) IBOutlet UIImageView * backgroundImageView;
 
 - (IBAction) playStopAction;
-- (IBAction) rewindAction;
+
 @end
 
 @implementation KRMainVC
@@ -54,6 +56,12 @@
 	[self addChildViewController:effectsVC];
 	
 	_contentScrollView.delegate = self;
+	
+	
+	UIImage * blurredImage = [KRImageProcessor blur:_image
+											  width:self.view.frame.size.width
+											 height:self.view.frame.size.height];
+	_backgroundImageView.image = blurredImage;
 	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
 	NSString * type = [colorAnalyzer getTypeForImage:_image];
@@ -109,11 +117,6 @@
 	else{
 		[self startPlayer];
 	}
-}
-
-- (IBAction) rewindAction
-{
-	
 }
 
 #pragma mark -

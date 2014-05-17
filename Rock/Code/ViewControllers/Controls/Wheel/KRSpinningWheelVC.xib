@@ -25,7 +25,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="NOE-sn-jpe" secondAttribute="centerX" id="DMl-QL-eer"/>
                 <constraint firstAttribute="centerY" secondItem="NOE-sn-jpe" secondAttribute="centerY" id="QIj-rA-W2K"/>

@@ -18,10 +18,10 @@
                 <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kX-Vc-nvS" userLabel="Grid View" customClass="KRGridView">
                     <rect key="frame" x="35" y="40" width="250" height="388"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="7kX-Vc-nvS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="3ql-QD-GlX"/>
                 <constraint firstAttribute="trailing" secondItem="7kX-Vc-nvS" secondAttribute="trailing" constant="35" id="8ft-Mq-lDY"/>
