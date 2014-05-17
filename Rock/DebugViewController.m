@@ -106,7 +106,7 @@ static CGPoint lastPoint;
     
     if ( ABS(lastPoint.x - point.x) > 40 ) {
         lastPoint = point;
-        [_player playSolo:point];
+//        [_player playSolo:point];
     }
 }
 
