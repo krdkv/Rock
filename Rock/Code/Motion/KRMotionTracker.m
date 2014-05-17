@@ -20,6 +20,8 @@
 
 #define KRShakeAccelerationTreshhold 400.0f
 
+#define KRTiltAngleValue 0.3f
+
 #define KRStationaryMaxSpeed 0.1f
 #define KRWalkingMaxSpeed 1.5f
 #define KRRunningMaxSpeed 8.0f
@@ -40,6 +42,9 @@
 	NSMutableArray * _xAccelerations;
 }
 @property KRMotionType currentMotionType;
+@property CGFloat motionLastYaw;
+@property CGFloat motionLastPitch;
+@property CGFloat motionLastRoll;
 @end
 
 @implementation KRMotionTracker
@@ -72,6 +77,8 @@
 										withHandler:^(CMDeviceMotion *motion, NSError *error) {
 											[self motionUpdated:motion];
 											[self detectShake:motion];
+											[self detectTilt:motion];
+											[self detectRoll:motion];
 										}];
 
 	BOOL isActivityAvailable = [CMMotionActivityManager isActivityAvailable];
@@ -119,7 +126,8 @@
 - (void) motionUpdated:(CMDeviceMotion *)motion
 {
 	dispatch_sync(dispatch_get_main_queue(), ^{
-	[_delegate motionUpdatedWithX:motion.userAcceleration.x y:motion.userAcceleration.y z:motion.userAcceleration.z];
+		[_delegate motionUpdatedWithX:motion.userAcceleration.x y:motion.userAcceleration.y z:motion.userAcceleration.z];
+		
 	});
 	
 	[self calculateDistancesWithMotion:motion];
@@ -180,6 +188,69 @@
 			_triesToShake = YES;
 		}
 	}
+}
+
+- (void) detectRoll:(CMDeviceMotion *)motion
+{
+//	CMQuaternion quat = motion.attitude.quaternion;
+//	double roll = atan((2 * quat.y*quat.w - 2 * quat.x*quat.z)
+//					   / (1 - 2*quat.y*quat.y - 2*quat.z*quat.z));
+//	
+//	if (self.motionLastRoll == 0) {
+//        self.motionLastRoll = roll;
+//    }
+//	
+//    // kalman filtering
+//    static float q = 0.1;   // process noise
+//    static float r = 0.1;   // sensor noise
+//    static float p = 0.1;   // estimated error
+//    static float k = 0.5;   // kalman filter gain
+//	
+//    float x = self.motionLastRoll;
+//    p = p + q;
+//    k = p / (p + r);
+//    x = x + k*(roll - x);
+//    p = (1 - k)*p;
+//	
+//	if(self.motionLastRoll < KRTiltAngleValue && x > KRTiltAngleValue){
+//		[self.delegate tiltAction];
+//	}
+//	
+//	if(self.motionLastRoll > - KRTiltAngleValue && x < - KRTiltAngleValue){
+//		[self.delegate tiltAction];
+//	}
+//    self.motionLastRoll = x;
+}
+
+- (void) detectTilt:(CMDeviceMotion *)motion
+{
+	CMQuaternion quat = motion.attitude.quaternion;
+    double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
+	
+	if (self.motionLastYaw == 0) {
+        self.motionLastYaw = yaw;
+    }
+	
+    // kalman filtering
+    static float q = 0.1;   // process noise
+    static float r = 0.1;   // sensor noise
+    static float p = 0.1;   // estimated error
+    static float k = 0.5;   // kalman filter gain
+	
+    float x = self.motionLastYaw;
+    p = p + q;
+    k = p / (p + r);
+    x = x + k*(yaw - x);
+    p = (1 - k)*p;
+	
+	if(self.motionLastYaw < KRTiltAngleValue && x > KRTiltAngleValue){
+		[self.delegate tiltAction];
+	}
+	
+	if(self.motionLastYaw > - KRTiltAngleValue && x < - KRTiltAngleValue){
+		[self.delegate tiltAction];
+	}
+    self.motionLastYaw = x;
 }
 
 
@@ -243,7 +314,6 @@
 
 - (void) notifyDelegateIfNeeded:(KRMotionType)type
 {
-	NSLog(@"Motion type: %i", type);
 	if([self isMotionTypeNew:type oldValues:_motionTypeValues])
 	{
 		[self.delegate newMotionType:type];

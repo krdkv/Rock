@@ -111,15 +111,14 @@ static CGPoint lastPoint;
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void) setupWithImage:(UIImage *)image
 {
 	_image = image;
+}
+
+- (void) tiltAction
+{
+	AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
 }
 
 #pragma mark -
@@ -130,7 +129,8 @@ static CGPoint lastPoint;
     _gpsSpeedLabel.text = [NSString stringWithFormat:@"%f", speed];
 }
 
-- (void) newMotionValue:(KRSpeed)speed{
+- (void) newMotionValue:(KRSpeed)speed
+{
     return;
     NSString * title = @"";
     switch (speed) {
@@ -152,7 +152,8 @@ static CGPoint lastPoint;
 	_motionQuantityLabel.text = title;
 }
 
-- (void) shakeDetected{
+- (void) shakeDetected
+{
 	NSLog(@"Shake!");
 }
 
@@ -168,7 +169,13 @@ static CGPoint lastPoint;
 	_xAcceleration.text = [NSString stringWithFormat:@"%f", x];
 	_yAcceleration.text = [NSString stringWithFormat:@"%f", y];
 	_zAcceleration.text = [NSString stringWithFormat:@"%f", z];
-	
+}
+
+- (void) attitudeUpdatedWithPitch:(CGFloat)pitch roll:(CGFloat)roll yaw:(CGFloat)yaw
+{
+//	_xAcceleration.text = [NSString stringWithFormat:@"%f", pitch];
+//	_yAcceleration.text = [NSString stringWithFormat:@"%f", roll];
+//	_zAcceleration.text = [NSString stringWithFormat:@"%f", yaw];
 }
 
 - (void) newMotionType:(KRMotionType)type
