@@ -8,7 +8,7 @@
 
 #import "KRMainVC.h"
 #import "KRSoloInstrumentVC.h"
-#import "KRWalkingSpeedVC.h"
+#import "KRSpinningWheelVC.h"
 #import "KRColorAnalyzer.h"
 
 @interface KRMainVC ()
@@ -30,7 +30,7 @@
 	KRSoloInstrumentVC * soloVC = [[KRSoloInstrumentVC alloc] init];
 	[self addChildViewController:soloVC];
 	
-	KRWalkingSpeedVC * speedVC = [[KRWalkingSpeedVC alloc] init];
+	KRSpinningWheelVC * speedVC = [[KRSpinningWheelVC alloc] init];
 	[self addChildViewController:speedVC];
 	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];

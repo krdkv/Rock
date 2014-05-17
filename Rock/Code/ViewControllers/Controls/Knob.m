@@ -24,14 +24,28 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, frame.size.width, frame.size.height)];
-        [_imageView setBackgroundColor:[UIColor clearColor]];
-        [_imageView setImage:[UIImage imageNamed:kDefaultImageName]];
-        [self addSubview:_imageView];
-        
-        _currentLeftBorder = -1;
+		[self initialize];
     }
     return self;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+    if (self) {
+		[self initialize];
+    }
+    return self;
+}
+
+- (void) initialize
+{
+	_imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.f, 0.f, self.frame.size.width, self.frame.size.height)];
+	[_imageView setBackgroundColor:[UIColor clearColor]];
+	[_imageView setImage:[UIImage imageNamed:kDefaultImageName]];
+	[self addSubview:_imageView];
+	
+	_currentLeftBorder = -1;
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
