@@ -13,6 +13,10 @@
 
 - (void) start;
 
+- (void) stop;
+
+- (BOOL) isPlaying;
+
 - (void) setTempo:(int)tempo;
 
 - (void) soloNoteOn:(int)x :(int)y;
@@ -24,8 +28,6 @@
 - (void)setPitch:(int)pitch;
 
 - (void) tickWithNumber:(int)tick;
-
-- (void) stop;
 
 - (void) setIntensity:(CGFloat)intensity
        andColorsArray:(NSArray*)colorsArray;

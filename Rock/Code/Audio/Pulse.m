@@ -46,6 +46,10 @@
     }    
 }
 
+- (BOOL) isPlaying {
+    return _timer && _timer.isValid;
+}
+
 - (void) tick {
     
     if ( self.delegate ) {
