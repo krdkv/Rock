@@ -136,10 +136,6 @@ static BOOL down = false;
     
 }
 
-- (void) playSoloWithTilt:(CGFloat)tilt {
-    
-}
-
 - (void) tickWithNumber:(int)tick {
     [_buffer onTick:tick];
 }
@@ -148,23 +144,16 @@ static BOOL down = false;
     [_pulse setTempo:tempo];
 }
 
-static int lastKey = -1;
+- (void) soloNoteOn:(int)x :(int)y {
+    
+}
 
-- (void) playSolo:(CGPoint)point {
+- (void) soloNoteOff:(int)x :(int)y {
     
-    int index = point.x / (320.f / _availableForSolo.count);
-    int newKey = 32 + arc4random()%20;//[_availableForSolo[index] intValue];
-    
-    if ( newKey == lastKey ) {
-        return;
-    }
-    
-    if ( lastKey != -1 ) {
-//        [_buffer stopNoteForInstrument:2 note:lastKey];
-    }
+}
 
-    lastKey = newKey;
-    [_buffer addNoteForInstrument:2 note:newKey velocity:120 offset:0 duration:16];
+- (void) playSoloWithTilt:(CGFloat)tilt {
+    
 }
 
 - (void)setPitch:(int)pitch {

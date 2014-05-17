@@ -42,7 +42,7 @@ static int tickNumber = 0;
 {
     [super viewDidLoad];
     
-    _knob = [[Knob alloc] initWithFrame:CGRectMake(-30.f, 50.f, 130.f*3, 128.f*3)];
+    _knob = [[Knob alloc] initWithFrame:CGRectMake(-30.f, 50.f, 130.f*3, 130.f*3)];
     _knob.userInteractionEnabled = YES;
     [self.view addSubview:_knob];
     
