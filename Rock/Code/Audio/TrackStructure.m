@@ -60,7 +60,7 @@
     int yOffset = [@[@9, @7, @5, @0, @-5, @-7, @-9][y] intValue];
     int key = [@[@36, @38, @40, @41, @43, @45, @47][x] intValue];
     
-    return key + yOffset;
+    return key + yOffset + 12;
 }
 
 @end

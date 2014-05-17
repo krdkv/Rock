@@ -36,6 +36,9 @@
                         midiKey:(int)midiKey
                        velocity:(int)velocity {
     
+    if ( velocity > 127 ) {
+        velocity = 127;
+    }
     MusicDeviceMIDIEvent (_samplerUnits[instrument], kNoteOnMidiMessage, midiKey, velocity, 0);
 }
 
