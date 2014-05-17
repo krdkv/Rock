@@ -181,9 +181,9 @@
 - (void) newMotionRawValue:(CGFloat)rawValue
 {
 	_motionSum += rawValue;
-	if(_motionSum > 100){
+	if(_motionSum > 70){
 		[_player tickWithNumber:1];
-		_motionSum = _motionSum % 100;
+		_motionSum = _motionSum % 70;
 	}
 }
 - (void) tiltValue:(CGFloat)value

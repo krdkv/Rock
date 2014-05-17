@@ -10,7 +10,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import <CoreLocation/CoreLocation.h>
 
-#define KRMotionFilterDepth 5
+#define KRMotionFilterDepth 3
 #define KRMotionTypeFilterDepth 3
 
 #define KRSlowMotionValue 40
@@ -142,7 +142,7 @@
 - (void) detectMotion:(CMDeviceMotion *)motion
 {
     double accValue = [self calculateAccelerationValue:motion];
-	accValue = [self filterAccelerationValue:accValue];
+//	accValue = [self filterAccelerationValue:accValue];
     
 	[self.delegate newMotionRawValue:accValue];
 }
