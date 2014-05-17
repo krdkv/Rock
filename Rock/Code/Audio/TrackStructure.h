@@ -11,7 +11,8 @@
 @interface TrackStructure : NSObject
 
 - (void) generateWithIntensity:(CGFloat)intensity
-                        colors:(NSArray*)colors;
+                        colors:(NSArray*)colors
+                      withTick:(int)tick;
 
 - (NSDictionary*) keyForTick:(int)tick;
 

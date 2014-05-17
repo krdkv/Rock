@@ -68,7 +68,7 @@
 	CGFloat intensity = (CGFloat)colors.count / 7;
 		
 	_player = [[Player alloc] init];
-    [_player setOverheadVolume:150];
+    [_player setOverheadVolume:100];
 	[_player setIntensity:intensity andColorsArray:colors];
 	
 	[_motionTracker startTiltDetecting];

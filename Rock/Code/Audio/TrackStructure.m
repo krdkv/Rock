@@ -27,21 +27,23 @@
 {
     self = [super init];
     if (self) {
-        _loops = [[NSMutableArray alloc] init];
         _drumLoops = [[NSMutableArray alloc] init];
         _bassLoops = [[NSMutableArray alloc] init];
+        _loops = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Loops" ofType:@"plist"]];
     }
     return self;
 }
 
 - (void) generateWithIntensity:(CGFloat)intensity
-                        colors:(NSArray*)colors {
+                        colors:(NSArray*)colors
+                      withTick:(int)tick
+{
+    [_drumLoops removeAllObjects];
+    [_bassLoops removeAllObjects];
     
-    _loops = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Loops" ofType:@"plist"]];
+    _keys = [NSMutableArray arrayWithArray:@[ @{@"o": @0, @"k": @(C1), @"s": @"maj"}]];
     
-    _keys = [NSMutableArray arrayWithArray:@[ @{@"o": @0, @"k": @(C1), @"s": @"min"}]];
-    
-    int numberOfLoops = 5;
+    int numberOfLoops = 2;
     
     for ( int i = 0; i < numberOfLoops; ++i ) {
         
