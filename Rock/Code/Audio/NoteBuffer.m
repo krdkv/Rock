@@ -61,10 +61,12 @@
     
     for ( NSInteger i = count - 1; i >= 0 ; --i ) {
         NSDictionary * note = _notes[i];
-        if ( [note[@"i"] intValue] == instrument && [note[@"k"] intValue] == midiNote ) {
-            [_sampler sendNoteOffToInstrument:instrument midiKey:midiNote];
-            [_notes removeObjectAtIndex:i];
-        }
+        if ( note ) {
+            if ( [note[@"i"] intValue] == instrument && [note[@"k"] intValue] == midiNote ) {
+                [_sampler sendNoteOffToInstrument:instrument midiKey:midiNote];
+                [_notes removeObjectAtIndex:i];
+            }
+        }        
     }
 }
 
