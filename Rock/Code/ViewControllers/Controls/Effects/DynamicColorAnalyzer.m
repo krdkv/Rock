@@ -181,7 +181,8 @@ static int counter = 0;
         [colors addObject:[UIColor colorWithRed:red green:green blue:blue alpha:1.f]];
     }
     
-    if ( self.delegate ) {
+
+	if (colors.count > 0) {
         [self.delegate mostPopularColorChanged:colors[0]];
     }
 }

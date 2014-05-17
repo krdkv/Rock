@@ -51,6 +51,8 @@
 		9F1905261927D27F00D24673 /* KREffectsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905241927D27F00D24673 /* KREffectsVC.xib */; };
 		9F1905291927D69100D24673 /* DynamicColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */; };
 		9F19052C1927F40700D24673 /* KRImageProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F19052B1927F40700D24673 /* KRImageProcessor.m */; };
+		9F19052F1928049600D24673 /* photoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19052D1928049600D24673 /* photoButton.png */; };
+		9F1905301928049600D24673 /* photoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19052E1928049600D24673 /* photoButton@2x.png */; };
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
 		9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */; };
@@ -155,6 +157,8 @@
 		9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicColorAnalyzer.m; sourceTree = "<group>"; };
 		9F19052A1927F40700D24673 /* KRImageProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRImageProcessor.h; sourceTree = "<group>"; };
 		9F19052B1927F40700D24673 /* KRImageProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRImageProcessor.m; sourceTree = "<group>"; };
+		9F19052D1928049600D24673 /* photoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoButton.png; sourceTree = "<group>"; };
+		9F19052E1928049600D24673 /* photoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoButton@2x.png"; sourceTree = "<group>"; };
 		9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPhotoPickerVC.h; sourceTree = "<group>"; };
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
@@ -449,6 +453,8 @@
 		9FB5AEE11912C7FC00EADB1D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F19052D1928049600D24673 /* photoButton.png */,
+				9F19052E1928049600D24673 /* photoButton@2x.png */,
 				0146B71919275ED600284075 /* Artists.plist */,
 				010FF84D191E133500AB8D0B /* knob@2x.png */,
 				01557D3A191A4ED600B37172 /* MIDI */,
@@ -550,7 +556,9 @@
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
 				0146B71B19275ED600284075 /* Artists.plist in Resources */,
+				9F1905301928049600D24673 /* photoButton@2x.png in Resources */,
 				9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */,
+				9F19052F1928049600D24673 /* photoButton.png in Resources */,
 				01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */,
 				9F1905191927D20F00D24673 /* KRSoloInstrumentVC.xib in Resources */,
 				9F1905261927D27F00D24673 /* KREffectsVC.xib in Resources */,
