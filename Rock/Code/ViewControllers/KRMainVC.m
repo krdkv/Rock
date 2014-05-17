@@ -38,6 +38,8 @@
 	speedVC.delegate = self;
 	[self addChildViewController:speedVC];
 	
+	_contentScrollView.delaysContentTouches = NO;
+	
 	KRColorAnalyzer * colorAnalyzer = [KRColorAnalyzer new];
 	NSString * type = [colorAnalyzer getTypeForImage:_image];
 	
@@ -56,8 +58,9 @@
 - (void) addChildViewController:(UIViewController *)childController
 {
 	NSUInteger count = self.childViewControllers.count;
-	self.contentScrollView.contentSize = CGSizeMake(_contentScrollView.frame.size.width * (count + 1),
-													_contentScrollView.frame.size.height);
+	CGSize size = CGSizeMake(_contentScrollView.frame.size.width * (count + 1),
+							 _contentScrollView.frame.size.height);
+	self.contentScrollView.contentSize = size;
 	
 	[super addChildViewController:childController];
 	[self.contentScrollView addSubview:childController.view];

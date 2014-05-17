@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	_knob.exclusiveTouch = YES;
 	[_knob setOnTick:^{
 		[self tick];
 	}];
