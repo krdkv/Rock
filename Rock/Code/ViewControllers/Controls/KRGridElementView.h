@@ -10,5 +10,7 @@
 
 @interface KRGridElementView : UIView
 @property (assign, nonatomic) NSInteger activityCount;
+@property (assign) NSInteger column;
+@property (assign) NSInteger row;
 
 @end

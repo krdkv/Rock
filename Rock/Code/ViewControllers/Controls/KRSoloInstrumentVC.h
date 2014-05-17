@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol KRSoloInstrumentDelegate
-- (void) soloNoteOn:(int)x :(int)y;
-- (void) soloNoteOff:(int)x :(int)y;
-- (void) playSoloWithTilt:(CGFloat)tilt;
-@end
+#import "KRGridView.h"
 
 @interface KRSoloInstrumentVC : UIViewController
-
+@property (weak) id <KRSoloInstrumentDelegate> delegate;
 @end

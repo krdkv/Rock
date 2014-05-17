@@ -23,6 +23,8 @@
 			
 			CGRect frame = CGRectMake((width + GRID_OFFSET) * i, (height + GRID_OFFSET) * j, width, height);
 			KRGridElementView * view = [[KRGridElementView alloc] initWithFrame:frame];
+			view.column = i;
+			view.row = j;
 			view.backgroundColor = [UIColor whiteColor];
 			view.alpha = 0.2;
 			
@@ -48,8 +50,10 @@
 	for(UITouch * touch in touches){
 		CGPoint point = [touch locationInView:self];
 		KRGridElementView * elementView = (KRGridElementView *)[self hitTest:point withEvent:nil];
-		if([elementView isKindOfClass:[KRGridElementView class]])
-		elementView.activityCount += 1;
+		if([elementView isKindOfClass:[KRGridElementView class]]){
+			elementView.activityCount += 1;
+			[_delegate soloNoteOn:elementView.column :elementView.row];
+		}
 	}
 
 }
@@ -59,8 +63,10 @@
 	for(UITouch * touch in touches){
 		CGPoint point = [touch locationInView:self];
 		KRGridElementView * elementView = (KRGridElementView *)[self hitTest:point withEvent:nil];
-		if([elementView isKindOfClass:[KRGridElementView class]])
+		if([elementView isKindOfClass:[KRGridElementView class]]){
 			elementView.activityCount -= 1;
+			[_delegate soloNoteOff:elementView.column :elementView.row];
+		}
 	}
 }
 
@@ -77,9 +83,11 @@
 		if(elementView != previousElementView){
 			if([elementView isKindOfClass:[KRGridElementView class]]){
 				elementView.activityCount += 1;
+				[_delegate soloNoteOn:elementView.column :elementView.row];
 			}
 			if([previousElementView isKindOfClass:[KRGridElementView class]]){
 				previousElementView.activityCount -= 1;
+				[_delegate soloNoteOff:previousElementView.column :previousElementView.row];
 			}
 		}
 	}

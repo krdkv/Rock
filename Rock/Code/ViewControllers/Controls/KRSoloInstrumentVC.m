@@ -22,6 +22,7 @@
 - (void) viewDidLoad
 {
 	[_gridView setupWithRows:GRID_ROWS columns:GRID_COLUMNS];
+	_gridView.delegate = _delegate;
 }
 
 @end

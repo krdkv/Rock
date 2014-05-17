@@ -13,7 +13,7 @@
 
 #import "Player.h"
 
-@interface KRMainVC () <KRSpinningWheelDelegate>
+@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate>
 {
 	UIImage * _image;
 }
@@ -32,6 +32,7 @@
     [super viewDidLoad];
 
 	KRSoloInstrumentVC * soloVC = [[KRSoloInstrumentVC alloc] init];
+	soloVC.delegate = self;
 	[self addChildViewController:soloVC];
 	
 	KRSpinningWheelVC * speedVC = [[KRSpinningWheelVC alloc] init];
@@ -101,16 +102,19 @@
 #pragma mark SoloInstrumentDelegate
 - (void) soloNoteOn:(int)x :(int)y
 {
-	
+	[_player soloNoteOn:x :y];
+	NSLog(@"on! x:%i y:%i", x, y);
 }
 
 - (void) soloNoteOff:(int)x :(int)y
 {
+	[_player soloNoteOff:x :y];
+	NSLog(@"off! x:%i y:%i", x, y);
 }
 
 - (void) playSoloWithTilt:(CGFloat)tilt
 {
-	
+#warning not implemented!
 }
 
 
