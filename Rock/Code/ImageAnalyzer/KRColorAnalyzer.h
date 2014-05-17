@@ -31,7 +31,6 @@ typedef enum {
 @property (assign, nonatomic) NSInteger numberOfColors;
 @property (weak, nonatomic) id<ColorAnalyzerDelegate> delegate;
 
-- (void) start;
 - (NSInteger) colorMatchesGroup:(UIColor*)color;
 
 - (NSString *)getTypeForImage:(UIImage *)image;

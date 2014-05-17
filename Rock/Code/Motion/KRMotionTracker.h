@@ -27,6 +27,7 @@ typedef enum {
 - (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z;
 - (void) xDistanceChanged:(CGFloat)distance;
 - (void) newMotionValue:(KRSpeed)speed;
+- (void) newMotionRawValue:(CGFloat)rawValue;
 - (void) shakeDetected;
 - (void) newMotionType:(KRMotionType)type;
 - (void) noWayToGetLocationType;

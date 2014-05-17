@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KREffectsVC">
+            <connections>
+                <outlet property="bassButton" destination="D0P-Zm-k9I" id="4eh-BR-OmB"/>
+                <outlet property="drumsButton" destination="GEf-X2-nvb" id="gQi-9l-BR9"/>
+                <outlet property="guitarButton" destination="KQf-EI-Abt" id="I81-MV-l1h"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQf-EI-Abt">
+                    <rect key="frame" x="30" y="35" width="260" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="aQI-nG-Az8"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="iGY-RB-XAc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-Zm-k9I">
+                    <rect key="frame" x="30" y="145" width="260" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="AWf-ZM-Bla"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="nvk-Zj-uqQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-X2-nvb">
+                    <rect key="frame" x="30" y="255" width="260" height="75"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="AG1-dp-OA6"/>
+                    </constraints>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="af5-aT-kHx"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="KQf-EI-Abt" secondAttribute="trailing" constant="30" id="3wz-pK-Aha"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="width" secondItem="GEf-X2-nvb" secondAttribute="width" id="4g0-OZ-78b"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="width" secondItem="D0P-Zm-k9I" secondAttribute="width" id="JPu-bb-UmH"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="centerX" secondItem="GEf-X2-nvb" secondAttribute="centerX" id="O05-HO-QCP"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="centerX" secondItem="D0P-Zm-k9I" secondAttribute="centerX" id="Pv3-yK-9b9"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Q3K-SX-jS9"/>
+                <constraint firstItem="GEf-X2-nvb" firstAttribute="top" secondItem="D0P-Zm-k9I" secondAttribute="bottom" constant="35" id="ff6-Hi-NxP"/>
+                <constraint firstItem="D0P-Zm-k9I" firstAttribute="top" secondItem="KQf-EI-Abt" secondAttribute="bottom" constant="35" id="rAb-qf-yof"/>
+                <constraint firstItem="KQf-EI-Abt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="35" id="xAS-R2-Qhf"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

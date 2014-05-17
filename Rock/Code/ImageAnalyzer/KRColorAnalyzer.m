@@ -31,42 +31,6 @@
     return self;
 }
 
-- (void) start {
-    glGenRenderbuffers(1, &renderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
-    
-    coreImageContext = [CIContext contextWithEAGLContext:_context];
-    
-    NSError * error;
-    session = [[AVCaptureSession alloc] init];
-    
-    [session beginConfiguration];
-    [session setSessionPreset:AVCaptureSessionPreset640x480];
-    
-    AVCaptureDevice * videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
-    [session addInput:input];
-    
-    AVCaptureVideoDataOutput * dataOutput = [[AVCaptureVideoDataOutput alloc] init];
-    [dataOutput setAlwaysDiscardsLateVideoFrames:YES];
-    [dataOutput setVideoSettings:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey]];
-    [dataOutput setSampleBufferDelegate:self queue:dispatch_get_main_queue()];
-    
-    [session addOutput:dataOutput];
-    [session commitConfiguration];
-    [session startRunning];
-}
-
-bool componentsAreClose(uint8_t a, uint8_t b)
-{
-    return a - b < 5;
-}
-
-bool isDarkPixel(const uint8_t* color)
-{
-    return color[0] < 15.f || color[1] < 15.f || color[2] < 15.f;
-}
-
 - (NSInteger) colorMatchesGroup:(UIColor*)color
 {
     

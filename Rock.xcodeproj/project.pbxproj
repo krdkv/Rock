@@ -24,7 +24,6 @@
 		010FF84E191E133500AB8D0B /* knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 010FF84D191E133500AB8D0B /* knob@2x.png */; };
 		01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01221FC21907172500BCC469 /* guitar_solo.aupreset */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
-		014035781921D99F00FC2F0E /* Knob.m in Sources */ = {isa = PBXBuildFile; fileRef = 014035771921D99F00FC2F0E /* Knob.m */; };
 		0146B71B19275ED600284075 /* Artists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0146B71919275ED600284075 /* Artists.plist */; };
 		0146B72219278D3400284075 /* TrackStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146B72119278D3400284075 /* TrackStructure.m */; };
 		01557D3C191A4ED600B37172 /* Loops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01557D3B191A4ED600B37172 /* Loops.plist */; };
@@ -39,6 +38,18 @@
 		01F5F3D818DCF8420050DFB0 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */; };
 		01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824E18EA895B0088E74F /* drums_full.aupreset */; };
 		01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01FD824F18EA895B0088E74F /* drums_min.aupreset */; };
+		9F1905061927D20400D24673 /* KRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905031927D20400D24673 /* KRScrollView.m */; };
+		9F1905071927D20400D24673 /* UIView+RecursiveSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905051927D20400D24673 /* UIView+RecursiveSearch.m */; };
+		9F1905161927D20F00D24673 /* KRGridElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F19050A1927D20F00D24673 /* KRGridElementView.m */; };
+		9F1905171927D20F00D24673 /* KRGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F19050C1927D20F00D24673 /* KRGridView.m */; };
+		9F1905181927D20F00D24673 /* KRSoloInstrumentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F19050E1927D20F00D24673 /* KRSoloInstrumentVC.m */; };
+		9F1905191927D20F00D24673 /* KRSoloInstrumentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F19050F1927D20F00D24673 /* KRSoloInstrumentVC.xib */; };
+		9F19051A1927D20F00D24673 /* Knob.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905121927D20F00D24673 /* Knob.m */; };
+		9F19051B1927D20F00D24673 /* KRSpinningWheelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905141927D20F00D24673 /* KRSpinningWheelVC.m */; };
+		9F19051C1927D20F00D24673 /* KRSpinningWheelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905151927D20F00D24673 /* KRSpinningWheelVC.xib */; };
+		9F1905251927D27F00D24673 /* KREffectsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905231927D27F00D24673 /* KREffectsVC.m */; };
+		9F1905261927D27F00D24673 /* KREffectsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905241927D27F00D24673 /* KREffectsVC.xib */; };
+		9F1905291927D69100D24673 /* DynamicColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */; };
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
 		9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */; };
@@ -53,10 +64,6 @@
 		9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E11919589A00DF06D0 /* hugeRed.jpg */; };
 		9F98F2E61919591000DF06D0 /* hugeBlue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */; };
 		9F98F2E71919591300DF06D0 /* hugeBlack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */; };
-		9FA7AB2F192778F200B7A07F /* KRGridElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB2E192778F200B7A07F /* KRGridElementView.m */; };
-		9FA7AB3219277ED900B7A07F /* KRScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB3119277ED900B7A07F /* KRScrollView.m */; };
-		9FA7AB35192786DD00B7A07F /* UIView+RecursiveSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB34192786DD00B7A07F /* UIView+RecursiveSearch.m */; };
-		9FA7AB3819278F7F00B7A07F /* KRGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA7AB3719278F7F00B7A07F /* KRGridView.m */; };
 		9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */; };
 		9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54E918EDC7AE00C4E792 /* KRMotionTracker.m */; };
 		9FAB54ED18EDCA9C00C4E792 /* KRColorAnalyzerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB54EC18EDCA9C00C4E792 /* KRColorAnalyzerTests.m */; };
@@ -69,10 +76,6 @@
 		9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED0190EC4E400EADB1D /* KRColorUnit.m */; };
 		9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AED71912A51500EADB1D /* KRMainVC.m */; };
 		9FB5AEDA1912A51500EADB1D /* KRMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AED81912A51500EADB1D /* KRMainVC.xib */; };
-		9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */; };
-		9FB5AEE01912C32C00EADB1D /* KRSoloInstrumentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */; };
-		9FB5AEE71912CA4800EADB1D /* KRSpinningWheelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE51912CA4800EADB1D /* KRSpinningWheelVC.m */; };
-		9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FB5AEE61912CA4800EADB1D /* KRSpinningWheelVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,8 +112,6 @@
 		01221FC21907172500BCC469 /* guitar_solo.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = guitar_solo.aupreset; sourceTree = "<group>"; };
 		0132C84E18DF853700DBC428 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		0132C84F18DF853700DBC428 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		014035761921D99F00FC2F0E /* Knob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knob.h; sourceTree = "<group>"; };
-		014035771921D99F00FC2F0E /* Knob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knob.m; sourceTree = "<group>"; };
 		0146B71919275ED600284075 /* Artists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Artists.plist; sourceTree = "<group>"; };
 		0146B72019278D3400284075 /* TrackStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackStructure.h; sourceTree = "<group>"; };
 		0146B72119278D3400284075 /* TrackStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackStructure.m; sourceTree = "<group>"; };
@@ -130,6 +131,27 @@
 		01F5F3D718DCF8420050DFB0 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		01FD824E18EA895B0088E74F /* drums_full.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drums_full.aupreset; sourceTree = "<group>"; };
 		01FD824F18EA895B0088E74F /* drums_min.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = drums_min.aupreset; sourceTree = "<group>"; };
+		9F1905021927D20400D24673 /* KRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRScrollView.h; sourceTree = "<group>"; };
+		9F1905031927D20400D24673 /* KRScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRScrollView.m; sourceTree = "<group>"; };
+		9F1905041927D20400D24673 /* UIView+RecursiveSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RecursiveSearch.h"; sourceTree = "<group>"; };
+		9F1905051927D20400D24673 /* UIView+RecursiveSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RecursiveSearch.m"; sourceTree = "<group>"; };
+		9F1905091927D20F00D24673 /* KRGridElementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridElementView.h; sourceTree = "<group>"; };
+		9F19050A1927D20F00D24673 /* KRGridElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridElementView.m; sourceTree = "<group>"; };
+		9F19050B1927D20F00D24673 /* KRGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridView.h; sourceTree = "<group>"; };
+		9F19050C1927D20F00D24673 /* KRGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridView.m; sourceTree = "<group>"; };
+		9F19050D1927D20F00D24673 /* KRSoloInstrumentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSoloInstrumentVC.h; sourceTree = "<group>"; };
+		9F19050E1927D20F00D24673 /* KRSoloInstrumentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSoloInstrumentVC.m; sourceTree = "<group>"; };
+		9F19050F1927D20F00D24673 /* KRSoloInstrumentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSoloInstrumentVC.xib; sourceTree = "<group>"; };
+		9F1905111927D20F00D24673 /* Knob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knob.h; sourceTree = "<group>"; };
+		9F1905121927D20F00D24673 /* Knob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knob.m; sourceTree = "<group>"; };
+		9F1905131927D20F00D24673 /* KRSpinningWheelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSpinningWheelVC.h; sourceTree = "<group>"; };
+		9F1905141927D20F00D24673 /* KRSpinningWheelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSpinningWheelVC.m; sourceTree = "<group>"; };
+		9F1905151927D20F00D24673 /* KRSpinningWheelVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSpinningWheelVC.xib; sourceTree = "<group>"; };
+		9F1905221927D27F00D24673 /* KREffectsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KREffectsVC.h; sourceTree = "<group>"; };
+		9F1905231927D27F00D24673 /* KREffectsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KREffectsVC.m; sourceTree = "<group>"; };
+		9F1905241927D27F00D24673 /* KREffectsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KREffectsVC.xib; sourceTree = "<group>"; };
+		9F1905271927D69100D24673 /* DynamicColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicColorAnalyzer.h; sourceTree = "<group>"; };
+		9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicColorAnalyzer.m; sourceTree = "<group>"; };
 		9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPhotoPickerVC.h; sourceTree = "<group>"; };
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
@@ -141,14 +163,6 @@
 		9F98F2DF1919589A00DF06D0 /* hugeBlack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeBlack.jpg; sourceTree = "<group>"; };
 		9F98F2E01919589A00DF06D0 /* hugeBlue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeBlue.jpg; sourceTree = "<group>"; };
 		9F98F2E11919589A00DF06D0 /* hugeRed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hugeRed.jpg; sourceTree = "<group>"; };
-		9FA7AB2D192778F200B7A07F /* KRGridElementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridElementView.h; sourceTree = "<group>"; };
-		9FA7AB2E192778F200B7A07F /* KRGridElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridElementView.m; sourceTree = "<group>"; };
-		9FA7AB3019277ED900B7A07F /* KRScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRScrollView.h; sourceTree = "<group>"; };
-		9FA7AB3119277ED900B7A07F /* KRScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRScrollView.m; sourceTree = "<group>"; };
-		9FA7AB33192786DD00B7A07F /* UIView+RecursiveSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RecursiveSearch.h"; sourceTree = "<group>"; };
-		9FA7AB34192786DD00B7A07F /* UIView+RecursiveSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RecursiveSearch.m"; sourceTree = "<group>"; };
-		9FA7AB3619278F7F00B7A07F /* KRGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGridView.h; sourceTree = "<group>"; };
-		9FA7AB3719278F7F00B7A07F /* KRGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGridView.m; sourceTree = "<group>"; };
 		9FAB54E518EDC7AE00C4E792 /* KRColorAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRColorAnalyzer.h; sourceTree = "<group>"; };
 		9FAB54E618EDC7AE00C4E792 /* KRColorAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRColorAnalyzer.m; sourceTree = "<group>"; };
 		9FAB54E818EDC7AE00C4E792 /* KRMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMotionTracker.h; sourceTree = "<group>"; };
@@ -162,12 +176,6 @@
 		9FB5AED61912A51500EADB1D /* KRMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRMainVC.h; sourceTree = "<group>"; };
 		9FB5AED71912A51500EADB1D /* KRMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRMainVC.m; sourceTree = "<group>"; };
 		9FB5AED81912A51500EADB1D /* KRMainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRMainVC.xib; sourceTree = "<group>"; };
-		9FB5AEDC1912C32C00EADB1D /* KRSoloInstrumentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSoloInstrumentVC.h; sourceTree = "<group>"; };
-		9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSoloInstrumentVC.m; sourceTree = "<group>"; };
-		9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSoloInstrumentVC.xib; sourceTree = "<group>"; };
-		9FB5AEE41912CA4800EADB1D /* KRSpinningWheelVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSpinningWheelVC.h; sourceTree = "<group>"; };
-		9FB5AEE51912CA4800EADB1D /* KRSpinningWheelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSpinningWheelVC.m; sourceTree = "<group>"; };
-		9FB5AEE61912CA4800EADB1D /* KRSpinningWheelVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRSpinningWheelVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +341,44 @@
 			path = MIDI;
 			sourceTree = "<group>";
 		};
+		9F1905081927D20F00D24673 /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				9F1905091927D20F00D24673 /* KRGridElementView.h */,
+				9F19050A1927D20F00D24673 /* KRGridElementView.m */,
+				9F19050B1927D20F00D24673 /* KRGridView.h */,
+				9F19050C1927D20F00D24673 /* KRGridView.m */,
+				9F19050D1927D20F00D24673 /* KRSoloInstrumentVC.h */,
+				9F19050E1927D20F00D24673 /* KRSoloInstrumentVC.m */,
+				9F19050F1927D20F00D24673 /* KRSoloInstrumentVC.xib */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		9F1905101927D20F00D24673 /* Wheel */ = {
+			isa = PBXGroup;
+			children = (
+				9F1905111927D20F00D24673 /* Knob.h */,
+				9F1905121927D20F00D24673 /* Knob.m */,
+				9F1905131927D20F00D24673 /* KRSpinningWheelVC.h */,
+				9F1905141927D20F00D24673 /* KRSpinningWheelVC.m */,
+				9F1905151927D20F00D24673 /* KRSpinningWheelVC.xib */,
+			);
+			path = Wheel;
+			sourceTree = "<group>";
+		};
+		9F1905211927D27000D24673 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				9F1905221927D27F00D24673 /* KREffectsVC.h */,
+				9F1905231927D27F00D24673 /* KREffectsVC.m */,
+				9F1905241927D27F00D24673 /* KREffectsVC.xib */,
+				9F1905271927D69100D24673 /* DynamicColorAnalyzer.h */,
+				9F1905281927D69100D24673 /* DynamicColorAnalyzer.m */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		9F3634E018F0116300AEF1B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +389,10 @@
 				9FB5AED61912A51500EADB1D /* KRMainVC.h */,
 				9FB5AED71912A51500EADB1D /* KRMainVC.m */,
 				9FB5AED81912A51500EADB1D /* KRMainVC.xib */,
+				9F1905021927D20400D24673 /* KRScrollView.h */,
+				9F1905031927D20400D24673 /* KRScrollView.m */,
+				9F1905041927D20400D24673 /* UIView+RecursiveSearch.h */,
+				9F1905051927D20400D24673 /* UIView+RecursiveSearch.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -384,22 +434,9 @@
 		9FB5AEDB1912C05F00EADB1D /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				9FB5AEDC1912C32C00EADB1D /* KRSoloInstrumentVC.h */,
-				9FB5AEDD1912C32C00EADB1D /* KRSoloInstrumentVC.m */,
-				9FB5AEDE1912C32C00EADB1D /* KRSoloInstrumentVC.xib */,
-				9FA7AB3619278F7F00B7A07F /* KRGridView.h */,
-				9FA7AB3719278F7F00B7A07F /* KRGridView.m */,
-				9FA7AB2D192778F200B7A07F /* KRGridElementView.h */,
-				9FA7AB2E192778F200B7A07F /* KRGridElementView.m */,
-				9FB5AEE41912CA4800EADB1D /* KRSpinningWheelVC.h */,
-				9FB5AEE51912CA4800EADB1D /* KRSpinningWheelVC.m */,
-				9FB5AEE61912CA4800EADB1D /* KRSpinningWheelVC.xib */,
-				014035761921D99F00FC2F0E /* Knob.h */,
-				014035771921D99F00FC2F0E /* Knob.m */,
-				9FA7AB3019277ED900B7A07F /* KRScrollView.h */,
-				9FA7AB3119277ED900B7A07F /* KRScrollView.m */,
-				9FA7AB33192786DD00B7A07F /* UIView+RecursiveSearch.h */,
-				9FA7AB34192786DD00B7A07F /* UIView+RecursiveSearch.m */,
+				9F1905211927D27000D24673 /* Effects */,
+				9F1905081927D20F00D24673 /* Grid */,
+				9F1905101927D20F00D24673 /* Wheel */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -510,18 +547,18 @@
 				0146B71B19275ED600284075 /* Artists.plist in Resources */,
 				9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */,
 				01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */,
+				9F1905191927D20F00D24673 /* KRSoloInstrumentVC.xib in Resources */,
+				9F1905261927D27F00D24673 /* KREffectsVC.xib in Resources */,
 				01557D3C191A4ED600B37172 /* Loops.plist in Resources */,
 				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
-				9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */,
-				9FB5AEE81912CA4800EADB1D /* KRSpinningWheelVC.xib in Resources */,
 				01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */,
 				01AEEEDB18F0AD9F00F513EE /* bass_full.aupreset in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
-				9FB5AEE01912C32C00EADB1D /* KRSoloInstrumentVC.xib in Resources */,
 				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
+				9F19051C1927D20F00D24673 /* KRSpinningWheelVC.xib in Resources */,
 				9F98F2E61919591000DF06D0 /* hugeBlue.jpg in Resources */,
 				9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */,
 				01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */,
@@ -550,24 +587,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FA7AB3819278F7F00B7A07F /* KRGridView.m in Sources */,
+				9F1905251927D27F00D24673 /* KREffectsVC.m in Sources */,
+				9F1905171927D20F00D24673 /* KRGridView.m in Sources */,
+				9F1905061927D20400D24673 /* KRScrollView.m in Sources */,
 				0103BF2C18DB7DF800697273 /* DebugViewController.m in Sources */,
-				9FA7AB35192786DD00B7A07F /* UIView+RecursiveSearch.m in Sources */,
+				9F1905181927D20F00D24673 /* KRSoloInstrumentVC.m in Sources */,
 				0146B72219278D3400284075 /* TrackStructure.m in Sources */,
 				019BFFEF18E2C604002E58EA /* NoteBuffer.m in Sources */,
-				9FA7AB3219277ED900B7A07F /* KRScrollView.m in Sources */,
-				9FB5AEDF1912C32C00EADB1D /* KRSoloInstrumentVC.m in Sources */,
 				0103BF2618DB7DF800697273 /* AppDelegate.m in Sources */,
+				9F19051A1927D20F00D24673 /* Knob.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
-				9FA7AB2F192778F200B7A07F /* KRGridElementView.m in Sources */,
-				014035781921D99F00FC2F0E /* Knob.m in Sources */,
+				9F1905291927D69100D24673 /* DynamicColorAnalyzer.m in Sources */,
+				9F1905161927D20F00D24673 /* KRGridElementView.m in Sources */,
 				9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */,
+				9F19051B1927D20F00D24673 /* KRSpinningWheelVC.m in Sources */,
 				9FAB54EA18EDC7AE00C4E792 /* KRColorAnalyzer.m in Sources */,
 				0132C85018DF853700DBC428 /* Player.m in Sources */,
 				9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */,
+				9F1905071927D20400D24673 /* UIView+RecursiveSearch.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
-				9FB5AEE71912CA4800EADB1D /* KRSpinningWheelVC.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,
 				9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */,
 			);

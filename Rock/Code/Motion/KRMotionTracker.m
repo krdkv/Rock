@@ -25,7 +25,7 @@
 #define KRRunningMaxSpeed 8.0f
 
 #define KRTiltUpdateFrequency 2 //Hz
-#define KRMotionUpdateFrequency 2 //Hz
+#define KRMotionUpdateFrequency 20 //Hz
 
 @interface KRMotionTracker () <CLLocationManagerDelegate>
 {
@@ -102,8 +102,12 @@
 	[_motionManager stopDeviceMotionUpdates];
 	
 	_motionValues = [NSMutableArray new];
+	for(int i = 0; i < 4; i++){
+		[_motionValues addObject:[NSNumber numberWithFloat:0]];
+	}
+	
 	CGFloat interval = (CGFloat)1/KRMotionUpdateFrequency;
-	_motionManager.deviceMotionUpdateInterval = (CGFloat) 1/KRMotionUpdateFrequency;
+	_motionManager.deviceMotionUpdateInterval = interval;
 	NSOperationQueue * queue = [NSOperationQueue new];
 	[queue setMaxConcurrentOperationCount:1];
 	[_motionManager startDeviceMotionUpdatesToQueue:queue
@@ -143,16 +147,7 @@
     double accValue = [self calculateAccelerationValue:motion];
 	accValue = [self filterAccelerationValue:accValue];
     
-	KRSpeed value;
-	if ( accValue < KRSlowMotionValue ) {
-		value = kSlowSpeed;
-	} else if ( accValue <= KRNormalMotionValue ) {
-		value = kMediumSpeed;
-	} else {
-		value = kFastSpeed;
-	}
-
-	[self.delegate newMotionValue:value];
+	[self.delegate newMotionRawValue:accValue];
 }
 
 

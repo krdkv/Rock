@@ -11,14 +11,17 @@
 #import "KRSoloInstrumentVC.h"
 #import "KRSpinningWheelVC.h"
 #import "KRColorAnalyzer.h"
+#import "KREffectsVC.h"
 
 #import "Player.h"
 
-@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate, UIScrollViewDelegate, KRMotionTrackerDelegate>
+@interface KRMainVC () <KRSpinningWheelDelegate, KRSoloInstrumentDelegate, KREffectsVCDelegate, UIScrollViewDelegate, KRMotionTrackerDelegate>
 {
 	UIImage * _image;
 	KRSpinningWheelVC * _spinningWheelVC;
 	KRMotionTracker * _motionTracker;
+	
+	int _motionSum;
 }
 @property (strong) Player * player;
 @property (weak) IBOutlet UIScrollView * contentScrollView;
@@ -44,6 +47,11 @@
 	_spinningWheelVC = [[KRSpinningWheelVC alloc] init];
 	_spinningWheelVC.delegate = self;
 	[self addChildViewController:_spinningWheelVC];
+	
+	KREffectsVC * effectsVC = [[KREffectsVC alloc] init];
+
+	effectsVC.delegate = self;
+	[self addChildViewController:effectsVC];
 	
 	_contentScrollView.delegate = self;
 	
@@ -136,6 +144,7 @@
 	
 	_playStopButton.enabled = YES;
 	if(x < 1){
+		_motionSum = 0;
 		[_motionTracker startTiltDetecting];
 	}
 	else if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
@@ -147,47 +156,52 @@
 
 #pragma mark -
 #pragma mark KRMotionTrackerDelegate Methods
-
-- (void) attitudeUpdatedWithPitch:(CGFloat)pitch roll:(CGFloat)roll yaw:(CGFloat)yaw
-{
-	
-}
-- (void) motionUpdatedWithX:(CGFloat)x y:(CGFloat)y z:(CGFloat)z
-{
-	
-}
-- (void) xDistanceChanged:(CGFloat)distance
-{
-	
-}
 - (void) newMotionValue:(KRSpeed)speed
 {
 	NSLog(@"Speed: %i", speed);
-	if(speed > kSlowSpeed){
+	if(speed == kSlowSpeed){
+		_motionSum += 0;
+	}
+	else if (speed == kMediumSpeed){
+		_motionSum += 4;
+	}
+	else{
+		_motionSum += 10;
+	}
+	if(_motionSum > 10){
 		[_player tickWithNumber:1];
+		_motionSum = _motionSum % 10;
 	}
 }
-- (void) shakeDetected
-{
-	
-}
-- (void) newMotionType:(KRMotionType)type
-{
-	
-}
-- (void) noWayToGetLocationType
-{
-	
-}
-- (void) logGPSSpeed:(CGFloat)speed
-{
-	
-}
 
+- (void) newMotionRawValue:(CGFloat)rawValue
+{
+	_motionSum += rawValue;
+	if(_motionSum > 100){
+		[_player tickWithNumber:1];
+		_motionSum = _motionSum % 100;
+	}
+}
 - (void) tiltValue:(CGFloat)value
 {
 	CGFloat normalizedTilt = value / M_PI_2;
 	[_player playSoloWithTilt:normalizedTilt];
 }
+
+#pragma mark -
+#pragma mark KREffectsVCDelegate
+- (void) guitarEffectColorSelected:(UIColor *)color
+{
+	[_player setEffectColorForInstrument:0 color:color];
+}
+- (void) bassEffectColorSelected:(UIColor *)color
+{
+	[_player setEffectColorForInstrument:1 color:color];
+}
+- (void) drumsEffectColorSelected:(UIColor *)color
+{
+	[_player setEffectColorForInstrument:2 color:color];
+}
+
 
 @end

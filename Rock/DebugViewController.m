@@ -44,7 +44,6 @@ static int tickNumber = 0;
     
     _knob = [[Knob alloc] initWithFrame:CGRectMake(-30.f, 50.f, 130.f*3, 130.f*3)];
     _knob.userInteractionEnabled = YES;
-//    [self.view addSubview:_knob];
     
     tickNumber = 0;
     
@@ -63,13 +62,9 @@ static int tickNumber = 0;
     _player = [[Player alloc] init];
     [_player setOverheadVolume:100];
     [_player setIntensity:1.f andColorsArray:@[]];
-    [_player start];
+//    [_player start];
     
 #if !TARGET_IPHONE_SIMULATOR
-    
-    _motionTracker = [KRMotionTracker new];
-    _motionTracker.delegate = self;
-    [_motionTracker start];
     
     [self.view setBackgroundColor:[UIColor darkGrayColor]];
     
@@ -89,10 +84,15 @@ static int tickNumber = 0;
 		
 	NSString * type = [_colorAnalyzer getTypeForImage:_image];
     NSLog(@"Color is %@", type);
+	
+	_motionTracker = [KRMotionTracker new];
+    _motionTracker.delegate = self;
+    [_motionTracker startMotionDetecting];
+
 }
 
 - (void)tickWithNumber:(int)tick {
-    [_player tickWithNumber:tick];
+//    [_player tickWithNumber:tick];
 }
 
 - (IBAction)tempoChanged:(UISlider*)sender
@@ -144,7 +144,7 @@ static CGPoint lastPoint;
 
 - (void) logGPSSpeed:(CGFloat)speed
 {
-    _gpsSpeedLabel.text = [NSString stringWithFormat:@"%f", speed];
+//    _gpsSpeedLabel.text = [NSString stringWithFormat:@"%f", speed];
 }
 
 - (void) newMotionValue:(KRSpeed)speed
@@ -196,6 +196,14 @@ static CGPoint lastPoint;
 //	_zAcceleration.text = [NSString stringWithFormat:@"%f", yaw];
 }
 
+- (void) newMotionRawValue:(CGFloat)rawValue
+{
+//	NSLog(@"lalala");
+	dispatch_async(dispatch_get_main_queue(), ^{
+		_gpsSpeedLabel.text = [NSString stringWithFormat:@"%.3f", rawValue];
+	});
+	
+}
 - (void) newMotionType:(KRMotionType)type
 {
 	NSString * title = @"";
