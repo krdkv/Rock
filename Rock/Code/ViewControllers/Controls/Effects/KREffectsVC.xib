@@ -20,13 +20,16 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQf-EI-Abt">
                     <rect key="frame" x="30" y="35" width="260" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="aQI-nG-Az8"/>
                     </constraints>
-                    <state key="normal">
+                    <inset key="imageEdgeInsets" minX="190" minY="10" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="keyboardOff.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="keyboardOn.png"/>
+                    <state key="highlighted" image="keyboardOn.png"/>
                     <connections>
                         <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="iGY-RB-XAc"/>
                     </connections>
@@ -34,13 +37,16 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0P-Zm-k9I">
                     <rect key="frame" x="30" y="145" width="260" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="AWf-ZM-Bla"/>
                     </constraints>
-                    <state key="normal">
+                    <inset key="contentEdgeInsets" minX="190" minY="10" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="bassOff.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="bassOn.png"/>
+                    <state key="highlighted" image="bassOn.png"/>
                     <connections>
                         <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="nvk-Zj-uqQ"/>
                     </connections>
@@ -48,13 +54,16 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEf-X2-nvb">
                     <rect key="frame" x="30" y="255" width="260" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.71372549019999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="AG1-dp-OA6"/>
                     </constraints>
-                    <state key="normal">
+                    <inset key="contentEdgeInsets" minX="190" minY="10" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="drumsOff.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="drumsOn.png"/>
+                    <state key="highlighted" image="drumsOn.png"/>
                     <connections>
                         <action selector="chooseColor:" destination="-1" eventType="touchUpInside" id="af5-aT-kHx"/>
                     </connections>
@@ -76,4 +85,12 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="bassOff.png" width="24" height="25"/>
+        <image name="bassOn.png" width="24" height="25"/>
+        <image name="drumsOff.png" width="22" height="21"/>
+        <image name="drumsOn.png" width="22" height="21"/>
+        <image name="keyboardOff.png" width="23" height="17"/>
+        <image name="keyboardOn.png" width="23" height="17"/>
+    </resources>
 </document>

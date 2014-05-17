@@ -35,10 +35,12 @@
 {
 	if(sender == _selectedButton){
 		[self stopColorDetecting];
+		_selectedButton.selected = NO;
 	}
 	else {
 		[self stopColorDetecting];
 		_selectedButton = sender;
+		_selectedButton.selected = YES;
 		[self startColorDetecting];
 	}
 }
