@@ -143,12 +143,18 @@
     [_pulse setTempo:tempo];
 }
 
+static int soloNotes[7][7];
+
 - (void) soloNoteOn:(int)x :(int)y {
     
+    int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick];
+    soloNotes[x][y] = key;
+    
+    [_buffer addNoteForInstrument:kGuitar note:key velocity:100+arc4random()%50 offset:0 duration:200];
 }
 
 - (void) soloNoteOff:(int)x :(int)y {
-    
+    [_buffer stopNoteForInstrument:kGuitar note:soloNotes[x][y]];
 }
 
 - (void) playSoloWithTilt:(CGFloat)tilt {

@@ -15,6 +15,8 @@
     int _currentTick;
 }
 
+@property (nonatomic, readwrite) unsigned int globalTick;
+
 @end
 
 @implementation Pulse
@@ -25,6 +27,7 @@
     if (self) {
         _tempo = kDefaultTempo;
         _currentTick = 0;
+        _globalTick = 0;
     }
     return self;
 }
@@ -57,6 +60,7 @@
     }
     
     ++ _currentTick;
+    ++ _globalTick;
     if ( _currentTick == kNumberOfTicksPerBar ) {
         _currentTick = 0;
     }

@@ -15,6 +15,8 @@
 
 - (int) keyForTick:(int)tick;
 
+- (int)keyForX:(int)x y:(int)y offset:(int)offset;
+
 @property (nonatomic, readonly) NSArray * keys;
 
 @property (nonatomic, readonly) NSArray * drumLoops;

@@ -27,4 +27,6 @@
 
 - (void) setTempo:(int)tempo;
 
+@property (nonatomic, readonly) unsigned int globalTick;
+
 @end

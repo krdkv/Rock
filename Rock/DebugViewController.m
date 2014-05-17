@@ -44,7 +44,7 @@ static int tickNumber = 0;
     
     _knob = [[Knob alloc] initWithFrame:CGRectMake(-30.f, 50.f, 130.f*3, 130.f*3)];
     _knob.userInteractionEnabled = YES;
-    [self.view addSubview:_knob];
+//    [self.view addSubview:_knob];
     
     tickNumber = 0;
     
@@ -108,6 +108,7 @@ static CGPoint lastPoint;
     
     if ( ABS(lastPoint.x - point.x) > 40 ) {
         lastPoint = point;
+        [_player soloNoteOn:arc4random()%7 :arc4random()%7];
 //        [_player playSolo:point];
     }
 }
