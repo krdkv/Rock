@@ -9,10 +9,12 @@
 #import "AppDelegate.h"
 #import "KRPhotoPickerVC.h"
 #import "DebugViewController.h"
+#import "KRMainVC.h"
 
 #define SHOW_DEBUG_UI 0
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

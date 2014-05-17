@@ -73,13 +73,14 @@
 							 _contentScrollView.frame.size.height);
 	self.contentScrollView.contentSize = size;
 	
+	CGRect frame = childController.view.frame;
+	frame.origin = CGPointMake(_contentScrollView.frame.size.width * count, 0.0);
+	frame.size.height = size.height;
+	childController.view.frame = frame;
+	
 	[super addChildViewController:childController];
 	[self.contentScrollView addSubview:childController.view];
 	[childController didMoveToParentViewController:self];
-	
-	CGRect frame = childController.view.frame;
-	frame.origin = CGPointMake(_contentScrollView.frame.size.width * count, 0.0);
-	childController.view.frame = frame;
 }
 
 - (void) setupWithImage:(UIImage *)image
@@ -151,6 +152,9 @@
 		[self stopPlayer];
 		_playStopButton.enabled = NO;
 		[_motionTracker startMotionDetecting];
+	}
+	else{
+		[_motionTracker stop];
 	}
 }
 

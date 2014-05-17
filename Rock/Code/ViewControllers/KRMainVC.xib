@@ -17,8 +17,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0uI-wJ-c5r" customClass="KRScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="498"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.30588235289999999" green="0.74901960779999999" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-hG-Ijo">
                     <rect key="frame" x="137" y="518" width="33" height="30"/>
@@ -38,7 +39,7 @@
                 <constraint firstAttribute="trailing" secondItem="0uI-wJ-c5r" secondAttribute="trailing" id="8mk-Dc-bLH"/>
                 <constraint firstAttribute="bottom" secondItem="JyD-hG-Ijo" secondAttribute="bottom" constant="20" id="Jae-GM-gUW"/>
                 <constraint firstItem="0uI-wJ-c5r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWo-gG-v9k"/>
-                <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" constant="70" id="TEk-qw-Kkd"/>
+                <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" id="TEk-qw-Kkd"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
