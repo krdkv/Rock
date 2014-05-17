@@ -17,6 +17,8 @@
 
 - (int)keyForX:(int)x y:(int)y offset:(int)offset;
 
+- (int)keyForTilt:(CGFloat)tilt;
+
 @property (nonatomic, readonly) NSArray * keys;
 
 @property (nonatomic, readonly) NSArray * drumLoops;

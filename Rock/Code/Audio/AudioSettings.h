@@ -51,7 +51,7 @@ enum {
 
 #define kDelaySettings @[@{@"p":@(kDelayParam_WetDryMix), @"on":@22.7}, @{@"p":@(kDelayParam_DelayTime), @"on":@0.5f}, @{@"p":@(kDelayParam_Feedback), @"on":@58.6f}, @{@"p":@(kDelayParam_LopassCutoff), @"on":@22050.f}]
 
-#define kEffectSettings @[ @[kReverbSettings],  @[kReverbSettings],   @[kDelaySettings]   ]
+#define kEffectSettings @[ @[kReverbSettings],  @[kReverbSettings],   @[kReverbSettings]   ]
 
 
 #define kMapNames @[@"bass_solo", @"drums_full", @"guitar_solo"]

@@ -24,7 +24,7 @@
 #define KRWalkingMaxSpeed 1.5f
 #define KRRunningMaxSpeed 8.0f
 
-#define KRTiltUpdateFrequency 2 //Hz
+#define KRTiltUpdateFrequency 50 //Hz
 #define KRMotionUpdateFrequency 2 //Hz
 
 @interface KRMotionTracker () <CLLocationManagerDelegate>
