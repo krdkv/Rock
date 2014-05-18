@@ -65,6 +65,11 @@
 		9F19054B19281BC000D24673 /* keyboardOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19053D19281BC000D24673 /* keyboardOn@2x.png */; };
 		9F19054C19281BC000D24673 /* photoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19053E19281BC000D24673 /* photoButton.png */; };
 		9F19054D19281BC000D24673 /* photoButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19053F19281BC000D24673 /* photoButton@2x.png */; };
+		9F19055019281ECD00D24673 /* KRSpeedometerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F19054F19281ECD00D24673 /* KRSpeedometerView.m */; };
+		9F19055A1928280E00D24673 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905561928280E00D24673 /* arrow.png */; };
+		9F19055B1928280E00D24673 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905571928280E00D24673 /* arrow@2x.png */; };
+		9F19055C1928280E00D24673 /* scale.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905581928280E00D24673 /* scale.png */; };
+		9F19055D1928280E00D24673 /* scale@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905591928280E00D24673 /* scale@2x.png */; };
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
 		9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */; };
@@ -183,6 +188,12 @@
 		9F19053D19281BC000D24673 /* keyboardOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboardOn@2x.png"; sourceTree = "<group>"; };
 		9F19053E19281BC000D24673 /* photoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoButton.png; sourceTree = "<group>"; };
 		9F19053F19281BC000D24673 /* photoButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoButton@2x.png"; sourceTree = "<group>"; };
+		9F19054E19281ECD00D24673 /* KRSpeedometerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSpeedometerView.h; sourceTree = "<group>"; };
+		9F19054F19281ECD00D24673 /* KRSpeedometerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSpeedometerView.m; sourceTree = "<group>"; };
+		9F1905561928280E00D24673 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		9F1905571928280E00D24673 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		9F1905581928280E00D24673 /* scale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale.png; sourceTree = "<group>"; };
+		9F1905591928280E00D24673 /* scale@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scale@2x.png"; sourceTree = "<group>"; };
 		9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPhotoPickerVC.h; sourceTree = "<group>"; };
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
@@ -413,6 +424,7 @@
 		9F19053119281BC000D24673 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9F1905551928280E00D24673 /* Speedometer */,
 				9F19053219281BC000D24673 /* bassOff.png */,
 				9F19053319281BC000D24673 /* bassOff@2x.png */,
 				9F19053419281BC000D24673 /* bassOn.png */,
@@ -431,6 +443,17 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		9F1905551928280E00D24673 /* Speedometer */ = {
+			isa = PBXGroup;
+			children = (
+				9F1905561928280E00D24673 /* arrow.png */,
+				9F1905571928280E00D24673 /* arrow@2x.png */,
+				9F1905581928280E00D24673 /* scale.png */,
+				9F1905591928280E00D24673 /* scale@2x.png */,
+			);
+			path = Speedometer;
+			sourceTree = "<group>";
+		};
 		9F3634E018F0116300AEF1B1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +470,8 @@
 				9F1905051927D20400D24673 /* UIView+RecursiveSearch.m */,
 				9F19052A1927F40700D24673 /* KRImageProcessor.h */,
 				9F19052B1927F40700D24673 /* KRImageProcessor.m */,
+				9F19054E19281ECD00D24673 /* KRSpeedometerView.h */,
+				9F19054F19281ECD00D24673 /* KRSpeedometerView.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -620,16 +645,20 @@
 				9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */,
 				9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */,
 				9F19054B19281BC000D24673 /* keyboardOn@2x.png in Resources */,
+				9F19055D1928280E00D24673 /* scale@2x.png in Resources */,
 				01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */,
 				01AEEEDB18F0AD9F00F513EE /* bass_full.aupreset in Resources */,
 				9F19054419281BC000D24673 /* drumsOff.png in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
 				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
 				9F19054119281BC000D24673 /* bassOff@2x.png in Resources */,
+				9F19055B1928280E00D24673 /* arrow@2x.png in Resources */,
+				9F19055C1928280E00D24673 /* scale.png in Resources */,
 				9F19051C1927D20F00D24673 /* KRSpinningWheelVC.xib in Resources */,
 				9F98F2E61919591000DF06D0 /* hugeBlue.jpg in Resources */,
 				9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */,
 				01FD825118EA895B0088E74F /* drums_min.aupreset in Resources */,
+				9F19055A1928280E00D24673 /* arrow.png in Resources */,
 				9F19054619281BC000D24673 /* drumsOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,6 +704,7 @@
 				0132C85018DF853700DBC428 /* Player.m in Sources */,
 				9FB5AED1190EC4E400EADB1D /* KRColorUnit.m in Sources */,
 				9F1905071927D20400D24673 /* UIView+RecursiveSearch.m in Sources */,
+				9F19055019281ECD00D24673 /* KRSpeedometerView.m in Sources */,
 				01F5F3C718DC2E320050DFB0 /* Pulse.m in Sources */,
 				0103BF2218DB7DF800697273 /* main.m in Sources */,
 				01F5F3CB18DC9DB00050DFB0 /* AudioSampler.m in Sources */,

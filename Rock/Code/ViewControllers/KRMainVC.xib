@@ -9,6 +9,7 @@
                 <outlet property="backgroundImageView" destination="qsc-pV-1mc" id="QmK-I1-ePO"/>
                 <outlet property="contentScrollView" destination="0uI-wJ-c5r" id="FLe-1J-e4Y"/>
                 <outlet property="playStopButton" destination="JyD-hG-Ijo" id="PT2-pQ-6Uj"/>
+                <outlet property="speedometerView" destination="Vdc-mZ-aOn" id="frI-rs-4oh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,6 +37,15 @@
                         <action selector="playStopAction" destination="-1" eventType="touchUpInside" id="oHd-Gx-emW"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-mZ-aOn" userLabel="Speedometer View" customClass="KRSpeedometerView">
+                    <rect key="frame" x="20" y="468" width="80" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="AXR-gZ-zg9"/>
+                        <constraint firstAttribute="width" constant="80" id="rJI-mQ-Ccm"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -46,8 +56,10 @@
                 <constraint firstAttribute="trailing" secondItem="0uI-wJ-c5r" secondAttribute="trailing" id="8mk-Dc-bLH"/>
                 <constraint firstItem="qsc-pV-1mc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C6Z-4X-e3C"/>
                 <constraint firstAttribute="bottom" secondItem="JyD-hG-Ijo" secondAttribute="bottom" constant="20" id="Jae-GM-gUW"/>
+                <constraint firstAttribute="bottom" secondItem="Vdc-mZ-aOn" secondAttribute="bottom" constant="20" id="Kdm-ai-7hJ"/>
                 <constraint firstItem="0uI-wJ-c5r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWo-gG-v9k"/>
                 <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" id="TEk-qw-Kkd"/>
+                <constraint firstItem="Vdc-mZ-aOn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="W3d-tC-0LY"/>
                 <constraint firstAttribute="trailing" secondItem="qsc-pV-1mc" secondAttribute="trailing" id="p4D-XZ-JmU"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

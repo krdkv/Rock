@@ -13,6 +13,7 @@
 #import "KRColorAnalyzer.h"
 #import "KREffectsVC.h"
 #import "KRImageProcessor.h"
+#import "KRSpeedometerView.h"
 
 #import "Player.h"
 
@@ -28,6 +29,7 @@
 @property (weak) IBOutlet UIScrollView * contentScrollView;
 @property (weak) IBOutlet UIButton * playStopButton;
 @property (weak) IBOutlet UIImageView * backgroundImageView;
+@property (weak) IBOutlet KRSpeedometerView * speedometerView;
 
 - (IBAction) playStopAction;
 
@@ -137,6 +139,7 @@
 - (void) tickWithInteger:(NSInteger)tick
 {
 	[_player tickWithNumber:(int)tick];
+	[_speedometerView poke];
 }
 
 #pragma mark UIScrollViewDelegate Methods
@@ -163,29 +166,16 @@
 
 #pragma mark -
 #pragma mark KRMotionTrackerDelegate Methods
-- (void) newMotionValue:(KRSpeed)speed
-{
-	NSLog(@"Speed: %i", speed);
-	if(speed == kSlowSpeed){
-		_motionSum += 0;
-	}
-	else if (speed == kMediumSpeed){
-		_motionSum += 4;
-	}
-	else{
-		_motionSum += 10;
-	}
-	if(_motionSum > 10){
-		[_player tickWithNumber:1];
-		_motionSum = _motionSum % 10;
-	}
-}
 
 - (void) newMotionRawValue:(CGFloat)rawValue
 {
 	_motionSum += rawValue;
 	if(_motionSum > 70){
 		[_player tickWithNumber:1];
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[_speedometerView poke];
+		});
+
 		_motionSum = _motionSum % 70;
 	}
 }
