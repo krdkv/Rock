@@ -101,12 +101,12 @@
 - (void) startPlayer
 {
 	[_player start];
-	[_playStopButton setTitle:@"stop" forState:UIControlStateNormal];
+	[_playStopButton setSelected:YES];
 }
 - (void) stopPlayer
 {
 	[_player stop];
-	[_playStopButton setTitle:@"play" forState:UIControlStateNormal];
+	[_playStopButton setSelected:NO];
 }
 
 #pragma mark -
