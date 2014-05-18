@@ -25,16 +25,6 @@
                         <action selector="takePhoto" destination="-1" eventType="touchUpInside" id="aa3-x4-QJt"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-eI-b6S">
-                    <rect key="frame" x="106" y="429" width="108" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Skip! Skip it up!">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="skip" destination="-1" eventType="touchUpInside" id="RbH-dU-hNC"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.76862745098039209" green="0.82745098039215681" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
