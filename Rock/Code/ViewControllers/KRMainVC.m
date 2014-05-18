@@ -207,7 +207,7 @@
 {
 //	NSLog(@"motion: %.f", rawValue);
 	
-	int motionTreshold = 200;
+	int motionTreshold = 250;
 	
 	if(rawValue > 5){
 		_motionSum += rawValue;
