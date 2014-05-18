@@ -153,6 +153,7 @@
 	if(x < 1){
 		_motionSum = 0;
 		[_motionTracker startTiltDetecting];
+		[self startPlayer];
 	}
 	else if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
 		[self stopPlayer];
@@ -161,6 +162,21 @@
 	}
 	else{
 		[_motionTracker stop];
+		[self startPlayer];
+	}
+}
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	CGFloat x = scrollView.contentOffset.x;
+	
+	CGFloat w = scrollView.frame.size.width;
+	if(x > w){
+		CGFloat alpha = 2 - x / w;
+		_speedometerView.alpha = alpha;
+	}
+	else{
+		_speedometerView.alpha = 1.0;
 	}
 }
 
@@ -185,7 +201,10 @@
 {
 	CGFloat normalizedTilt = value / M_PI_2;
 	[_player playSoloWithTilt:normalizedTilt];
-	[_speedometerView setValue:normalizedTilt];
+
+	dispatch_async(dispatch_get_main_queue(), ^{
+		[_speedometerView setValue:-value];
+	});
 }
 
 #pragma mark -
