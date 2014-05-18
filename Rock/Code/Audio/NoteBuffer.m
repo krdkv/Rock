@@ -149,6 +149,11 @@
     }
 }
 
+- (void) clear {
+    [_notes removeAllObjects];
+    [_waitingNotes removeAllObjects];
+}
+
 - (void) effectChangedForInstrument:(int)instrument
                               value:(CGFloat)value {
     

@@ -26,4 +26,6 @@
 - (void) effectChangedForInstrument:(int)instrument
                               value:(CGFloat)value;
 
+- (void) clear;
+
 @end
