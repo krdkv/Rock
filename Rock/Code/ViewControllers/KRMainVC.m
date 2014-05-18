@@ -164,6 +164,7 @@
 	else if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
 		[self stopPlayer];
 		_playStopButton.enabled = NO;
+		[_speedometerView setValue:-M_PI_2];
 		[_motionTracker startMotionDetecting];
 	}
 	else{
