@@ -63,6 +63,7 @@
     [_pulse stop];
     [_trackStructure generateWithIntensity:intensity colors:colorsArray withTick:0];
     [self fillBufferWithOffset:0];
+    [_pulse restart];
 }
 
 - (void) fillBufferWithOffset:(int)globalOffset {
@@ -133,8 +134,15 @@
                                color:(UIColor*)color {
     
     
-    
-    
+    if ( instrument == kDrums ) {
+        CGFloat hue, buf;
+        [color getWhite:&hue alpha:&buf];
+        [_buffer effectChangedForInstrument:instrument value:hue];
+    } else if ( instrument == kGuitar ) {
+        CGFloat hue, buf;
+        [color getWhite:&hue alpha:&buf];
+        [_buffer effectChangedForInstrument:instrument value:hue];
+    }
     
 }
 

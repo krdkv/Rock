@@ -23,4 +23,7 @@
 
 - (void) setPitch:(int)pitch;
 
+- (void) effectChangedForInstrument:(int)instrument
+                              value:(CGFloat)value;
+
 @end

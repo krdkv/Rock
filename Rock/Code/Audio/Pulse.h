@@ -23,6 +23,8 @@
 
 - (void) stop;
 
+- (void) restart;
+
 - (BOOL) isPlaying;
 
 - (void) setTempo:(int)tempo;

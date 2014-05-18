@@ -71,5 +71,12 @@
 - (void) mostPopularColorChanged:(UIColor *)color
 {
 	_selectedButton.backgroundColor = color;
+    if ( _selectedButton == _guitarButton ) {
+        [_delegate guitarEffectColorSelected:_selectedButton.backgroundColor];
+    } else if ( _selectedButton == _bassButton ) {
+        [_delegate bassEffectColorSelected:_bassButton.backgroundColor];
+    } else {
+        [_delegate drumsEffectColorSelected:_drumsButton.backgroundColor];
+    }
 }
 @end

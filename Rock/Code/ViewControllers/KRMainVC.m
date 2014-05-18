@@ -189,15 +189,15 @@
 #pragma mark KREffectsVCDelegate
 - (void) guitarEffectColorSelected:(UIColor *)color
 {
-	[_player setEffectColorForInstrument:0 color:color];
+	[_player setEffectColorForInstrument:2 color:color];
 }
 - (void) bassEffectColorSelected:(UIColor *)color
 {
-	[_player setEffectColorForInstrument:1 color:color];
+	[_player setEffectColorForInstrument:0 color:color];
 }
 - (void) drumsEffectColorSelected:(UIColor *)color
 {
-	[_player setEffectColorForInstrument:2 color:color];
+	[_player setEffectColorForInstrument:1 color:color];
 }
 
 

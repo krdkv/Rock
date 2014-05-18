@@ -16,6 +16,11 @@
     AudioUnit _mixerUnit, _ioUnit;
     AudioUnit ** _effectUnits;
     void(^_setupOnComplete)(void);
+    
+    BOOL guitarCutOffStarted;
+    CGFloat guitarCutOffValue;
+    BOOL guitarCutOffUp;
+    CGFloat guitarCutOffInterval;
 }
 
 @end
@@ -26,6 +31,11 @@
     [self setupAudioSession];
     [self initAUGraph];
     [self loadSampleMaps];
+    
+    guitarCutOffStarted = NO;
+    guitarCutOffValue = 100.f;
+    guitarCutOffUp = YES;
+    guitarCutOffInterval = 10.f;
     
     if ( onComplete ) {
         onComplete();
@@ -233,6 +243,37 @@
             }
         }
     }
+}
+
+- (void) setEffectForInstrument:(int)instrument
+                          value:(CGFloat)value {
+    
+    
+    if ( instrument == kDrums ) {
+        AudioUnitParameterValue valueToSet = value * 100.f;
+        AudioUnitSetParameter(_effectUnits[1][2], kReverb2Param_DryWetMix, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
+        valueToSet = 1540 + value * (6900-1540);
+        AudioUnitSetParameter(_effectUnits[1][1], kLowPassParam_CutoffFrequency, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
+    } else if ( instrument == kGuitar ) {
+        if ( ! guitarCutOffStarted ) {
+            [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(onCutOffChange) userInfo:nil repeats:YES];
+            guitarCutOffStarted = YES;
+        }
+        guitarCutOffInterval = 10.f + 50*value;
+    }
+}
+
+- (void) onCutOffChange {
+    guitarCutOffValue = guitarCutOffUp ? guitarCutOffValue+guitarCutOffInterval : guitarCutOffValue-guitarCutOffInterval;
+    if ( guitarCutOffValue > 600 ) {
+        guitarCutOffValue = 600;
+        guitarCutOffUp = NO;
+    }
+    if ( guitarCutOffValue < 20 ) {
+        guitarCutOffValue = 20;
+        guitarCutOffUp = YES;
+    }
+    AudioUnitSetParameter(_effectUnits[2][0], kHipassParam_CutoffFrequency, kAudioUnitScope_Global, 0, guitarCutOffValue, sizeof(guitarCutOffValue));
 }
 
 - (void) loadSampleMaps {
