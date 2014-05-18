@@ -96,7 +96,7 @@
             
             key += diff;
             
-            [_buffer addNoteForInstrument:kBass note:key-12 velocity:(velocity + _overheadVolume) offset:offset duration:duration];
+            [_buffer addNoteForInstrument:kBass note:key velocity:(velocity + _overheadVolume) offset:offset duration:duration];
         }
         
         currentBarOffset += numberOfBars * 32;
@@ -138,17 +138,6 @@
     CGFloat hue, buf;
     [color getWhite:&hue alpha:&buf];
     [_buffer effectChangedForInstrument:instrument value:hue];
-    
-//    if ( instrument == kDrums ) {
-//        CGFloat hue, buf;
-//        [color getWhite:&hue alpha:&buf];
-//        [_buffer effectChangedForInstrument:instrument value:hue];
-//    } else if ( instrument == kGuitar ) {
-//        CGFloat hue, buf;
-//        [color getWhite:&hue alpha:&buf];
-//        [_buffer effectChangedForInstrument:instrument value:hue];
-//    }
-    
 }
 
 - (void) tickWithNumber:(int)tick {
@@ -170,21 +159,28 @@ static int tiltKey = -500;
 
 - (void) soloNoteOn:(int)x :(int)y {
     
-    int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick] - 12;
+    int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick];
     soloNotes[x][y] = key;
     
-    [_buffer addNoteForInstrument:kGuitar note:key velocity:180/*100+arc4random()%50+self.overheadVolume*/ offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:key velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
 }
 
 - (void) soloNoteOff:(int)x :(int)y {
     [_buffer stopNoteForInstrument:kGuitar note:soloNotes[x][y]];
 }
 
+static CGFloat oldTilt = -100;
+
 - (void) playSoloWithTilt:(CGFloat)tilt {
     
-    
-    
     tilt *= -1;
+    
+    if ( ABS(oldTilt - tilt) < 0.01 || oldTilt == -100 ) {
+        oldTilt = tilt;
+        return;
+    }
+    
+    oldTilt = tilt;
     
     int newKey = [_trackStructure keyForTilt:tilt offset:_pulse.globalTick];
     
@@ -196,7 +192,7 @@ static int tiltKey = -500;
     }
     
     tiltKey = newKey;
-    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:180/*100+arc4random()%50+self.overheadVolume*/ offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
 }
 
 - (void)setPitch:(int)pitch {
