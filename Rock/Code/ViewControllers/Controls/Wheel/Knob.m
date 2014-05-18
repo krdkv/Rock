@@ -7,6 +7,7 @@
 //
 
 #import "Knob.h"
+#import "AudioSettings.h"
 
 #define kDefaultImageName @"knob"
 #define kScale 55
@@ -80,8 +81,10 @@
 
 - (void) startAutospin
 {
-	_autospin = YES;
-	[self autospin];
+	if(_autospin == NO){
+		_autospin = YES;
+		[self autospin];
+	}
 }
 
 - (void) stopAutospin
@@ -91,7 +94,7 @@
 
 - (void) autospin
 {
-	CGFloat ticksPerSecond = 8;
+	CGFloat ticksPerSecond = 150 * 8 / 60;
 	CGFloat duration = 1.0/ticksPerSecond;
 	CGFloat angle = M_PI/ (4*ticksPerSecond);
 	
