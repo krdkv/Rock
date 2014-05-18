@@ -18,6 +18,7 @@
     void(^_setupOnComplete)(void);
     
     BOOL guitarCutOffStarted;
+    BOOL effectsEnabled[3];
     CGFloat guitarCutOffValue;
     BOOL guitarCutOffUp;
     CGFloat guitarCutOffInterval;
@@ -36,6 +37,8 @@
     guitarCutOffValue = 100.f;
     guitarCutOffUp = YES;
     guitarCutOffInterval = 10.f;
+    
+    effectsEnabled[0] = effectsEnabled[1] = effectsEnabled[2] = false;
     
     if ( onComplete ) {
         onComplete();
@@ -232,21 +235,39 @@
 //    CAShow (_graph);
 }
 
-- (void) settingUpEffects {
+- (void) toggleEffectsOnInstrument:(int)instrument
+                           enabled:(BOOL)enabled {
+    
     for ( int i = 0; i < kMapNames.count; ++i ) {
+        if ( i != instrument ) {
+            continue;
+        }
+        
         for ( int j = 0; j < [kEffects[i] count]; ++j ) {
             
             for ( NSDictionary * effectParameter in kEffectSettings[i][j] ) {
                 UInt32 property = (UInt32)[effectParameter[@"p"] intValue];
-                AudioUnitParameterValue valueToSet = [effectParameter[@"on"] floatValue];
+                AudioUnitParameterValue valueToSet = enabled ? [effectParameter[@"on"] floatValue] : [effectParameter[@"off"] floatValue];
                 AudioUnitSetParameter(_effectUnits[i][j], property, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
             }
         }
+        
+        effectsEnabled[instrument] = enabled;
     }
+}
+
+- (void) settingUpEffects {
+    [self toggleEffectsOnInstrument:0 enabled:NO];
+    [self toggleEffectsOnInstrument:1 enabled:NO];
+    [self toggleEffectsOnInstrument:2 enabled:NO];
 }
 
 - (void) setEffectForInstrument:(int)instrument
                           value:(CGFloat)value {
+    
+    if ( ! effectsEnabled[instrument] ) {
+        [self toggleEffectsOnInstrument:instrument enabled:YES];
+    }
     
     
     if ( instrument == kDrums ) {
@@ -260,6 +281,9 @@
             guitarCutOffStarted = YES;
         }
         guitarCutOffInterval = 10.f + 50*value;
+    } else if ( instrument == kBass ) {
+        AudioUnitParameterValue valueToSet = -80 + value * 87;
+        AudioUnitSetParameter(_effectUnits[0][0], kDistortionParam_SoftClipGain, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
     }
 }
 

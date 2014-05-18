@@ -134,15 +134,19 @@
                                color:(UIColor*)color {
     
     
-    if ( instrument == kDrums ) {
-        CGFloat hue, buf;
-        [color getWhite:&hue alpha:&buf];
-        [_buffer effectChangedForInstrument:instrument value:hue];
-    } else if ( instrument == kGuitar ) {
-        CGFloat hue, buf;
-        [color getWhite:&hue alpha:&buf];
-        [_buffer effectChangedForInstrument:instrument value:hue];
-    }
+    CGFloat hue, buf;
+    [color getWhite:&hue alpha:&buf];
+    [_buffer effectChangedForInstrument:instrument value:hue];
+    
+//    if ( instrument == kDrums ) {
+//        CGFloat hue, buf;
+//        [color getWhite:&hue alpha:&buf];
+//        [_buffer effectChangedForInstrument:instrument value:hue];
+//    } else if ( instrument == kGuitar ) {
+//        CGFloat hue, buf;
+//        [color getWhite:&hue alpha:&buf];
+//        [_buffer effectChangedForInstrument:instrument value:hue];
+//    }
     
 }
 

@@ -47,10 +47,7 @@ enum {
 #define plusOctave(x) x+12
 #define minusOctave(x) x-12
 
-#define kEffects @[  @[@(kReverb)], @[@(kHighPass), @(kLowPass), @(kReverb)], @[@(kHighPass)] ]
-
-
-
+#define kEffects @[  @[@(kDistortion)], @[@(kHighPass), @(kLowPass), @(kReverb)], @[@(kHighPass)] ]
 
 #define kDrumHighPass @[ @{@"p":@(kHipassParam_CutoffFrequency), @"on":@482.8871f, @"off":@10.f}, @{@"p":@(kHipassParam_Resonance), @"on":@7.75f, @"off":@0.f} ]
 
@@ -58,23 +55,15 @@ enum {
 
 #define kDrumReverb @[ @{@"p":@(kReverb2Param_DryWetMix), @"on":@43, @"off":@0.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f, @"off":@0.050f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f, @"off":@0.008f}  ]
 
-
-/*
- @{@"type":@(kAudioUnitSubType_HighPassFilter), @"mode":@(kNormalMode), @"effectSettings": @[
- @{@"property":@(kHipassParam_CutoffFrequency), @"onValue":@(100.f), @"offValue":@(10.f)},
- @{@"property":@(kHipassParam_Resonance), @"onValue":@(20.f), @"offValue":@(0.f)},
- ]
- },*/
+#define kBassDistortion @[ @{@"p":@(0), @"on":@500.f, @"off":@0.1, }, @{@"p":@(1), @"on":@9.73f, @"off":@0, },@{@"p":@(2), @"on":@0, @"off":@0, },@{@"p":@(3), @"on":@0.4095, @"off":@0, },@{@"p":@(4), @"on":@81.8981, @"off":@0, },@{@"p":@(5), @"on":@4.5, @"off":@0, },@{@"p":@(6), @"on":@0.385, @"off":@0, },@{@"p":@(7), @"on":@20.f, @"off":@0, },@{@"p":@(8), @"on":@16.1, @"off":@0, },@{@"p":@(9), @"on":@19.5, @"off":@0, },@{@"p":@(10), @"on":@44.f, @"off":@100, },@{@"p":@(11), @"on":@1147, @"off":@100, },@{@"p":@(12), @"on":@50, @"off":@50, },@{@"p":@(13), @"on":@0.5, @"off":@0, },@{@"p":@(14), @"on":@-0.9f, @"off":@0, },@{@"p":@(15), @"on":@44.6, @"off":@0, }            ]
 
 #define kGuitarHighPass @[ @{@"p":@(kHipassParam_CutoffFrequency), @"on":@100.f, @"off":@10.f}, @{@"p":@(kHipassParam_Resonance), @"on":@20.f, @"off":@0.f} ]
-
-
 
 #define kReverbSettings @[@{@"p":@(kReverb2Param_DryWetMix), @"on":@60.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f}]
 
 #define kDelaySettings @[@{@"p":@(kDelayParam_WetDryMix), @"on":@22.7}, @{@"p":@(kDelayParam_DelayTime), @"on":@0.5f}, @{@"p":@(kDelayParam_Feedback), @"on":@58.6f}, @{@"p":@(kDelayParam_LopassCutoff), @"on":@22050.f}]
 
-#define kEffectSettings @[ @[kReverbSettings], @[kDrumHighPass, kDrumLowPass, kDrumReverb], @[kGuitarHighPass]   ]
+#define kEffectSettings @[ @[kBassDistortion], @[kDrumHighPass, kDrumLowPass, kDrumReverb], @[kGuitarHighPass]   ]
 
 #define kMapNames @[@"bass_solo", @"drums_full", @"guitar_solo"]
 
