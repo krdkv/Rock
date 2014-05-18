@@ -17,6 +17,8 @@
     int _pitch;
 }
 
+@property (nonatomic, readwrite) int globalTick;
+
 @end
 
 @implementation NoteBuffer
@@ -31,6 +33,8 @@
         
         _sampler = [[AudioSampler alloc] init];
         [_sampler setupOnComplete:nil];
+        
+        _globalTick = 0;
         
         _pitch = 0;
     }
@@ -115,6 +119,8 @@
 }
 
 - (void) onTick:(int)tickNumber {
+    
+    ++_globalTick;
     
     NSInteger count = _waitingNotes.count;
     for ( NSInteger i = count - 1; i >= 0; --i ) {

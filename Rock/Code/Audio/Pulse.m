@@ -15,8 +15,6 @@
     int _currentTick;
 }
 
-@property (nonatomic, readwrite) unsigned int globalTick;
-
 @end
 
 @implementation Pulse
@@ -27,7 +25,6 @@
     if (self) {
         _tempo = kDefaultTempo;
         _currentTick = 0;
-        _globalTick = 0;
     }
     return self;
 }
@@ -51,7 +48,6 @@
 
 - (void) restart {
     _currentTick = 0;
-    _globalTick = 0;
     [self start];
 }
 
@@ -66,7 +62,6 @@
     }
     
     ++ _currentTick;
-    ++ _globalTick;
     if ( _currentTick == kNumberOfTicksPerBar ) {
         _currentTick = 0;
     }
@@ -99,8 +94,6 @@
         [runLoop addTimer:_timer forMode:NSDefaultRunLoopMode];
         [runLoop run];
     });
-    
-    
 }
 
 @end
