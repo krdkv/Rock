@@ -55,7 +55,7 @@ enum {
     [_bassLoops removeAllObjects];
     
     if ( tick == 0 ) {
-        _tonica = 24 + arc4random()%7;
+        _tonica = 24 + arc4random()%4;
         
         if ( colors.count < 2 ) {
             _colorMode = kMajor;
@@ -82,9 +82,10 @@ enum {
     NSArray * firstHarmony = [kPopularHarmonies allValues][arc4random()%kPopularHarmonies.count];
     NSArray * secondHarmony = [kPopularHarmonies allValues][arc4random()%kPopularHarmonies.count];
     
-    int desiredIntensity = intensity > 0.5f ? 1 : 0;
-    int subIntensitySecond = arc4random()%2 == 1  ? 3 : 4;
+    int desiredIntensity = arc4random()%2;
+    int subIntensitySecond = arc4random()%2 == 1 ? 3 : 4;
   
+    
     NSString * scale;
     
     if ( _colorMode == kFullMajor ) {
@@ -112,6 +113,8 @@ enum {
             [_keys addObject:@{@"o": @(keyOffset + 32*i + 32), @"s": scale, @"k": @(_tonica + [harmony[2] intValue])}];
         }
     }
+
+//    [_keys addObject:@{@"o": @0, @"s": scale, @"k":@(E1)}];
     
     int numberOfLoops = 2;
     
