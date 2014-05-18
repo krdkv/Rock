@@ -185,6 +185,7 @@
 {
 	CGFloat normalizedTilt = value / M_PI_2;
 	[_player playSoloWithTilt:normalizedTilt];
+	[_speedometerView setValue:normalizedTilt];
 }
 
 #pragma mark -
