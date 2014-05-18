@@ -65,6 +65,11 @@
 	_selectedButton = nil;
 }
 
+- (void) stopEffectsSelection
+{
+	[self stopColorDetecting];
+}
+
 #pragma mark -
 #pragma mark DynamicColorAnalyzerDelegate Methods
 

@@ -24,7 +24,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="aQI-nG-Az8"/>
                     </constraints>
-                    <inset key="imageEdgeInsets" minX="190" minY="10" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="173" minY="3" maxX="0.0" maxY="0.0"/>
                     <state key="normal" image="keyboardOff.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -49,7 +49,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="AWf-ZM-Bla"/>
                     </constraints>
-                    <inset key="contentEdgeInsets" minX="190" minY="10" maxX="0.0" maxY="0.0"/>
+                    <inset key="contentEdgeInsets" minX="170" minY="3" maxX="0.0" maxY="0.0"/>
                     <state key="normal" image="bassOff.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -74,7 +74,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="AG1-dp-OA6"/>
                     </constraints>
-                    <inset key="contentEdgeInsets" minX="190" minY="10" maxX="0.0" maxY="0.0"/>
+                    <inset key="contentEdgeInsets" minX="170" minY="2" maxX="0.0" maxY="0.0"/>
                     <state key="normal" image="drumsOff.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -119,11 +119,11 @@
         </view>
     </objects>
     <resources>
-        <image name="bassOff.png" width="24" height="25"/>
-        <image name="bassOn.png" width="24" height="25"/>
-        <image name="drumsOff.png" width="22" height="21"/>
-        <image name="drumsOn.png" width="22" height="21"/>
-        <image name="keyboardOff.png" width="23" height="17"/>
-        <image name="keyboardOn.png" width="23" height="17"/>
+        <image name="bassOff.png" width="64" height="64"/>
+        <image name="bassOn.png" width="64" height="64"/>
+        <image name="drumsOff.png" width="64" height="64"/>
+        <image name="drumsOn.png" width="64" height="64"/>
+        <image name="keyboardOff.png" width="64" height="64"/>
+        <image name="keyboardOn.png" width="64" height="64"/>
     </resources>
 </document>

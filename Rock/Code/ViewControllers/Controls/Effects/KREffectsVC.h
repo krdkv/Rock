@@ -18,4 +18,5 @@
 
 @interface KREffectsVC : UIViewController
 @property (weak) id <KREffectsVCDelegate> delegate;
+- (void) stopEffectsSelection;
 @end

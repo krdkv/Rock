@@ -21,6 +21,7 @@
 {
 	UIImage * _image;
 	KRSpinningWheelVC * _spinningWheelVC;
+	KREffectsVC * _effectsVC;
 	KRMotionTracker * _motionTracker;
 	
 	int _motionSum;
@@ -52,10 +53,10 @@
 	_spinningWheelVC.delegate = self;
 	[self addChildViewController:_spinningWheelVC];
 	
-	KREffectsVC * effectsVC = [[KREffectsVC alloc] init];
+	_effectsVC = [[KREffectsVC alloc] init];
 
-	effectsVC.delegate = self;
-	[self addChildViewController:effectsVC];
+	_effectsVC.delegate = self;
+	[self addChildViewController:_effectsVC];
 	
 	_contentScrollView.delegate = self;
 	
@@ -174,7 +175,6 @@
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
 	CGFloat x = scrollView.contentOffset.x;
-	
 	CGFloat w = scrollView.frame.size.width;
 	if(x > w){
 		CGFloat alpha = 2 - x / w;
@@ -183,6 +183,8 @@
 	else{
 		_speedometerView.alpha = 1.0;
 	}
+	
+	[_effectsVC stopEffectsSelection];
 }
 
 #pragma mark -
