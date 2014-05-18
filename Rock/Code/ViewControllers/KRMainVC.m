@@ -169,7 +169,9 @@
 
 - (void) newMotionRawValue:(CGFloat)rawValue
 {
-	_motionSum += rawValue;
+	if(rawValue > 5){
+		_motionSum += rawValue;
+	}
 	if(_motionSum > 70){
 		[_player tickWithNumber:1];
 		dispatch_async(dispatch_get_main_queue(), ^{
