@@ -74,6 +74,8 @@
 	_player = [[Player alloc] init];
     [_player setOverheadVolume:100];
 	[_player setIntensity:intensity andColorsArray:colors];
+
+	[_playStopButton setSelected:YES];
 	
 	[_motionTracker startTiltDetecting];
 }
