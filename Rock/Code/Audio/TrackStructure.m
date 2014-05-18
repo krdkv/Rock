@@ -60,7 +60,7 @@ enum {
         if ( colors.count < 2 ) {
             _colorMode = kMajor;
         } else {
-            UIColor * firstColor = colors[1];
+            UIColor * firstColor = colors[0];
             CGFloat r, b, buf;
             [firstColor getRed:&r green:&buf blue:&b alpha:&buf];
             if ( r - b > 0.5f ) {
@@ -131,10 +131,12 @@ enum {
             subIntensity = subIntensitySecond;
         }
         
-        NSDictionary * drumLoop = [self loopForInstrument:@"drums" style:@"rock" type:type intensity:desiredIntensity scale:@"" subIntensity:4];
+        subIntensity = 1 + arc4random()%4;
+        
+        NSDictionary * drumLoop = [self loopForInstrument:@"drums" style:@"rock" type:type intensity:desiredIntensity scale:@"" subIntensity:subIntensity];
         [_drumLoops addObject:drumLoop];
         
-        NSDictionary * bassLoop = [self loopForInstrument:@"bass" style:@"rock" type:type intensity:desiredIntensity scale:scale subIntensity:4];
+        NSDictionary * bassLoop = [self loopForInstrument:@"bass" style:@"rock" type:type intensity:desiredIntensity scale:scale subIntensity:subIntensity];
         [_bassLoops addObject:bassLoop];
     }
     
