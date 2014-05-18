@@ -71,10 +71,12 @@
 		9F19055B1928280E00D24673 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905571928280E00D24673 /* arrow@2x.png */; };
 		9F19055C1928280E00D24673 /* scale.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905581928280E00D24673 /* scale.png */; };
 		9F19055D1928280E00D24673 /* scale@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905591928280E00D24673 /* scale@2x.png */; };
-		9F1905621928364600D24673 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19055E1928364600D24673 /* pause.png */; };
-		9F1905631928364600D24673 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19055F1928364600D24673 /* pause@2x.png */; };
-		9F1905641928364600D24673 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905601928364600D24673 /* play.png */; };
-		9F1905651928364600D24673 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905611928364600D24673 /* play@2x.png */; };
+		9F19056D1928784C00D24673 /* newPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905671928784C00D24673 /* newPhoto.png */; };
+		9F19056E1928784C00D24673 /* newPhoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905681928784C00D24673 /* newPhoto@2x.png */; };
+		9F19056F1928784C00D24673 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1905691928784C00D24673 /* pause.png */; };
+		9F1905701928784C00D24673 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19056A1928784C00D24673 /* pause@2x.png */; };
+		9F1905711928784C00D24673 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19056B1928784C00D24673 /* play.png */; };
+		9F1905721928784C00D24673 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F19056C1928784C00D24673 /* play@2x.png */; };
 		9F3634E418F0118700AEF1B1 /* KRPhotoPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */; };
 		9F3634E518F0118700AEF1B1 /* KRPhotoPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */; };
 		9F3634E718F013FE00AEF1B1 /* DebugViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F3634E618F013FE00AEF1B1 /* DebugViewController.xib */; };
@@ -200,10 +202,12 @@
 		9F1905571928280E00D24673 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		9F1905581928280E00D24673 /* scale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scale.png; sourceTree = "<group>"; };
 		9F1905591928280E00D24673 /* scale@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scale@2x.png"; sourceTree = "<group>"; };
-		9F19055E1928364600D24673 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
-		9F19055F1928364600D24673 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
-		9F1905601928364600D24673 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
-		9F1905611928364600D24673 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		9F1905671928784C00D24673 /* newPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newPhoto.png; sourceTree = "<group>"; };
+		9F1905681928784C00D24673 /* newPhoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newPhoto@2x.png"; sourceTree = "<group>"; };
+		9F1905691928784C00D24673 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		9F19056A1928784C00D24673 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
+		9F19056B1928784C00D24673 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		9F19056C1928784C00D24673 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		9F3634E118F0118700AEF1B1 /* KRPhotoPickerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRPhotoPickerVC.h; sourceTree = "<group>"; };
 		9F3634E218F0118700AEF1B1 /* KRPhotoPickerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRPhotoPickerVC.m; sourceTree = "<group>"; };
 		9F3634E318F0118700AEF1B1 /* KRPhotoPickerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRPhotoPickerVC.xib; sourceTree = "<group>"; };
@@ -435,6 +439,7 @@
 		9F19053119281BC000D24673 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9F1905661928784C00D24673 /* Main */,
 				9F1905551928280E00D24673 /* Speedometer */,
 				9F19053219281BC000D24673 /* bassOff.png */,
 				9F19053319281BC000D24673 /* bassOff@2x.png */,
@@ -450,10 +455,6 @@
 				9F19053D19281BC000D24673 /* keyboardOn@2x.png */,
 				9F19053E19281BC000D24673 /* photoButton.png */,
 				9F19053F19281BC000D24673 /* photoButton@2x.png */,
-				9F19055E1928364600D24673 /* pause.png */,
-				9F19055F1928364600D24673 /* pause@2x.png */,
-				9F1905601928364600D24673 /* play.png */,
-				9F1905611928364600D24673 /* play@2x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -467,6 +468,19 @@
 				9F1905591928280E00D24673 /* scale@2x.png */,
 			);
 			path = Speedometer;
+			sourceTree = "<group>";
+		};
+		9F1905661928784C00D24673 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9F1905671928784C00D24673 /* newPhoto.png */,
+				9F1905681928784C00D24673 /* newPhoto@2x.png */,
+				9F1905691928784C00D24673 /* pause.png */,
+				9F19056A1928784C00D24673 /* pause@2x.png */,
+				9F19056B1928784C00D24673 /* play.png */,
+				9F19056C1928784C00D24673 /* play@2x.png */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		9F3634E018F0116300AEF1B1 /* ViewControllers */ = {
@@ -637,9 +651,9 @@
 				9F19054719281BC000D24673 /* drumsOn@2x.png in Resources */,
 				01F3703C19281731005FF48D /* piano.aupreset in Resources */,
 				9F98F2E71919591300DF06D0 /* hugeBlack.jpg in Resources */,
+				9F1905701928784C00D24673 /* pause@2x.png in Resources */,
 				010FF84E191E133500AB8D0B /* knob@2x.png in Resources */,
 				0103BF2E18DB7DF800697273 /* Images.xcassets in Resources */,
-				9F1905631928364600D24673 /* pause@2x.png in Resources */,
 				0103BF2018DB7DF700697273 /* InfoPlist.strings in Resources */,
 				9FAB54F418EDDC5D00C4E792 /* red.png in Resources */,
 				9F19054319281BC000D24673 /* bassOn@2x.png in Resources */,
@@ -647,18 +661,20 @@
 				0146B71B19275ED600284075 /* Artists.plist in Resources */,
 				9F3634E918F1728F00AEF1B1 /* huge.jpg in Resources */,
 				9F19054D19281BC000D24673 /* photoButton@2x.png in Resources */,
+				9F19056D1928784C00D24673 /* newPhoto.png in Resources */,
 				9F19054A19281BC000D24673 /* keyboardOn.png in Resources */,
-				9F1905641928364600D24673 /* play.png in Resources */,
 				01AEEED918F0A7DF00F513EE /* bass_solo.aupreset in Resources */,
 				9F1905191927D20F00D24673 /* KRSoloInstrumentVC.xib in Resources */,
+				9F1905721928784C00D24673 /* play@2x.png in Resources */,
 				9F19054C19281BC000D24673 /* photoButton.png in Resources */,
-				9F1905651928364600D24673 /* play@2x.png in Resources */,
+				9F1905711928784C00D24673 /* play.png in Resources */,
 				9F1905261927D27F00D24673 /* KREffectsVC.xib in Resources */,
 				01557D3C191A4ED600B37172 /* Loops.plist in Resources */,
 				9F19054019281BC000D24673 /* bassOff.png in Resources */,
 				9FAB54F118EDCDCB00C4E792 /* green.png in Resources */,
 				9F19054919281BC000D24673 /* keyboardOff@2x.png in Resources */,
 				9F19054219281BC000D24673 /* bassOn.png in Resources */,
+				9F19056F1928784C00D24673 /* pause.png in Resources */,
 				9F19054519281BC000D24673 /* drumsOff@2x.png in Resources */,
 				0103BF4F18DB7E3C00697273 /* Sounds in Resources */,
 				9F98F2E51919590E00DF06D0 /* hugeRed.jpg in Resources */,
@@ -666,9 +682,9 @@
 				9F19054B19281BC000D24673 /* keyboardOn@2x.png in Resources */,
 				9F19055D1928280E00D24673 /* scale@2x.png in Resources */,
 				01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */,
-				9F1905621928364600D24673 /* pause.png in Resources */,
 				01AEEEDB18F0AD9F00F513EE /* bass_full.aupreset in Resources */,
 				9F19054419281BC000D24673 /* drumsOff.png in Resources */,
+				9F19056E1928784C00D24673 /* newPhoto@2x.png in Resources */,
 				01F5F3D318DCE2080050DFB0 /* bass.aupreset in Resources */,
 				01FD825018EA895B0088E74F /* drums_full.aupreset in Resources */,
 				9F19054119281BC000D24673 /* bassOff@2x.png in Resources */,

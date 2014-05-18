@@ -27,7 +27,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-hG-Ijo">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-hG-Ijo" userLabel="PlayPause Button">
                     <rect key="frame" x="118" y="477" width="71" height="71"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" image="play.png">
@@ -36,6 +36,16 @@
                     <state key="selected" image="pause.png"/>
                     <connections>
                         <action selector="playStopAction" destination="-1" eventType="touchUpInside" id="oHd-Gx-emW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJk-Iw-tuT" userLabel="New Photo Button">
+                    <rect key="frame" x="239" y="487" width="51" height="51"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="newPhoto.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="newPhotoAction" destination="-1" eventType="touchUpInside" id="M7j-Ry-XlL"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-mZ-aOn" userLabel="Speedometer View" customClass="KRSpeedometerView">
@@ -62,12 +72,15 @@
                 <constraint firstAttribute="bottom" secondItem="0uI-wJ-c5r" secondAttribute="bottom" id="TEk-qw-Kkd"/>
                 <constraint firstItem="Vdc-mZ-aOn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="W3d-tC-0LY"/>
                 <constraint firstAttribute="trailing" secondItem="qsc-pV-1mc" secondAttribute="trailing" id="p4D-XZ-JmU"/>
+                <constraint firstItem="AJk-Iw-tuT" firstAttribute="centerY" secondItem="JyD-hG-Ijo" secondAttribute="centerY" id="pgd-aw-D8D"/>
+                <constraint firstAttribute="trailing" secondItem="AJk-Iw-tuT" secondAttribute="trailing" constant="30" id="w2p-aa-ckp"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
+        <image name="newPhoto.png" width="51" height="51"/>
         <image name="pause.png" width="71" height="71"/>
         <image name="play.png" width="71" height="71"/>
     </resources>

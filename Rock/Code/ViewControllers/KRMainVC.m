@@ -32,7 +32,7 @@
 @property (weak) IBOutlet KRSpeedometerView * speedometerView;
 
 - (IBAction) playStopAction;
-
+- (IBAction) newPhotoAction;
 @end
 
 @implementation KRMainVC
@@ -119,6 +119,11 @@
 	else{
 		[self startPlayer];
 	}
+}
+
+- (void) newPhotoAction
+{
+	[self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark -
