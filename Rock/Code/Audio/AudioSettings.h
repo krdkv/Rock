@@ -65,7 +65,7 @@ enum {
 
 #define kEffectSettings @[ @[kBassDistortion], @[kDrumHighPass, kDrumLowPass, kDrumReverb], @[kGuitarHighPass]   ]
 
-#define kMapNames @[@"bass_solo", @"drums_full", @"guitar_solo"]
+#define kMapNames @[@"bass_solo", @"drums_full", @"piano"]
 
 #define kNoteOnMidiMessage 0x9 << 4 | 0
 #define kNoteOffMidiMessage 0x8 << 4 | 0
