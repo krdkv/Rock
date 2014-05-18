@@ -202,16 +202,21 @@
 
 - (void) newMotionRawValue:(CGFloat)rawValue
 {
+	NSLog(@"motion: %.f", rawValue);
+	
+	int motionTreshold = 150;
+	
 	if(rawValue > 5){
 		_motionSum += rawValue;
 	}
-	if(_motionSum > 70){
+	if(_motionSum > motionTreshold){
+		[_spinningWheelVC stopAutospin];
 		[_player tickWithNumber:1];
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[_speedometerView poke];
 		});
 
-		_motionSum = _motionSum % 70;
+		_motionSum = _motionSum % motionTreshold;
 	}
 }
 - (void) tiltValue:(CGFloat)value

@@ -24,7 +24,7 @@
 #define KRWalkingMaxSpeed 1.5f
 #define KRRunningMaxSpeed 8.0f
 
-#define KRMotionUpdateFrequency 20 //Hz
+#define KRMotionUpdateFrequency 50 //Hz
 #define KRTiltUpdateFrequency 50 //Hz
 
 @interface KRMotionTracker () <CLLocationManagerDelegate>
@@ -44,6 +44,7 @@
 }
 @property KRMotionType currentMotionType;
 @property CGFloat motionLastYaw;
+@property CGFloat motionLastValue;
 @end
 
 @implementation KRMotionTracker
@@ -142,9 +143,20 @@
 - (void) detectMotion:(CMDeviceMotion *)motion
 {
     double accValue = [self calculateAccelerationValue:motion];
-//	accValue = [self filterAccelerationValue:accValue];
+
+	if (self.motionLastValue == 0) {
+        self.motionLastValue = accValue;
+    }
+	
+    // kalman filtering
+    static float k = 0.05;   // kalman filter gain
+	
+    float x = self.motionLastValue;
+    x = x + k*(accValue - x);
+	
+    self.motionLastValue = x;
     
-	[self.delegate newMotionRawValue:accValue];
+	[self.delegate newMotionRawValue:x];
 }
 
 
