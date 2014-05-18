@@ -15,6 +15,9 @@
     Pulse * _pulse;
     NoteBuffer * _buffer;
     TrackStructure * _trackStructure;
+    CGFloat _intensity;
+    NSArray * _colors;
+    __block int _borderTick;
 }
 
 @end
@@ -54,15 +57,19 @@
 - (void) setIntensity:(CGFloat)intensity
        andColorsArray:(NSArray*)colorsArray {
     
-    [_pulse stop];
+    _intensity = intensity;
+    _colors = colorsArray;
     
-    [_trackStructure generateWithIntensity:intensity colors:colorsArray];
-    [self fillBuffer];
+    [_pulse stop];
+    [_trackStructure generateWithIntensity:intensity colors:colorsArray withTick:0];
+    [self fillBufferWithOffset:0];
 }
 
-- (void) fillBuffer {
+- (void) fillBufferWithOffset:(int)globalOffset {
     
-    int currentBarOffset = 0;
+    int currentBarOffset = globalOffset;
+    
+    NSLog(@"#### %d", globalOffset);
     
     for ( NSDictionary * bassLoop in _trackStructure.bassLoops ) {
         
@@ -95,7 +102,7 @@
         currentBarOffset += numberOfBars * 32;
     }
     
-    currentBarOffset = 0;
+    currentBarOffset = globalOffset;
     
     for ( NSDictionary * drumLoop in _trackStructure.drumLoops ) {
         
@@ -119,10 +126,8 @@
             
             [_buffer addNoteForInstrument:kDrums note:key-12 velocity:(velocity + _overheadVolume) offset:offset duration:100];
         }
-        
         currentBarOffset += numberOfBars * 32;
     }
-    
     
 }
 
@@ -136,6 +141,13 @@
 }
 
 - (void) tickWithNumber:(int)tick {
+    
+    if ( _pulse.globalTick % 256 == 128 ) {        
+        _borderTick = _pulse.globalTick;
+        [_trackStructure generateWithIntensity:_intensity colors:_colors withTick:_borderTick];
+        [self fillBufferWithOffset:128];
+    }
+    
     [_buffer onTick:tick];
 }
 
@@ -151,7 +163,7 @@ static int tiltKey = -500;
     int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick];
     soloNotes[x][y] = key;
     
-    [_buffer addNoteForInstrument:kGuitar note:key velocity:50+arc4random()%50+self.overheadVolume offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:key velocity:180/*100+arc4random()%50+self.overheadVolume*/ offset:0 duration:200];
 }
 
 - (void) soloNoteOff:(int)x :(int)y {
@@ -172,7 +184,7 @@ static int tiltKey = -500;
     }
     
     tiltKey = newKey;
-    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:50+arc4random()%50+self.overheadVolume offset:0 duration:200];
+    [_buffer addNoteForInstrument:kGuitar note:tiltKey velocity:180/*100+arc4random()%50+self.overheadVolume*/ offset:0 duration:200];
 }
 
 - (void)setPitch:(int)pitch {
