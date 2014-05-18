@@ -28,4 +28,6 @@
 
 - (void) clear;
 
+@property (nonatomic, readonly) int globalTick;
+
 @end

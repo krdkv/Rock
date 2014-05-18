@@ -141,8 +141,8 @@
 }
 
 - (void) tickWithNumber:(int)tick {
-    if ( _pulse.globalTick % 256 == 128 ) {
-        _borderTick = _pulse.globalTick;
+    if ( _buffer.globalTick % 256 == 128 ) {
+        _borderTick = _buffer.globalTick;
         [_trackStructure generateWithIntensity:_intensity colors:_colors withTick:_borderTick];
         [self fillBufferWithOffset:128];
     }
@@ -159,7 +159,7 @@ static int tiltKey = -500;
 
 - (void) soloNoteOn:(int)x :(int)y {
     
-    int key = [_trackStructure keyForX:x y:y offset:_pulse.globalTick];
+    int key = [_trackStructure keyForX:x y:y offset:_buffer.globalTick];
     soloNotes[x][y] = key;
     
     [_buffer addNoteForInstrument:kGuitar note:key velocity:100+arc4random()%50+self.overheadVolume offset:0 duration:200];
@@ -182,7 +182,7 @@ static CGFloat oldTilt = -100;
     
     oldTilt = tilt;
     
-    int newKey = [_trackStructure keyForTilt:tilt offset:_pulse.globalTick];
+    int newKey = [_trackStructure keyForTilt:tilt offset:_buffer.globalTick];
     
     if ( tiltKey == newKey ) {
         return;
