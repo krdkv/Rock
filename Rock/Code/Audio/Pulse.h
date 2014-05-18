@@ -17,7 +17,7 @@
 
 @interface Pulse : NSObject
 
-@property (nonatomic, strong) id<PulseDelegate> delegate;
+@property (nonatomic, weak) id<PulseDelegate> delegate;
 
 - (void) start;
 

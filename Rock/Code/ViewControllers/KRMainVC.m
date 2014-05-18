@@ -77,6 +77,12 @@
 	[_motionTracker startTiltDetecting];
 }
 
+- (void) dealloc
+{
+	[_player stop];
+	_player = nil;
+}
+
 - (void) addChildViewController:(UIViewController *)childController
 {
 	NSUInteger count = self.childViewControllers.count;
