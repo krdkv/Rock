@@ -57,10 +57,10 @@ enum {
     if ( tick == 0 ) {
         _tonica = 24 + arc4random()%7;
         
-        if ( colors.count == 0 ) {
+        if ( colors.count < 2 ) {
             _colorMode = kMajor;
         } else {
-            UIColor * firstColor = colors[0];
+            UIColor * firstColor = colors[1];
             CGFloat r, b, buf;
             [firstColor getRed:&r green:&buf blue:&b alpha:&buf];
             if ( r - b > 0.5f ) {
