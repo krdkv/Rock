@@ -12,7 +12,6 @@
 @interface KRSpinningWheelVC ()
 
 @property (weak) IBOutlet Knob * knob;
-@property (assign) NSInteger tickCount;
 @end
 
 @implementation KRSpinningWheelVC
@@ -28,9 +27,7 @@
 
 - (void) tick
 {
-	[_delegate tickWithInteger:_tickCount];
-	_tickCount ++;
-	_tickCount = _tickCount % 32;
+	[_delegate tick];
 }
 
 - (void) startAutoSpin

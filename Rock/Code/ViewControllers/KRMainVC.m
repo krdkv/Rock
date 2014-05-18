@@ -31,6 +31,7 @@
 @property (weak) IBOutlet UIButton * playStopButton;
 @property (weak) IBOutlet UIImageView * backgroundImageView;
 @property (weak) IBOutlet KRSpeedometerView * speedometerView;
+@property (assign) NSInteger tickCount;
 
 - (IBAction) playStopAction;
 - (IBAction) newPhotoAction;
@@ -148,9 +149,11 @@
 #pragma mark -
 #pragma mark SpinningWheelDelegate
 
-- (void) tickWithInteger:(NSInteger)tick
+- (void) tick
 {
-	[_player tickWithNumber:(int)tick];
+	[_player tickWithNumber:_tickCount];
+	_tickCount ++;
+	_tickCount = _tickCount % 32;
 	[_speedometerView poke];
 }
 
@@ -202,7 +205,7 @@
 
 - (void) newMotionRawValue:(CGFloat)rawValue
 {
-	NSLog(@"motion: %.f", rawValue);
+//	NSLog(@"motion: %.f", rawValue);
 	
 	int motionTreshold = 150;
 	
@@ -211,7 +214,7 @@
 	}
 	if(_motionSum > motionTreshold){
 		[_spinningWheelVC stopAutospin];
-		[_player tickWithNumber:1];
+		[self tick];
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[_speedometerView poke];
 		});

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol KRSpinningWheelDelegate
-- (void)tickWithInteger:(NSInteger)tick;
+- (void)tick;
 @end
 
 @interface KRSpinningWheelVC : UIViewController
