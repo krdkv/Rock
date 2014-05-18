@@ -14,4 +14,6 @@
 
 @interface KRSpinningWheelVC : UIViewController
 @property (weak) id <KRSpinningWheelDelegate> delegate;
+- (void) startAutoSpin;
+- (void) stopAutospin;
 @end

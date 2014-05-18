@@ -159,6 +159,7 @@
 	if(x < 1){
 		_motionSum = 0;
 		[_motionTracker startTiltDetecting];
+		[_spinningWheelVC stopAutospin];
 		[self startPlayer];
 	}
 	else if(x < wheelVCOffset + 1 && x > wheelVCOffset - 1){
@@ -166,9 +167,11 @@
 		_playStopButton.enabled = NO;
 		[_speedometerView setValue:-M_PI_2];
 		[_motionTracker startMotionDetecting];
+		[_spinningWheelVC startAutoSpin];
 	}
 	else{
 		[_motionTracker stop];
+		[_spinningWheelVC stopAutospin];
 		[self startPlayer];
 	}
 }

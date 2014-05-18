@@ -29,7 +29,17 @@
 - (void) tick
 {
 	[_delegate tickWithInteger:_tickCount];
-	_tickCount = (_tickCount ++) % 32;
+	_tickCount ++;
+	_tickCount = _tickCount % 32;
 }
 
+- (void) startAutoSpin
+{
+	[_knob startAutospin];
+}
+
+- (void) stopAutospin
+{
+	[_knob stopAutospin];
+}
 @end

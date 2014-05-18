@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) void(^onTick)(void);
 
+- (void) startAutospin;
+- (void) stopAutospin;
 @end

@@ -14,6 +14,7 @@
 @interface Knob() {
     UIImageView * _imageView;
     int _currentLeftBorder;
+	BOOL _autospin;
 }
 
 @end
@@ -48,7 +49,9 @@
 	_currentLeftBorder = -1;
 }
 
-- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	[self stopAutospin];
     CGPoint Location = [[touches anyObject] locationInView:self];
     
     int x = _imageView.center.x;
@@ -73,6 +76,42 @@
             self.onTick();
         }
     }
+}
+
+- (void) startAutospin
+{
+	_autospin = YES;
+	[self autospin];
+}
+
+- (void) stopAutospin
+{
+	_autospin = NO;
+}
+
+- (void) autospin
+{
+	CGFloat ticksPerSecond = 8;
+	CGFloat duration = 1.0/ticksPerSecond;
+	CGFloat angle = M_PI/ (4*ticksPerSecond);
+	
+	[UIView animateWithDuration:duration
+						  delay:0.0
+						options:UIViewAnimationOptionCurveLinear
+					 animations:^{
+						 _imageView.layer.transform = CATransform3DRotate(_imageView.layer.transform, angle, 0, 0, 1);
+					 }
+					 completion:^(BOOL finished) {
+						 if(_autospin){
+							 [self autospin];
+							 
+							 if ( self.onTick ) {
+								 self.onTick();
+							 }
+							 
+						 }
+
+					 }];
 }
 
 @end
