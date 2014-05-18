@@ -26,4 +26,6 @@
 
 @property (nonatomic, readonly) NSMutableArray * bassLoops;
 
+@property (nonatomic, readonly) int tonica;
+
 @end

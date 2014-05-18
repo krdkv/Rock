@@ -11,7 +11,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 
-#define kDefaultTempo 120
+#define kDefaultTempo 130
 #define kNumberOfTicksPerBar 32
 #define kTimerCoefficient 1.875f * 4
 
@@ -45,13 +45,13 @@ enum {
 #define plusOctave(x) x+12
 #define minusOctave(x) x-12
 
-#define kEffects @[  @[@(kReverb)], @[@(kReverb)], @[@(kDelay)] ]
+#define kEffects @[  @[@(kReverb)], @[@(kReverb)], @[@(kReverb)] ]
 
 #define kReverbSettings @[@{@"p":@(kReverb2Param_DryWetMix), @"on":@60.f}, @{@"p":@(kReverb2Param_MaxDelayTime), @"on":@0.061f}, @{@"p":@(kReverb2Param_MinDelayTime), @"on":@0.0147f}]
 
 #define kDelaySettings @[@{@"p":@(kDelayParam_WetDryMix), @"on":@22.7}, @{@"p":@(kDelayParam_DelayTime), @"on":@0.5f}, @{@"p":@(kDelayParam_Feedback), @"on":@58.6f}, @{@"p":@(kDelayParam_LopassCutoff), @"on":@22050.f}]
 
-#define kEffectSettings @[ @[kReverbSettings],  @[kReverbSettings],   @[kReverbSettings]   ]
+#define kEffectSettings @[ @[kReverbSettings],  @[kReverbSettings],  @[kReverb] ]
 
 
 #define kMapNames @[@"bass_solo", @"drums_full", @"guitar_solo"]

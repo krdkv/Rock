@@ -11,11 +11,13 @@
 
 @interface TrackStructure() {
     NSArray * _loops;
+    int _colorMode;
 }
 
 @property (nonatomic, readwrite) NSMutableArray * keys;
 @property (nonatomic, readwrite) NSMutableArray * drumLoops;
 @property (nonatomic, readwrite) NSMutableArray * bassLoops;
+@property (nonatomic, readwrite) int tonica;
 
 @end
 
@@ -29,10 +31,21 @@
     if (self) {
         _drumLoops = [[NSMutableArray alloc] init];
         _bassLoops = [[NSMutableArray alloc] init];
+        _keys = [[NSMutableArray alloc] init];
         _loops = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Loops" ofType:@"plist"]];
+        _colorMode = -1;
     }
     return self;
 }
+
+static bool firstPair = true;
+
+enum {
+    kFullMinor = 0,
+    kMinor,
+    kMajor,
+    kFullMajor
+};
 
 - (void) generateWithIntensity:(CGFloat)intensity
                         colors:(NSArray*)colors
@@ -41,21 +54,91 @@
     [_drumLoops removeAllObjects];
     [_bassLoops removeAllObjects];
     
-    _keys = [NSMutableArray arrayWithArray:@[ @{@"o": @0, @"k": @(C1), @"s": @"maj"}]];
+    if ( tick == 0 ) {
+        _tonica = 24 + arc4random()%7;
+        
+        if ( colors.count == 0 ) {
+            _colorMode = kMajor;
+        } else {
+            UIColor * firstColor = colors[0];
+            CGFloat r, b, buf;
+            [firstColor getRed:&r green:&buf blue:&b alpha:&buf];
+            if ( r - b > 0.5f ) {
+                _colorMode = kFullMajor;
+            } else if ( r > b ) {
+                _colorMode = kMajor;
+            } else if ( b - r > 0.5f ) {
+                _colorMode = kFullMinor;
+            } else if ( b > r ) {
+                _colorMode = kMinor;
+            } else {
+                _colorMode = kMajor;
+            }
+        }
+    }
+    
+    int keyOffset = tick == 0 ? 0 : tick+128;
+    
+    NSArray * firstHarmony = [kPopularHarmonies allValues][arc4random()%kPopularHarmonies.count];
+    NSArray * secondHarmony = [kPopularHarmonies allValues][arc4random()%kPopularHarmonies.count];
+    
+    int desiredIntensity = intensity > 0.5f ? 1 : 0;
+    int subIntensitySecond = arc4random()%2 == 1  ? 3 : 4;
+  
+    NSString * scale;
+    
+    if ( _colorMode == kFullMajor ) {
+        scale = @"maj";
+    } else if ( _colorMode == kFullMinor ) {
+        scale = @"min";
+    } else if ( _colorMode == kMajor ) {
+        scale = arc4random()%3 == 1 ? @"min" : @"maj";
+    } else {
+        scale = arc4random()%3 == 1 ? @"maj" : @"min";
+    }
+    
+    if ( intensity > 0.5 ) {
+        for ( int i = 0; i < 4; ++i ) {
+            NSArray * harmony = arc4random()%64 == 32 ? secondHarmony : firstHarmony;
+            [_keys addObject:@{@"o": @(keyOffset + 32*i + 0), @"s": scale, @"k": @(_tonica + [harmony[0] intValue])}];
+            [_keys addObject:@{@"o": @(keyOffset + 32*i + 8), @"s": scale, @"k": @(_tonica + [harmony[1] intValue])}];
+            [_keys addObject:@{@"o": @(keyOffset + 32*i + 8), @"s": scale, @"k": @(_tonica + [harmony[2] intValue])}];
+        }
+    } else {
+        for ( int i = 0; i < 2; ++i ) {
+            NSArray * harmony = i == 1 ? secondHarmony : firstHarmony;
+            [_keys addObject:@{@"o": @(keyOffset + 32*i + 0), @"s": scale, @"k": @(_tonica + [harmony[0] intValue])}];
+            [_keys addObject:@{@"o": @(keyOffset + 32*i + 16), @"s": scale, @"k": @(_tonica + [harmony[1] intValue])}];
+            [_keys addObject:@{@"o": @(keyOffset + 32*i + 32), @"s": scale, @"k": @(_tonica + [harmony[2] intValue])}];
+        }
+    }
     
     int numberOfLoops = 2;
     
     for ( int i = 0; i < numberOfLoops; ++i ) {
         
-        NSString* type = @[@"chor", @"ver"][arc4random()%2];
-        NSString* style = @"rock";
+        NSString* type;
+        if ( intensity > 0.5 ) {
+            type = i == 0 ? @"ver" : @"chor";
+        } else {
+            type = firstPair ? @"ver" : @"chor";
+        }
         
-        NSDictionary * drumLoop = [self loopForInstrument:@"drums" style:style type:type intensity:1 scale:@"" subIntensity:4];
+        int subIntensity;
+        if ( firstPair ) {
+            subIntensity = i == 0 ? 1 : 2;
+        } else {
+            subIntensity = subIntensitySecond;
+        }
+        
+        NSDictionary * drumLoop = [self loopForInstrument:@"drums" style:@"rock" type:type intensity:desiredIntensity scale:@"" subIntensity:4];
         [_drumLoops addObject:drumLoop];
         
-        NSDictionary * bassLoop = [self loopForInstrument:@"bass" style:style type:type intensity:1 scale:@"maj" subIntensity:4];
+        NSDictionary * bassLoop = [self loopForInstrument:@"bass" style:@"rock" type:type intensity:desiredIntensity scale:scale subIntensity:4];
         [_bassLoops addObject:bassLoop];
     }
+    
+    firstPair = !firstPair;
 }
 
 - (NSDictionary*) keyForTick:(int)tick {
