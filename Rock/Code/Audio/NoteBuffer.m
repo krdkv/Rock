@@ -149,4 +149,11 @@
     }
 }
 
+- (void) effectChangedForInstrument:(int)instrument
+                              value:(CGFloat)value {
+    
+    [_sampler setEffectForInstrument:instrument value:value];
+    
+}
+
 @end

@@ -63,13 +63,12 @@
     [_pulse stop];
     [_trackStructure generateWithIntensity:intensity colors:colorsArray withTick:0];
     [self fillBufferWithOffset:0];
+    [_pulse restart];
 }
 
 - (void) fillBufferWithOffset:(int)globalOffset {
     
     int currentBarOffset = globalOffset;
-    
-    NSLog(@"#### %d", globalOffset);
     
     for ( NSDictionary * bassLoop in _trackStructure.bassLoops ) {
         
@@ -96,7 +95,7 @@
             
             key += diff;
             
-            [_buffer addNoteForInstrument:kBass note:key velocity:(velocity + _overheadVolume) offset:offset duration:duration];
+            [_buffer addNoteForInstrument:kBass note:key-12 velocity:(velocity + _overheadVolume) offset:offset duration:duration];
         }
         
         currentBarOffset += numberOfBars * 32;
@@ -135,8 +134,19 @@
                                color:(UIColor*)color {
     
     
+    CGFloat hue, buf;
+    [color getWhite:&hue alpha:&buf];
+    [_buffer effectChangedForInstrument:instrument value:hue];
     
-    
+//    if ( instrument == kDrums ) {
+//        CGFloat hue, buf;
+//        [color getWhite:&hue alpha:&buf];
+//        [_buffer effectChangedForInstrument:instrument value:hue];
+//    } else if ( instrument == kGuitar ) {
+//        CGFloat hue, buf;
+//        [color getWhite:&hue alpha:&buf];
+//        [_buffer effectChangedForInstrument:instrument value:hue];
+//    }
     
 }
 

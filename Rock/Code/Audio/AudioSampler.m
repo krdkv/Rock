@@ -16,6 +16,12 @@
     AudioUnit _mixerUnit, _ioUnit;
     AudioUnit ** _effectUnits;
     void(^_setupOnComplete)(void);
+    
+    BOOL guitarCutOffStarted;
+    BOOL effectsEnabled[3];
+    CGFloat guitarCutOffValue;
+    BOOL guitarCutOffUp;
+    CGFloat guitarCutOffInterval;
 }
 
 @end
@@ -26,6 +32,13 @@
     [self setupAudioSession];
     [self initAUGraph];
     [self loadSampleMaps];
+    
+    guitarCutOffStarted = NO;
+    guitarCutOffValue = 100.f;
+    guitarCutOffUp = YES;
+    guitarCutOffInterval = 10.f;
+    
+    effectsEnabled[0] = effectsEnabled[1] = effectsEnabled[2] = false;
     
     if ( onComplete ) {
         onComplete();
@@ -222,17 +235,69 @@
 //    CAShow (_graph);
 }
 
-- (void) settingUpEffects {
+- (void) toggleEffectsOnInstrument:(int)instrument
+                           enabled:(BOOL)enabled {
+    
     for ( int i = 0; i < kMapNames.count; ++i ) {
+        if ( i != instrument ) {
+            continue;
+        }
+        
         for ( int j = 0; j < [kEffects[i] count]; ++j ) {
             
             for ( NSDictionary * effectParameter in kEffectSettings[i][j] ) {
                 UInt32 property = (UInt32)[effectParameter[@"p"] intValue];
-                AudioUnitParameterValue valueToSet = [effectParameter[@"on"] floatValue];
+                AudioUnitParameterValue valueToSet = enabled ? [effectParameter[@"on"] floatValue] : [effectParameter[@"off"] floatValue];
                 AudioUnitSetParameter(_effectUnits[i][j], property, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
             }
         }
+        
+        effectsEnabled[instrument] = enabled;
     }
+}
+
+- (void) settingUpEffects {
+    [self toggleEffectsOnInstrument:0 enabled:NO];
+    [self toggleEffectsOnInstrument:1 enabled:NO];
+    [self toggleEffectsOnInstrument:2 enabled:NO];
+}
+
+- (void) setEffectForInstrument:(int)instrument
+                          value:(CGFloat)value {
+    
+    if ( ! effectsEnabled[instrument] ) {
+        [self toggleEffectsOnInstrument:instrument enabled:YES];
+    }
+    
+    
+    if ( instrument == kDrums ) {
+        AudioUnitParameterValue valueToSet = value * 100.f;
+        AudioUnitSetParameter(_effectUnits[1][2], kReverb2Param_DryWetMix, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
+        valueToSet = 1540 + value * (6900-1540);
+        AudioUnitSetParameter(_effectUnits[1][1], kLowPassParam_CutoffFrequency, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
+    } else if ( instrument == kGuitar ) {
+        if ( ! guitarCutOffStarted ) {
+            [NSTimer scheduledTimerWithTimeInterval:0.5f target:self selector:@selector(onCutOffChange) userInfo:nil repeats:YES];
+            guitarCutOffStarted = YES;
+        }
+        guitarCutOffInterval = 10.f + 50*value;
+    } else if ( instrument == kBass ) {
+        AudioUnitParameterValue valueToSet = -80 + value * 87;
+        AudioUnitSetParameter(_effectUnits[0][0], kDistortionParam_SoftClipGain, kAudioUnitScope_Global, 0, valueToSet, sizeof(valueToSet));
+    }
+}
+
+- (void) onCutOffChange {
+    guitarCutOffValue = guitarCutOffUp ? guitarCutOffValue+guitarCutOffInterval : guitarCutOffValue-guitarCutOffInterval;
+    if ( guitarCutOffValue > 600 ) {
+        guitarCutOffValue = 600;
+        guitarCutOffUp = NO;
+    }
+    if ( guitarCutOffValue < 20 ) {
+        guitarCutOffValue = 20;
+        guitarCutOffUp = YES;
+    }
+    AudioUnitSetParameter(_effectUnits[2][0], kHipassParam_CutoffFrequency, kAudioUnitScope_Global, 0, guitarCutOffValue, sizeof(guitarCutOffValue));
 }
 
 - (void) loadSampleMaps {

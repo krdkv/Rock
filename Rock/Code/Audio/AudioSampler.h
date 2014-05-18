@@ -19,4 +19,7 @@
 - (void) sendNoteOffToInstrument:(int)instrument
                          midiKey:(int)midiKey;
 
+- (void) setEffectForInstrument:(int)instrument
+                          value:(CGFloat)value;
+
 @end

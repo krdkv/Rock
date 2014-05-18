@@ -49,6 +49,12 @@
     }    
 }
 
+- (void) restart {
+    _currentTick = 0;
+    _globalTick = 0;
+    [self start];
+}
+
 - (BOOL) isPlaying {
     return _timer && _timer.isValid;
 }
