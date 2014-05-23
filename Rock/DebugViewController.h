@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KRColorAnalyzer.h"
 
-@interface DebugViewController : UIViewController <ColorAnalyzerDelegate>
+@interface DebugViewController : UIViewController
 
-- (void) setupWithImage:(UIImage *)image;
 @end
