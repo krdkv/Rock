@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Pulse.h"
 
-@interface DebugViewController : UIViewController
+@interface DebugViewController : UIViewController <PulseDelegate>
 
 @end

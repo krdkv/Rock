@@ -11,7 +11,7 @@
 #import "DebugViewController.h"
 #import "KRMainVC.h"
 
-#define SHOW_DEBUG_UI 0
+#define SHOW_DEBUG_UI 1
 
 @implementation AppDelegate
 
