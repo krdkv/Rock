@@ -51,6 +51,8 @@ enum {
                         colors:(NSArray*)colors
                       withTick:(int)tick
 {
+    NSLog(@"%f", intensity);
+    
     [_drumLoops removeAllObjects];
     [_bassLoops removeAllObjects];
     
@@ -82,9 +84,11 @@ enum {
     NSArray * firstHarmony = [kPopularHarmonies allValues][arc4random()%kPopularHarmonies.count];
     NSArray * secondHarmony = [kPopularHarmonies allValues][arc4random()%kPopularHarmonies.count];
     
-    int desiredIntensity = arc4random()%2;
+    int desiredIntensity = intensity > 0.4 ? 1 : 0;
     int subIntensitySecond = arc4random()%2 == 1 ? 3 : 4;
   
+    NSLog(@"### %d", desiredIntensity);
+    
     
     NSString * scale;
     
@@ -98,7 +102,7 @@ enum {
         scale = arc4random()%3 == 1 ? @"maj" : @"min";
     }
     
-    if ( intensity > 0.5 ) {
+    if ( intensity > 0.4 ) {
         for ( int i = 0; i < 4; ++i ) {
             NSArray * harmony = arc4random()%64 == 32 ? secondHarmony : firstHarmony;
             [_keys addObject:@{@"o": @(keyOffset + 32*i + 0), @"s": scale, @"k": @(_tonica + [harmony[0] intValue])}];
@@ -121,7 +125,7 @@ enum {
     for ( int i = 0; i < numberOfLoops; ++i ) {
         
         NSString* type;
-        if ( intensity > 0.5 ) {
+        if ( intensity > 0.4 ) {
             type = i == 0 ? @"ver" : @"chor";
         } else {
             type = firstPair ? @"ver" : @"chor";
