@@ -11,7 +11,7 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 
-#define kDefaultTempo 130
+#define kDefaultTempo 100
 #define kNumberOfTicksPerBar 32
 #define kTimerCoefficient 1.875f * 4
 
@@ -69,6 +69,26 @@ enum {
 
 #define kNoteOnMidiMessage 0x9 << 4 | 0
 #define kNoteOffMidiMessage 0x8 << 4 | 0
+
+enum {
+    kStrongAndWeakNotes = 0,
+    kStrongNotesOnly,
+    kWeakNotesOnly
+};
+
+enum {
+    kKick = 12,
+    kSide = 13,
+    kSnare = 14,
+    kHatClosed = 18,
+    kFloorTom = 19,
+    kHatOpened = 22,
+    kTom = 23,
+    kCrash = 25,
+    kRide = 27
+};
+
+#define kDrumKeys @[@12, @13, @14, @18, @19, @22, @23, @25, @27]
 
 #define kPrefferedSampleRate 44100.f
 #define kPrefferedMaximumFramesPerSlice 4096

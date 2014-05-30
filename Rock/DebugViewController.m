@@ -9,53 +9,59 @@
 #import "DebugViewController.h"
 #import "AudioSampler.h"
 #import "AudioSettings.h"
+#import "DrumComposer.h"
 
 @interface DebugViewController () {
     Pulse * _pulse;
     AudioSampler * _sampler;
+    NSArray * _notes;
+    
+    int _intervalType;
+    int _weakStrong;
+    int _offset;
+    CGFloat _intensity;
 }
 
 @end
 
 @implementation DebugViewController
 
-/*
- 1. Выбрать набор ударных. На выходе – crash, hat, tom1
- 
- Для каждого такого инструмента:
- 
- 2. Выбрать тип интервала – четверти, триоли, случайный интервал.
- 
- 3. Тип долей – только сильные, только слабые, и те и другие.
- 
- 4. Есть сдвиг от начала такта – если есть то на какой интервал.
- 
- 5. Частота (число от 0 до 1, не включая ноль). На каждый такой тик интервала (смотри выше) запускается случайный генератор RAND(1/частота), если выпадает 0 - играем, остальное – не играем.
-*/
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     _sampler = [[AudioSampler alloc] init];
-    [_sampler setupOnComplete:^{
+    [_sampler setupOnComplete:nil];
         
-        _pulse = [[Pulse alloc] init];
-        [_pulse setTempo:120];
-        
-        [_pulse setDelegate:self];
-        
-    }];
+    _pulse = [[Pulse alloc] init];
+    
+    [_pulse setDelegate:self];
+    [_pulse start];
     
     
 }
 
 - (void) tickWithNumber:(int)tick {
     
-    if ( tick == 10 ) {
-        [_sampler sendNoteOnToInstrument:kDrums midiKey:44 velocity:100];
+    if ( tick == 0 ) {
+        DrumComposer * composer = [[DrumComposer alloc] initWithNumberOfBars:1];
+        
+        int numberOfDrums = 6;
+        
+        for ( int i = 0; i < numberOfDrums; ++i ) {
+            
+            int drum = [kDrumKeys[arc4random()%kDrumKeys.count] intValue];
+            
+            [composer addDrumWithMidiKeys:@[@(drum)] withMainInterval:[@[@4, @6, @8][arc4random()%3] intValue] playStrongNotes:arc4random()%3 leftOffset:0 rightOffset:-1 intensity:0.1f + (arc4random()%10 * 0.1f) dust:0.f dustOffset:0];
+        }
+        _notes = [composer notes];
     }
     
+    for ( NSDictionary * note in _notes ) {
+        if ( [note[@"o"] intValue] == tick ) {
+            [_sampler sendNoteOnToInstrument:1 midiKey:[note[@"k"] intValue] velocity:[note[@"v"] intValue]];
+        }
+    }
 }
 
 @end

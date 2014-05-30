@@ -102,9 +102,9 @@
 						<key>inverse</key>
 						<false/>
 						<key>max value</key>
-						<real>0.5080000162124634</real>
+						<real>0.50800001621246338</real>
 						<key>min value</key>
-						<real>-0.5080000162124634</real>
+						<real>-0.50800001621246338</real>
 						<key>source</key>
 						<integer>10</integer>
 						<key>transform</key>
@@ -202,7 +202,7 @@
 								<key>stage</key>
 								<integer>0</integer>
 								<key>time</key>
-								<real>0</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>curve</key>
@@ -210,7 +210,7 @@
 								<key>stage</key>
 								<integer>1</integer>
 								<key>time</key>
-								<real>0</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>curve</key>
@@ -218,7 +218,7 @@
 								<key>stage</key>
 								<integer>2</integer>
 								<key>time</key>
-								<real>0</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>curve</key>
@@ -226,7 +226,7 @@
 								<key>stage</key>
 								<integer>3</integer>
 								<key>time</key>
-								<real>0</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>level</key>
@@ -240,7 +240,7 @@
 								<key>stage</key>
 								<integer>5</integer>
 								<key>time</key>
-								<real>0</real>
+								<real>0.0</real>
 							</dict>
 							<dict>
 								<key>curve</key>
@@ -264,7 +264,7 @@
 					<key>enabled</key>
 					<false/>
 					<key>resonance</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>type</key>
 					<integer>40</integer>
 				</dict>
@@ -296,9 +296,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>24</integer>
+						<integer>12</integer>
 						<key>min key</key>
-						<integer>24</integer>
+						<integer>12</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -314,9 +314,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>25</integer>
+						<integer>13</integer>
 						<key>min key</key>
-						<integer>25</integer>
+						<integer>13</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -332,9 +332,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>26</integer>
+						<integer>14</integer>
 						<key>min key</key>
-						<integer>26</integer>
+						<integer>14</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -350,9 +350,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>30</integer>
+						<integer>18</integer>
 						<key>min key</key>
-						<integer>30</integer>
+						<integer>18</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -368,9 +368,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>31</integer>
+						<integer>19</integer>
 						<key>min key</key>
-						<integer>31</integer>
+						<integer>19</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -386,9 +386,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>34</integer>
+						<integer>22</integer>
 						<key>min key</key>
-						<integer>34</integer>
+						<integer>22</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -404,9 +404,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>35</integer>
+						<integer>23</integer>
 						<key>min key</key>
-						<integer>35</integer>
+						<integer>23</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -422,9 +422,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>37</integer>
+						<integer>25</integer>
 						<key>min key</key>
-						<integer>37</integer>
+						<integer>25</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -440,9 +440,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>39</integer>
+						<integer>27</integer>
 						<key>min key</key>
-						<integer>39</integer>
+						<integer>27</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -452,33 +452,15 @@
 					</dict>
 					<dict>
 						<key>ID</key>
-						<integer>28</integer>
-						<key>enabled</key>
-						<true/>
-						<key>loop enabled</key>
-						<false/>
-						<key>max key</key>
-						<integer>87</integer>
-						<key>min key</key>
-						<integer>87</integer>
-						<key>pitch tracking</key>
-						<false/>
-						<key>root key</key>
-						<integer>39</integer>
-						<key>waveform</key>
-						<integer>268435484</integer>
-					</dict>
-					<dict>
-						<key>ID</key>
 						<integer>10</integer>
 						<key>enabled</key>
 						<true/>
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>48</integer>
+						<integer>36</integer>
 						<key>min key</key>
-						<integer>48</integer>
+						<integer>36</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -494,9 +476,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>49</integer>
+						<integer>37</integer>
 						<key>min key</key>
-						<integer>49</integer>
+						<integer>37</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -512,9 +494,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>50</integer>
+						<integer>38</integer>
 						<key>min key</key>
-						<integer>50</integer>
+						<integer>38</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -530,9 +512,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>54</integer>
+						<integer>42</integer>
 						<key>min key</key>
-						<integer>54</integer>
+						<integer>42</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -548,9 +530,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>55</integer>
+						<integer>43</integer>
 						<key>min key</key>
-						<integer>55</integer>
+						<integer>43</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -566,9 +548,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>58</integer>
+						<integer>46</integer>
 						<key>min key</key>
-						<integer>58</integer>
+						<integer>46</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -584,9 +566,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>59</integer>
+						<integer>47</integer>
 						<key>min key</key>
-						<integer>59</integer>
+						<integer>47</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -602,9 +584,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>61</integer>
+						<integer>49</integer>
 						<key>min key</key>
-						<integer>61</integer>
+						<integer>49</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -620,9 +602,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>63</integer>
+						<integer>51</integer>
 						<key>min key</key>
-						<integer>63</integer>
+						<integer>51</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -638,9 +620,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>72</integer>
+						<integer>60</integer>
 						<key>min key</key>
-						<integer>72</integer>
+						<integer>60</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -656,9 +638,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>73</integer>
+						<integer>61</integer>
 						<key>min key</key>
-						<integer>73</integer>
+						<integer>61</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -674,9 +656,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>74</integer>
+						<integer>62</integer>
 						<key>min key</key>
-						<integer>74</integer>
+						<integer>62</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -692,9 +674,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>78</integer>
+						<integer>66</integer>
 						<key>min key</key>
-						<integer>78</integer>
+						<integer>66</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -710,9 +692,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>79</integer>
+						<integer>67</integer>
 						<key>min key</key>
-						<integer>79</integer>
+						<integer>67</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -728,9 +710,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>82</integer>
+						<integer>70</integer>
 						<key>min key</key>
-						<integer>82</integer>
+						<integer>70</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -746,9 +728,9 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>83</integer>
+						<integer>71</integer>
 						<key>min key</key>
-						<integer>83</integer>
+						<integer>71</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
@@ -764,15 +746,33 @@
 						<key>loop enabled</key>
 						<false/>
 						<key>max key</key>
-						<integer>85</integer>
+						<integer>73</integer>
 						<key>min key</key>
-						<integer>85</integer>
+						<integer>73</integer>
 						<key>pitch tracking</key>
 						<false/>
 						<key>root key</key>
 						<integer>37</integer>
 						<key>waveform</key>
 						<integer>268435483</integer>
+					</dict>
+					<dict>
+						<key>ID</key>
+						<integer>28</integer>
+						<key>enabled</key>
+						<true/>
+						<key>loop enabled</key>
+						<false/>
+						<key>max key</key>
+						<integer>75</integer>
+						<key>min key</key>
+						<integer>75</integer>
+						<key>pitch tracking</key>
+						<false/>
+						<key>root key</key>
+						<integer>39</integer>
+						<key>waveform</key>
+						<integer>268435484</integer>
 					</dict>
 				</array>
 			</dict>
@@ -783,7 +783,9 @@
 	<key>coarse tune</key>
 	<integer>0</integer>
 	<key>data</key>
-	<data>AAAAAAAAAAAAAAAEAAADhAAAAAAAAAOFAAAAAAAAA4YAAAAAAAADhwAAAAA=</data>
+	<data>
+	AAAAAAAAAAAAAAAEAAADhAAAAAAAAAOFAAAAAAAAA4YAAAAAAAADhwAAAAA=
+	</data>
 	<key>file-references</key>
 	<dict>
 		<key>Sample:268435457</key>
@@ -834,6 +836,8 @@
 		<string>/Users/nick/Library/Audio/Sounds/floor_tom_2_G1.caf</string>
 		<key>Sample:268435480</key>
 		<string>/Users/nick/Library/Audio/Sounds/hat_opened_2_A#1.caf</string>
+		<key>Sample:268435481</key>
+		<string>/tenere/samples/Kusto/Drums copy/hat_opened_2_A#1.caf</string>
 		<key>Sample:268435482</key>
 		<string>/Users/nick/Library/Audio/Sounds/tom_2_B1.caf</string>
 		<key>Sample:268435483</key>
@@ -842,17 +846,17 @@
 		<string>/Users/nick/Library/Audio/Sounds/ride_2_D#2.caf</string>
 	</dict>
 	<key>fine tune</key>
-	<real>0</real>
+	<real>0.0</real>
 	<key>gain</key>
-	<real>0</real>
+	<real>0.0</real>
 	<key>manufacturer</key>
 	<integer>1634758764</integer>
 	<key>name</key>
-	<string>drums_full</string>
+	<string>drums_full_s</string>
 	<key>output</key>
 	<integer>0</integer>
 	<key>pan</key>
-	<real>0</real>
+	<real>0.0</real>
 	<key>subtype</key>
 	<integer>1935764848</integer>
 	<key>type</key>

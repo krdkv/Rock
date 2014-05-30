@@ -21,6 +21,7 @@
 		0103BF3F18DB7DF800697273 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF3D18DB7DF800697273 /* InfoPlist.strings */; };
 		0103BF4118DB7DF800697273 /* RockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0103BF4018DB7DF800697273 /* RockTests.m */; };
 		0103BF4F18DB7E3C00697273 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 0103BF4E18DB7E3C00697273 /* Sounds */; };
+		010BF3761937170600714E69 /* DrumComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 010BF3751937170600714E69 /* DrumComposer.m */; };
 		010FF84E191E133500AB8D0B /* knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 010FF84D191E133500AB8D0B /* knob@2x.png */; };
 		01221FC31907172500BCC469 /* guitar_solo.aupreset in Resources */ = {isa = PBXBuildFile; fileRef = 01221FC21907172500BCC469 /* guitar_solo.aupreset */; };
 		0132C85018DF853700DBC428 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0132C84F18DF853700DBC428 /* Player.m */; };
@@ -135,6 +136,8 @@
 		0103BF3E18DB7DF800697273 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0103BF4018DB7DF800697273 /* RockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RockTests.m; sourceTree = "<group>"; };
 		0103BF4E18DB7E3C00697273 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		010BF3741937170600714E69 /* DrumComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrumComposer.h; sourceTree = "<group>"; };
+		010BF3751937170600714E69 /* DrumComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrumComposer.m; sourceTree = "<group>"; };
 		010FF84D191E133500AB8D0B /* knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "knob@2x.png"; sourceTree = "<group>"; };
 		01221FC21907172500BCC469 /* guitar_solo.aupreset */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = guitar_solo.aupreset; sourceTree = "<group>"; };
 		0132C84E18DF853700DBC428 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -379,6 +382,8 @@
 				0132C84F18DF853700DBC428 /* Player.m */,
 				019BFFED18E2C604002E58EA /* NoteBuffer.h */,
 				019BFFEE18E2C604002E58EA /* NoteBuffer.m */,
+				010BF3741937170600714E69 /* DrumComposer.h */,
+				010BF3751937170600714E69 /* DrumComposer.m */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				9F19051A1927D20F00D24673 /* Knob.m in Sources */,
 				9FAB54EB18EDC7AE00C4E792 /* KRMotionTracker.m in Sources */,
 				9F1905291927D69100D24673 /* DynamicColorAnalyzer.m in Sources */,
+				010BF3761937170600714E69 /* DrumComposer.m in Sources */,
 				9F19052C1927F40700D24673 /* KRImageProcessor.m in Sources */,
 				9F1905161927D20F00D24673 /* KRGridElementView.m in Sources */,
 				9FB5AED91912A51500EADB1D /* KRMainVC.m in Sources */,
@@ -874,7 +880,7 @@
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = app;
-				PROVISIONING_PROFILE = "DF2396E4-AD67-4968-897A-AD0035FB584A";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -891,7 +897,7 @@
 				INFOPLIST_FILE = "Rock/Rock-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = app;
-				PROVISIONING_PROFILE = "DF2396E4-AD67-4968-897A-AD0035FB584A";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
